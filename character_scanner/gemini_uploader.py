@@ -5,6 +5,20 @@ from typing import Callable, Optional
 from playwright.sync_api import sync_playwright, BrowserContext, Page
 from character_scanner.json_extractor import JSONExtractor
 
+def resolve_profile_path(profile_path: Path | str) -> Path:
+    p = Path(profile_path)
+    if p.is_dir() and (p / "Default").exists():
+        return p
+    if (p / "chrome_data_1" / "Default").exists():
+        return p / "chrome_data_1"
+    
+    base_profiles = Path("chrome_profiles")
+    if (base_profiles / str(profile_path) / "Default").exists():
+        return base_profiles / str(profile_path)
+    if (base_profiles / "chrome_data_1" / "Default").exists():
+        return base_profiles / "chrome_data_1"
+    return p
+
 class GeminiUploader:
     CHAT_BOX_LOCATOR = 'div[contenteditable="true"]'
     RESPONSE_TEXT_LOCATOR = '.model-response-text'
@@ -17,8 +31,8 @@ class GeminiUploader:
         'button:has(svg):right-of(div[contenteditable="true"])'
     ]
 
-    def __init__(self, profile_dir: Path, log_cb: Callable = print, headless: bool = False):
-        self.profile_dir = Path(profile_dir)
+    def __init__(self, profile_dir: Path | str, log_cb: Callable = print, headless: bool = False):
+        self.profile_dir = resolve_profile_path(profile_dir)
         self.log_cb = log_cb
         self.headless = headless
         self.playwright = None

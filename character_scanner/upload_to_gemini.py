@@ -12,7 +12,7 @@ def sort_key_func(p: Path) -> int:
 def main():
     parser = argparse.ArgumentParser(description="Tự động hóa nạp các file scanner lên Gemini và tạo import.json")
     parser.add_argument("--scanner-dir", default="scanner", help="Thư mục chứa các file scanner_*.md")
-    parser.add_argument("--profile-dir", default="user_data/chrome_profiles/chrome_data_1", help="Thư mục profile Chrome")
+    parser.add_argument("--profile-dir", default="chrome_profiles", help="Thư mục profile Chrome (mặc định: chrome_profiles)")
     parser.add_argument("--output-json", default="import.json", help="Đường dẫn file import.json kết quả")
     parser.add_argument("--delay", type=int, default=5, help="Thời gian nghỉ (giây) giữa các file")
     parser.add_argument("--headless", action="store_true", help="Chạy ẩn danh không mở cửa sổ Chrome")
