@@ -13,6 +13,7 @@ def main():
     parser.add_argument("--prompt", default="prompt.md", help="File prompt mẫu")
     parser.add_argument("--ground-truth", default="file_nhan_vat.json", help="File đối chiếu ground truth")
     parser.add_argument("--chunk-size", type=int, default=40, help="Số block mỗi file md")
+    parser.add_argument("--no-dedup", action="store_true", help="Không khử trùng lặp (giữ mọi vị trí xuất hiện)")
     args = parser.parse_args()
 
     base_dir = Path(".")
@@ -20,15 +21,17 @@ def main():
     loader = ResourceLoader(base_dir)
     loader.load_all()
 
-    print(f"[*] Bắt đầu quét file: {args.input}...")
+    dedup = not args.no_dedup
+    print(f"[*] Bắt đầu quét file: {args.input} (Khử trùng lặp: {dedup})...")
     engine = ScannerEngine(loader)
-    blocks = engine.scan_file(Path(args.input))
-    print(f"[+] Tìm thấy tổng cộng: {len(blocks)} ứng viên nhân vật.")
+    blocks = engine.scan_file(Path(args.input), deduplicate=dedup)
+    print(f"[+] Kết quả: {len(blocks)} nhân vật đại diện duy nhất.")
 
     print(f"[*] Đóng gói xuất kết quả ra '{args.output}'...")
     packager = OutputPackager(Path(args.prompt))
     packager.package(blocks, Path(args.output), chunk_size=args.chunk_size)
-    print(f"[+] Đã ghi '{args.output}/scanner_master.json' và các file markdown con thành công.")
+    num_chunks = (len(blocks) + args.chunk_size - 1) // args.chunk_size if blocks else 0
+    print(f"[+] Đã ghi '{args.output}/scanner_master.json' và {num_chunks} file markdown con thành công.")
 
     # Benchmark if ground truth exists
     gt_path = Path(args.ground_truth)
@@ -40,8 +43,7 @@ def main():
             metrics = ev.evaluate(pred_data, gt_data)
             print("\n=== KẾT QUẢ ĐÁNH GIÁ (BENCHMARK) ===")
             print(f"- Ground Truth: {metrics['total_ground_truth']} mục ({len(set(x['ten'].lower() for x in gt_data))} tên duy nhất)")
-            print(f"- Trích xuất được: {metrics['total_predictions']} mục")
-            print(f"- Khớp chính xác (Tên + Dòng): {metrics['matched_exact']} (Recall: {metrics['recall_exact']*100:.1f}%)")
+            print(f"- Trích xuất được: {metrics['total_predictions']} nhân vật duy nhất")
             print(f"- Khớp tên nhân vật duy nhất: {metrics['matched_names']}/{len(set(x['ten'].lower() for x in gt_data))} (Recall: {metrics['recall_names']*100:.1f}%)")
         except Exception as e:
             print(f"[-] Lỗi khi đánh giá benchmark: {e}")
