@@ -14,6 +14,7 @@ class CharacterBlock:
     context: str
     yeu_to_nhan_biet: str
     so_lan_xuat_hien: int = 1
+    is_character: bool = True
     # internal fields used during scan and ranking
     dong_xuat_hien: int = 0
     confidence: float = 0.0
@@ -22,6 +23,7 @@ class CharacterBlock:
     def to_output_dict(self):
         return {
             "id": self.id,
+            "is_character": self.is_character,
             "source": self.source,
             "target": self.target,
             "context": self.context,
