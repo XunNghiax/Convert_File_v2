@@ -162,13 +162,17 @@ class CandidateExtractor:
         return unique_results
 
     def _is_negative(self, text: str) -> bool:
-        low = text.lower().strip()
+        clean = text.strip()
+        low = clean.lower()
         words = low.split()
         if len(words) < 2 or len(words) > 4:
             return True
         if low in self.loader.pronouns or low in self.loader.non_person:
             return True
         if low in self.loader.blacklist or low in self.loader.common_dict:
+            return True
+        # Nếu cụm từ viết thường và từ đầu là đại từ/phó từ (VD: "lại cuống quít")
+        if clean and clean[0].islower() and (words[0] in self.loader.pronouns or words[0] in self.trimmer.DEFAULT_TRAILING):
             return True
         return False
 

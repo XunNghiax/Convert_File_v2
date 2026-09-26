@@ -1,4 +1,4 @@
-from dataclasses import dataclass, asdict, field
+from dataclasses import dataclass, field
 from pathlib import Path
 from collections import defaultdict
 from character_scanner.resource_loader import ResourceLoader
@@ -12,14 +12,25 @@ class CharacterBlock:
     source: str
     target: str
     context: str
-    dong_xuat_hien: int
-    confidence: float
     yeu_to_nhan_biet: str
     so_lan_xuat_hien: int = 1
+    # internal fields used during scan and ranking
+    dong_xuat_hien: int = 0
+    confidence: float = 0.0
     cac_dong_xuat_hien: list[int] = field(default_factory=list)
 
+    def to_output_dict(self):
+        return {
+            "id": self.id,
+            "source": self.source,
+            "target": self.target,
+            "context": self.context,
+            "yeu_to_nhan_biet": self.yeu_to_nhan_biet,
+            "so_lan_xuat_hien": self.so_lan_xuat_hien
+        }
+
     def to_dict(self):
-        return asdict(self)
+        return self.to_output_dict()
 
 class ScannerEngine:
     def __init__(self, loader: ResourceLoader):
@@ -44,10 +55,10 @@ class ScannerEngine:
                         source=cand.raw,
                         target=cand.name,
                         context=ctx,
-                        dong_xuat_hien=line_idx,
-                        confidence=cand.confidence,
                         yeu_to_nhan_biet=cand.reason,
                         so_lan_xuat_hien=1,
+                        dong_xuat_hien=line_idx,
+                        confidence=cand.confidence,
                         cac_dong_xuat_hien=[line_idx]
                     )
                     raw_blocks.append(block)
@@ -67,8 +78,6 @@ class ScannerEngine:
             all_lines = sorted(list(set(b.dong_xuat_hien for b in group)))
             total_count = len(group)
 
-            # Choose best representative block
-            # Priority: highest confidence, profile keywords in context, longest context, earliest line
             def score_block(b: CharacterBlock) -> tuple:
                 has_profile_cue = any(kw in b.context.lower() for kw in ("tuổi", "thê tử", "mẫu thân", "tỷ tỷ", "bang chủ", "tỉnh trưởng"))
                 return (b.confidence, 1 if has_profile_cue else 0, len(b.context), -b.dong_xuat_hien)
