@@ -1,0 +1,79 @@
+from pathlib import Path
+import json
+
+class ResourceLoader:
+    def __init__(self, base_dir: Path | None = None):
+        self.base_dir = base_dir or Path(".")
+        self.single_surnames: set[str] = set()
+        self.compound_surnames: set[str] = set()
+        self.pronouns: set[str] = set()
+        self.non_person: set[str] = set()
+        self.trailing_stopwords: set[str] = set()
+        self.blacklist: set[str] = set()
+        self.common_dict: set[str] = set()
+        self.known_characters: dict[str, str] = {}
+
+    def load_surnames(self, path: Path) -> tuple[set[str], set[str]]:
+        single, compound = set(), set()
+        if not path.exists():
+            return single, compound
+        for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+            line = line.strip().lower()
+            if not line or line.startswith("#"):
+                continue
+            if " " in line:
+                compound.add(line)
+            else:
+                single.add(line)
+        return single, compound
+
+    def load_word_set(self, path: Path) -> set[str]:
+        words = set()
+        if not path.exists():
+            return words
+        for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+            line = line.strip().lower()
+            if not line or line.startswith("#"):
+                continue
+            words.add(line)
+        return words
+
+    def load_common_dict(self, path: Path) -> set[str]:
+        words = set()
+        if not path.exists():
+            return words
+        try:
+            data = json.loads(path.read_text(encoding="utf-8", errors="ignore"))
+            for item in data:
+                src = item.get("source", "").strip().lower()
+                if src:
+                    words.add(src)
+        except Exception:
+            pass
+        return words
+
+    def load_character_dict(self, path: Path) -> dict[str, str]:
+        chars = {}
+        if not path.exists():
+            return chars
+        try:
+            data = json.loads(path.read_text(encoding="utf-8", errors="ignore"))
+            for item in data:
+                src = item.get("source", "").strip()
+                tgt = item.get("target", "").strip()
+                if src:
+                    chars[src.lower()] = tgt
+        except Exception:
+            pass
+        return chars
+
+    def load_all(self):
+        filters_dir = self.base_dir / "filters"
+        data_dir = self.base_dir / "data"
+        self.single_surnames, self.compound_surnames = self.load_surnames(filters_dir / "surnames.txt")
+        self.pronouns = self.load_word_set(filters_dir / "pronouns.txt")
+        self.non_person = self.load_word_set(filters_dir / "non_person.txt")
+        self.trailing_stopwords = self.load_word_set(filters_dir / "trailing_stopwords.txt")
+        self.blacklist = self.load_word_set(filters_dir / "blacklist.txt")
+        self.common_dict = self.load_common_dict(data_dir / "common_dict.json")
+        self.known_characters = self.load_character_dict(data_dir / "character_dict.json")
