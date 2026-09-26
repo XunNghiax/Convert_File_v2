@@ -7,9 +7,16 @@ class OutputPackager:
         self.prompt_path = prompt_path
 
     def package(self, blocks: list[CharacterBlock], output_dir: Path, chunk_size: int = 40):
+        if output_dir.suffix:
+            target_file = output_dir
+            output_dir = target_file.parent
+            master_name = target_file.name
+        else:
+            master_name = "scanner_master.json"
+
         output_dir.mkdir(parents=True, exist_ok=True)
         # 1. Master JSON
-        master_path = output_dir / "scanner_master.json"
+        master_path = output_dir / master_name
         master_data = [b.to_output_dict() for b in blocks]
         master_path.write_text(json.dumps(master_data, ensure_ascii=False, indent=2), encoding="utf-8")
 
