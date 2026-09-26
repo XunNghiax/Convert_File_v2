@@ -29,10 +29,11 @@ def main_menu():
         print("[3] 🌐 Chỉ gửi các file trong scanner/ lên Gemini -> Tạo import.json")
         print("[4] ♻️  Đặt lại tiến trình (Reset) và gửi lại toàn bộ lên Gemini")
         print("[5] 🧪 Chạy kiểm thử tự động hệ thống (Run Unit Tests)")
+        print("[6] 🎯 Lọc nhanh scanner/ theo số lần xuất hiện (min-count)")
         print("[0] ❌ Thoát chương trình")
         print("=" * 65)
 
-        choice = input("👉 Nhập lựa chọn của bạn (0-5) [Mặc định: 1]: ").strip()
+        choice = input("👉 Nhập lựa chọn của bạn (0-6) [Mặc định: 1]: ").strip()
         if not choice:
             choice = "1"
 
@@ -43,6 +44,7 @@ def main_menu():
         elif choice == "1":
             print("\n--- [1] QUÉT VĂN BẢN VÀ TỰ ĐỘNG GỬI GEMINI ---")
             inp = input("Nhập tên file văn bản cần quét [Mặc định: exam.txt]: ").strip() or "exam.txt"
+            min_cnt = input("Số lần xuất hiện tối thiểu (để loại bỏ từ xuất hiện quá thấp) [Mặc định: 1]: ").strip() or "1"
             prof = input("Nhập thư mục Profile Chrome [Mặc định: chrome_profiles]: ").strip() or "chrome_profiles"
             out_json = input("Nhập tên file kết quả [Mặc định: import.json]: ").strip() or "import.json"
 
@@ -50,6 +52,7 @@ def main_menu():
                 sys.executable, "-m", "character_scanner.main",
                 "--input", inp,
                 "--output", "scanner",
+                "--min-count", min_cnt,
                 "--upload-gemini",
                 "--profile-dir", prof,
                 "--output-import-json", out_json
@@ -61,12 +64,14 @@ def main_menu():
         elif choice == "2":
             print("\n--- [2] CHỈ QUÉT VĂN BẢN ---")
             inp = input("Nhập tên file văn bản cần quét [Mặc định: exam.txt]: ").strip() or "exam.txt"
+            min_cnt = input("Số lần xuất hiện tối thiểu (để loại bỏ từ xuất hiện quá thấp) [Mặc định: 1]: ").strip() or "1"
             chunk = input("Số lượng block mỗi file .md [Mặc định: 40]: ").strip() or "40"
 
             cmd = [
                 sys.executable, "-m", "character_scanner.main",
                 "--input", inp,
                 "--output", "scanner",
+                "--min-count", min_cnt,
                 "--chunk-size", chunk
             ]
             print(f"\n[*] Đang thực thi lệnh: {' '.join(cmd)}\n")
@@ -109,6 +114,23 @@ def main_menu():
         elif choice == "5":
             print("\n--- [5] CHẠY KIỂM THỬ HỆ THỐNG (UNIT TESTS) ---")
             cmd = [sys.executable, "-m", "pytest", "tests/", "-v"]
+            print(f"\n[*] Đang thực thi lệnh: {' '.join(cmd)}\n")
+            subprocess.run(cmd)
+            input("\n👉 Nhấn Enter để quay lại menu chính...")
+
+        elif choice == "6":
+            print("\n--- [6] LỌC NHANH FILE SCANNER THEO SỐ LẦN XUẤT HIỆN (MIN-COUNT) ---")
+            print("💡 Tính năng này giúp loại bỏ nhanh các từ xuất hiện ít lần mà không cần quét lại văn bản gốc.")
+            min_cnt = input("Nhập số lần xuất hiện tối thiểu cần giữ lại (ví dụ: 2, 3, 5...) [Mặc định: 2]: ").strip() or "2"
+            chunk = input("Số lượng block mỗi file .md [Mặc định: 40]: ").strip() or "40"
+
+            cmd = [
+                sys.executable, "-m", "character_scanner.main",
+                "--filter-only",
+                "--output", "scanner",
+                "--min-count", min_cnt,
+                "--chunk-size", chunk
+            ]
             print(f"\n[*] Đang thực thi lệnh: {' '.join(cmd)}\n")
             subprocess.run(cmd)
             input("\n👉 Nhấn Enter để quay lại menu chính...")

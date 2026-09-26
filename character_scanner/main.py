@@ -2,7 +2,7 @@ import argparse
 from pathlib import Path
 import json
 from character_scanner.resource_loader import ResourceLoader
-from character_scanner.scanner_engine import ScannerEngine
+from character_scanner.scanner_engine import ScannerEngine, CharacterBlock
 from character_scanner.output_packager import OutputPackager
 from character_scanner.benchmark import Evaluator
 from character_scanner.upload_to_gemini import run_upload_workflow
@@ -17,6 +17,8 @@ def main():
     parser.add_argument("--ground-truth", default="file_nhan_vat.json", help="File đối chiếu ground truth")
     parser.add_argument("--chunk-size", type=int, default=40, help="Số block mỗi file md (mặc định: 40)")
     parser.add_argument("--no-dedup", action="store_true", help="Không khử trùng lặp (giữ mọi vị trí xuất hiện)")
+    parser.add_argument("--min-count", type=int, default=1, help="Số lần xuất hiện tối thiểu để giữ lại nhân vật (mặc định: 1)")
+    parser.add_argument("--filter-only", action="store_true", help="Chỉ lọc nhanh thư mục scanner hiện có theo --min-count và đóng gói lại markdown")
 
     # Nhóm tham số tự động đẩy lên Gemini
     parser.add_argument("--upload-gemini", action="store_true", help="Tự động nạp các file kết quả lên Gemini sau khi quét xong")
@@ -29,6 +31,40 @@ def main():
 
     args = parser.parse_args()
 
+    # 0. Chế độ lọc nhanh file scanner hiện có theo số lần xuất hiện
+    if args.filter_only:
+        output_dir = Path(args.output)
+        source_path = output_dir / "scanner_all.json" if (output_dir / "scanner_all.json").exists() else (output_dir / "scanner_master.json")
+        if not source_path.exists():
+            print(f"[-] Không tìm thấy file nguồn: {source_path}")
+            return
+        
+        raw_data = json.loads(source_path.read_text(encoding="utf-8"))
+        orig_len = len(raw_data)
+        filtered_data = [item for item in raw_data if item.get("so_lan_xuat_hien", 1) >= args.min_count]
+        for idx, item in enumerate(filtered_data, start=1):
+            item["id"] = f"ch_{idx:04d}"
+        
+        blocks = [
+            CharacterBlock(
+                id=item["id"],
+                source=item.get("source", ""),
+                target=item.get("target", ""),
+                context=item.get("context", ""),
+                yeu_to_nhan_biet=item.get("yeu_to_nhan_biet", ""),
+                so_lan_xuat_hien=item.get("so_lan_xuat_hien", 1),
+                is_character=item.get("is_character", True)
+            )
+            for item in filtered_data
+        ]
+        
+        packager = OutputPackager(Path(args.prompt))
+        packager.package(blocks, output_dir, chunk_size=args.chunk_size)
+        num_chunks = (len(blocks) + args.chunk_size - 1) // args.chunk_size if blocks else 0
+        print(f"[+] Đã lọc nhanh theo số lần xuất hiện >= {args.min_count}: {orig_len} -> {len(blocks)} nhân vật.")
+        print(f"[+] Đã ghi lại '{output_dir}/scanner_master.json' và {num_chunks} file markdown con thành công.")
+        return
+
     # 1. Giai đoạn Quét văn bản (nếu không bật --upload-only)
     if not args.upload_only:
         base_dir = Path(".")
@@ -40,11 +76,25 @@ def main():
         print(f"[*] Bắt đầu quét file: {args.input} (Khử trùng lặp: {dedup})...")
         engine = ScannerEngine(loader)
         blocks = engine.scan_file(Path(args.input), deduplicate=dedup)
-        print(f"[+] Kết quả: {len(blocks)} nhân vật đại diện duy nhất.")
+        print(f"[+] Kết quả quét thô: {len(blocks)} nhân vật đại diện duy nhất.")
+
+        output_dir = Path(args.output)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        # Lưu bản master đầy đủ chưa lọc vào scanner_all.json
+        all_payload = [b.to_output_dict() for b in blocks]
+        (output_dir / "scanner_all.json").write_text(json.dumps(all_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+        # Lọc theo số lần xuất hiện nếu min_count > 1
+        if args.min_count > 1:
+            orig_len = len(blocks)
+            blocks = [b for b in blocks if b.so_lan_xuat_hien >= args.min_count]
+            for idx, b in enumerate(blocks, start=1):
+                b.id = f"ch_{idx:04d}"
+            print(f"[+] Đã lọc theo số lần xuất hiện >= {args.min_count}: {orig_len} -> {len(blocks)} nhân vật.")
 
         print(f"[*] Đóng gói xuất kết quả ra '{args.output}'...")
         packager = OutputPackager(Path(args.prompt))
-        packager.package(blocks, Path(args.output), chunk_size=args.chunk_size)
+        packager.package(blocks, output_dir, chunk_size=args.chunk_size)
         num_chunks = (len(blocks) + args.chunk_size - 1) // args.chunk_size if blocks else 0
         print(f"[+] Đã ghi '{args.output}/scanner_master.json' và {num_chunks} file markdown con thành công.")
 
