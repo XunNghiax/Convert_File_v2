@@ -51,6 +51,59 @@ def count_file_lines(filepath: Path) -> int:
             total += chunk.count(b"\n")
     return max(1, total)
 
+class ProgressPrinter:
+    """Quản lý hiển thị tiến trình gọn gàng, chống tràn cột terminal và chống spam log."""
+    def __init__(self, total_lines: int, label: str = "nhân vật", update_interval: float = 0.4):
+        self.total_lines = max(1, total_lines)
+        self.label = label
+        self.update_interval = update_interval
+        self.start_time = time.time()
+        self.last_update = 0.0
+        self.is_tty = sys.stdout.isatty()
+        self.last_milestone = -1
+        self.bar_width = 14  # Độ dài thanh vừa phải để toàn bộ dòng <= 75 ký tự
+
+    def update(self, current_line: int, found_count: int, force: bool = False):
+        now = time.time()
+        current_line = min(current_line, self.total_lines)
+        if not force and (now - self.last_update < self.update_interval) and (current_line < self.total_lines):
+            return
+
+        self.last_update = now
+        elapsed = max(0.001, now - self.start_time)
+        speed = current_line / elapsed
+        percent = min(100.0, (current_line / self.total_lines) * 100)
+
+        if self.is_tty:
+            eta_sec = max(0.0, (self.total_lines - current_line) / max(1.0, speed))
+            eta_str = f"{int(eta_sec)}s" if eta_sec < 60 else f"{int(eta_sec//60)}m{int(eta_sec%60)}s"
+            filled = int(self.bar_width * current_line / self.total_lines)
+            bar = "█" * filled + "░" * (self.bar_width - filled)
+            msg = f"\r[*] Quét: [{bar}] {percent:5.1f}% | {int(speed):,} d/s | Còn {eta_str} | Tìm thấy: {found_count:,} {self.label}"
+            sys.stdout.write(f"{msg:<75}")
+            sys.stdout.flush()
+        else:
+            milestone = int(percent // 10) * 10
+            if milestone > self.last_milestone and milestone < 100:
+                self.last_milestone = milestone
+                print(
+                    f"[*] Tiến độ: {percent:5.1f}% ({current_line:,}/{self.total_lines:,} dòng) | {int(speed):,} dòng/s | Tìm thấy: {found_count:,} {self.label}",
+                    flush=True
+                )
+
+    def finish(self, found_count: int):
+        elapsed = max(0.001, time.time() - self.start_time)
+        avg_speed = int(self.total_lines / elapsed)
+        if self.is_tty:
+            msg = f"\r[+] Quét xong: 100% ({self.total_lines:,} dòng) trong {elapsed:.1f}s ({avg_speed:,} d/s) | {found_count:,} {self.label}"
+            sys.stdout.write(f"{msg:<75}\n")
+            sys.stdout.flush()
+        else:
+            print(
+                f"[+] Hoàn tất quét {self.total_lines:,} dòng trong {elapsed:.1f}s ({avg_speed:,} dòng/s) | Tìm thấy: {found_count:,} {self.label}",
+                flush=True
+            )
+
 class ScannerEngine:
     def __init__(self, loader: ResourceLoader, skip_known: bool = True):
         self.loader = loader
@@ -79,10 +132,9 @@ class ScannerEngine:
         effective_skip = self.skip_known if skip_known is None else skip_known
         total_lines = count_file_lines(filepath)
         counter = 1
-        start_time = time.time()
-        last_update = 0.0
-        bar_width = 25
         seen_names: set[str] = set()
+        label = "nhân vật" if deduplicate else "ứng viên"
+        progress = ProgressPrinter(total_lines, label=label) if show_progress else None
 
         with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
             for line_idx, line in enumerate(f, start=1):
@@ -116,36 +168,16 @@ class ScannerEngine:
                         counter += 1
                         yield block
 
-                if show_progress:
-                    now = time.time()
-                    if now - last_update >= 0.15 or line_idx == total_lines or line_idx % 1000 == 0:
-                        last_update = now
-                        elapsed = max(0.001, now - start_time)
-                        speed = line_idx / elapsed
-                        eta_sec = (total_lines - line_idx) / max(1.0, speed)
-                        eta_str = f"{int(eta_sec)}s" if eta_sec < 60 else f"{int(eta_sec//60)}m{int(eta_sec%60)}s"
-                        percent = min(100.0, (line_idx / total_lines) * 100)
-                        filled = int(bar_width * line_idx / total_lines)
-                        bar = "█" * filled + "░" * (bar_width - filled)
-                        found_count = len(seen_names) if deduplicate else (counter - 1)
-                        label = "nhân vật" if deduplicate else "ứng viên"
-                        sys.stdout.write(
-                            f"\r[*] Đang quét: [{bar}] {percent:5.1f}% ({line_idx:,}/{total_lines:,} dòng) | {int(speed):,} dòng/s | Còn: {eta_str} | Tìm thấy: {found_count:,} {label}"
-                        )
-                        sys.stdout.flush()
+                if progress:
+                    found_count = len(seen_names) if deduplicate else (counter - 1)
+                    progress.update(line_idx, found_count)
 
                 if line_idx % 20000 == 0:
                     gc.collect()
 
-        if show_progress:
-            total_elapsed = max(0.001, time.time() - start_time)
-            avg_speed = int(total_lines / total_elapsed)
+        if progress:
             found_count = len(seen_names) if deduplicate else (counter - 1)
-            label = "nhân vật" if deduplicate else "ứng viên"
-            sys.stdout.write(
-                f"\r[*] Đang quét: [{'█' * bar_width}] 100.0% ({total_lines:,}/{total_lines:,} dòng) | {avg_speed:,} dòng/s | Xong trong: {total_elapsed:.1f}s | Tìm thấy: {found_count:,} {label}\n"
-            )
-            sys.stdout.flush()
+            progress.finish(found_count)
 
     def scan_file(
         self,
@@ -166,29 +198,14 @@ class ScannerEngine:
         total_lines = count_file_lines(filepath)
         tracked: dict[str, CharacterBlock] = {}
         best_scores: dict[str, tuple] = {}
-        start_time = time.time()
-        last_update = 0.0
-        bar_width = 25
+        progress = ProgressPrinter(total_lines, label="nhân vật") if show_progress else None
 
         with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
             for line_idx, line in enumerate(f, start=1):
                 clean_line = line.strip()
                 if not clean_line:
-                    if show_progress:
-                        now = time.time()
-                        if now - last_update >= 0.15 or line_idx == total_lines:
-                            last_update = now
-                            elapsed = max(0.001, now - start_time)
-                            speed = line_idx / elapsed
-                            eta_sec = (total_lines - line_idx) / max(1.0, speed)
-                            eta_str = f"{int(eta_sec)}s" if eta_sec < 60 else f"{int(eta_sec//60)}m{int(eta_sec%60)}s"
-                            percent = min(100.0, (line_idx / total_lines) * 100)
-                            filled = int(bar_width * line_idx / total_lines)
-                            bar = "█" * filled + "░" * (bar_width - filled)
-                            sys.stdout.write(
-                                f"\r[*] Đang quét: [{bar}] {percent:5.1f}% ({line_idx:,}/{total_lines:,} dòng) | {int(speed):,} dòng/s | Còn: {eta_str} | Tìm thấy: {len(tracked):,} nhân vật"
-                            )
-                            sys.stdout.flush()
+                    if progress:
+                        progress.update(line_idx, len(tracked))
                     continue
 
                 candidates = self.extractor.extract_candidates(line, skip_known=effective_skip)
@@ -232,21 +249,8 @@ class ScannerEngine:
                         tracked[name_key] = block
                         best_scores[name_key] = score
 
-                if show_progress:
-                    now = time.time()
-                    if now - last_update >= 0.15 or line_idx == total_lines or line_idx % 1000 == 0:
-                        last_update = now
-                        elapsed = max(0.001, now - start_time)
-                        speed = line_idx / elapsed
-                        eta_sec = (total_lines - line_idx) / max(1.0, speed)
-                        eta_str = f"{int(eta_sec)}s" if eta_sec < 60 else f"{int(eta_sec//60)}m{int(eta_sec%60)}s"
-                        percent = min(100.0, (line_idx / total_lines) * 100)
-                        filled = int(bar_width * line_idx / total_lines)
-                        bar = "█" * filled + "░" * (bar_width - filled)
-                        sys.stdout.write(
-                            f"\r[*] Đang quét: [{bar}] {percent:5.1f}% ({line_idx:,}/{total_lines:,} dòng) | {int(speed):,} dòng/s | Còn: {eta_str} | Tìm thấy: {len(tracked):,} nhân vật"
-                        )
-                        sys.stdout.flush()
+                if progress:
+                    progress.update(line_idx, len(tracked))
 
                 if progress_callback:
                     progress_callback(line_idx, total_lines, len(tracked))
@@ -254,13 +258,8 @@ class ScannerEngine:
                 if line_idx % 20000 == 0:
                     gc.collect()
 
-        if show_progress:
-            total_elapsed = max(0.001, time.time() - start_time)
-            avg_speed = int(total_lines / total_elapsed)
-            sys.stdout.write(
-                f"\r[*] Đang quét: [{'█' * bar_width}] 100.0% ({total_lines:,}/{total_lines:,} dòng) | {avg_speed:,} dòng/s | Xong trong: {total_elapsed:.1f}s | Tìm thấy: {len(tracked):,} nhân vật\n"
-            )
-            sys.stdout.flush()
+        if progress:
+            progress.finish(len(tracked))
 
         # Sắp xếp theo dòng xuất hiện đầu tiên
         deduped = list(tracked.values())
