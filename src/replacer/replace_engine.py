@@ -12,6 +12,16 @@ DEFAULT_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_CHARACTER_DICT = DEFAULT_PROJECT_ROOT / "resources" / "dictionaries" / "character_dict.json"
 DEFAULT_COMMON_DICT = DEFAULT_PROJECT_ROOT / "resources" / "dictionaries" / "common_dict.json"
 
+DESCRIPTIVE_PREFIXES = [
+    "một", "những", "các", "từng", "thật là", "vóc dáng", "thân hình",
+    "dáng dấp", "chiếc", "bóng dáng", "đường nét"
+]
+
+AMBIGUOUS_DESCRIPTIVE_WORDS = {
+    "bóng hình xinh đẹp",
+    "hình xinh đẹp"
+}
+
 @dataclass
 class ReplaceStats:
     total_lines: int = 0
@@ -140,10 +150,9 @@ class ReplaceEngine:
         self._compile_from_dict(clean_map)
 
     def _compile_from_dict(self, mapping: Dict[str, str]):
-        """Sắp xếp từ điển theo độ dài giảm dần và biên dịch Regex Pattern."""
+        """Sắp xếp từ điển theo độ dài giảm dần và biên dịch Regex Pattern kèm Guard an toàn."""
         self.dict_map = mapping
         # Sắp xếp: Ưu tiên chuỗi dài nhất trước (Longest Match First)
-        # Nếu cùng độ dài, sắp xếp theo thứ tự từ điển để đảm bảo tính tất định
         self.sorted_keys = sorted(
             self.dict_map.keys(),
             key=lambda x: (len(x), x),
@@ -151,8 +160,28 @@ class ReplaceEngine:
         )
 
         if self.sorted_keys:
-            escaped_patterns = [re.escape(k) for k in self.sorted_keys]
-            self.pattern = re.compile("|".join(escaped_patterns))
+            pattern_parts = []
+            for k in self.sorted_keys:
+                tgt = self.dict_map[k]
+                guards = []
+
+                # 1. Prefix Guard: Ngăn chặn lỗi lặp họ (ví dụ Kiếm Phi -> Long Kiếm Phi khi đã có 'Long ')
+                if tgt.endswith(k) and len(tgt) > len(k):
+                    prefix = tgt[:-len(k)].strip()
+                    if prefix:
+                        guards.append(f"(?<!{re.escape(prefix)}\\s)")
+
+                # 2. Negative Context Guard: Ngăn chặn thay thế từ miêu tả vóc dáng (ví dụ 'một bóng hình xinh đẹp')
+                if k.lower() in AMBIGUOUS_DESCRIPTIVE_WORDS:
+                    for dp in DESCRIPTIVE_PREFIXES:
+                        guards.append(f"(?<!{re.escape(dp)}\\s)")
+
+                if guards:
+                    pattern_parts.append(f"(?:{''.join(guards)}{re.escape(k)})")
+                else:
+                    pattern_parts.append(re.escape(k))
+
+            self.pattern = re.compile("|".join(pattern_parts))
         else:
             self.pattern = None
 

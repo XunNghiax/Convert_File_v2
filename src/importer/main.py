@@ -40,6 +40,8 @@ def main():
     parser.add_argument("--not-character", action="store_true", default=None, help="Chỉ định mục nhập lẻ là từ chung (is_character = False)")
     parser.add_argument("--no-overwrite", action="store_true", help="Không ghi đè mục đã tồn tại trong từ điển")
     parser.add_argument("--interactive", "-i", action="store_true", help="Chế độ nhập tay từng từ qua console")
+    parser.add_argument("--warning-file", type=str, default="samples/warning.json", help="Đường dẫn file lưu các mục lệch số từ cần cảnh báo (mặc định: samples/warning.json)")
+    parser.add_argument("--no-word-count-check", action="store_true", help="Bỏ qua kiểm tra độ lệch số từ giữa source và target")
 
     args = parser.parse_args()
 
@@ -117,8 +119,10 @@ def main():
         result = import_entries(
             items_to_import,
             dict_path=dict_path,
+            warning_path=args.warning_file,
             overwrite_existing=not args.no_overwrite,
-            filter_characters=False
+            filter_characters=False,
+            validate_word_count=not args.no_word_count_check
         )
         print("\n" + "=" * 55)
         print("              KẾT QUẢ IMPORT TỪ ĐIỂN")
@@ -128,6 +132,8 @@ def main():
         print(f"⏭️ Bỏ qua   : {result['skipped']}")
         print(f"📚 Tổng mục : {result['total']}")
         print(f"📁 File đích: {result['target_file']}")
+        if result.get("warning_count", 0) > 0:
+            print(f"⚠️ Cảnh báo : {result['warning_count']} mục lệch số từ đã xuất ra '{result['warning_file']}'")
         print("=" * 55)
     else:
         # Tự động phân bổ dựa vào 'is_character'
@@ -135,7 +141,9 @@ def main():
             items_to_import,
             char_dict_path=DEFAULT_CHARACTER_DICT,
             common_dict_path=DEFAULT_COMMON_DICT,
-            overwrite_existing=not args.no_overwrite
+            warning_path=args.warning_file,
+            overwrite_existing=not args.no_overwrite,
+            validate_word_count=not args.no_word_count_check
         )
         char_res = dist_res["character"]
         comm_res = dist_res["common"]
@@ -156,6 +164,11 @@ def main():
         print(f"    ⏭️ Bỏ qua   : {comm_res['skipped']}")
         print(f"    📚 Tổng mục : {comm_res['total']}")
         print(f"    📁 File     : {comm_res['target_file']}")
+        if dist_res.get("warning_count", 0) > 0:
+            print("-" * 65)
+            print(f"⚠️  PHÁT HIỆN {dist_res['warning_count']} MỤC LỆCH SỐ TỪ GIỮA SOURCE & TARGET!")
+            print(f"👉 File cảnh báo: {dist_res['warning_file']}")
+            print(f"💡 Lưu ý: Các mục này KHÔNG được nạp vào từ điển để tránh lỗi lặp họ khi replace.")
         print("=" * 65)
 
 if __name__ == "__main__":

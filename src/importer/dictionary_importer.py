@@ -10,9 +10,82 @@ DEFAULT_IMPORT_JSON = DEFAULT_PROJECT_ROOT / "samples" / "import.json"
 DEFAULT_DICTIONARIES_DIR = DEFAULT_PROJECT_ROOT / "resources" / "dictionaries"
 DEFAULT_CHARACTER_DICT = DEFAULT_DICTIONARIES_DIR / "character_dict.json"
 DEFAULT_COMMON_DICT = DEFAULT_DICTIONARIES_DIR / "common_dict.json"
+DEFAULT_WARNING_JSON = DEFAULT_PROJECT_ROOT / "samples" / "warning.json"
 
 # Để tương thích ngược
 DEFAULT_TARGET_DICT = DEFAULT_CHARACTER_DICT
+
+def check_word_count_alignment(source: str, target: str) -> Tuple[bool, int, int, str]:
+    """
+    Kiểm tra số từ giữa source và target.
+    Nếu lệch nhau (ví dụ 2 từ -> 3 từ), trả về False kèm nguyên nhân.
+    """
+    words_s = [w for w in source.strip().split() if w]
+    words_t = [w for w in target.strip().split() if w]
+    cnt_s = len(words_s)
+    cnt_t = len(words_t)
+
+    if cnt_s == cnt_t:
+        return True, cnt_s, cnt_t, ""
+
+    diff = cnt_t - cnt_s
+    if diff > 0:
+        reason = f"Lệch số từ (+{diff}): Target ({cnt_t} từ) dài hơn Source ({cnt_s} từ), nguy cơ lặp họ/tiền tố khi replace"
+    else:
+        reason = f"Lệch số từ ({diff}): Target ({cnt_t} từ) ngắn hơn Source ({cnt_s} từ), nguy cơ xung đột từ miêu tả/tên rút gọn"
+
+    return False, cnt_s, cnt_t, reason
+
+def filter_and_export_warnings(
+    items: List[Dict[str, any]],
+    warning_path: Union[str, Path] = DEFAULT_WARNING_JSON
+) -> Tuple[List[Dict[str, any]], List[Dict[str, any]]]:
+    """
+    Lọc các mục bị lệch số từ và xuất ra file warning.json để chuẩn hóa.
+    Chỉ trả về các mục đạt chuẩn (valid_items) để nạp vào từ điển.
+    """
+    valid_items = []
+    warning_items = []
+
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        source = str(item.get("source", "")).strip()
+        target = str(item.get("target") or item.get("suggested_target", "")).strip()
+
+        if not source or not target:
+            continue
+
+        is_aligned, cnt_s, cnt_t, reason = check_word_count_alignment(source, target)
+        if is_aligned:
+            valid_items.append(item)
+        else:
+            w_entry = {
+                "id": str(item.get("id", "")).strip(),
+                "is_character": item.get("is_character", True),
+                "source": source,
+                "target": target,
+                "words_source": cnt_s,
+                "words_target": cnt_t,
+                "diff": cnt_t - cnt_s,
+                "reason": reason,
+                "context": item.get("context", "")
+            }
+            warning_items.append(w_entry)
+
+    warning_path = Path(warning_path)
+    if warning_items:
+        save_dictionary(warning_items, warning_path, indent=2)
+        print(f"[!] CẢNH BÁO: Phát hiện {len(warning_items)} mục lệch số từ giữa Source và Target.")
+        print(f"[!] Đã xuất ra '{warning_path}' để bạn kiểm tra và chuẩn hóa lại.")
+    else:
+        if warning_path.exists():
+            try:
+                save_dictionary([], warning_path, indent=2)
+            except Exception:
+                pass
+
+    return valid_items, warning_items
 
 def get_next_id(entries: List[Dict[str, str]], default_prefix: str = "ch-") -> str:
     """Tìm ID số lớn nhất hiện tại (vd: ch-55 hoặc co-1106) và trả về ID tiếp theo."""
@@ -274,18 +347,29 @@ def distribute_and_import(
     items: List[Dict[str, any]],
     char_dict_path: Union[str, Path] = DEFAULT_CHARACTER_DICT,
     common_dict_path: Union[str, Path] = DEFAULT_COMMON_DICT,
+    warning_path: Union[str, Path] = DEFAULT_WARNING_JSON,
     overwrite_existing: bool = True,
-    keep_id: bool = False
+    keep_id: bool = False,
+    validate_word_count: bool = True
 ) -> Dict[str, any]:
     """
     Phân bổ các mục dựa vào trường 'is_character':
+    - Nếu validate_word_count=True: Lọc các mục lệch số từ ra warning.json trước.
     - 'is_character': true -> nạp vào character_dict.json (ID: ch-XX, Tag)
     - 'is_character': false -> nạp vào common_dict.json (ID: co-XX, category)
     """
+    warning_count = 0
+    if validate_word_count:
+        valid_items, warning_items = filter_and_export_warnings(items, warning_path=warning_path)
+        warning_count = len(warning_items)
+        items_to_process = valid_items
+    else:
+        items_to_process = items
+
     char_items = []
     common_items = []
 
-    for item in items:
+    for item in items_to_process:
         if not isinstance(item, dict):
             continue
         is_char = item.get("is_character", True)
@@ -313,40 +397,57 @@ def distribute_and_import(
     return {
         "character": char_result,
         "common": common_result,
-        "total_processed": len(items)
+        "warning_count": warning_count,
+        "warning_file": str(warning_path) if warning_count > 0 else None,
+        "total_processed": len(items_to_process),
+        "total_input": len(items)
     }
 
 def import_entries(
     items: List[Dict[str, any]],
     dict_path: Union[str, Path] = DEFAULT_TARGET_DICT,
+    warning_path: Union[str, Path] = DEFAULT_WARNING_JSON,
     overwrite_existing: bool = True,
     id_prefix: str = "ch-",
     filter_characters: bool = True,
-    keep_id: bool = False
+    keep_id: bool = False,
+    validate_word_count: bool = True
 ) -> Dict[str, any]:
     """
     Import danh sách mục vào một file từ điển chỉ định.
     Nếu target là common_dict.json, sẽ tự động áp dụng định dạng common_dict.
     Nếu target là character_dict.json và filter_characters=True, sẽ lọc bỏ is_character == False.
     """
+    warning_count = 0
+    if validate_word_count:
+        valid_items, warning_items = filter_and_export_warnings(items, warning_path=warning_path)
+        warning_count = len(warning_items)
+        items_to_process = valid_items
+    else:
+        items_to_process = items
+
     dict_path = Path(dict_path)
     if "common_dict" in dict_path.name:
-        return import_common_dict(
-            items,
+        res = import_common_dict(
+            items_to_process,
             dict_path=dict_path,
             overwrite_existing=overwrite_existing,
             id_prefix=id_prefix if id_prefix != "ch-" else "co-",
             keep_id=keep_id
         )
+    else:
+        res = import_character_dict(
+            items_to_process,
+            dict_path=dict_path,
+            overwrite_existing=overwrite_existing,
+            id_prefix=id_prefix,
+            filter_characters=filter_characters,
+            keep_id=keep_id
+        )
 
-    return import_character_dict(
-        items,
-        dict_path=dict_path,
-        overwrite_existing=overwrite_existing,
-        id_prefix=id_prefix,
-        filter_characters=filter_characters,
-        keep_id=keep_id
-    )
+    res["warning_count"] = warning_count
+    res["warning_file"] = str(warning_path) if warning_count > 0 else None
+    return res
 
 def parse_source_file(file_path: Union[str, Path]) -> List[Dict[str, any]]:
     """Phân tích dữ liệu từ file JSON, TXT hoặc CSV/TSV."""

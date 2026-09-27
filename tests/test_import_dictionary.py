@@ -20,7 +20,7 @@ def test_import_entries(tmp_path):
 
     # Thêm mới
     new_items = [
-        {"id": "ch-51", "source": "Gavin Tĩnh", "target": "Giả Văn tĩnh", "Tag": ""}
+        {"id": "ch-51", "source": "Gavin Tĩnh", "target": "Giả Tĩnh", "Tag": ""}
     ]
     res = import_entries(new_items, dict_path=dict_file)
     assert res["added"] == 1
@@ -31,19 +31,19 @@ def test_import_entries(tmp_path):
     assert len(data) == 2
     assert data[1]["id"] == "ch-51"
     assert data[1]["source"] == "Gavin Tĩnh"
-    assert data[1]["target"] == "Giả Văn tĩnh"
+    assert data[1]["target"] == "Giả Tĩnh"
     assert data[1]["Tag"] == ""
 
     # Cập nhật mục đã có
     update_items = [
-        {"source": "Gavin Tĩnh", "target": "Giả Văn Tĩnh Mới", "Tag": "Updated"}
+        {"source": "Gavin Tĩnh", "target": "Giả Mới", "Tag": "Updated"}
     ]
     res_update = import_entries(update_items, dict_path=dict_file, overwrite_existing=True)
     assert res_update["updated"] == 1
 
     data = load_dictionary(dict_file)
     assert len(data) == 2
-    assert data[1]["target"] == "Giả Văn Tĩnh Mới"
+    assert data[1]["target"] == "Giả Mới"
     assert data[1]["Tag"] == "Updated"
 
 def test_normalize_and_import_scanner_json(tmp_path):
@@ -96,7 +96,7 @@ def test_distribute_and_import(tmp_path):
             "id": "ch_0002",
             "is_character": False,
             "source": "Ha Ha",
-            "target": "haha",
+            "target": "Ha Ha",
             "yeu_to_nhan_biet": "Từ cảm thán"
         },
         {
@@ -129,7 +129,7 @@ def test_distribute_and_import(tmp_path):
     common_data = load_dictionary(common_dict)
     assert len(common_data) == 1
     assert common_data[0]["source"] == "Ha Ha"
-    assert common_data[0]["target"] == "haha"
+    assert common_data[0]["target"] == "Ha Ha"
     assert common_data[0]["id"] == "co-1"
     assert common_data[0]["category"] == "Từ cảm thán"
 
