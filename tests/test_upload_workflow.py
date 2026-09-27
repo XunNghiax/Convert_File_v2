@@ -87,3 +87,41 @@ def test_upload_workflow_realtime_and_new_chat_cycling(tmp_path: Path):
         assert resumed_total == 5
         # Không khởi tạo GeminiUploader lại vì pending_files rỗng
         mock_cls.assert_not_called()
+
+def test_upload_workflow_does_not_close_browser_on_new_chat_failure(tmp_path: Path):
+    """Xác nhận nếu new_chat gặp lỗi thì trình duyệt không bị tắt mà vẫn tiếp tục xử lý đến file cuối cùng."""
+    scanner_dir = tmp_path / "scanner"
+    scanner_dir.mkdir(parents=True, exist_ok=True)
+    out_json = tmp_path / "import.json"
+    profile_dir = tmp_path / "profile"
+    profile_dir.mkdir(parents=True, exist_ok=True)
+
+    # 4 file markdown
+    for i in range(1, 5):
+        f = scanner_dir / f"scanner_{i}.md"
+        f.write_text(f"# Chunk {i}", encoding="utf-8")
+
+    mock_uploader_instance = MagicMock()
+    mock_uploader_instance.send_and_extract.return_value = [{"id": "ch_0001", "target": "Test"}]
+    # Giả lập new_chat ném lỗi
+    mock_uploader_instance.new_chat.side_effect = RuntimeError("Không thể bấm nút new chat")
+
+    with patch("src.scanner.upload_to_gemini.GeminiUploader", return_value=mock_uploader_instance):
+        total = run_upload_workflow(
+            scanner_dir=scanner_dir,
+            profile_dir=profile_dir,
+            output_json=out_json,
+            delay=0,
+            headless=True,
+            reset_progress=True,
+            files_per_chat=2  # Gặp new_chat sau file 2
+        )
+
+    # Vẫn phải hoàn thành đủ 4 file
+    assert total == 4
+    # new_chat vẫn được gọi
+    assert mock_uploader_instance.new_chat.call_count == 1
+    # send_and_extract được gọi đủ 4 lần cho cả 4 file
+    assert mock_uploader_instance.send_and_extract.call_count == 4
+    # uploader.close chỉ được gọi duy nhất 1 lần khi hoàn tất toàn bộ 4 file
+    assert mock_uploader_instance.close.call_count == 1

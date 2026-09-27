@@ -43,13 +43,17 @@ class GeminiUploader:
     ]
     NEW_CHAT_SELECTORS = [
         'button[aria-label*="cuộc trò chuyện mới" i]',
+        'button[aria-label*="trò chuyện mới" i]',
         'button[aria-label*="new chat" i]',
         'a[aria-label*="cuộc trò chuyện mới" i]',
+        'a[aria-label*="trò chuyện mới" i]',
         'a[aria-label*="new chat" i]',
-        'a[href="/app"]',
+        '[data-test-id="new-chat-button"]',
+        '[data-test-id="chat-history-new-chat-button"]',
         'button:has-text("Cuộc trò chuyện mới")',
+        'button:has-text("Trò chuyện mới")',
         'button:has-text("New chat")',
-        '[data-test-id="new-chat-button"]'
+        'a[href="/app"]'
     ]
 
     def __init__(self, profile_dir: Path | str, log_cb: Callable = print, headless: bool = False):
@@ -150,19 +154,22 @@ class GeminiUploader:
         extracted = self.json_extractor.extract_json(raw_output)
         return extracted
 
-    def new_chat(self, timeout: int = 30000):
-        """Khởi tạo đoạn chat mới trên giao diện Gemini Web."""
+    def new_chat(self, timeout: int = 15000) -> bool:
+        """Khởi tạo đoạn chat mới trên giao diện Gemini Web mà không tắt trình duyệt."""
         if not self.page:
-            raise RuntimeError("Trình duyệt chưa được khởi động. Hãy gọi start() trước!")
+            self.log_cb("[-] Cảnh báo: Trình duyệt chưa sẵn sàng!")
+            return False
 
         self.log_cb("[*] Đang tạo đoạn chat mới trên Gemini...")
         clicked_new_chat = False
+
+        # 1. Thử click selector nút New Chat
         for sel in self.NEW_CHAT_SELECTORS:
             try:
                 elements = self.page.locator(sel).all()
                 for el in elements:
-                    if el.is_visible():
-                        el.click(timeout=2000)
+                    if el.is_visible() and el.is_enabled():
+                        el.click(timeout=1500)
                         clicked_new_chat = True
                         break
                 if clicked_new_chat:
@@ -170,18 +177,24 @@ class GeminiUploader:
             except Exception:
                 pass
 
+        # 2. Nếu không click được nút, điều hướng URL nhẹ nhàng qua domcontentloaded
         if not clicked_new_chat:
-            self.log_cb("[*] Điều hướng tới https://gemini.google.com/app để mở chat mới...")
-            self.page.goto("https://gemini.google.com/app", timeout=timeout)
-            self.page.wait_for_load_state("load")
+            try:
+                self.log_cb("[*] Điều hướng tới https://gemini.google.com/app để mở chat mới...")
+                self.page.goto("https://gemini.google.com/app", wait_until="domcontentloaded", timeout=timeout)
+            except Exception as e:
+                self.log_cb(f"[-] Cảnh báo khi điều hướng: {e}")
 
+        # 3. Chờ khung chat sẵn sàng nhận tin nhắn tiếp theo
         try:
             chat_box = self.page.locator(self.CHAT_BOX_LOCATOR).first
             chat_box.wait_for(state="visible", timeout=timeout)
-            time.sleep(1.5)
+            time.sleep(1)
             self.log_cb("[+] Đã chuyển sang đoạn chat mới thành công!")
+            return True
         except Exception as e:
             self.log_cb(f"[-] Cảnh báo khi chờ khung chat mới: {e}")
+            return False
 
     def close(self):
         try:

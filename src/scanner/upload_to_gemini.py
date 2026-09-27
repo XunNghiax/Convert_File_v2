@@ -67,21 +67,27 @@ def run_upload_workflow(
             print(f"[*] [{idx}/{total_pending}] Đang xử lý: {md_file.name} (File {files_in_current_chat + 1}/{files_per_chat} trong đoạn chat hiện tại)...")
             content = md_file.read_text(encoding="utf-8")
             
-            result = uploader.send_and_extract(content)
-            if result:
-                tracker.save_file_result(md_file.name, result)
-                total_saved = tracker.export_to_import_json(out_path)
-                print(f"[+] Thành công! Gemini đã trả về {len(result)} block đã biên tập.")
-                print(f"[+] Đã cập nhật ngay vào '{out_path.name}' (Hiện có {total_saved} nhân vật).")
-                files_in_current_chat += 1
-            else:
-                print(f"[-] Cảnh báo: Không trích xuất được JSON hợp lệ từ {md_file.name}. Sẽ thử lại ở lần sau.")
+            try:
+                result = uploader.send_and_extract(content)
+                if result:
+                    tracker.save_file_result(md_file.name, result)
+                    total_saved = tracker.export_to_import_json(out_path)
+                    print(f"[+] Thành công! Gemini đã trả về {len(result)} block đã biên tập.")
+                    print(f"[+] Đã cập nhật ngay vào '{out_path.name}' (Hiện có {total_saved} nhân vật).")
+                    files_in_current_chat += 1
+                else:
+                    print(f"[-] Cảnh báo: Không trích xuất được JSON hợp lệ từ {md_file.name}. Sẽ thử lại ở lần sau.")
+            except Exception as e_send:
+                print(f"[-] Lỗi xử lý file {md_file.name}: {e_send}. Giữ trình duyệt và tiếp tục các file kế tiếp...")
 
             if idx < total_pending:
                 # Nếu đã đủ số file trong phiên chat hiện tại -> Tạo đoạn chat mới
                 if files_in_current_chat >= files_per_chat:
                     print(f"\n[*] Đã hoàn thành {files_in_current_chat} file trong phiên chat này. Đang tạo đoạn chat mới trên Gemini...")
-                    uploader.new_chat()
+                    try:
+                        uploader.new_chat()
+                    except Exception as e_chat:
+                        print(f"[-] Cảnh báo tạo chat mới: {e_chat}. Tiếp tục trên cửa sổ hiện tại...")
                     files_in_current_chat = 0
                     time.sleep(2)
                 else:
@@ -89,7 +95,7 @@ def run_upload_workflow(
                     time.sleep(delay)
 
         total = tracker.export_to_import_json(out_path)
-        print(f"\n[🎉] HOÀN TẤT TOÀN BỘ QUÁ TRÌNH!")
+        print(f"\n[🎉] HOÀN TẤT TOÀN BỘ QUÁ TRÌNH (Đã xử lý xong toàn bộ các file con trong scanner)!")
         print(f"[+] Toàn bộ kết quả đã được lưu trong: {output_json} với tổng cộng {total} nhân vật.")
         return total
 
