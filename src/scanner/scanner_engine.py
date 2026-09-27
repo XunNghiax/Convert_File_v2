@@ -79,6 +79,7 @@ class ScannerEngine:
         effective_skip = self.skip_known if skip_known is None else skip_known
         total_lines = count_file_lines(filepath)
         counter = 1
+        start_time = time.time()
         last_update = 0.0
         bar_width = 25
         seen_names: set[str] = set()
@@ -119,13 +120,17 @@ class ScannerEngine:
                     now = time.time()
                     if now - last_update >= 0.15 or line_idx == total_lines or line_idx % 1000 == 0:
                         last_update = now
+                        elapsed = max(0.001, now - start_time)
+                        speed = line_idx / elapsed
+                        eta_sec = (total_lines - line_idx) / max(1.0, speed)
+                        eta_str = f"{int(eta_sec)}s" if eta_sec < 60 else f"{int(eta_sec//60)}m{int(eta_sec%60)}s"
                         percent = min(100.0, (line_idx / total_lines) * 100)
                         filled = int(bar_width * line_idx / total_lines)
                         bar = "█" * filled + "░" * (bar_width - filled)
                         found_count = len(seen_names) if deduplicate else (counter - 1)
                         label = "nhân vật" if deduplicate else "ứng viên"
                         sys.stdout.write(
-                            f"\r[*] Đang quét: [{bar}] {percent:5.1f}% ({line_idx:,}/{total_lines:,} dòng) | Tìm thấy: {found_count:,} {label}"
+                            f"\r[*] Đang quét: [{bar}] {percent:5.1f}% ({line_idx:,}/{total_lines:,} dòng) | {int(speed):,} dòng/s | Còn: {eta_str} | Tìm thấy: {found_count:,} {label}"
                         )
                         sys.stdout.flush()
 
@@ -133,10 +138,12 @@ class ScannerEngine:
                     gc.collect()
 
         if show_progress:
+            total_elapsed = max(0.001, time.time() - start_time)
+            avg_speed = int(total_lines / total_elapsed)
             found_count = len(seen_names) if deduplicate else (counter - 1)
             label = "nhân vật" if deduplicate else "ứng viên"
             sys.stdout.write(
-                f"\r[*] Đang quét: [{'█' * bar_width}] 100.0% ({total_lines:,}/{total_lines:,} dòng) | Tìm thấy: {found_count:,} {label}\n"
+                f"\r[*] Đang quét: [{'█' * bar_width}] 100.0% ({total_lines:,}/{total_lines:,} dòng) | {avg_speed:,} dòng/s | Xong trong: {total_elapsed:.1f}s | Tìm thấy: {found_count:,} {label}\n"
             )
             sys.stdout.flush()
 
@@ -159,6 +166,7 @@ class ScannerEngine:
         total_lines = count_file_lines(filepath)
         tracked: dict[str, CharacterBlock] = {}
         best_scores: dict[str, tuple] = {}
+        start_time = time.time()
         last_update = 0.0
         bar_width = 25
 
@@ -170,11 +178,15 @@ class ScannerEngine:
                         now = time.time()
                         if now - last_update >= 0.15 or line_idx == total_lines:
                             last_update = now
+                            elapsed = max(0.001, now - start_time)
+                            speed = line_idx / elapsed
+                            eta_sec = (total_lines - line_idx) / max(1.0, speed)
+                            eta_str = f"{int(eta_sec)}s" if eta_sec < 60 else f"{int(eta_sec//60)}m{int(eta_sec%60)}s"
                             percent = min(100.0, (line_idx / total_lines) * 100)
                             filled = int(bar_width * line_idx / total_lines)
                             bar = "█" * filled + "░" * (bar_width - filled)
                             sys.stdout.write(
-                                f"\r[*] Đang quét: [{bar}] {percent:5.1f}% ({line_idx:,}/{total_lines:,} dòng) | Tìm thấy: {len(tracked):,} nhân vật"
+                                f"\r[*] Đang quét: [{bar}] {percent:5.1f}% ({line_idx:,}/{total_lines:,} dòng) | {int(speed):,} dòng/s | Còn: {eta_str} | Tìm thấy: {len(tracked):,} nhân vật"
                             )
                             sys.stdout.flush()
                     continue
@@ -186,10 +198,26 @@ class ScannerEngine:
                             cand.name.lower().strip() in self.loader.known_characters):
                             continue
                     name_key = cand.name.lower().strip()
-                    ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
-                    score = self._score_block(cand.confidence, ctx, line_idx)
 
-                    if name_key not in tracked:
+                    if name_key in tracked:
+                        existing = tracked[name_key]
+                        existing.so_lan_xuat_hien += 1
+                        if len(existing.cac_dong_xuat_hien) < 100 and line_idx not in existing.cac_dong_xuat_hien:
+                            existing.cac_dong_xuat_hien.append(line_idx)
+                        # Chỉ mở rộng ngữ cảnh khi độ tin cậy có thể vượt qua điểm số tốt nhất hiện có
+                        if cand.confidence >= best_scores[name_key][0]:
+                            ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
+                            score = self._score_block(cand.confidence, ctx, line_idx)
+                            if score > best_scores[name_key]:
+                                existing.source = cand.raw
+                                existing.target = cand.name
+                                existing.context = ctx
+                                existing.yeu_to_nhan_biet = cand.reason
+                                existing.confidence = cand.confidence
+                                best_scores[name_key] = score
+                    else:
+                        ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
+                        score = self._score_block(cand.confidence, ctx, line_idx)
                         block = CharacterBlock(
                             id="",
                             source=cand.raw,
@@ -203,28 +231,20 @@ class ScannerEngine:
                         )
                         tracked[name_key] = block
                         best_scores[name_key] = score
-                    else:
-                        existing = tracked[name_key]
-                        existing.so_lan_xuat_hien += 1
-                        if len(existing.cac_dong_xuat_hien) < 100 and line_idx not in existing.cac_dong_xuat_hien:
-                            existing.cac_dong_xuat_hien.append(line_idx)
-                        if score > best_scores[name_key]:
-                            existing.source = cand.raw
-                            existing.target = cand.name
-                            existing.context = ctx
-                            existing.yeu_to_nhan_biet = cand.reason
-                            existing.confidence = cand.confidence
-                            best_scores[name_key] = score
 
                 if show_progress:
                     now = time.time()
                     if now - last_update >= 0.15 or line_idx == total_lines or line_idx % 1000 == 0:
                         last_update = now
+                        elapsed = max(0.001, now - start_time)
+                        speed = line_idx / elapsed
+                        eta_sec = (total_lines - line_idx) / max(1.0, speed)
+                        eta_str = f"{int(eta_sec)}s" if eta_sec < 60 else f"{int(eta_sec//60)}m{int(eta_sec%60)}s"
                         percent = min(100.0, (line_idx / total_lines) * 100)
                         filled = int(bar_width * line_idx / total_lines)
                         bar = "█" * filled + "░" * (bar_width - filled)
                         sys.stdout.write(
-                            f"\r[*] Đang quét: [{bar}] {percent:5.1f}% ({line_idx:,}/{total_lines:,} dòng) | Tìm thấy: {len(tracked):,} nhân vật"
+                            f"\r[*] Đang quét: [{bar}] {percent:5.1f}% ({line_idx:,}/{total_lines:,} dòng) | {int(speed):,} dòng/s | Còn: {eta_str} | Tìm thấy: {len(tracked):,} nhân vật"
                         )
                         sys.stdout.flush()
 
@@ -235,8 +255,10 @@ class ScannerEngine:
                     gc.collect()
 
         if show_progress:
+            total_elapsed = max(0.001, time.time() - start_time)
+            avg_speed = int(total_lines / total_elapsed)
             sys.stdout.write(
-                f"\r[*] Đang quét: [{'█' * bar_width}] 100.0% ({total_lines:,}/{total_lines:,} dòng) | Tìm thấy: {len(tracked):,} nhân vật\n"
+                f"\r[*] Đang quét: [{'█' * bar_width}] 100.0% ({total_lines:,}/{total_lines:,} dòng) | {avg_speed:,} dòng/s | Xong trong: {total_elapsed:.1f}s | Tìm thấy: {len(tracked):,} nhân vật\n"
             )
             sys.stdout.flush()
 

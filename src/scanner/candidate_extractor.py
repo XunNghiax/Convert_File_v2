@@ -44,6 +44,33 @@ class CandidateExtractor:
         self.skip_known = skip_known
         self.session_cache: set[str] = set()
 
+        # Pre-compile static regex patterns once
+        self.profile_age_pattern = re.compile(
+            rf'\b({VN_WORD}+(?:\s+{VN_WORD}+){{1,4}})\s*,\s*(?:(?:nam|nữ)\s*,\s*)?(\d{{1,2}}\s*tuổi)\b',
+            re.IGNORECASE
+        )
+        self.profile_gender_pattern = re.compile(
+            rf'\b([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})\s*,\s*(nam|nữ)\s*,',
+            re.IGNORECASE
+        )
+
+        sorted_relations = sorted(self.RELATION_TERMS, key=len, reverse=True)
+        rel_group = "|".join(re.escape(r) for r in sorted_relations)
+        self.comb_rel_pattern = re.compile(
+            rf'\b({VN_WORD}+(?:\s+{VN_WORD}+){{0,3}})\s+({rel_group})\b',
+            re.IGNORECASE
+        )
+
+        sorted_jobs = sorted(self.JOB_TERMS, key=len, reverse=True)
+        job_group = "|".join(re.escape(j) for j in sorted_jobs)
+        self.comb_job_pattern = re.compile(
+            rf'(?i:\b({job_group})\s+)([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})\b'
+        )
+
+        self.cap_pattern = re.compile(
+            rf'\b([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})\b'
+        )
+
     def extract_candidates(self, line: str, skip_known: bool | None = None) -> list[CandidateMatch]:
         effective_skip = self.skip_known if skip_known is None else skip_known
         results: list[CandidateMatch] = []
@@ -51,90 +78,83 @@ class CandidateExtractor:
         if not line_clean:
             return results
 
+        line_lower = line_clean.lower()
+
         # 0. Direct match from known characters dictionary (only when not skipping known)
-        if not effective_skip:
+        if not effective_skip and self.loader.known_characters:
             for src, tgt in self.loader.known_characters.items():
-                pattern_known = re.compile(rf'\b{re.escape(src)}\b', re.IGNORECASE)
-                for m in pattern_known.finditer(line):
-                    cand = m.group(0).strip()
-                    results.append(CandidateMatch(
-                        name=tgt,
-                        raw=cand,
-                        start=m.start(),
-                        end=m.end(),
-                        confidence=1.0,
-                        reason="Khớp với từ điển nhân vật đã quy chuẩn"
-                    ))
+                if src in line_lower:
+                    pattern_known = re.compile(rf'\b{re.escape(src)}\b', re.IGNORECASE)
+                    for m in pattern_known.finditer(line):
+                        cand = m.group(0).strip()
+                        results.append(CandidateMatch(
+                            name=tgt,
+                            raw=cand,
+                            start=m.start(),
+                            end=m.end(),
+                            confidence=1.0,
+                            reason="Khớp với từ điển nhân vật đã quy chuẩn"
+                        ))
 
-        # 1a. Profile with explicit age: <name 2-5 words> , [nam/nữ ,] <age> tuổi
-        profile_age_pattern = re.compile(
-            rf'\b({VN_WORD}+(?:\s+{VN_WORD}+){{1,4}})\s*,\s*(?:(?:nam|nữ)\s*,\s*)?(\d{{1,2}}\s*tuổi)\b',
-            re.IGNORECASE
-        )
-        for m in profile_age_pattern.finditer(line):
-            raw_cand = m.group(1).strip()
-            age_str = m.group(2).strip()
-            clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
-            trimmed, _ = self.trimmer.trim(clean_cand)
-            if self._is_negative(trimmed, skip_known=effective_skip):
-                continue
-            if trimmed.lower() in self.loader.known_characters:
-                if effective_skip:
+        # 1a. Profile with explicit age (Fast-path: chỉ chạy khi có chữ "tuổi")
+        if "tuổi" in line_lower:
+            for m in self.profile_age_pattern.finditer(line):
+                raw_cand = m.group(1).strip()
+                age_str = m.group(2).strip()
+                clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
+                trimmed, _ = self.trimmer.trim(clean_cand)
+                if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
-                norm_name = self.loader.known_characters[trimmed.lower()]
-                conf = 0.98
-                reason = f"Cấu trúc hồ sơ giới thiệu, đi kèm '{age_str}', đã quy chuẩn Hán Việt"
-            else:
-                norm_name = self.trimmer.normalize_name(trimmed)
-                if self._starts_with_surname(norm_name):
-                    conf = 0.95
-                    reason = f"Cấu trúc hồ sơ giới thiệu, đi kèm '{age_str}', mang họ hợp lệ"
-                elif all(w[0].isupper() for w in trimmed.split()):
-                    conf = 0.85
-                    reason = f"Cấu trúc hồ sơ giới thiệu, đi kèm '{age_str}'"
+                if trimmed.lower() in self.loader.known_characters:
+                    if effective_skip:
+                        continue
+                    norm_name = self.loader.known_characters[trimmed.lower()]
+                    conf = 0.98
+                    reason = f"Cấu trúc hồ sơ giới thiệu, đi kèm '{age_str}', đã quy chuẩn Hán Việt"
                 else:
-                    continue
-            results.append(CandidateMatch(
-                name=norm_name,
-                raw=trimmed,
-                start=m.start(1),
-                end=m.start(1) + len(trimmed),
-                confidence=conf,
-                reason=reason
-            ))
-
-        # 1b. Standalone gender profile followed by comma (e.g. "Trương Tử Kiến, nam, 30 tuổi")
-        profile_gender_pattern = re.compile(
-            rf'\b([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})\s*,\s*(nam|nữ)\s*,',
-            re.IGNORECASE
-        )
-        for m in profile_gender_pattern.finditer(line):
-            raw_cand = m.group(1).strip()
-            detail = m.group(2).strip()
-            clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
-            trimmed, _ = self.trimmer.trim(clean_cand)
-            if self._is_negative(trimmed, skip_known=effective_skip):
-                continue
-            norm_name = self.trimmer.normalize_name(trimmed)
-            if self._starts_with_surname(norm_name):
+                    norm_name = self.trimmer.normalize_name(trimmed)
+                    if self._starts_with_surname(norm_name):
+                        conf = 0.95
+                        reason = f"Cấu trúc hồ sơ giới thiệu, đi kèm '{age_str}', mang họ hợp lệ"
+                    elif all(w[0].isupper() for w in trimmed.split()):
+                        conf = 0.85
+                        reason = f"Cấu trúc hồ sơ giới thiệu, đi kèm '{age_str}'"
+                    else:
+                        continue
                 results.append(CandidateMatch(
                     name=norm_name,
                     raw=trimmed,
                     start=m.start(1),
                     end=m.start(1) + len(trimmed),
-                    confidence=0.95,
-                    reason=f"Cấu trúc hồ sơ giới thiệu, đi kèm '{detail}', mang họ hợp lệ"
+                    confidence=conf,
+                    reason=reason
                 ))
 
-        # 2. Relation regex: <name> + <relation>
-        sorted_relations = sorted(self.RELATION_TERMS, key=len, reverse=True)
-        for rel in sorted_relations:
-            rel_pattern = re.compile(
-                rf'\b({VN_WORD}+(?:\s+{VN_WORD}+){{0,3}})\s+{re.escape(rel)}\b',
-                re.IGNORECASE
-            )
-            for m in rel_pattern.finditer(line):
+        # 1b. Standalone gender profile (Fast-path: chỉ chạy khi có "nam" hoặc "nữ")
+        if "nam" in line_lower or "nữ" in line_lower:
+            for m in self.profile_gender_pattern.finditer(line):
                 raw_cand = m.group(1).strip()
+                detail = m.group(2).strip()
+                clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
+                trimmed, _ = self.trimmer.trim(clean_cand)
+                if self._is_negative(trimmed, skip_known=effective_skip):
+                    continue
+                norm_name = self.trimmer.normalize_name(trimmed)
+                if self._starts_with_surname(norm_name):
+                    results.append(CandidateMatch(
+                        name=norm_name,
+                        raw=trimmed,
+                        start=m.start(1),
+                        end=m.start(1) + len(trimmed),
+                        confidence=0.95,
+                        reason=f"Cấu trúc hồ sơ giới thiệu, đi kèm '{detail}', mang họ hợp lệ"
+                    ))
+
+        # 2. Relation combined regex (Fast-path: chỉ chạy khi có từ quan hệ trong dòng)
+        if any(rel in line_lower for rel in self.RELATION_TERMS):
+            for m in self.comb_rel_pattern.finditer(line):
+                raw_cand = m.group(1).strip()
+                rel = m.group(2).strip()
                 if not raw_cand:
                     continue
                 words_before = raw_cand.lower().split()
@@ -178,14 +198,11 @@ class CandidateExtractor:
                         reason=f"Đứng trước từ chỉ quan hệ '{rel}'"
                     ))
 
-        # 3. Job titles regex: <job> + <name>
-        sorted_jobs = sorted(self.JOB_TERMS, key=len, reverse=True)
-        for job in sorted_jobs:
-            job_pattern = re.compile(
-                rf'(?i:\b{re.escape(job)}\s+)([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})\b'
-            )
-            for m in job_pattern.finditer(line):
-                raw_cand = m.group(1).strip()
+        # 3. Job titles combined regex (Fast-path: chỉ chạy khi có chức danh trong dòng)
+        if any(job in line_lower for job in self.JOB_TERMS):
+            for m in self.comb_job_pattern.finditer(line):
+                job = m.group(1).strip()
+                raw_cand = m.group(2).strip()
                 clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
                 trimmed, _ = self.trimmer.trim(clean_cand)
                 if self._is_negative(trimmed, skip_known=effective_skip):
@@ -195,54 +212,55 @@ class CandidateExtractor:
                     results.append(CandidateMatch(
                         name=norm_name,
                         raw=trimmed,
-                        start=m.start(1),
-                        end=m.start(1) + len(trimmed),
+                        start=m.start(2),
+                        end=m.start(2) + len(trimmed),
                         confidence=0.92,
                         reason=f"Đứng sau chức danh '{job}', mang họ hợp lệ"
                     ))
 
         # 4. Capitalized TitleCase regex: 2 to 4 words starting with known surname
-        cap_pattern = re.compile(
-            rf'\b([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})\b'
-        )
-        for m in cap_pattern.finditer(line):
-            cand = m.group(1).strip()
-            clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', cand)[-1].strip()
-            trimmed, _ = self.trimmer.trim(clean_cand)
-            if self._is_negative(trimmed, skip_known=effective_skip):
-                continue
-            norm_name = self.trimmer.normalize_name(trimmed)
-            if self._starts_with_surname(norm_name):
-                after_text = line[m.end():m.end() + 20].lower()
-                has_action = any(v in after_text for v in self.ACTION_VERBS)
-                conf = 0.85 if has_action else 0.70
-                reason = f"Viết hoa chữ cái đầu, mang họ hợp lệ" + (f", đi kèm hành động" if has_action else "")
-                results.append(CandidateMatch(
-                    name=norm_name,
-                    raw=trimmed,
-                    start=m.start(1),
-                    end=m.start(1) + len(trimmed),
-                    confidence=conf,
-                    reason=reason
-                ))
-
-        # 5. Session cache matches (only match confirmed valid characters)
-        for known in self.session_cache:
-            if effective_skip and (known.lower() in self.loader.known_characters):
-                continue
-            cache_pattern = re.compile(rf'\b{re.escape(known)}\b', re.IGNORECASE)
-            for m in cache_pattern.finditer(line):
-                cand = m.group(0).strip()
-                if self._is_negative(cand, skip_known=effective_skip):
+        # Fast-path: chỉ chạy khi dòng có ít nhất 1 chữ in hoa
+        if any(c.isupper() for c in line):
+            for m in self.cap_pattern.finditer(line):
+                cand = m.group(1).strip()
+                clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', cand)[-1].strip()
+                trimmed, _ = self.trimmer.trim(clean_cand)
+                if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
-                results.append(CandidateMatch(
-                    name=self.trimmer.normalize_name(cand),
-                    raw=cand,
-                    start=m.start(),
-                    end=m.end(),
-                    confidence=0.92,
-                    reason="Khớp với tên nhân vật đã xác nhận trước đó"
-                ))
+                norm_name = self.trimmer.normalize_name(trimmed)
+                if self._starts_with_surname(norm_name):
+                    after_text = line[m.end():m.end() + 20].lower()
+                    has_action = any(v in after_text for v in self.ACTION_VERBS)
+                    conf = 0.85 if has_action else 0.70
+                    reason = f"Viết hoa chữ cái đầu, mang họ hợp lệ" + (f", đi kèm hành động" if has_action else "")
+                    results.append(CandidateMatch(
+                        name=norm_name,
+                        raw=trimmed,
+                        start=m.start(1),
+                        end=m.start(1) + len(trimmed),
+                        confidence=conf,
+                        reason=reason
+                    ))
+
+        # 5. Session cache matches (Fast-path: chỉ quét những tên thực sự xuất hiện trong dòng)
+        if self.session_cache:
+            for known in self.session_cache:
+                if known.lower() in line_lower:
+                    if effective_skip and (known.lower() in self.loader.known_characters):
+                        continue
+                    cache_pattern = re.compile(rf'\b{re.escape(known)}\b', re.IGNORECASE)
+                    for m in cache_pattern.finditer(line):
+                        cand = m.group(0).strip()
+                        if self._is_negative(cand, skip_known=effective_skip):
+                            continue
+                        results.append(CandidateMatch(
+                            name=self.trimmer.normalize_name(cand),
+                            raw=cand,
+                            start=m.start(),
+                            end=m.end(),
+                            confidence=0.92,
+                            reason="Khớp với tên nhân vật đã xác nhận trước đó"
+                        ))
 
         # Deduplicate overlapping spans (keep highest confidence)
         unique_results = self._deduplicate_spans(results)
