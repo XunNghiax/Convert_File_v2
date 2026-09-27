@@ -66,6 +66,7 @@ def main():
     parser.add_argument("--gemini-delay", type=int, default=5, help="Thời gian nghỉ (giây) giữa các file khi gửi Gemini")
     parser.add_argument("--headless", action="store_true", help="Chạy ẩn danh không mở cửa sổ Chrome")
     parser.add_argument("--reset-gemini-progress", action="store_true", help="Đặt lại (reset) tiến trình gửi Gemini cũ")
+    parser.add_argument("--files-per-chat", type=int, default=3, help="Số file tối đa gửi trong 1 đoạn chat trước khi tạo đoạn chat mới (mặc định: 3)")
 
     args = parser.parse_args()
     prompt_path = resolve_file(args.prompt, "resources/prompts")
@@ -180,7 +181,8 @@ def main():
             output_json=args.output_import_json,
             delay=args.gemini_delay,
             headless=args.headless,
-            reset_progress=args.reset_gemini_progress
+            reset_progress=args.reset_gemini_progress,
+            files_per_chat=args.files_per_chat
         )
 
 if __name__ == "__main__":

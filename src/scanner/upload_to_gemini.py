@@ -15,7 +15,8 @@ def run_upload_workflow(
     output_json: Path | str = "samples/import.json",
     delay: int = 5,
     headless: bool = False,
-    reset_progress: bool = False
+    reset_progress: bool = False,
+    files_per_chat: int = 3
 ) -> int:
     s_dir = Path(scanner_dir)
     if not s_dir.exists():
@@ -41,6 +42,7 @@ def run_upload_workflow(
     pending_files = [f for f in md_files if not tracker.is_completed(f.name)]
     print(f"[*] Tìm thấy tổng cộng {len(md_files)} file markdown.")
     print(f"[*] Số file cần xử lý: {len(pending_files)} (Đã hoàn thành trước đó: {len(md_files) - len(pending_files)} file).")
+    print(f"[*] Cấu hình phiên: Tối đa {files_per_chat} file cho mỗi đoạn chat mới.")
 
     out_path = Path(output_json)
     if not pending_files:
@@ -58,25 +60,37 @@ def run_upload_workflow(
     try:
         uploader.start()
         total_pending = len(pending_files)
+        files_in_current_chat = 0
+
         for idx, md_file in enumerate(pending_files, start=1):
             print(f"\n=======================================================")
-            print(f"[*] [{idx}/{total_pending}] Đang xử lý: {md_file.name}...")
+            print(f"[*] [{idx}/{total_pending}] Đang xử lý: {md_file.name} (File {files_in_current_chat + 1}/{files_per_chat} trong đoạn chat hiện tại)...")
             content = md_file.read_text(encoding="utf-8")
             
             result = uploader.send_and_extract(content)
             if result:
                 tracker.save_file_result(md_file.name, result)
+                total_saved = tracker.export_to_import_json(out_path)
                 print(f"[+] Thành công! Gemini đã trả về {len(result)} block đã biên tập.")
+                print(f"[+] Đã cập nhật ngay vào '{out_path.name}' (Hiện có {total_saved} nhân vật).")
+                files_in_current_chat += 1
             else:
                 print(f"[-] Cảnh báo: Không trích xuất được JSON hợp lệ từ {md_file.name}. Sẽ thử lại ở lần sau.")
 
             if idx < total_pending:
-                print(f"[*] Nghỉ {delay} giây trước khi gửi file tiếp theo...")
-                time.sleep(delay)
+                # Nếu đã đủ số file trong phiên chat hiện tại -> Tạo đoạn chat mới
+                if files_in_current_chat >= files_per_chat:
+                    print(f"\n[*] Đã hoàn thành {files_in_current_chat} file trong phiên chat này. Đang tạo đoạn chat mới trên Gemini...")
+                    uploader.new_chat()
+                    files_in_current_chat = 0
+                    time.sleep(2)
+                else:
+                    print(f"[*] Nghỉ {delay} giây trước khi gửi file tiếp theo...")
+                    time.sleep(delay)
 
         total = tracker.export_to_import_json(out_path)
         print(f"\n[🎉] HOÀN TẤT TOÀN BỘ QUÁ TRÌNH!")
-        print(f"[+] Đã xuất file kết quả: {output_json} với tổng cộng {total} nhân vật.")
+        print(f"[+] Toàn bộ kết quả đã được lưu trong: {output_json} với tổng cộng {total} nhân vật.")
         return total
 
     except Exception as e:
@@ -93,6 +107,7 @@ def main():
     parser.add_argument("--delay", type=int, default=5, help="Thời gian nghỉ (giây) giữa các file")
     parser.add_argument("--headless", action="store_true", help="Chạy ẩn danh không mở cửa sổ Chrome")
     parser.add_argument("--reset-progress", action="store_true", help="Xóa lịch sử tiến trình cũ và chạy lại từ đầu")
+    parser.add_argument("--files-per-chat", type=int, default=3, help="Số file tối đa gửi trong 1 đoạn chat trước khi tạo đoạn chat mới (mặc định: 3)")
     args = parser.parse_args()
 
     run_upload_workflow(
@@ -101,7 +116,8 @@ def main():
         output_json=args.output_json,
         delay=args.delay,
         headless=args.headless,
-        reset_progress=args.reset_progress
+        reset_progress=args.reset_progress,
+        files_per_chat=args.files_per_chat
     )
 
 if __name__ == "__main__":

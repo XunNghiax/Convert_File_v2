@@ -41,6 +41,16 @@ class GeminiUploader:
         '[data-testid="send-button"]',
         'button:has(svg):right-of(div[contenteditable="true"])'
     ]
+    NEW_CHAT_SELECTORS = [
+        'button[aria-label*="cuộc trò chuyện mới" i]',
+        'button[aria-label*="new chat" i]',
+        'a[aria-label*="cuộc trò chuyện mới" i]',
+        'a[aria-label*="new chat" i]',
+        'a[href="/app"]',
+        'button:has-text("Cuộc trò chuyện mới")',
+        'button:has-text("New chat")',
+        '[data-test-id="new-chat-button"]'
+    ]
 
     def __init__(self, profile_dir: Path | str, log_cb: Callable = print, headless: bool = False):
         self.profile_dir = resolve_profile_path(profile_dir)
@@ -139,6 +149,39 @@ class GeminiUploader:
         raw_output = responses[-1] if responses else ""
         extracted = self.json_extractor.extract_json(raw_output)
         return extracted
+
+    def new_chat(self, timeout: int = 30000):
+        """Khởi tạo đoạn chat mới trên giao diện Gemini Web."""
+        if not self.page:
+            raise RuntimeError("Trình duyệt chưa được khởi động. Hãy gọi start() trước!")
+
+        self.log_cb("[*] Đang tạo đoạn chat mới trên Gemini...")
+        clicked_new_chat = False
+        for sel in self.NEW_CHAT_SELECTORS:
+            try:
+                elements = self.page.locator(sel).all()
+                for el in elements:
+                    if el.is_visible():
+                        el.click(timeout=2000)
+                        clicked_new_chat = True
+                        break
+                if clicked_new_chat:
+                    break
+            except Exception:
+                pass
+
+        if not clicked_new_chat:
+            self.log_cb("[*] Điều hướng tới https://gemini.google.com/app để mở chat mới...")
+            self.page.goto("https://gemini.google.com/app", timeout=timeout)
+            self.page.wait_for_load_state("load")
+
+        try:
+            chat_box = self.page.locator(self.CHAT_BOX_LOCATOR).first
+            chat_box.wait_for(state="visible", timeout=timeout)
+            time.sleep(1.5)
+            self.log_cb("[+] Đã chuyển sang đoạn chat mới thành công!")
+        except Exception as e:
+            self.log_cb(f"[-] Cảnh báo khi chờ khung chat mới: {e}")
 
     def close(self):
         try:
