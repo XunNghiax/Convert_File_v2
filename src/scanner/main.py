@@ -129,39 +129,30 @@ def main():
         output_dir = Path(args.output)
         output_dir.mkdir(parents=True, exist_ok=True)
         packager = OutputPackager(prompt_path)
+        all_file = output_dir / "scanner_all.json"
 
-        if args.min_count <= 1:
-            print(f"[*] Chế độ streaming trực tiếp: Vừa đọc vừa xuất file nhỏ (.md) ngay khi đủ {args.chunk_size} nhân vật & giải phóng RAM...")
-            raw_stream = engine.scan_file_stream(
-                input_path,
-                deduplicate=dedup,
-                skip_known=skip_known
-            )
-            total = packager.package(raw_stream, output_dir, chunk_size=args.chunk_size)
-            print(f"[+] Hoàn thành quét streaming: Tổng cộng {total} nhân vật xuất hiện.")
+        print(f"[*] Quét văn bản và lưu dữ liệu realtime vào '{all_file.name}'...")
+        blocks = engine.scan_file(
+            input_path,
+            deduplicate=dedup,
+            skip_known=skip_known,
+            realtime_all_path=all_file
+        )
+        print(f"[+] Quét hoàn tất: {len(blocks)} nhân vật đại diện duy nhất đã được lưu realtime vào '{all_file.name}'.")
 
-            import shutil
-            master_file = output_dir / "scanner_master.json"
-            all_file = output_dir / "scanner_all.json"
-            if master_file.exists():
-                shutil.copyfile(master_file, all_file)
-        else:
-            print(f"[*] Quét tích lũy và đếm tần suất (--min-count = {args.min_count})...")
-            blocks = engine.scan_file(input_path, deduplicate=True, skip_known=skip_known)
-            print(f"[+] Kết quả quét thô: {len(blocks)} nhân vật đại diện duy nhất.")
-
-            # Ghi scanner_all.json dạng stream
-            stream_write_json_array(output_dir / "scanner_all.json", (b.to_output_dict() for b in blocks))
-            print(f"[+] Đã ghi '{output_dir}/scanner_all.json' dạng stream & giải phóng bộ nhớ.")
-
-            orig_len = len(blocks)
+        orig_len = len(blocks)
+        if args.min_count > 1:
             filtered_blocks = [b for b in blocks if b.so_lan_xuat_hien >= args.min_count]
+            print(f"[+] Đã lọc theo số lần xuất hiện >= {args.min_count}: {orig_len} -> {len(filtered_blocks)} nhân vật.")
             for idx, b in enumerate(filtered_blocks, start=1):
                 b.id = f"ch_{idx:04d}"
-            print(f"[+] Đã lọc theo số lần xuất hiện >= {args.min_count}: {orig_len} -> {len(filtered_blocks)} nhân vật.")
-            del blocks
-            gc.collect()
-            packager.package(filtered_blocks, output_dir, chunk_size=args.chunk_size)
+        else:
+            filtered_blocks = blocks
+
+        del blocks
+        gc.collect()
+
+        packager.package(filtered_blocks, output_dir, chunk_size=args.chunk_size)
 
         # Benchmark if ground truth exists
         gt_path = resolve_file(args.ground_truth, "samples")

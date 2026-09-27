@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from pathlib import Path
 from collections import defaultdict
+import json
 from .resource_loader import ResourceLoader
 from .boundary_trimmer import BoundaryTrimmer
 from .candidate_extractor import CandidateExtractor
@@ -79,8 +80,8 @@ class ProgressPrinter:
             eta_str = f"{int(eta_sec)}s" if eta_sec < 60 else f"{int(eta_sec//60)}m{int(eta_sec%60)}s"
             filled = int(self.bar_width * current_line / self.total_lines)
             bar = "█" * filled + "░" * (self.bar_width - filled)
-            msg = f"\r[*] Quét: [{bar}] {percent:5.1f}% | {int(speed):,} d/s | Còn {eta_str} | Tìm thấy: {found_count:,} {self.label}"
-            sys.stdout.write(f"{msg:<75}")
+            msg = f"[*] Quét: [{bar}] {percent:5.1f}% | {int(speed):,} d/s | Còn {eta_str} | Tìm thấy: {found_count:,} {self.label}"
+            sys.stdout.write(f"\r{msg:<95}")
             sys.stdout.flush()
         else:
             milestone = int(percent // 10) * 10
@@ -95,8 +96,8 @@ class ProgressPrinter:
         elapsed = max(0.001, time.time() - self.start_time)
         avg_speed = int(self.total_lines / elapsed)
         if self.is_tty:
-            msg = f"\r[+] Quét xong: 100% ({self.total_lines:,} dòng) trong {elapsed:.1f}s ({avg_speed:,} d/s) | {found_count:,} {self.label}"
-            sys.stdout.write(f"{msg:<75}\n")
+            msg = f"[+] Quét xong: 100% ({self.total_lines:,} dòng) trong {elapsed:.1f}s ({avg_speed:,} d/s) | {found_count:,} {self.label}"
+            sys.stdout.write(f"\r{msg:<95}\n")
             sys.stdout.flush()
         else:
             print(
@@ -185,11 +186,14 @@ class ScannerEngine:
         deduplicate: bool = True,
         show_progress: bool = True,
         skip_known: Optional[bool] = None,
-        progress_callback: Optional[Callable[[int, int, int], None]] = None
+        progress_callback: Optional[Callable[[int, int, int], None]] = None,
+        realtime_all_path: Optional[Path] = None,
+        realtime_interval: float = 1.0
     ) -> list[CharacterBlock]:
         """
-        Quét văn bản với cơ chế Khử trùng lặp trực tiếp (Online Deduplication)
-        và hiển thị thanh tiến trình % trực quan thời gian thực.
+        Quét văn bản với cơ chế Khử trùng lặp trực tiếp (Online Deduplication),
+        hiển thị thanh tiến trình % trực quan thời gian thực, và hỗ trợ lưu
+        kết quả realtime vào scanner_all.json liên tục trong quá trình quét.
         """
         effective_skip = self.skip_known if skip_known is None else skip_known
         if not deduplicate:
@@ -200,75 +204,105 @@ class ScannerEngine:
         best_scores: dict[str, tuple] = {}
         progress = ProgressPrinter(total_lines, label="nhân vật") if show_progress else None
 
-        with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-            for line_idx, line in enumerate(f, start=1):
-                clean_line = line.strip()
-                if not clean_line:
-                    if progress:
-                        progress.update(line_idx, len(tracked))
-                    continue
+        last_realtime_save = time.time()
+        is_dirty = False
 
-                candidates = self.extractor.extract_candidates(line, skip_known=effective_skip)
-                for cand in candidates:
-                    if effective_skip:
-                        if (cand.raw.lower().strip() in self.loader.known_characters or 
-                            cand.name.lower().strip() in self.loader.known_characters):
-                            continue
-                    name_key = cand.name.lower().strip()
+        def _save_realtime(target_path: Path):
+            nonlocal is_dirty, last_realtime_save
+            if not target_path or not is_dirty:
+                return
+            target_path = Path(target_path)
+            target_path.parent.mkdir(parents=True, exist_ok=True)
+            tmp_path = target_path.with_suffix(target_path.suffix + ".tmp")
+            with open(tmp_path, "w", encoding="utf-8") as f_out:
+                f_out.write("[\n")
+                first = True
+                for b in tracked.values():
+                    if not first:
+                        f_out.write(",\n")
+                    else:
+                        first = False
+                    item_json = json.dumps(b.to_output_dict(), ensure_ascii=False, indent=2)
+                    indented = "  " + item_json.replace("\n", "\n  ")
+                    f_out.write(indented)
+                f_out.write("\n]\n")
+            tmp_path.replace(target_path)
+            is_dirty = False
+            last_realtime_save = time.time()
 
-                    if name_key in tracked:
-                        existing = tracked[name_key]
-                        existing.so_lan_xuat_hien += 1
-                        if len(existing.cac_dong_xuat_hien) < 100 and line_idx not in existing.cac_dong_xuat_hien:
-                            existing.cac_dong_xuat_hien.append(line_idx)
-                        # Chỉ mở rộng ngữ cảnh khi độ tin cậy có thể vượt qua điểm số tốt nhất hiện có
-                        if cand.confidence >= best_scores[name_key][0]:
+        try:
+            with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+                for line_idx, line in enumerate(f, start=1):
+                    clean_line = line.strip()
+                    if not clean_line:
+                        if progress:
+                            progress.update(line_idx, len(tracked))
+                        continue
+
+                    candidates = self.extractor.extract_candidates(line, skip_known=effective_skip)
+                    for cand in candidates:
+                        if effective_skip:
+                            if (cand.raw.lower().strip() in self.loader.known_characters or 
+                                cand.name.lower().strip() in self.loader.known_characters):
+                                continue
+                        name_key = cand.name.lower().strip()
+
+                        if name_key in tracked:
+                            existing = tracked[name_key]
+                            existing.so_lan_xuat_hien += 1
+                            if len(existing.cac_dong_xuat_hien) < 100 and line_idx not in existing.cac_dong_xuat_hien:
+                                existing.cac_dong_xuat_hien.append(line_idx)
+                            is_dirty = True
+                            # Chỉ mở rộng ngữ cảnh khi độ tin cậy có thể vượt qua điểm số tốt nhất hiện có
+                            if cand.confidence >= best_scores[name_key][0]:
+                                ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
+                                score = self._score_block(cand.confidence, ctx, line_idx)
+                                if score > best_scores[name_key]:
+                                    existing.source = cand.raw
+                                    existing.target = cand.name
+                                    existing.context = ctx
+                                    existing.yeu_to_nhan_biet = cand.reason
+                                    existing.confidence = cand.confidence
+                                    best_scores[name_key] = score
+                        else:
                             ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
                             score = self._score_block(cand.confidence, ctx, line_idx)
-                            if score > best_scores[name_key]:
-                                existing.source = cand.raw
-                                existing.target = cand.name
-                                existing.context = ctx
-                                existing.yeu_to_nhan_biet = cand.reason
-                                existing.confidence = cand.confidence
-                                best_scores[name_key] = score
-                    else:
-                        ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
-                        score = self._score_block(cand.confidence, ctx, line_idx)
-                        block = CharacterBlock(
-                            id="",
-                            source=cand.raw,
-                            target=cand.name,
-                            context=ctx,
-                            yeu_to_nhan_biet=cand.reason,
-                            so_lan_xuat_hien=1,
-                            dong_xuat_hien=line_idx,
-                            confidence=cand.confidence,
-                            cac_dong_xuat_hien=[line_idx]
-                        )
-                        tracked[name_key] = block
-                        best_scores[name_key] = score
+                            block = CharacterBlock(
+                                id=f"ch_{len(tracked) + 1:04d}",
+                                source=cand.raw,
+                                target=cand.name,
+                                context=ctx,
+                                yeu_to_nhan_biet=cand.reason,
+                                so_lan_xuat_hien=1,
+                                dong_xuat_hien=line_idx,
+                                confidence=cand.confidence,
+                                cac_dong_xuat_hien=[line_idx]
+                            )
+                            tracked[name_key] = block
+                            best_scores[name_key] = score
+                            is_dirty = True
 
-                if progress:
-                    progress.update(line_idx, len(tracked))
+                    if progress:
+                        progress.update(line_idx, len(tracked))
 
-                if progress_callback:
-                    progress_callback(line_idx, total_lines, len(tracked))
+                    if progress_callback:
+                        progress_callback(line_idx, total_lines, len(tracked))
 
-                if line_idx % 20000 == 0:
-                    gc.collect()
+                    # Flush dữ liệu realtime theo khoảng thời gian
+                    if realtime_all_path and is_dirty and (time.time() - last_realtime_save >= realtime_interval):
+                        _save_realtime(realtime_all_path)
+
+                    if line_idx % 20000 == 0:
+                        gc.collect()
+        finally:
+            # Luôn đảm bảo dữ liệu cuối cùng được ghi đĩa dù bị ngắt tiến trình
+            if realtime_all_path:
+                _save_realtime(realtime_all_path)
 
         if progress:
             progress.finish(len(tracked))
 
-        # Sắp xếp theo dòng xuất hiện đầu tiên
         deduped = list(tracked.values())
-        deduped.sort(key=lambda b: b.dong_xuat_hien)
-
-        # Đánh chỉ mục id tuần tự
-        for idx, b in enumerate(deduped, start=1):
-            b.id = f"ch_{idx:04d}"
-
         return deduped
 
     def deduplicate_blocks(self, blocks: list[CharacterBlock]) -> list[CharacterBlock]:
