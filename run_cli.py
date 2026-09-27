@@ -106,12 +106,15 @@ def main_menu():
             print("  [6] 📥 Nạp dữ liệu vào từ điển (Tự động phân bổ theo 'is_character')")
             print("  [7] ✍️  Nhập thủ công từng từ vào từ điển (Interactive mode)")
             print()
+            print("  [ THAY THẾ VĂN BẢN (REPLACE) ]")
+            print("  [9] 🔄 Thay thế văn bản bằng từ điển (Single-Pass Longest Match)")
+            print()
             print("  [ HỆ THỐNG ]")
             print("  [8] 🧪 Chạy kiểm thử tự động hệ thống (Run Unit Tests)")
             print("  [0] ❌ Thoát chương trình")
             print("=" * 68)
 
-            choice = input("👉 Nhập lựa chọn của bạn (0-8) [Mặc định: 1]: ").strip()
+            choice = input("👉 Nhập lựa chọn của bạn (0-9) [Mặc định: 1]: ").strip()
             if not choice:
                 choice = "1"
 
@@ -242,6 +245,22 @@ def main_menu():
             elif choice == "8":
                 print("\n--- [8] CHẠY KIỂM THỬ HỆ THỐNG (UNIT TESTS) ---")
                 cmd = [sys.executable, "-m", "pytest", "tests/", "-v"]
+                print(f"\n[*] Đang thực thi: {' '.join(cmd)}\n")
+                subprocess.run(cmd)
+                input("\n👉 Nhấn Enter để quay lại menu chính...")
+
+            elif choice == "9":
+                print("\n--- [9] THAY THẾ VĂN BẢN BẰNG TỪ ĐIỂN (REPLACE ENGINE) ---")
+                inp = prompt_input_file("samples/exam.txt")
+                p_inp = Path(inp)
+                default_out = f"output/replaced/{p_inp.stem}_converted{p_inp.suffix}"
+                out = input(f"Đường dẫn file kết quả [Mặc định: {default_out}]: ").strip() or default_out
+
+                cmd = [
+                    sys.executable, "-m", "src.replacer.main",
+                    "--input", inp,
+                    "--output", out
+                ]
                 print(f"\n[*] Đang thực thi: {' '.join(cmd)}\n")
                 subprocess.run(cmd)
                 input("\n👉 Nhấn Enter để quay lại menu chính...")

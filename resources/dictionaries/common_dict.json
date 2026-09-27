@@ -1,1 +1,428 @@
-[]
+[
+  {
+    "id": "co-1",
+    "source": "Đông Phương",
+    "target": "phương Đông",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-2",
+    "source": "thẩm thẩm",
+    "target": "thẩm thẩm",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-3",
+    "source": "Dương gia",
+    "target": "nhà họ Dương",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-4",
+    "source": "ôn nhu an ủi",
+    "target": "ôn nhu an ủi",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-5",
+    "source": "Hoa Nhị",
+    "target": "hoa nhị",
+    "category": "Viết hoa chữ cái đầu, mang họ hợp lệ"
+  },
+  {
+    "id": "co-6",
+    "source": "hoa cúc hoàng triều",
+    "target": "hoàng triều Hoa Cúc",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-7",
+    "source": "vũ mỹ",
+    "target": "vũ mỹ",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-8",
+    "source": "lý giải",
+    "target": "lý giải",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-9",
+    "source": "tương lai",
+    "target": "tương lai",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-10",
+    "source": "nhạc mẫu a di",
+    "target": "nhạc mẫu a di",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-11",
+    "source": "đại phôi đản",
+    "target": "đại phôi đản",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-12",
+    "source": "an ủi",
+    "target": "an ủi",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-13",
+    "source": "hình như",
+    "target": "hình như",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-14",
+    "source": "lưu luyến triền miên",
+    "target": "lưu luyến triền miên",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-15",
+    "source": "trương đảm",
+    "target": "trương đảm",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-16",
+    "source": "Trương Hợp",
+    "target": "trương hợp",
+    "category": "Viết hoa chữ cái đầu, mang họ hợp lệ"
+  },
+  {
+    "id": "co-17",
+    "source": "đơn giản",
+    "target": "đơn giản",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-18",
+    "source": "cảnh sát",
+    "target": "Cảnh Sát",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-19",
+    "source": "nhạc mẫu đại nhân",
+    "target": "Nhạc Mẫu Đại Nhân",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-20",
+    "source": "hoa Hoa công tử",
+    "target": "Hoa Hoa Công Tử",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-21",
+    "source": "cao gầy",
+    "target": "Cao Gầy",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-22",
+    "source": "cổ động",
+    "target": "Cổ Động",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-23",
+    "source": "kiều mỵ",
+    "target": "Kiều Mỵ",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-24",
+    "source": "cố gắng",
+    "target": "Cố Gắng",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-25",
+    "source": "phòng làm việc",
+    "target": "Phòng Làm Việc",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-26",
+    "source": "cầu xin tha thứ",
+    "target": "Cầu Xin Tha Thứ",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-27",
+    "source": "dụ dỗ gian dâm",
+    "target": "Dụ Dỗ Gian Dâm",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-28",
+    "source": "đại mỹ nữ",
+    "target": "Đại Mỹ Nữ",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-29",
+    "source": "cao quý",
+    "target": "Cao Quý",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-30",
+    "source": "Hồng Hưng",
+    "target": "Hồng Hưng",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-31",
+    "source": "võ công",
+    "target": "Võ Công",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-32",
+    "source": "Thân ái",
+    "target": "Thân Ái",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-33",
+    "source": "đậu đỏ",
+    "target": "Đậu Đỏ",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-34",
+    "source": "viên hàng",
+    "target": "Viên Hàng",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-35",
+    "source": "đinh hương",
+    "target": "Đinh Hương",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-36",
+    "source": "đại mỹ nhân",
+    "target": "Đại Mỹ Nhân",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-37",
+    "source": "tưởng rằng",
+    "target": "Tưởng Rằng",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-38",
+    "source": "bao bọc",
+    "target": "Bao Bọc",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-39",
+    "source": "dụ dỗ",
+    "target": "Dụ Dỗ",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-40",
+    "source": "trần truồng",
+    "target": "Trần Truồng",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-41",
+    "source": "lỗ tai",
+    "target": "Lỗ Tai",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-42",
+    "source": "trần như nhộng",
+    "target": "Trần Như Nhộng",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-43",
+    "source": "hồng nhuận",
+    "target": "Hồng Nhuận",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-44",
+    "source": "tăng thêm",
+    "target": "Tăng Thêm",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-45",
+    "source": "kiều bá mị",
+    "target": "Kiều Bá Mị",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-46",
+    "source": "ôn nhu",
+    "target": "Ôn Nhu",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-47",
+    "source": "kiều tiểu",
+    "target": "Kiều Tiểu",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-48",
+    "source": "lưu luyến",
+    "target": "Lưu Luyến",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-49",
+    "source": "nghiêm chỉnh",
+    "target": "Nghiêm Chỉnh",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-50",
+    "source": "cầu ngươi",
+    "target": "Cầu Ngươi",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-51",
+    "source": "cố tình",
+    "target": "Cố Tình",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-52",
+    "source": "đại khái",
+    "target": "Đại Khái",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-53",
+    "source": "cường bạo",
+    "target": "Cường Bạo",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-54",
+    "source": "kiều diễm",
+    "target": "Kiều Diễm",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-55",
+    "source": "tất cả",
+    "target": "Tất Cả",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-56",
+    "source": "an phận",
+    "target": "An Phận",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-57",
+    "source": "thủy uông uông",
+    "target": "Thủy Uông Uông",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-58",
+    "source": "tăng vọt",
+    "target": "Tăng Vọt",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-59",
+    "source": "bao vây",
+    "target": "Bao Vây",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-60",
+    "source": "thích hợp",
+    "target": "Thích Hợp",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-61",
+    "source": "thủy linh",
+    "target": "Thủy Linh",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-62",
+    "source": "chung quanh",
+    "target": "Chung Quanh",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-63",
+    "source": "cảnh tượng",
+    "target": "Cảnh Tượng",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-64",
+    "source": "trần trụi",
+    "target": "Trần Trụi",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-65",
+    "source": "mạnh mẽ",
+    "target": "Mạnh Mẽ",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-66",
+    "source": "hầu hạ",
+    "target": "Hầu Hạ",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-67",
+    "source": "tất chân",
+    "target": "Tất Chân",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-68",
+    "source": "hạ thể",
+    "target": "Hạ Thể",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-69",
+    "source": "ma sát",
+    "target": "Ma Sát",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-70",
+    "source": "đại cự mãng",
+    "target": "Đại Cự Mãng",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  },
+  {
+    "id": "co-71",
+    "source": "cố ý",
+    "target": "Cố Ý",
+    "category": "Khớp với tên nhân vật đã xác nhận trước đó"
+  }
+]
