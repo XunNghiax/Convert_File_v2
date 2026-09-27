@@ -2,8 +2,8 @@ import argparse
 import time
 import re
 from pathlib import Path
-from character_scanner.gemini_uploader import GeminiUploader
-from character_scanner.progress_tracker import ProgressTracker
+from .gemini_uploader import GeminiUploader
+from .progress_tracker import ProgressTracker
 
 def sort_key_func(p: Path) -> int:
     m = re.search(r'(\d+)', p.name)
@@ -12,7 +12,7 @@ def sort_key_func(p: Path) -> int:
 def run_upload_workflow(
     scanner_dir: Path | str = "output/scanner",
     profile_dir: Path | str = "runtime/chrome_profiles",
-    output_json: Path | str = "output/import.json",
+    output_json: Path | str = "samples/import.json",
     delay: int = 5,
     headless: bool = False,
     reset_progress: bool = False
@@ -89,7 +89,7 @@ def main():
     parser = argparse.ArgumentParser(description="Tự động hóa nạp các file scanner lên Gemini và tạo import.json")
     parser.add_argument("--scanner-dir", default="output/scanner", help="Thư mục chứa các file scanner_*.md (mặc định: output/scanner)")
     parser.add_argument("--profile-dir", default="runtime/chrome_profiles", help="Thư mục profile Chrome (mặc định: runtime/chrome_profiles)")
-    parser.add_argument("--output-json", default="output/import.json", help="Đường dẫn file import.json kết quả (mặc định: output/import.json)")
+    parser.add_argument("--output-json", default="samples/import.json", help="Đường dẫn file import.json kết quả (mặc định: samples/import.json)")
     parser.add_argument("--delay", type=int, default=5, help="Thời gian nghỉ (giây) giữa các file")
     parser.add_argument("--headless", action="store_true", help="Chạy ẩn danh không mở cửa sổ Chrome")
     parser.add_argument("--reset-progress", action="store_true", help="Xóa lịch sử tiến trình cũ và chạy lại từ đầu")

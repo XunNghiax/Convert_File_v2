@@ -1,11 +1,36 @@
+import sys
 import argparse
 from pathlib import Path
 import json
-from character_scanner.resource_loader import ResourceLoader
-from character_scanner.scanner_engine import ScannerEngine, CharacterBlock
-from character_scanner.output_packager import OutputPackager
-from character_scanner.benchmark import Evaluator
-from character_scanner.upload_to_gemini import run_upload_workflow
+
+# Đảm bảo đường dẫn gốc của project có trong sys.path
+root_dir = Path(__file__).resolve().parent.parent.parent
+if str(root_dir) not in sys.path:
+    sys.path.insert(0, str(root_dir))
+
+from .resource_loader import ResourceLoader
+from .scanner_engine import ScannerEngine, CharacterBlock
+from .output_packager import OutputPackager
+from .benchmark import Evaluator
+from .upload_to_gemini import run_upload_workflow
+
+import gc
+
+def stream_write_json_array(file_path: Path, items_iterable):
+    """Ghi danh sách dicts ra file JSON dạng streaming để không tốn RAM."""
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write("[\n")
+        first = True
+        for item in items_iterable:
+            if not first:
+                f.write(",\n")
+            else:
+                first = False
+            item_json = json.dumps(item, ensure_ascii=False, indent=2)
+            indented = "  " + item_json.replace("\n", "\n  ")
+            f.write(indented)
+        f.write("\n]\n")
 
 def resolve_file(path_str: str, default_dir: str) -> Path:
     p = Path(path_str)
@@ -30,13 +55,14 @@ def main():
     parser.add_argument("--chunk-size", type=int, default=40, help="Số block mỗi file md (mặc định: 40)")
     parser.add_argument("--no-dedup", action="store_true", help="Không khử trùng lặp (giữ mọi vị trí xuất hiện)")
     parser.add_argument("--min-count", type=int, default=1, help="Số lần xuất hiện tối thiểu để giữ lại nhân vật (mặc định: 1)")
+    parser.add_argument("--include-known", action="store_true", help="Liệt kê cả các nhân vật đã có trong từ điển (mặc định: chỉ tìm nhân vật mới)")
     parser.add_argument("--filter-only", action="store_true", help="Chỉ lọc nhanh thư mục scanner hiện có theo --min-count và đóng gói lại markdown")
 
     # Nhóm tham số tự động đẩy lên Gemini
     parser.add_argument("--upload-gemini", action="store_true", help="Tự động nạp các file kết quả lên Gemini sau khi quét xong")
     parser.add_argument("--upload-only", action="store_true", help="Chỉ chạy tự động nạp Gemini (bỏ qua bước quét văn bản)")
     parser.add_argument("--profile-dir", default="runtime/chrome_profiles", help="Thư mục profile Chrome (mặc định: runtime/chrome_profiles)")
-    parser.add_argument("--output-import-json", default="output/import.json", help="Đường dẫn file import.json kết quả từ Gemini (mặc định: output/import.json)")
+    parser.add_argument("--output-import-json", default="samples/import.json", help="Đường dẫn file import.json kết quả từ Gemini (mặc định: samples/import.json)")
     parser.add_argument("--gemini-delay", type=int, default=5, help="Thời gian nghỉ (giây) giữa các file khi gửi Gemini")
     parser.add_argument("--headless", action="store_true", help="Chạy ẩn danh không mở cửa sổ Chrome")
     parser.add_argument("--reset-gemini-progress", action="store_true", help="Đặt lại (reset) tiến trình gửi Gemini cũ")
@@ -91,38 +117,59 @@ def main():
         loader.load_all()
 
         dedup = not args.no_dedup
+        skip_known = not args.include_known
         input_path = resolve_file(args.input, "samples")
         print(f"[*] Bắt đầu quét file: {input_path} (Khử trùng lặp: {dedup})...")
-        engine = ScannerEngine(loader)
-        blocks = engine.scan_file(input_path, deduplicate=dedup)
-        print(f"[+] Kết quả quét thô: {len(blocks)} nhân vật đại diện duy nhất.")
+        if skip_known:
+            print(f"[*] Chế độ: Chỉ tìm nhân vật MỚI (đã loại trừ các nhân vật trong từ điển)...")
+        else:
+            print(f"[*] Chế độ: Liệt kê TẤT CẢ nhân vật (kể cả đã có trong từ điển)...")
 
+        engine = ScannerEngine(loader, skip_known=skip_known)
         output_dir = Path(args.output)
         output_dir.mkdir(parents=True, exist_ok=True)
-        # Lưu bản master đầy đủ chưa lọc vào scanner_all.json
-        all_payload = [b.to_output_dict() for b in blocks]
-        (output_dir / "scanner_all.json").write_text(json.dumps(all_payload, ensure_ascii=False, indent=2), encoding="utf-8")
-
-        # Lọc theo số lần xuất hiện nếu min_count > 1
-        if args.min_count > 1:
-            orig_len = len(blocks)
-            blocks = [b for b in blocks if b.so_lan_xuat_hien >= args.min_count]
-            for idx, b in enumerate(blocks, start=1):
-                b.id = f"ch_{idx:04d}"
-            print(f"[+] Đã lọc theo số lần xuất hiện >= {args.min_count}: {orig_len} -> {len(blocks)} nhân vật.")
-
-        print(f"[*] Đóng gói xuất kết quả ra '{args.output}'...")
         packager = OutputPackager(prompt_path)
-        packager.package(blocks, output_dir, chunk_size=args.chunk_size)
-        num_chunks = (len(blocks) + args.chunk_size - 1) // args.chunk_size if blocks else 0
-        print(f"[+] Đã ghi '{args.output}/scanner_master.json' và {num_chunks} file markdown con thành công.")
+
+        if args.min_count <= 1:
+            print(f"[*] Chế độ streaming trực tiếp: Vừa đọc vừa xuất file nhỏ (.md) ngay khi đủ {args.chunk_size} nhân vật & giải phóng RAM...")
+            raw_stream = engine.scan_file_stream(
+                input_path,
+                deduplicate=dedup,
+                skip_known=skip_known
+            )
+            total = packager.package(raw_stream, output_dir, chunk_size=args.chunk_size)
+            print(f"[+] Hoàn thành quét streaming: Tổng cộng {total} nhân vật xuất hiện.")
+
+            import shutil
+            master_file = output_dir / "scanner_master.json"
+            all_file = output_dir / "scanner_all.json"
+            if master_file.exists():
+                shutil.copyfile(master_file, all_file)
+        else:
+            print(f"[*] Quét tích lũy và đếm tần suất (--min-count = {args.min_count})...")
+            blocks = engine.scan_file(input_path, deduplicate=True, skip_known=skip_known)
+            print(f"[+] Kết quả quét thô: {len(blocks)} nhân vật đại diện duy nhất.")
+
+            # Ghi scanner_all.json dạng stream
+            stream_write_json_array(output_dir / "scanner_all.json", (b.to_output_dict() for b in blocks))
+            print(f"[+] Đã ghi '{output_dir}/scanner_all.json' dạng stream & giải phóng bộ nhớ.")
+
+            orig_len = len(blocks)
+            filtered_blocks = [b for b in blocks if b.so_lan_xuat_hien >= args.min_count]
+            for idx, b in enumerate(filtered_blocks, start=1):
+                b.id = f"ch_{idx:04d}"
+            print(f"[+] Đã lọc theo số lần xuất hiện >= {args.min_count}: {orig_len} -> {len(filtered_blocks)} nhân vật.")
+            del blocks
+            gc.collect()
+            packager.package(filtered_blocks, output_dir, chunk_size=args.chunk_size)
 
         # Benchmark if ground truth exists
         gt_path = resolve_file(args.ground_truth, "samples")
         if gt_path.exists():
             try:
                 gt_data = json.loads(gt_path.read_text(encoding="utf-8")).get("file_nhan_vat", [])
-                pred_data = [b.to_dict() for b in blocks]
+                master_file = output_dir / "scanner_master.json"
+                pred_data = json.loads(master_file.read_text(encoding="utf-8")) if master_file.exists() else []
                 ev = Evaluator()
                 metrics = ev.evaluate(pred_data, gt_data)
                 print("\n=== KẾT QUẢ ĐÁNH GIÁ (BENCHMARK) ===")

@@ -1,5 +1,5 @@
 from pathlib import Path
-from character_scanner.gemini_uploader import GeminiUploader
+from src.scanner.gemini_uploader import GeminiUploader
 
 def test_gemini_uploader_init():
     uploader = GeminiUploader("chrome_profiles")

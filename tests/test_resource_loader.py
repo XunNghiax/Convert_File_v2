@@ -1,5 +1,5 @@
 from pathlib import Path
-from character_scanner.resource_loader import ResourceLoader
+from src.scanner.resource_loader import ResourceLoader
 
 def test_load_surnames(tmp_path):
     f = tmp_path / "surnames.txt"

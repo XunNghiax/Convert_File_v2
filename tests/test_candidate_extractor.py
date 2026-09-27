@@ -1,6 +1,6 @@
-from character_scanner.resource_loader import ResourceLoader
-from character_scanner.boundary_trimmer import BoundaryTrimmer
-from character_scanner.candidate_extractor import CandidateExtractor
+from src.scanner.resource_loader import ResourceLoader
+from src.scanner.boundary_trimmer import BoundaryTrimmer
+from src.scanner.candidate_extractor import CandidateExtractor
 
 def test_extract_profile_candidate():
     loader = ResourceLoader()
@@ -32,3 +32,25 @@ def test_filter_non_person():
     line = "Sông Viêm là Hoàng Hà một cái tiểu nhánh sông"
     candidates = extractor.extract_candidates(line)
     assert not any(c.name.lower() == "hoàng hà" for c in candidates)
+
+def test_skip_known_characters():
+    loader = ResourceLoader()
+    loader.single_surnames = {"vệ", "lâm"}
+    loader.known_characters = {"vệ đông": "Vệ Đông"}
+    trimmer = BoundaryTrimmer(set())
+
+    line = "Vệ Đông và Lâm Bằng Tường cùng nhau bước vào phòng."
+
+    # Chế độ skip_known=True (mặc định): Không liệt kê Vệ Đông, nhưng vẫn bắt nhân vật mới Lâm Bằng Tường
+    extractor_skip = CandidateExtractor(loader, trimmer, skip_known=True)
+    cands_skip = extractor_skip.extract_candidates(line)
+    names_skip = [c.name for c in cands_skip]
+    assert "Vệ Đông" not in names_skip
+    assert "Lâm Bằng Tường" in names_skip
+
+    # Chế độ skip_known=False: Liệt kê cả Vệ Đông
+    extractor_include = CandidateExtractor(loader, trimmer, skip_known=False)
+    cands_include = extractor_include.extract_candidates(line)
+    names_include = [c.name for c in cands_include]
+    assert "Vệ Đông" in names_include
+    assert "Lâm Bằng Tường" in names_include

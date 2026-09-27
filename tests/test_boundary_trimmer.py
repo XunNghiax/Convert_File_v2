@@ -1,4 +1,4 @@
-from character_scanner.boundary_trimmer import BoundaryTrimmer
+from src.scanner.boundary_trimmer import BoundaryTrimmer
 
 def test_trim_trailing_stopwords():
     stopwords = {"hai", "người", "thân", "con", "của"}

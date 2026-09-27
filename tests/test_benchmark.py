@@ -1,4 +1,4 @@
-from character_scanner.benchmark import Evaluator
+from src.scanner.benchmark import Evaluator
 
 def test_evaluator():
     ground_truth = [

@@ -3,7 +3,7 @@ import time
 from pathlib import Path
 from typing import Callable, Optional
 from playwright.sync_api import sync_playwright, BrowserContext, Page
-from character_scanner.json_extractor import JSONExtractor
+from .json_extractor import JSONExtractor
 
 def resolve_profile_path(profile_path: Path | str) -> Path:
     p = Path(profile_path)

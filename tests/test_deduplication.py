@@ -1,5 +1,5 @@
-from character_scanner.scanner_engine import CharacterBlock, ScannerEngine
-from character_scanner.resource_loader import ResourceLoader
+from src.scanner.scanner_engine import CharacterBlock, ScannerEngine
+from src.scanner.resource_loader import ResourceLoader
 
 def test_deduplicate_blocks():
     b1 = CharacterBlock(

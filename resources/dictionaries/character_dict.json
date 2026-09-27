@@ -69,7 +69,7 @@
         "id": "ch-12",
         "source": "Kim Tuệ Mẫn",
         "target": "Kim Hye-min",
-        "Tag": "Tên gốc Hàn Quốc/Trung Quốc"
+        "Tag": "Khớp với từ điển nhân vật đã quy chuẩn"
     },
     {
         "id": "ch-13",
@@ -288,33 +288,267 @@
         "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
     },
     {
-        "id": "ch-51",
-        "source": "Gavin Tĩnh",
-        "target": "Giả Văn tĩnh",
-        "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
-    },
-    {
         "id": "ch-52",
         "source": "Thẩm bóng hình xinh đẹp",
         "target": "Thẩm Thiến Ảnh",
-        "Tag": "Dì Long Kiếm Phi (Gốc: 沈倩影)"
+        "Tag": "Khớp với từ điển nhân vật đã quy chuẩn"
     },
     {
         "id": "ch-53",
         "source": "bóng hình xinh đẹp",
         "target": "Thiến Ảnh",
-        "Tag": "Tên riêng (Gốc: 倩影)"
+        "Tag": "Khớp với từ điển nhân vật đã quy chuẩn"
     },
     {
         "id": "ch-54",
         "source": "dì bóng hình xinh đẹp",
         "target": "dì Thiến Ảnh",
-        "Tag": "Xưng hô (Gốc: 倩影阿姨)"
+        "Tag": "Khớp với từ điển nhân vật đã quy chuẩn"
     },
     {
         "id": "ch-55",
         "source": "Lưu Tuệ Đẹp",
         "target": "Lưu Tuệ Lệ",
-        "Tag": "Nhân vật (Gốc: 刘慧丽)"
+        "Tag": "Khớp với từ điển nhân vật đã quy chuẩn"
+    },
+    {
+        "id": "ch-56",
+        "source": "Trương Tử Kiến",
+        "target": "Trương Tử Kiến",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '30 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-57",
+        "source": "Lâm Ngọc Chi",
+        "target": "Lâm Ngọc Chi",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '28 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-58",
+        "source": "Lâm Uyển Bích",
+        "target": "Lâm Uyển Bích",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '42 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-59",
+        "source": "Tần Xảo Xảo",
+        "target": "Tần Xảo Xảo",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '34 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-60",
+        "source": "Trương Tử Cường",
+        "target": "Trương Tử Cường",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-61",
+        "source": "Mã Kiến Thiết",
+        "target": "Mã Kiến Thiết",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '38 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-62",
+        "source": "Tô Nguyên Xuân",
+        "target": "Tô Nguyên Xuân",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '35 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-63",
+        "source": "Mã Lỵ Lỵ",
+        "target": "Mã Lỵ Lỵ",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '16 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-64",
+        "source": "Đường Văn Hưng",
+        "target": "Đường Văn Hưng",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '26 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-65",
+        "source": "Tô Tích Xuân",
+        "target": "Tô Tích Xuân",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '26 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-66",
+        "source": "Đường văn thanh",
+        "target": "Đường Văn Thanh",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '19 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-67",
+        "source": "Hứa tiểu trúc",
+        "target": "Hứa Tiểu Trúc",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '44 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-68",
+        "source": "Long Kiếm Phi",
+        "target": "Long Kiếm Phi",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '24 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-69",
+        "source": "Liễu Ngọc như",
+        "target": "Liễu Ngọc Như",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '30 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-70",
+        "source": "Chu Ngọc mị",
+        "target": "Chu Ngọc Mị",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '31 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-71",
+        "source": "Khưu ngọc trinh",
+        "target": "Khưu Ngọc Trinh",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '32 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-72",
+        "source": "Hạ ngọc hà",
+        "target": "Hạ Ngọc Hà",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '28 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-73",
+        "source": "Mai ngọc huyên",
+        "target": "Mai Ngọc Huyên",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '36 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-74",
+        "source": "Trịnh tú nga",
+        "target": "Trịnh Tú Nga",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '40 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-75",
+        "source": "Mạnh huệ san",
+        "target": "Mạnh Huệ San",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '40 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-76",
+        "source": "Tô hà",
+        "target": "Tô Hà",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '33 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-77",
+        "source": "Dương ngọc nhàn",
+        "target": "Dương Ngọc Nhàn",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '40 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-78",
+        "source": "Dương ngọc khanh",
+        "target": "Dương Ngọc Khanh",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '38 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-79",
+        "source": "Dương ngọc nhã",
+        "target": "Dương Ngọc Nhã",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '32 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-80",
+        "source": "Nguyễn ngọc sai",
+        "target": "Nguyễn Ngọc Sai",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '38 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-81",
+        "source": "Diệp Ngọc Thiến",
+        "target": "Diệp Ngọc Thiến",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '26 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-82",
+        "source": "Tiết ngọc di",
+        "target": "Tiết Ngọc Di",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '42 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-83",
+        "source": "Tiền ngọc văn",
+        "target": "Tiền Ngọc Văn",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '22 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-84",
+        "source": "Tiền tuyết văn",
+        "target": "Tiền Tuyết Văn",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '19 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-85",
+        "source": "Chung thục huệ",
+        "target": "Chung Thục Huệ",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '33 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-86",
+        "source": "Lương hiểu tịnh",
+        "target": "Lương Hiểu Tịnh",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '22 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-87",
+        "source": "Lâm nhã thơ",
+        "target": "Lâm Nhã Thơ",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '19 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-88",
+        "source": "Thẩm quân như",
+        "target": "Thẩm Quân Như",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '44 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-89",
+        "source": "Tạ quốc hoa",
+        "target": "Tạ Quốc Hoa",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-90",
+        "source": "Điền tú hồng",
+        "target": "Điền Tú Hồng",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '36 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-91",
+        "source": "Hoa lan",
+        "target": "Hoa Lan",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '18 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-92",
+        "source": "tiền cá Cùng",
+        "target": "Tiền Ngư Đồng",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-93",
+        "source": "vệ đông",
+        "target": "Vệ Đông",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-94",
+        "source": "Hàn Tuyết",
+        "target": "Hàn Tuyết",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-95",
+        "source": "Gavin Tĩnh",
+        "target": "Giả Văn tĩnh",
+        "Tag": ""
     }
 ]

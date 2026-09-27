@@ -1,5 +1,5 @@
-from character_scanner.scanner_engine import CharacterBlock
-from character_scanner.output_packager import OutputPackager
+from src.scanner.scanner_engine import CharacterBlock
+from src.scanner.output_packager import OutputPackager
 import json
 
 def test_min_count_filtering(tmp_path):

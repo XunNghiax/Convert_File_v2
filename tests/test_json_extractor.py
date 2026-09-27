@@ -1,4 +1,4 @@
-from character_scanner.json_extractor import JSONExtractor
+from src.scanner.json_extractor import JSONExtractor
 
 def test_extract_code_block_json():
     raw = """Dưới đây là kết quả đã biên tập:

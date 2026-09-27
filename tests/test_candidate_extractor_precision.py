@@ -1,6 +1,6 @@
-from character_scanner.resource_loader import ResourceLoader
-from character_scanner.boundary_trimmer import BoundaryTrimmer
-from character_scanner.candidate_extractor import CandidateExtractor
+from src.scanner.resource_loader import ResourceLoader
+from src.scanner.boundary_trimmer import BoundaryTrimmer
+from src.scanner.candidate_extractor import CandidateExtractor
 
 def test_extract_profile_with_age_translated_name():
     loader = ResourceLoader()

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import re
-from character_scanner.resource_loader import ResourceLoader
-from character_scanner.boundary_trimmer import BoundaryTrimmer
+from .resource_loader import ResourceLoader
+from .boundary_trimmer import BoundaryTrimmer
 
 @dataclass
 class CandidateMatch:
@@ -38,30 +38,33 @@ class CandidateExtractor:
         "cưới", "hôn", "nhớ", "chờ", "yêu", "trêu", "khiêu", "bóp", "sờ"
     }
 
-    def __init__(self, loader: ResourceLoader, trimmer: BoundaryTrimmer):
+    def __init__(self, loader: ResourceLoader, trimmer: BoundaryTrimmer, skip_known: bool = False):
         self.loader = loader
         self.trimmer = trimmer
+        self.skip_known = skip_known
         self.session_cache: set[str] = set()
 
-    def extract_candidates(self, line: str) -> list[CandidateMatch]:
+    def extract_candidates(self, line: str, skip_known: bool | None = None) -> list[CandidateMatch]:
+        effective_skip = self.skip_known if skip_known is None else skip_known
         results: list[CandidateMatch] = []
         line_clean = line.strip()
         if not line_clean:
             return results
 
-        # 0. Direct match from known characters dictionary
-        for src, tgt in self.loader.known_characters.items():
-            pattern_known = re.compile(rf'\b{re.escape(src)}\b', re.IGNORECASE)
-            for m in pattern_known.finditer(line):
-                cand = m.group(0).strip()
-                results.append(CandidateMatch(
-                    name=tgt,
-                    raw=cand,
-                    start=m.start(),
-                    end=m.end(),
-                    confidence=1.0,
-                    reason="Khớp với từ điển nhân vật đã quy chuẩn"
-                ))
+        # 0. Direct match from known characters dictionary (only when not skipping known)
+        if not effective_skip:
+            for src, tgt in self.loader.known_characters.items():
+                pattern_known = re.compile(rf'\b{re.escape(src)}\b', re.IGNORECASE)
+                for m in pattern_known.finditer(line):
+                    cand = m.group(0).strip()
+                    results.append(CandidateMatch(
+                        name=tgt,
+                        raw=cand,
+                        start=m.start(),
+                        end=m.end(),
+                        confidence=1.0,
+                        reason="Khớp với từ điển nhân vật đã quy chuẩn"
+                    ))
 
         # 1a. Profile with explicit age: <name 2-5 words> , [nam/nữ ,] <age> tuổi
         profile_age_pattern = re.compile(
@@ -73,9 +76,11 @@ class CandidateExtractor:
             age_str = m.group(2).strip()
             clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
             trimmed, _ = self.trimmer.trim(clean_cand)
-            if self._is_negative(trimmed):
+            if self._is_negative(trimmed, skip_known=effective_skip):
                 continue
             if trimmed.lower() in self.loader.known_characters:
+                if effective_skip:
+                    continue
                 norm_name = self.loader.known_characters[trimmed.lower()]
                 conf = 0.98
                 reason = f"Cấu trúc hồ sơ giới thiệu, đi kèm '{age_str}', đã quy chuẩn Hán Việt"
@@ -108,7 +113,7 @@ class CandidateExtractor:
             detail = m.group(2).strip()
             clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
             trimmed, _ = self.trimmer.trim(clean_cand)
-            if self._is_negative(trimmed):
+            if self._is_negative(trimmed, skip_known=effective_skip):
                 continue
             norm_name = self.trimmer.normalize_name(trimmed)
             if self._starts_with_surname(norm_name):
@@ -137,9 +142,11 @@ class CandidateExtractor:
                     continue
                 clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
                 trimmed, _ = self.trimmer.trim(clean_cand)
-                if self._is_negative(trimmed):
+                if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
                 if trimmed.lower() in self.loader.known_characters:
+                    if effective_skip:
+                        continue
                     norm_name = self.loader.known_characters[trimmed.lower()]
                     results.append(CandidateMatch(
                         name=norm_name,
@@ -181,7 +188,7 @@ class CandidateExtractor:
                 raw_cand = m.group(1).strip()
                 clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
                 trimmed, _ = self.trimmer.trim(clean_cand)
-                if self._is_negative(trimmed):
+                if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
                 norm_name = self.trimmer.normalize_name(trimmed)
                 if self._starts_with_surname(norm_name):
@@ -202,7 +209,7 @@ class CandidateExtractor:
             cand = m.group(1).strip()
             clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', cand)[-1].strip()
             trimmed, _ = self.trimmer.trim(clean_cand)
-            if self._is_negative(trimmed):
+            if self._is_negative(trimmed, skip_known=effective_skip):
                 continue
             norm_name = self.trimmer.normalize_name(trimmed)
             if self._starts_with_surname(norm_name):
@@ -221,10 +228,12 @@ class CandidateExtractor:
 
         # 5. Session cache matches (only match confirmed valid characters)
         for known in self.session_cache:
+            if effective_skip and (known.lower() in self.loader.known_characters):
+                continue
             cache_pattern = re.compile(rf'\b{re.escape(known)}\b', re.IGNORECASE)
             for m in cache_pattern.finditer(line):
                 cand = m.group(0).strip()
-                if self._is_negative(cand):
+                if self._is_negative(cand, skip_known=effective_skip):
                     continue
                 results.append(CandidateMatch(
                     name=self.trimmer.normalize_name(cand),
@@ -237,8 +246,17 @@ class CandidateExtractor:
 
         # Deduplicate overlapping spans (keep highest confidence)
         unique_results = self._deduplicate_spans(results)
+        if effective_skip:
+            unique_results = [
+                cand for cand in unique_results
+                if cand.raw.lower().strip() not in self.loader.known_characters
+                and cand.name.lower().strip() not in self.loader.known_characters
+            ]
+
         for cand in unique_results:
             cand_low = cand.name.lower()
+            if effective_skip and (cand_low in self.loader.known_characters or cand.raw.lower().strip() in self.loader.known_characters):
+                continue
             if (cand.confidence >= 0.88 and 
                 self._starts_with_surname(cand.name) and 
                 cand_low not in self.loader.non_person and 
@@ -248,11 +266,11 @@ class CandidateExtractor:
                 self.session_cache.add(cand.name)
         return unique_results
 
-    def _is_negative(self, text: str) -> bool:
+    def _is_negative(self, text: str, skip_known: bool = False) -> bool:
         clean = text.strip()
         low = clean.lower()
         if low in self.loader.known_characters:
-            return False
+            return True if skip_known else False
         words = low.split()
         if len(words) < 2 or len(words) > 5:
             return True

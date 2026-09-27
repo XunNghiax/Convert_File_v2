@@ -3,7 +3,12 @@ import json
 
 class ResourceLoader:
     def __init__(self, base_dir: Path | None = None):
-        self.base_dir = base_dir or Path(".")
+        if base_dir is not None:
+            self.base_dir = base_dir
+        elif (Path(".") / "resources").exists():
+            self.base_dir = Path(".")
+        else:
+            self.base_dir = Path(__file__).resolve().parent.parent.parent
         self.single_surnames: set[str] = set()
         self.compound_surnames: set[str] = set()
         self.pronouns: set[str] = set()

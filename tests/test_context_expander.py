@@ -1,4 +1,4 @@
-from character_scanner.context_expander import ContextExpander
+from src.scanner.context_expander import ContextExpander
 
 def test_expand_full_sentence():
     expander = ContextExpander(min_length=15)

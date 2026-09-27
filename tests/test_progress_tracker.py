@@ -1,5 +1,5 @@
 from pathlib import Path
-from character_scanner.progress_tracker import ProgressTracker
+from src.scanner.progress_tracker import ProgressTracker
 
 def test_progress_tracker(tmp_path):
     progress_file = tmp_path / ".gemini_progress.json"
