@@ -129,7 +129,7 @@ def test_distribute_and_import(tmp_path):
     common_data = load_dictionary(common_dict)
     assert len(common_data) == 1
     assert common_data[0]["source"] == "Ha Ha"
-    assert common_data[0]["target"] == "Ha Ha"
+    assert common_data[0]["target"] == "ha ha"
     assert common_data[0]["id"] == "co-1"
     assert common_data[0]["category"] == "Từ cảm thán"
 

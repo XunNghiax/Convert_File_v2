@@ -140,7 +140,7 @@
     {
         "id": "ch-24",
         "source": "Ma Nguyên tiên sinh",
-        "target": "Asahara tiên sinh",
+        "target": "Asahara Tiên Sinh",
         "Tag": "Họ + Danh xưng (Có thể đổi thành 'Ngài Asahara' hoặc 'Asahara sensei')"
     },
     {
@@ -260,19 +260,19 @@
     {
         "id": "ch-47",
         "source": "kiêu hoành bạt hỗ",
-        "target": "kiêu ngạo hống hách",
+        "target": "Kiêu Ngạo Hống Hách",
         "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
     },
     {
         "id": "ch-48",
         "source": "Làm Vân bác",
-        "target": "Tác Vân bác",
+        "target": "Tác Vân Bác",
         "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
     },
     {
         "id": "ch-49",
         "source": "Làm Vân Cô Mụ",
-        "target": "Tác Vân bác gái",
+        "target": "Tác Vân Bác Gái",
         "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
     },
     {
@@ -302,7 +302,7 @@
     {
         "id": "ch-54",
         "source": "dì bóng hình xinh đẹp",
-        "target": "dì Thiến Ảnh",
+        "target": "Dì Thiến Ảnh",
         "Tag": "Khớp với từ điển nhân vật đã quy chuẩn"
     },
     {
@@ -548,7 +548,7 @@
     {
         "id": "ch-95",
         "source": "Gavin Tĩnh",
-        "target": "Giả Văn tĩnh",
+        "target": "Giả Văn Tĩnh",
         "Tag": ""
     },
     {
@@ -572,7 +572,7 @@
     {
         "id": "ch-99",
         "source": "bách hợp hoàng hậu",
-        "target": "Hoàng hậu Sayuri",
+        "target": "Hoàng Hậu Sayuri",
         "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
     },
     {

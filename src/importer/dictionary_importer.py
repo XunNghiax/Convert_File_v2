@@ -141,8 +141,22 @@ def save_dictionary(entries: List[Dict[str, str]], path: Path, indent: int = 4) 
         print(f"[X] Lỗi khi lưu file từ điển {path}: {e}")
         return False
 
+def capitalize_first_letters(text: str) -> str:
+    """
+    Viết hoa chữ cái đầu tiên của mỗi từ trong chuỗi (Title Case cho tên nhân vật).
+    Bảo toàn phần còn lại của mỗi từ để không làm hỏng các tên viết hoa đặc thù.
+    """
+    if not text:
+        return text
+    words = text.strip().split()
+    return " ".join(w[:1].upper() + w[1:] for w in words)
+
+def lowercase_all(text: str) -> str:
+    """Chuyển toàn bộ chuỗi thành chữ thường (lowkey toàn bộ cho từ điển chung)."""
+    return text.strip().lower() if text else ""
+
 def normalize_character_entry(raw_item: Dict[str, any]) -> Optional[Dict[str, str]]:
-    """Chuẩn hóa một mục nhân vật cho character_dict.json (dùng Tag)."""
+    """Chuẩn hóa một mục nhân vật cho character_dict.json (dùng Tag, tự động upcase chữ cái đầu mỗi từ)."""
     if not isinstance(raw_item, dict):
         return None
 
@@ -155,6 +169,9 @@ def normalize_character_entry(raw_item: Dict[str, any]) -> Optional[Dict[str, st
     if not source or not target:
         return None
 
+    # Tự động viết hoa chữ cái đầu tiên của mỗi từ cho tên nhân vật
+    target = capitalize_first_letters(target)
+
     return {
         "id": custom_id,
         "source": source,
@@ -163,7 +180,7 @@ def normalize_character_entry(raw_item: Dict[str, any]) -> Optional[Dict[str, st
     }
 
 def normalize_common_entry(raw_item: Dict[str, any]) -> Optional[Dict[str, str]]:
-    """Chuẩn hóa một mục từ thông dụng / nhận diện nhầm cho common_dict.json (dùng category)."""
+    """Chuẩn hóa một mục từ thông dụng cho common_dict.json (dùng category, tự động lowercase toàn bộ target)."""
     if not isinstance(raw_item, dict):
         return None
 
@@ -175,6 +192,9 @@ def normalize_common_entry(raw_item: Dict[str, any]) -> Optional[Dict[str, str]]
 
     if not source or not target:
         return None
+
+    # Tự động lowkey (chuyển toàn bộ thành chữ thường) cho từ điển thông dụng
+    target = lowercase_all(target)
 
     return {
         "id": custom_id,

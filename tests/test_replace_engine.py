@@ -111,5 +111,5 @@ def test_dictionary_loading_and_override_priority(tmp_path: Path):
 
     # Long Phi phải lấy theo char_dict ("Long Kiếm Phi") chứ không lấy "Long Phi (Chung)"
     assert engine.dict_map["Long Phi"] == "Long Kiếm Phi"
-    assert engine.dict_map["Đại ca"] == "Ca ca"
+    assert engine.dict_map["Đại ca"] == "ca ca"
     assert engine.dict_map["Tử Kiến"] == "Trương Tử Kiến"

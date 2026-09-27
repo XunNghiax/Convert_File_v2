@@ -120,6 +120,8 @@ class ReplaceEngine:
                     for item in data:
                         src = str(item.get("source", "")).strip()
                         tgt = str(item.get("target") or item.get("suggested_target", "")).strip()
+                        # Chuẩn hóa: Từ điển chung luôn lower toàn bộ target
+                        tgt = tgt.lower()
                         if src and tgt and src != tgt:
                             merged[src] = tgt
             except Exception as e:
@@ -133,6 +135,9 @@ class ReplaceEngine:
                     for item in data:
                         src = str(item.get("source", "")).strip()
                         tgt = str(item.get("target") or item.get("suggested_target", "")).strip()
+                        # Chuẩn hóa: Tên nhân vật luôn upcase chữ cái đầu mỗi từ
+                        words = tgt.split()
+                        tgt = " ".join(w[:1].upper() + w[1:] for w in words)
                         if src and tgt and src != tgt:
                             merged[src] = tgt
             except Exception as e:
