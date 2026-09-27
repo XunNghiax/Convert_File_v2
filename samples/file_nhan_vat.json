@@ -1,0 +1,1123 @@
+{
+    "file_nhan_vat": [
+        {
+            "ten": "Trương Tử Kiến",
+            "dong_xuat_hien": 9,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm thông tin giới tính 'nam' và tuổi '30 tuổi'."
+        },
+        {
+            "ten": "Trương Tử Mạnh",
+            "dong_xuat_hien": 11,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng sau chức danh 'bang chủ' và đứng trước từ chỉ quan hệ 'đệ đệ'."
+        },
+        {
+            "ten": "Lâm Ngọc Chi",
+            "dong_xuat_hien": 17,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nữ', tuổi '28 tuổi' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Trương Tử Kiến",
+            "dong_xuat_hien": 17,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ hôn nhân 'thê tử'."
+        },
+        {
+            "ten": "Lâm Thi Âm",
+            "dong_xuat_hien": 21,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nữ', tuổi '46 tuổi' và từ chỉ người 'mỹ phụ'."
+        },
+        {
+            "ten": "Lâm Ngọc Chi",
+            "dong_xuat_hien": 21,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ gia đình 'mẫu thân'."
+        },
+        {
+            "ten": "Lâm Uyển Bích",
+            "dong_xuat_hien": 25,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ thân tộc 'tỷ tỷ'."
+        },
+        {
+            "ten": "Tần Xảo Xảo",
+            "dong_xuat_hien": 27,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nữ', tuổi '34 tuổi' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Trương Tử Cường",
+            "dong_xuat_hien": 27,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ hôn nhân 'thê tử'."
+        },
+        {
+            "ten": "Kim Tử Phi",
+            "dong_xuat_hien": 31,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nữ', tuổi '23 tuổi' và danh xưng 'thiếu nữ'."
+        },
+        {
+            "ten": "Trương Tử Cường",
+            "dong_xuat_hien": 31,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trong quan hệ nhân thân trước từ 'muội muội'."
+        },
+        {
+            "ten": "Trương Tử Kiến",
+            "dong_xuat_hien": 31,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trong quan hệ nhân thân trước từ 'muội muội'."
+        },
+        {
+            "ten": "Kim Tuệ Mẫn",
+            "dong_xuat_hien": 35,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nữ', tuổi '42 tuổi' và từ chỉ người 'mỹ phụ'."
+        },
+        {
+            "ten": "Trương Tử Cường",
+            "dong_xuat_hien": 35,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước danh xưng quan hệ gia đình 'kế mẫu'."
+        },
+        {
+            "ten": "Trương Tử Kiến",
+            "dong_xuat_hien": 35,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước danh xưng quan hệ gia đình 'kế mẫu'."
+        },
+        {
+            "ten": "Mã Kiến Thiết",
+            "dong_xuat_hien": 41,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nam' và tuổi '38 tuổi'."
+        },
+        {
+            "ten": "Tô Nguyên Xuân",
+            "dong_xuat_hien": 49,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nữ', tuổi '35 tuổi' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Mã Kiến Thiết",
+            "dong_xuat_hien": 49,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ hôn nhân 'thê tử'."
+        },
+        {
+            "ten": "Mã Lỵ Lỵ",
+            "dong_xuat_hien": 53,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nữ', tuổi '16 tuổi' và danh xưng 'thiếu nữ'."
+        },
+        {
+            "ten": "Mã Kiến Thiết",
+            "dong_xuat_hien": 53,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ nhân thân 'nữ nhi'."
+        },
+        {
+            "ten": "Tô Nguyên Xuân",
+            "dong_xuat_hien": 53,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ nhân thân 'nữ nhi'."
+        },
+        {
+            "ten": "Mã Như Lan",
+            "dong_xuat_hien": 57,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nữ', tuổi '40 tuổi' và từ chỉ người 'mỹ phụ'."
+        },
+        {
+            "ten": "Mã Kiến Thiết",
+            "dong_xuat_hien": 57,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ thân tộc 'tỷ tỷ'."
+        },
+        {
+            "ten": "Đường Văn Hưng",
+            "dong_xuat_hien": 61,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nam' và tuổi '26 tuổi'."
+        },
+        {
+            "ten": "Tô Tích Xuân",
+            "dong_xuat_hien": 69,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm giới tính 'nữ', tuổi '26 tuổi' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Đường Văn Hưng",
+            "dong_xuat_hien": 69,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ hôn nhân 'thê tử'."
+        },
+        {
+            "ten": "Tô Nguyên Xuân",
+            "dong_xuat_hien": 69,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ thân tộc 'muội muội'."
+        },
+        {
+            "ten": "Đường văn thanh",
+            "dong_xuat_hien": 73,
+            "yeu_to_nhan_biet": "Mang họ 'Đường', đi kèm giới tính 'nữ', tuổi '19 tuổi' và danh xưng 'thiếu nữ'."
+        },
+        {
+            "ten": "Đường Văn Hưng",
+            "dong_xuat_hien": 73,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ thân tộc 'muội muội'."
+        },
+        {
+            "ten": "Hứa tiểu trúc",
+            "dong_xuat_hien": 77,
+            "yeu_to_nhan_biet": "Mang họ 'Hứa', đi kèm giới tính 'nữ', tuổi '44 tuổi' và từ chỉ người 'mỹ phụ'."
+        },
+        {
+            "ten": "Đường Văn Hưng",
+            "dong_xuat_hien": 77,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ gia đình 'mẫu thân'."
+        },
+        {
+            "ten": "Ung nhân",
+            "dong_xuat_hien": 81,
+            "yeu_to_nhan_biet": "Tên người đi kèm tước vị 'thiên hoàng' và tuổi '40 tuổi'."
+        },
+        {
+            "ten": "Thực hạnh tiểu bách hợp",
+            "dong_xuat_hien": 83,
+            "yeu_to_nhan_biet": "Tên người đi kèm tước vị 'hoàng hậu', tuổi '38 tuổi' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Tiểu Lâm Huệ Mỹ",
+            "dong_xuat_hien": 85,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm tước vị 'Mỹ phi', tuổi '28 tuổi' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Rượu tỉnh Ưu Hương",
+            "dong_xuat_hien": 87,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Tửu Tỉnh), đi kèm tước vị 'hương phi', tuổi '22 tuổi' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Vinh tử",
+            "dong_xuat_hien": 89,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Eiko), đứng trong quan hệ 'nữ nhi', tuổi '18 tuổi' và danh xưng 'thiếu nữ'."
+        },
+        {
+            "ten": "Thu tiểu cung văn nhân",
+            "dong_xuat_hien": 91,
+            "yeu_to_nhan_biet": "Tên người mang cung hiệu Akishino, đi kèm tước vị 'thân vương', quan hệ 'đệ đệ' và tuổi '36 tuổi'."
+        },
+        {
+            "ten": "Cạn thương vũ mỹ",
+            "dong_xuat_hien": 93,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Asakura Yumi), đi kèm tước vị 'Vương phi', tuổi '34 tuổi' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Linh Mộc ma nại mỹ",
+            "dong_xuat_hien": 95,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Suzuki Manami), đi kèm tước vị 'Vương quý phi', tuổi '26 tuổi' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Thu tiểu cung du nhân",
+            "dong_xuat_hien": 97,
+            "yeu_to_nhan_biet": "Tên người mang tước vị 'thân vương', danh xưng 'hoàng thất trưởng nam'."
+        },
+        {
+            "ten": "văn nhân",
+            "dong_xuat_hien": 97,
+            "yeu_to_nhan_biet": "Tên thân vương đi liền với danh xưng 'thân vương', làm cha của du nhân."
+        },
+        {
+            "ten": "Linh Mộc ma nại mỹ",
+            "dong_xuat_hien": 97,
+            "yeu_to_nhan_biet": "Tên người đi kèm tước vị 'quý phi', làm mẹ của du nhân."
+        },
+        {
+            "ten": "Thuần tử",
+            "dong_xuat_hien": 99,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Junko), đứng trong quan hệ 'nữ nhi', tuổi '16 tuổi' và danh xưng 'thiếu nữ'."
+        },
+        {
+            "ten": "văn nhân",
+            "dong_xuat_hien": 99,
+            "yeu_to_nhan_biet": "Tên thân vương làm cha của Thuần tử."
+        },
+        {
+            "ten": "cạn thương vũ mỹ",
+            "dong_xuat_hien": 99,
+            "yeu_to_nhan_biet": "Tên người đi kèm tước vị 'Vương phi', làm mẹ của Thuần tử."
+        },
+        {
+            "ten": "Tiểu Điền mẫn nhã tử",
+            "dong_xuat_hien": 101,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Oda Minako), đồng nhất với Kim Tuệ Mẫn, có quan hệ 'thiên hoàng tỷ tỷ', tuổi '42 tuổi'."
+        },
+        {
+            "ten": "Kim Tuệ Mẫn",
+            "dong_xuat_hien": 101,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tên gọi khác của Tiểu Điền mẫn nhã tử."
+        },
+        {
+            "ten": "tiểu Điền năm mươi lang",
+            "dong_xuat_hien": 101,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Oda Gojuro), đứng sau động từ kết hôn 'gả'."
+        },
+        {
+            "ten": "trương Thái Hòa",
+            "dong_xuat_hien": 101,
+            "yeu_to_nhan_biet": "Tên người Hoa, đứng sau động từ kết hôn 'gả'."
+        },
+        {
+            "ten": "Thực tử",
+            "dong_xuat_hien": 103,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Jitsuko), đứng trước từ chỉ quan hệ 'tỷ tỷ', tuổi '38 tuổi' và 'mỹ phụ'."
+        },
+        {
+            "ten": "văn nhân",
+            "dong_xuat_hien": 103,
+            "yeu_to_nhan_biet": "Tên người đi kèm tước xưng 'thân vương'."
+        },
+        {
+            "ten": "Giai tử",
+            "dong_xuat_hien": 105,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Kako), đứng trước từ chỉ quan hệ 'muội muội', tuổi '30 tuổi' và 'thiếu phụ'."
+        },
+        {
+            "ten": "văn nhân",
+            "dong_xuat_hien": 105,
+            "yeu_to_nhan_biet": "Tên người đi kèm tước xưng 'thân vương'."
+        },
+        {
+            "ten": "Đông lâu nhĩ thịnh dày",
+            "dong_xuat_hien": 107,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Higashikuni Morihiro), đi kèm chức danh 'Thủ tướng' và tuổi '48 tuổi'."
+        },
+        {
+            "ten": "Xuyên nguyên dương tử",
+            "dong_xuat_hien": 109,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Kawahara Yoko), đi kèm danh xưng 'Thủ tướng phu nhân', tuổi '36 tuổi' và 'thiếu phụ'."
+        },
+        {
+            "ten": "Ma nguyên Thái Lang",
+            "dong_xuat_hien": 111,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Asahara Taro), đi kèm chức vụ 'ngoại tướng' và tuổi '44 tuổi'."
+        },
+        {
+            "ten": "Cung trạch mỹ huệ",
+            "dong_xuat_hien": 113,
+            "yeu_to_nhan_biet": "Tên người Nhật Bản (Miyazawa Yoshie), đi kèm danh xưng 'ngoại tướng phu nhân', tuổi '32 tuổi' và 'thiếu phụ'."
+        },
+        {
+            "ten": "Long Kiếm Phi",
+            "dong_xuat_hien": 117,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm tuổi '24 tuổi' và cụm từ miêu tả ngoại hình 'anh tuấn phong lưu tiêu sái'."
+        },
+        {
+            "ten": "Liễu Ngọc như",
+            "dong_xuat_hien": 119,
+            "yeu_to_nhan_biet": "Mang họ 'Liễu', đi kèm tuổi '30 tuổi', nghề nghiệp 'giáo sư' và từ chỉ người 'thiếu phụ'."
+        },
+        {
+            "ten": "Chu Ngọc mị",
+            "dong_xuat_hien": 121,
+            "yeu_to_nhan_biet": "Mang họ 'Chu', đi kèm tuổi '31 tuổi', nghề nghiệp 'y tá' và từ chỉ người 'thiếu phụ'."
+        },
+        {
+            "ten": "Khưu ngọc trinh",
+            "dong_xuat_hien": 123,
+            "yeu_to_nhan_biet": "Mang họ 'Khưu', đi kèm tuổi '32 tuổi', chức vụ 'quản lí' và từ chỉ người 'thiếu phụ'."
+        },
+        {
+            "ten": "Hạ ngọc hà",
+            "dong_xuat_hien": 125,
+            "yeu_to_nhan_biet": "Mang họ 'Hạ', đi kèm tuổi '28 tuổi', nghề nghiệp 'thư ký' và danh xưng 'mỹ nữ'."
+        },
+        {
+            "ten": "Mai ngọc huyên",
+            "dong_xuat_hien": 127,
+            "yeu_to_nhan_biet": "Mang họ 'Mai', đi kèm tuổi '36 tuổi', chức vụ 'tổng giám đốc' và từ chỉ người 'mỹ phụ'."
+        },
+        {
+            "ten": "Trịnh tú nga",
+            "dong_xuat_hien": 129,
+            "yeu_to_nhan_biet": "Mang họ 'Trịnh', đi kèm tuổi '40 tuổi', chức vụ 'quản lí' và từ chỉ người 'mỹ phụ'."
+        },
+        {
+            "ten": "Mạnh huệ san",
+            "dong_xuat_hien": 131,
+            "yeu_to_nhan_biet": "Mang họ 'Mạnh', đi kèm tuổi '40 tuổi', chức vụ 'quản lí' và từ chỉ người 'mỹ phụ'."
+        },
+        {
+            "ten": "Tô hà",
+            "dong_xuat_hien": 133,
+            "yeu_to_nhan_biet": "Mang họ 'Tô', đi kèm tuổi '33 tuổi', chức vụ 'quản lí' và từ chỉ người 'thiếu phụ'."
+        },
+        {
+            "ten": "Dương ngọc nhàn",
+            "dong_xuat_hien": 137,
+            "yeu_to_nhan_biet": "Mang họ 'Dương', đi kèm tuổi '40 tuổi', chức vụ 'ca vũ đoàn trưởng', thứ bậc 'đại tỷ'."
+        },
+        {
+            "ten": "Dương ngọc khanh",
+            "dong_xuat_hien": 139,
+            "yeu_to_nhan_biet": "Mang họ 'Dương', đi kèm tuổi '38 tuổi', chức vụ 'chủ nhiệm', danh xưng 'thị trưởng phu nhân', 'nhị tỷ'."
+        },
+        {
+            "ten": "Dương ngọc thục",
+            "dong_xuat_hien": 141,
+            "yeu_to_nhan_biet": "Mang họ 'Dương', đi kèm tuổi '35 tuổi', chức vụ 'khoa trưởng', thứ bậc 'Tam tỷ'."
+        },
+        {
+            "ten": "Dương ngọc nhã",
+            "dong_xuat_hien": 143,
+            "yeu_to_nhan_biet": "Mang họ 'Dương', đi kèm tuổi '32 tuổi', chức vụ 'y tá trưởng', thứ bậc 'tứ muội'."
+        },
+        {
+            "ten": "Nguyễn ngọc sai",
+            "dong_xuat_hien": 145,
+            "yeu_to_nhan_biet": "Mang họ 'Nguyễn', đi kèm tuổi '38 tuổi', chức vụ 'tổng giám đốc' và từ chỉ người 'mỹ phụ'."
+        },
+        {
+            "ten": "Diệp Ngọc Thiến",
+            "dong_xuat_hien": 147,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm tuổi '26 tuổi', nghề nghiệp 'thư ký' và danh xưng 'mỹ nữ'."
+        },
+        {
+            "ten": "Tiết ngọc di",
+            "dong_xuat_hien": 149,
+            "yeu_to_nhan_biet": "Mang họ 'Tiết', đi kèm tuổi '42 tuổi', nghề nghiệp 'giáo sư', danh xưng 'phu nhân', quan hệ 'mẫu thân'."
+        },
+        {
+            "ten": "tiền ngọc văn",
+            "dong_xuat_hien": 149,
+            "yeu_to_nhan_biet": "Mang họ 'Tiền', đứng trước từ chỉ quan hệ gia đình 'mẫu thân'."
+        },
+        {
+            "ten": "tiền tuyết văn",
+            "dong_xuat_hien": 149,
+            "yeu_to_nhan_biet": "Mang họ 'Tiền', đứng trước từ chỉ quan hệ gia đình 'mẫu thân'."
+        },
+        {
+            "ten": "Tiền ngọc văn",
+            "dong_xuat_hien": 151,
+            "yeu_to_nhan_biet": "Mang họ 'Tiền', đi kèm tuổi '22 tuổi', nghề nghiệp 'thư ký' và danh xưng 'cô gái xinh đẹp'."
+        },
+        {
+            "ten": "Tiền tuyết văn",
+            "dong_xuat_hien": 153,
+            "yeu_to_nhan_biet": "Mang họ 'Tiền', đi kèm tuổi '19 tuổi', nghề nghiệp 'sinh viên' và danh xưng 'cô gái xinh đẹp'."
+        },
+        {
+            "ten": "Chung thục huệ",
+            "dong_xuat_hien": 155,
+            "yeu_to_nhan_biet": "Mang họ 'Chung', đi kèm tuổi '33 tuổi', chức vụ 'đội trưởng hình cảnh' và 'thiếu phụ'."
+        },
+        {
+            "ten": "Lương hiểu tịnh",
+            "dong_xuat_hien": 157,
+            "yeu_to_nhan_biet": "Mang họ 'Lương', đi kèm tuổi '22 tuổi', nghề nghiệp 'cảnh sát' và danh xưng 'cô gái xinh đẹp'."
+        },
+        {
+            "ten": "Râu rậm cẩn",
+            "dong_xuat_hien": 159,
+            "yeu_to_nhan_biet": "Tên người bị dịch thô, đi kèm tuổi '32 tuổi', nghề nghiệp 'bán xe tiểu thư' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Lâm Uyển Bích",
+            "dong_xuat_hien": 161,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đi kèm tuổi '42 tuổi', nghề nghiệp 'y tá trưởng' và 'mỹ phụ'."
+        },
+        {
+            "ten": "lâm nhã thơ",
+            "dong_xuat_hien": 161,
+            "yeu_to_nhan_biet": "Mang họ 'Lâm', đứng trước từ chỉ quan hệ gia đình 'mẫu thân'."
+        },
+        {
+            "ten": "Lâm nhã thơ",
+            "dong_xuat_hien": 163,
+            "yeu_to_nhan_biet": "Mang họ 'Lâm', đi kèm tuổi '19 tuổi', nghề nghiệp 'y tá' và danh xưng 'cô gái xinh đẹp'."
+        },
+        {
+            "ten": "Tạ quốc hoa",
+            "dong_xuat_hien": 167,
+            "yeu_to_nhan_biet": "Mang họ 'Tạ', chức vụ 'tổng giám đốc chủ tịch', đứng trong quan hệ 'phụ thân của Long Kiếm Phi'."
+        },
+        {
+            "ten": "Long Kiếm Phi",
+            "dong_xuat_hien": 167,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng sau từ chỉ quan hệ thân tộc 'phụ thân của'."
+        },
+        {
+            "ten": "Thẩm quân như",
+            "dong_xuat_hien": 169,
+            "yeu_to_nhan_biet": "Mang họ 'Thẩm', tuổi '44 tuổi', đứng trong quan hệ nhân thân 'mẹ' của Long Kiếm Phi."
+        },
+        {
+            "ten": "Long Kiếm Phi",
+            "dong_xuat_hien": 169,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ nhân thân 'mẹ'."
+        },
+        {
+            "ten": "Tạ quốc vĩ",
+            "dong_xuat_hien": 171,
+            "yeu_to_nhan_biet": "Mang họ 'Tạ', đứng trong quan hệ 'đệ đệ' của tạ quốc hoa và 'thúc thúc' của Long Kiếm Phi."
+        },
+        {
+            "ten": "tạ quốc hoa",
+            "dong_xuat_hien": 171,
+            "yeu_to_nhan_biet": "Mang họ 'Tạ', đứng trước từ chỉ quan hệ thân tộc 'đệ đệ'."
+        },
+        {
+            "ten": "Long Kiếm Phi",
+            "dong_xuat_hien": 171,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ xưng hô thân tộc 'thúc thúc'."
+        },
+        {
+            "ten": "Điền tú hồng",
+            "dong_xuat_hien": 173,
+            "yeu_to_nhan_biet": "Mang họ 'Điền', tuổi '36 tuổi', đứng trong quan hệ 'thẩm thẩm' của Long Kiếm Phi."
+        },
+        {
+            "ten": "Long Kiếm Phi",
+            "dong_xuat_hien": 173,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ xưng hô thân tộc 'thẩm thẩm'."
+        },
+        {
+            "ten": "Tạ áng mây",
+            "dong_xuat_hien": 175,
+            "yeu_to_nhan_biet": "Mang họ 'Tạ' (Tạ Vân Bác), tuổi '46 tuổi', đứng trong quan hệ 'bác' của Long Kiếm Phi."
+        },
+        {
+            "ten": "Long Kiếm Phi",
+            "dong_xuat_hien": 175,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ xưng hô thân tộc 'bác'."
+        },
+        {
+            "ten": "Tạ làm vân",
+            "dong_xuat_hien": 177,
+            "yeu_to_nhan_biet": "Mang họ 'Tạ' (Tạ Tác Vân), tuổi '42 tuổi', đứng trong quan hệ 'bác' của Long Kiếm Phi."
+        },
+        {
+            "ten": "Long Kiếm Phi",
+            "dong_xuat_hien": 177,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ xưng hô thân tộc 'bác'."
+        },
+        {
+            "ten": "Tạ mỹ phượng",
+            "dong_xuat_hien": 179,
+            "yeu_to_nhan_biet": "Mang họ 'Tạ', tuổi '32 tuổi', đứng trong quan hệ 'nữ nhi' của tạ quốc hoa."
+        },
+        {
+            "ten": "tạ quốc hoa",
+            "dong_xuat_hien": 179,
+            "yeu_to_nhan_biet": "Mang họ 'Tạ', đứng trước từ chỉ quan hệ gia đình 'nữ nhi'."
+        },
+        {
+            "ten": "Thẩm bóng hình xinh đẹp",
+            "dong_xuat_hien": 181,
+            "yeu_to_nhan_biet": "Mang họ 'Thẩm' (Thẩm Lệ Ảnh), tuổi '39 tuổi', chức vụ 'chủ quản y tá', quan hệ 'dì' của Long Kiếm Phi."
+        },
+        {
+            "ten": "Long Kiếm Phi",
+            "dong_xuat_hien": 181,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ xưng hô thân tộc 'dì'."
+        },
+        {
+            "ten": "Lưu tuệ đẹp",
+            "dong_xuat_hien": 183,
+            "yeu_to_nhan_biet": "Mang họ 'Lưu' (Lưu Tuệ Mỹ), tuổi '32 tuổi', chức vụ 'ngành quản lí' và danh xưng 'thiếu phụ'."
+        },
+        {
+            "ten": "Hoa lan",
+            "dong_xuat_hien": 185,
+            "yeu_to_nhan_biet": "Tên người đặt theo loài hoa, tuổi '18 tuổi', danh xưng 'nữ giúp việc' và 'cô gái xinh đẹp'."
+        },
+        {
+            "ten": "Thu cúc",
+            "dong_xuat_hien": 187,
+            "yeu_to_nhan_biet": "Tên người đặt theo loài hoa, tuổi '16 tuổi', danh xưng 'nữ giúp việc' và 'cô gái xinh đẹp'."
+        },
+        {
+            "ten": "Lâm bằng tường",
+            "dong_xuat_hien": 191,
+            "yeu_to_nhan_biet": "Mang họ 'Lâm', tuổi '53 tuổi', chức vụ 'tỉnh trưởng'."
+        },
+        {
+            "ten": "Hứa tiểu điệp",
+            "dong_xuat_hien": 193,
+            "yeu_to_nhan_biet": "Mang họ 'Hứa', tuổi '48 tuổi', danh xưng 'tỉnh trưởng phu nhân', quan hệ 'tỷ tỷ', chức vụ 'tổng giám đốc'."
+        },
+        {
+            "ten": "lâm bằng tường",
+            "dong_xuat_hien": 193,
+            "yeu_to_nhan_biet": "Mang họ 'Lâm', đứng trước danh xưng 'tỉnh trưởng phu nhân'."
+        },
+        {
+            "ten": "hứa tiểu trúc",
+            "dong_xuat_hien": 193,
+            "yeu_to_nhan_biet": "Mang họ 'Hứa', đứng trước từ chỉ quan hệ thân tộc 'tỷ tỷ'."
+        },
+        {
+            "ten": "Lâm tử hùng",
+            "dong_xuat_hien": 195,
+            "yeu_to_nhan_biet": "Mang họ 'Lâm', tuổi '28 tuổi', quan hệ 'con' của lâm bằng tường và hứa tiểu điệp, chức vụ 'Phó tổng kinh lý'."
+        },
+        {
+            "ten": "lâm bằng tường",
+            "dong_xuat_hien": 195,
+            "yeu_to_nhan_biet": "Tên người làm cha của Lâm tử hùng."
+        },
+        {
+            "ten": "hứa tiểu điệp",
+            "dong_xuat_hien": 195,
+            "yeu_to_nhan_biet": "Tên người làm mẹ của Lâm tử hùng."
+        },
+        {
+            "ten": "Lâm Thi Âm",
+            "dong_xuat_hien": 197,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '46 tuổi', đứng trong quan hệ 'muội muội' của lâm bằng tường."
+        },
+        {
+            "ten": "lâm bằng tường",
+            "dong_xuat_hien": 197,
+            "yeu_to_nhan_biet": "Mang họ 'Lâm', đứng trước từ chỉ quan hệ thân tộc 'muội muội'."
+        },
+        {
+            "ten": "Lâm Ngọc Chi",
+            "dong_xuat_hien": 199,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '28 tuổi', quan hệ 'nữ nhi' của Lâm Thi Âm, nghề nghiệp 'người chủ trì'."
+        },
+        {
+            "ten": "Lâm Thi Âm",
+            "dong_xuat_hien": 199,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ gia đình 'nữ nhi'."
+        },
+        {
+            "ten": "Lâm Uyển Bích",
+            "dong_xuat_hien": 201,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '42 tuổi', quan hệ 'đường muội' của Lâm Thi Âm, chức vụ 'y tá trưởng'."
+        },
+        {
+            "ten": "Lâm Thi Âm",
+            "dong_xuat_hien": 201,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ họ hàng 'đường muội'."
+        },
+        {
+            "ten": "Lâm nhã thơ",
+            "dong_xuat_hien": 203,
+            "yeu_to_nhan_biet": "Mang họ 'Lâm', tuổi '19 tuổi', quan hệ 'nữ nhi' của Lâm Uyển Bích, nghề nghiệp 'y tá'."
+        },
+        {
+            "ten": "Lâm Uyển Bích",
+            "dong_xuat_hien": 203,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ gia đình 'nữ nhi'."
+        },
+        {
+            "ten": "Diệp như hổ",
+            "dong_xuat_hien": 205,
+            "yeu_to_nhan_biet": "Mang họ 'Diệp', tuổi '50 tuổi', quan hệ 'ba ba' của diệp Ngọc Thiến, chức vụ 'cục trưởng'."
+        },
+        {
+            "ten": "diệp Ngọc Thiến",
+            "dong_xuat_hien": 205,
+            "yeu_to_nhan_biet": "Tên người đứng trước từ chỉ quan hệ gia đình 'ba ba'."
+        },
+        {
+            "ten": "Tần khả cầm",
+            "dong_xuat_hien": 207,
+            "yeu_to_nhan_biet": "Mang họ 'Tần', tuổi '47 tuổi', quan hệ 'mẹ' của diệp Ngọc Thiến, chức vụ 'Phó thị trưởng'."
+        },
+        {
+            "ten": "diệp Ngọc Thiến",
+            "dong_xuat_hien": 207,
+            "yeu_to_nhan_biet": "Tên người đứng trước từ chỉ quan hệ gia đình 'mẹ'."
+        },
+        {
+            "ten": "Diệp Ngọc Thiến",
+            "dong_xuat_hien": 209,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '26 tuổi', quan hệ 'nữ nhi' của diệp như hổ và tần khả cầm, chức vụ 'trợ lý'."
+        },
+        {
+            "ten": "diệp như hổ",
+            "dong_xuat_hien": 209,
+            "yeu_to_nhan_biet": "Tên người làm cha của Diệp Ngọc Thiến."
+        },
+        {
+            "ten": "tần khả cầm",
+            "dong_xuat_hien": 209,
+            "yeu_to_nhan_biet": "Tên người làm mẹ của Diệp Ngọc Thiến."
+        },
+        {
+            "ten": "Giả Thương Hải",
+            "dong_xuat_hien": 213,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '52 tuổi', chức vụ 'Tổng kinh lý của' tập đoàn Viễn Dương."
+        },
+        {
+            "ten": "Âu Dương phi phi",
+            "dong_xuat_hien": 215,
+            "yeu_to_nhan_biet": "Viết hoa họ ghép Âu Dương, tuổi '46 tuổi', quan hệ 'vợ trước' của giả Thương Hải, 'mẹ' của Âu Dương như tuyết."
+        },
+        {
+            "ten": "giả Thương Hải",
+            "dong_xuat_hien": 215,
+            "yeu_to_nhan_biet": "Tên người đứng trước từ chỉ quan hệ hôn nhân 'vợ trước'."
+        },
+        {
+            "ten": "Âu Dương như tuyết",
+            "dong_xuat_hien": 215,
+            "yeu_to_nhan_biet": "Tên người mang họ kép Âu Dương, đứng trước từ chỉ quan hệ gia đình 'mẹ'."
+        },
+        {
+            "ten": "Ngô nguyệt kiều",
+            "dong_xuat_hien": 217,
+            "yeu_to_nhan_biet": "Mang họ 'Ngô', tuổi '38 tuổi', quan hệ 'thê tử' của giả Thương Hải, 'kế mẫu' của Âu Dương như tuyết."
+        },
+        {
+            "ten": "giả Thương Hải",
+            "dong_xuat_hien": 217,
+            "yeu_to_nhan_biet": "Tên người đứng trước từ chỉ quan hệ hôn nhân 'thê tử'."
+        },
+        {
+            "ten": "Âu Dương như tuyết",
+            "dong_xuat_hien": 217,
+            "yeu_to_nhan_biet": "Tên người mang họ kép Âu Dương, đứng trước danh xưng quan hệ 'kế mẫu'."
+        },
+        {
+            "ten": "Giả Thương Giang",
+            "dong_xuat_hien": 219,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '44 tuổi', quan hệ 'đệ đệ' của giả Thương Hải, chức vụ 'Phó tổng kinh lý'."
+        },
+        {
+            "ten": "giả Thương Hải",
+            "dong_xuat_hien": 219,
+            "yeu_to_nhan_biet": "Tên người đứng trước từ chỉ quan hệ thân tộc 'đệ đệ'."
+        },
+        {
+            "ten": "Tô tuyết nghi",
+            "dong_xuat_hien": 221,
+            "yeu_to_nhan_biet": "Mang họ 'Tô', tuổi '42 tuổi', quan hệ 'thê tử' của giả Thương Giang, danh xưng họ hàng 'bác'."
+        },
+        {
+            "ten": "giả Thương Giang",
+            "dong_xuat_hien": 221,
+            "yeu_to_nhan_biet": "Tên người đứng trước từ chỉ quan hệ hôn nhân 'thê tử'."
+        },
+        {
+            "ten": "Tô Nguyên Xuân",
+            "dong_xuat_hien": 221,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước danh xưng quan hệ họ hàng 'bác'."
+        },
+        {
+            "ten": "Tô Tích Xuân",
+            "dong_xuat_hien": 221,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước danh xưng quan hệ họ hàng 'bác'."
+        },
+        {
+            "ten": "Tô Liên Xuân",
+            "dong_xuat_hien": 221,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước danh xưng quan hệ họ hàng 'bác'."
+        },
+        {
+            "ten": "Gavin phong",
+            "dong_xuat_hien": 223,
+            "yeu_to_nhan_biet": "Tên người phiên âm bính âm (Giả Văn Phong), tuổi '26 tuổi', con của giả Thương Hải, anh trai của Âu Dương như tuyết."
+        },
+        {
+            "ten": "giả Thương Hải",
+            "dong_xuat_hien": 223,
+            "yeu_to_nhan_biet": "Tên người làm cha của Gavin phong."
+        },
+        {
+            "ten": "Âu Dương phi phi",
+            "dong_xuat_hien": 223,
+            "yeu_to_nhan_biet": "Tên người làm mẹ của Gavin phong."
+        },
+        {
+            "ten": "Âu Dương như tuyết",
+            "dong_xuat_hien": 223,
+            "yeu_to_nhan_biet": "Tên người mang họ kép Âu Dương, đứng trước từ chỉ quan hệ thân tộc 'ca ca'."
+        },
+        {
+            "ten": "Tô Liên Xuân",
+            "dong_xuat_hien": 225,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '26 tuổi', quan hệ 'thê tử' của Gavin phong, 'muội muội' của Tô Nguyên Xuân."
+        },
+        {
+            "ten": "Gavin phong",
+            "dong_xuat_hien": 225,
+            "yeu_to_nhan_biet": "Tên người đứng trước từ chỉ quan hệ hôn nhân 'thê tử'."
+        },
+        {
+            "ten": "Tô Nguyên Xuân",
+            "dong_xuat_hien": 225,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ thân tộc 'muội muội'."
+        },
+        {
+            "ten": "Tô Tích Xuân",
+            "dong_xuat_hien": 225,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước từ chỉ quan hệ thân tộc 'muội muội'."
+        },
+        {
+            "ten": "Dương mưa doanh",
+            "dong_xuat_hien": 227,
+            "yeu_to_nhan_biet": "Mang họ 'Dương' (Dương Vũ Doanh), quan hệ 'tình phụ' của Gavin phong, nghề nghiệp 'ngôi sao ca nhạc'."
+        },
+        {
+            "ten": "Gavin phong",
+            "dong_xuat_hien": 227,
+            "yeu_to_nhan_biet": "Tên người đứng trước từ chỉ quan hệ tình cảm 'tình phụ'."
+        },
+        {
+            "ten": "Gavin đẹp",
+            "dong_xuat_hien": 229,
+            "yeu_to_nhan_biet": "Tên người phiên âm bính âm (Giả Văn Mỹ), tuổi '32 tuổi', chị gái của Âu Dương như tuyết, nghề nghiệp 'giáo sư'."
+        },
+        {
+            "ten": "Âu Dương như tuyết",
+            "dong_xuat_hien": 229,
+            "yeu_to_nhan_biet": "Tên người mang họ kép Âu Dương, đứng trước quan hệ 'cùng cha khác mẹ tỷ tỷ'."
+        },
+        {
+            "ten": "Gavin tĩnh",
+            "dong_xuat_hien": 231,
+            "yeu_to_nhan_biet": "Tên người phiên âm bính âm (Giả Văn Tĩnh), tuổi '16 tuổi', con gái của giả Thương Hải, em gái của Âu Dương như tuyết."
+        },
+        {
+            "ten": "giả Thương Hải",
+            "dong_xuat_hien": 231,
+            "yeu_to_nhan_biet": "Tên người làm cha của Gavin tĩnh."
+        },
+        {
+            "ten": "ngô nguyệt kiều",
+            "dong_xuat_hien": 231,
+            "yeu_to_nhan_biet": "Tên người làm mẹ của Gavin tĩnh."
+        },
+        {
+            "ten": "Âu Dương như tuyết",
+            "dong_xuat_hien": 231,
+            "yeu_to_nhan_biet": "Tên người mang họ kép Âu Dương, đứng trước quan hệ 'cùng cha khác mẹ muội muội'."
+        },
+        {
+            "ten": "La quân",
+            "dong_xuat_hien": 235,
+            "yeu_to_nhan_biet": "Mang họ 'La', chức vụ 'tổng giám đốc' của đế quốc tập đoàn."
+        },
+        {
+            "ten": "Viên Minh Minh",
+            "dong_xuat_hien": 237,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '32', quan hệ 'thê tử' của la quân, nghề nghiệp 'đương gia hoa đán'."
+        },
+        {
+            "ten": "la quân",
+            "dong_xuat_hien": 237,
+            "yeu_to_nhan_biet": "Mang họ 'La', đứng trước từ chỉ quan hệ hôn nhân 'thê tử'."
+        },
+        {
+            "ten": "La mẫn",
+            "dong_xuat_hien": 239,
+            "yeu_to_nhan_biet": "Mang họ 'La', tuổi '40 tuổi', quan hệ 'tỷ tỷ' của la quân, chức vụ 'tài vụ quản lí'."
+        },
+        {
+            "ten": "la quân",
+            "dong_xuat_hien": 239,
+            "yeu_to_nhan_biet": "Mang họ 'La', đứng trước từ chỉ quan hệ thân tộc 'tỷ tỷ'."
+        },
+        {
+            "ten": "Vương đại vĩ",
+            "dong_xuat_hien": 241,
+            "yeu_to_nhan_biet": "Mang họ 'Vương', quan hệ 'trượng phu' của la mẫn, chức vụ 'ngành quản lí'."
+        },
+        {
+            "ten": "la mẫn",
+            "dong_xuat_hien": 241,
+            "yeu_to_nhan_biet": "Mang họ 'La', đứng trước từ chỉ quan hệ hôn nhân 'trượng phu'."
+        },
+        {
+            "ten": "Vương Tuyết đình",
+            "dong_xuat_hien": 243,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '17 tuổi', quan hệ 'nữ nhi' của la mẫn, danh xưng 'học sinh cấp ba'."
+        },
+        {
+            "ten": "la mẫn",
+            "dong_xuat_hien": 243,
+            "yeu_to_nhan_biet": "Mang họ 'La', đứng trước từ chỉ quan hệ gia đình 'nữ nhi'."
+        },
+        {
+            "ten": "Đào hồng",
+            "dong_xuat_hien": 245,
+            "yeu_to_nhan_biet": "Mang họ 'Đào', tuổi '42 tuổi', chức vụ 'quản lí' công ty du lịch và danh xưng 'mỹ phụ'."
+        },
+        {
+            "ten": "Mạnh lệ",
+            "dong_xuat_hien": 247,
+            "yeu_to_nhan_biet": "Mang họ 'Mạnh', tuổi '20 tuổi', quan hệ 'nữ nhi' của đào hồng."
+        },
+        {
+            "ten": "đào hồng",
+            "dong_xuat_hien": 247,
+            "yeu_to_nhan_biet": "Mang họ 'Đào', đứng trước từ chỉ quan hệ gia đình 'nữ nhi'."
+        },
+        {
+            "ten": "Đào vân",
+            "dong_xuat_hien": 249,
+            "yeu_to_nhan_biet": "Mang họ 'Đào', tuổi '36 tuổi', quan hệ 'muội muội' của đào hồng, chức vụ 'quản lí'."
+        },
+        {
+            "ten": "đào hồng",
+            "dong_xuat_hien": 249,
+            "yeu_to_nhan_biet": "Mang họ 'Đào', đứng trước từ chỉ quan hệ thân tộc 'muội muội'."
+        },
+        {
+            "ten": "Nhan lệ kỳ",
+            "dong_xuat_hien": 251,
+            "yeu_to_nhan_biet": "Mang họ 'Nhan', tuổi '25 tuổi', quan hệ 'muội muội' của nhan mỹ kỳ, danh xưng 'mỹ nữ'."
+        },
+        {
+            "ten": "nhan mỹ kỳ",
+            "dong_xuat_hien": 251,
+            "yeu_to_nhan_biet": "Mang họ 'Nhan', đứng trước từ chỉ quan hệ thân tộc 'muội muội'."
+        },
+        {
+            "ten": "Thái Trân Trân",
+            "dong_xuat_hien": 253,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '24 tuổi', thứ bậc 'tỷ tỷ', danh xưng 'sườn xám mỹ nữ'."
+        },
+        {
+            "ten": "Thái Liên Liên",
+            "dong_xuat_hien": 255,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '21 tuổi', thứ bậc 'nhị muội', danh xưng 'mỹ nữ'."
+        },
+        {
+            "ten": "Thái y y",
+            "dong_xuat_hien": 257,
+            "yeu_to_nhan_biet": "Mang họ 'Thái', tuổi '18 tuổi', thứ bậc 'Tam muội', danh xưng 'mỹ nữ'."
+        },
+        {
+            "ten": "Y yên tĩnh",
+            "dong_xuat_hien": 259,
+            "yeu_to_nhan_biet": "Mang họ 'Y' (Y Năng Tĩnh), tuổi '38 tuổi', nghề nghiệp 'tam tê minh tinh'."
+        },
+        {
+            "ten": "Lô Trùng Khánh",
+            "dong_xuat_hien": 261,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, quan hệ 'trượng phu' của y yên tĩnh, nghề nghiệp 'diêu cổn ca sĩ'."
+        },
+        {
+            "ten": "y yên tĩnh",
+            "dong_xuat_hien": 261,
+            "yeu_to_nhan_biet": "Mang họ 'Y', đứng trước từ chỉ quan hệ hôn nhân 'trượng phu'."
+        },
+        {
+            "ten": "Ôn hồng",
+            "dong_xuat_hien": 265,
+            "yeu_to_nhan_biet": "Mang họ 'Ôn' (Ôn Bích Hà/Ôn Hồng), tuổi '36 tuổi', nghề nghiệp 'minh tinh điện ảnh'."
+        },
+        {
+            "ten": "Trương lấy đạt",
+            "dong_xuat_hien": 267,
+            "yeu_to_nhan_biet": "Mang họ 'Trương' (Trương Dĩ Đạt), quan hệ 'trượng phu' của ôn đỏ, chức vụ 'quản lí'."
+        },
+        {
+            "ten": "ôn đỏ",
+            "dong_xuat_hien": 267,
+            "yeu_to_nhan_biet": "Tên nhân vật (Ôn Hồng dịch thô), đứng trước từ chỉ quan hệ hôn nhân 'trượng phu'."
+        },
+        {
+            "ten": "Phương mỹ dung",
+            "dong_xuat_hien": 269,
+            "yeu_to_nhan_biet": "Mang họ 'Phương', tuổi '44 tuổi', quan hệ 'mẹ' của chu phương băng, danh xưng 'mỹ phụ'."
+        },
+        {
+            "ten": "chu phương băng",
+            "dong_xuat_hien": 269,
+            "yeu_to_nhan_biet": "Mang họ 'Chu', đứng trước từ chỉ quan hệ gia đình 'mẹ'."
+        },
+        {
+            "ten": "Chu văn hưng",
+            "dong_xuat_hien": 271,
+            "yeu_to_nhan_biet": "Mang họ 'Chu', quan hệ 'trượng phu' của phương mỹ dung."
+        },
+        {
+            "ten": "phương mỹ dung",
+            "dong_xuat_hien": 271,
+            "yeu_to_nhan_biet": "Mang họ 'Phương', đứng trước từ chỉ quan hệ hôn nhân 'trượng phu'."
+        },
+        {
+            "ten": "Chu phương băng",
+            "dong_xuat_hien": 273,
+            "yeu_to_nhan_biet": "Mang họ 'Chu', tuổi '22 tuổi', nghề nghiệp 'ảnh thị ca minh tinh'."
+        },
+        {
+            "ten": "Lưu nhã lỵ",
+            "dong_xuat_hien": 275,
+            "yeu_to_nhan_biet": "Mang họ 'Lưu', tuổi '42 tuổi', quan hệ 'mẹ' của tôn mưa phỉ, danh xưng 'mỹ phụ'."
+        },
+        {
+            "ten": "tôn mưa phỉ",
+            "dong_xuat_hien": 275,
+            "yeu_to_nhan_biet": "Mang họ 'Tôn', đứng trước từ chỉ quan hệ gia đình 'mẹ'."
+        },
+        {
+            "ten": "Tôn mưa phỉ",
+            "dong_xuat_hien": 277,
+            "yeu_to_nhan_biet": "Mang họ 'Tôn' (Tôn Vũ Phỉ), tuổi '20 tuổi', nghề nghiệp 'ảnh thị ca minh tinh'."
+        },
+        {
+            "ten": "Lộ tụ ngọc",
+            "dong_xuat_hien": 279,
+            "yeu_to_nhan_biet": "Mang họ 'Lộ', chức danh học thuật 'giáo sư đại học tiến sĩ sinh đạo sư', danh xưng 'học giả'."
+        },
+        {
+            "ten": "Mã Như Lan",
+            "dong_xuat_hien": 281,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tuổi '44 tuổi', nghề nghiệp nghệ thuật 'hí khúc biểu diễn gia'."
+        },
+        {
+            "ten": "Đường gia lệ",
+            "dong_xuat_hien": 283,
+            "yeu_to_nhan_biet": "Mang họ 'Đường', tuổi '22 tuổi', nghề nghiệp 'mỹ nữ phục vụ viên'."
+        },
+        {
+            "ten": "Lỗ quân",
+            "dong_xuat_hien": 285,
+            "yeu_to_nhan_biet": "Mang họ 'Lỗ', chức vụ 'an ninh quản lí' tại khách sạn."
+        },
+        {
+            "ten": "Viêm Đế",
+            "dong_xuat_hien": 289,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, danh xưng vị vua viễn cổ trong truyền thuyết Thần Nông Viêm Đế ('truyền thuyết viễn cổ Viêm Đế')."
+        },
+        {
+            "ten": "Mạnh Đức",
+            "dong_xuat_hien": 673,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng trước chức danh y tế 'chủ nhiệm bác sĩ' (Mạnh Đức chủ nhiệm bác sĩ, Mạnh bác sĩ)."
+        },
+        {
+            "ten": "Bành thủy sư",
+            "dong_xuat_hien": 763,
+            "yeu_to_nhan_biet": "Mang họ 'Bành', đứng trước chức danh chính quyền 'thị trưởng' (Bành thị trưởng)."
+        },
+        {
+            "ten": "An Lộc Sơn",
+            "dong_xuat_hien": 837,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, tên nhân vật lịch sử thời nhà Đường."
+        },
+        {
+            "ten": "Mã Lạp nhiều nạp",
+            "dong_xuat_hien": 899,
+            "yeu_to_nhan_biet": "Mang họ 'Mã', phiên âm tên danh thủ bóng đá quốc tế Diego Maradona."
+        },
+        {
+            "ten": "La Bá Đặc Ba Kiều",
+            "dong_xuat_hien": 899,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, phiên âm tên danh thủ bóng đá quốc tế Roberto Baggio."
+        },
+        {
+            "ten": "La Mã lý áo",
+            "dong_xuat_hien": 899,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu từ đầu, phiên âm tên danh thủ bóng đá quốc tế Romário."
+        },
+        {
+            "ten": "Lenin",
+            "dong_xuat_hien": 899,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, tên nhà lãnh đạo cách mạng quốc tế V.I. Lênin."
+        },
+        {
+            "ten": "Đường Tăng",
+            "dong_xuat_hien": 1783,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Đường', tên nhân vật trong tiểu thuyết Tây Du Ký."
+        },
+        {
+            "ten": "Vương gia hỉ",
+            "dong_xuat_hien": 1929,
+            "yeu_to_nhan_biet": "Mang họ 'Vương', đứng trước chức vụ 'chủ nhiệm', đi kèm danh hiệu 'cả nước chiến sĩ thi đua'."
+        },
+        {
+            "ten": "Tiền cá cùng",
+            "dong_xuat_hien": 1949,
+            "yeu_to_nhan_biet": "Mang họ 'Tiền', đứng sau chức vụ 'thị ủy bí thư trưởng'."
+        },
+        {
+            "ten": "Bì Đặc",
+            "dong_xuat_hien": 2029,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, đứng sau danh xưng nghề nghiệp 'Âu châu đại luật sư' (phiên âm tên Peter)."
+        },
+        {
+            "ten": "Chư Cát Lượng",
+            "dong_xuat_hien": 2075,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ kép 'Chư Cát' (Gia Cát), nhân vật lịch sử thời Tam Quốc."
+        },
+        {
+            "ten": "Chu Du",
+            "dong_xuat_hien": 2075,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Chu', nhân vật lịch sử thời Tam Quốc."
+        },
+        {
+            "ten": "Trình Giảo Kim",
+            "dong_xuat_hien": 2515,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Trình', nhân vật lịch sử thời Tùy Đường."
+        },
+        {
+            "ten": "Lý Vân Long",
+            "dong_xuat_hien": 2817,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Lý', tên nhân vật trong phim truyền hình Lượng Kiếm."
+        },
+        {
+            "ten": "Hoàng Kiến Tường",
+            "dong_xuat_hien": 2821,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Hoàng', đi kèm từ chỉ người 'fan' hâm mộ bình luận viên thể thao."
+        },
+        {
+            "ten": "Chu Kiệt Luân",
+            "dong_xuat_hien": 2841,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Chu', đi kèm từ chỉ người 'mê ca nhạc' hâm mộ ca sĩ."
+        },
+        {
+            "ten": "Tây Môn Khánh",
+            "dong_xuat_hien": 2901,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ kép 'Tây Môn', nhân vật trong Thủy Hử và Kim Bình Mai."
+        },
+        {
+            "ten": "Đông Phương Sóc",
+            "dong_xuat_hien": 3025,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ kép 'Đông Phương', nhân vật lịch sử thời Tây Hán."
+        },
+        {
+            "ten": "Võ Tòng",
+            "dong_xuat_hien": 4939,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Võ', nhân vật anh hùng trong tiểu thuyết Thủy Hử (đi kèm tích 'đánh hổ')."
+        },
+        {
+            "ten": "Tôn Lệ Na",
+            "dong_xuat_hien": 5029,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Tôn', chức vụ 'hội học sinh tuyên truyền bộ trưởng', đi kèm từ chỉ người 'cô gái xinh đẹp, nữ sinh viên'."
+        },
+        {
+            "ten": "Trương Mẫn",
+            "dong_xuat_hien": 5207,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Trương', đi kèm miêu tả vóc dáng phụ nữ 'dáng người cao gầy, to thẳng'."
+        },
+        {
+            "ten": "Lương Lỵ Lỵ",
+            "dong_xuat_hien": 5409,
+            "yeu_to_nhan_biet": "Mang họ 'Lương', đứng trước chức danh nghề nghiệp 'luật sư' thuộc văn phòng luật Chính Đại."
+        },
+        {
+            "ten": "Tần Oánh Khanh",
+            "dong_xuat_hien": 6849,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Tần', đi kèm miêu tả nhan sắc phụ nữ kiều diễm 'phù dung nộn gò má, mặt hồng hào'."
+        },
+        {
+            "ten": "Lý Như Yên",
+            "dong_xuat_hien": 7999,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Lý', đi kèm miêu tả nhan sắc 'quốc sắc thiên hương đại mỹ nhân'."
+        },
+        {
+            "ten": "Lưu Bang",
+            "dong_xuat_hien": 8479,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Lưu', Hán Cao Tổ trong lịch sử Trung Hoa."
+        },
+        {
+            "ten": "Tiêu Hà",
+            "dong_xuat_hien": 8479,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Tiêu', Thừa tướng khai quốc nhà Hán."
+        },
+        {
+            "ten": "Hàn Tín",
+            "dong_xuat_hien": 8479,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Hàn', Đại tướng quân khai quốc nhà Hán."
+        },
+        {
+            "ten": "Đông Phương văn hinh",
+            "dong_xuat_hien": 9203,
+            "yeu_to_nhan_biet": "Mang họ kép 'Đông Phương', đi kèm học vị nghề nghiệp 'lịch sử giáo sư', danh xưng 'mỹ nữ giáo sư'."
+        },
+        {
+            "ten": "Lâm Đại Ngọc",
+            "dong_xuat_hien": 9549,
+            "yeu_to_nhan_biet": "Viết hoa chữ cái đầu các từ, mang họ 'Lâm', nhân vật nữ chính trong danh tác Hồng Lâu Mộng."
+        }
+    ],
+    "file_tien_trinh": {
+        "dong_hien_tai_da_quet": 13487,
+        "dong_tiep_theo_can_quet": 13488
+    }
+}

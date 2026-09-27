@@ -7,14 +7,26 @@ from character_scanner.output_packager import OutputPackager
 from character_scanner.benchmark import Evaluator
 from character_scanner.upload_to_gemini import run_upload_workflow
 
+def resolve_file(path_str: str, default_dir: str) -> Path:
+    p = Path(path_str)
+    if p.exists():
+        return p
+    fallback = Path(default_dir) / path_str
+    if fallback.exists():
+        return fallback
+    fallback_name = Path(default_dir) / p.name
+    if fallback_name.exists():
+        return fallback_name
+    return p
+
 def main():
     parser = argparse.ArgumentParser(description="Hệ thống Quét tên nhân vật & Tự động biên tập qua Gemini")
     
     # Nhóm tham số quét văn bản
-    parser.add_argument("--input", default="exam.txt", help="Đường dẫn file văn bản đầu vào")
-    parser.add_argument("--output", default="scanner", help="Thư mục xuất kết quả markdown và master json")
-    parser.add_argument("--prompt", default="prompt.md", help="File prompt mẫu")
-    parser.add_argument("--ground-truth", default="file_nhan_vat.json", help="File đối chiếu ground truth")
+    parser.add_argument("--input", default="samples/exam.txt", help="Đường dẫn file văn bản đầu vào (mặc định: samples/exam.txt)")
+    parser.add_argument("--output", default="output/scanner", help="Thư mục xuất kết quả markdown và master json (mặc định: output/scanner)")
+    parser.add_argument("--prompt", default="resources/prompts/prompt.md", help="File prompt mẫu (mặc định: resources/prompts/prompt.md)")
+    parser.add_argument("--ground-truth", default="samples/file_nhan_vat.json", help="File đối chiếu ground truth (mặc định: samples/file_nhan_vat.json)")
     parser.add_argument("--chunk-size", type=int, default=40, help="Số block mỗi file md (mặc định: 40)")
     parser.add_argument("--no-dedup", action="store_true", help="Không khử trùng lặp (giữ mọi vị trí xuất hiện)")
     parser.add_argument("--min-count", type=int, default=1, help="Số lần xuất hiện tối thiểu để giữ lại nhân vật (mặc định: 1)")
@@ -23,17 +35,23 @@ def main():
     # Nhóm tham số tự động đẩy lên Gemini
     parser.add_argument("--upload-gemini", action="store_true", help="Tự động nạp các file kết quả lên Gemini sau khi quét xong")
     parser.add_argument("--upload-only", action="store_true", help="Chỉ chạy tự động nạp Gemini (bỏ qua bước quét văn bản)")
-    parser.add_argument("--profile-dir", default="chrome_profiles", help="Thư mục profile Chrome (mặc định: chrome_profiles)")
-    parser.add_argument("--output-import-json", default="import.json", help="Đường dẫn file import.json kết quả từ Gemini")
+    parser.add_argument("--profile-dir", default="runtime/chrome_profiles", help="Thư mục profile Chrome (mặc định: runtime/chrome_profiles)")
+    parser.add_argument("--output-import-json", default="output/import.json", help="Đường dẫn file import.json kết quả từ Gemini (mặc định: output/import.json)")
     parser.add_argument("--gemini-delay", type=int, default=5, help="Thời gian nghỉ (giây) giữa các file khi gửi Gemini")
     parser.add_argument("--headless", action="store_true", help="Chạy ẩn danh không mở cửa sổ Chrome")
     parser.add_argument("--reset-gemini-progress", action="store_true", help="Đặt lại (reset) tiến trình gửi Gemini cũ")
 
     args = parser.parse_args()
+    prompt_path = resolve_file(args.prompt, "resources/prompts")
 
     # 0. Chế độ lọc nhanh file scanner hiện có theo số lần xuất hiện
     if args.filter_only:
         output_dir = Path(args.output)
+        if not output_dir.exists():
+            if (Path("output") / args.output).exists():
+                output_dir = Path("output") / args.output
+            elif Path("scanner").exists():
+                output_dir = Path("scanner")
         source_path = output_dir / "scanner_all.json" if (output_dir / "scanner_all.json").exists() else (output_dir / "scanner_master.json")
         if not source_path.exists():
             print(f"[-] Không tìm thấy file nguồn: {source_path}")
@@ -58,7 +76,7 @@ def main():
             for item in filtered_data
         ]
         
-        packager = OutputPackager(Path(args.prompt))
+        packager = OutputPackager(prompt_path)
         packager.package(blocks, output_dir, chunk_size=args.chunk_size)
         num_chunks = (len(blocks) + args.chunk_size - 1) // args.chunk_size if blocks else 0
         print(f"[+] Đã lọc nhanh theo số lần xuất hiện >= {args.min_count}: {orig_len} -> {len(blocks)} nhân vật.")
@@ -73,9 +91,10 @@ def main():
         loader.load_all()
 
         dedup = not args.no_dedup
-        print(f"[*] Bắt đầu quét file: {args.input} (Khử trùng lặp: {dedup})...")
+        input_path = resolve_file(args.input, "samples")
+        print(f"[*] Bắt đầu quét file: {input_path} (Khử trùng lặp: {dedup})...")
         engine = ScannerEngine(loader)
-        blocks = engine.scan_file(Path(args.input), deduplicate=dedup)
+        blocks = engine.scan_file(input_path, deduplicate=dedup)
         print(f"[+] Kết quả quét thô: {len(blocks)} nhân vật đại diện duy nhất.")
 
         output_dir = Path(args.output)
@@ -93,13 +112,13 @@ def main():
             print(f"[+] Đã lọc theo số lần xuất hiện >= {args.min_count}: {orig_len} -> {len(blocks)} nhân vật.")
 
         print(f"[*] Đóng gói xuất kết quả ra '{args.output}'...")
-        packager = OutputPackager(Path(args.prompt))
+        packager = OutputPackager(prompt_path)
         packager.package(blocks, output_dir, chunk_size=args.chunk_size)
         num_chunks = (len(blocks) + args.chunk_size - 1) // args.chunk_size if blocks else 0
         print(f"[+] Đã ghi '{args.output}/scanner_master.json' và {num_chunks} file markdown con thành công.")
 
         # Benchmark if ground truth exists
-        gt_path = Path(args.ground_truth)
+        gt_path = resolve_file(args.ground_truth, "samples")
         if gt_path.exists():
             try:
                 gt_data = json.loads(gt_path.read_text(encoding="utf-8")).get("file_nhan_vat", [])

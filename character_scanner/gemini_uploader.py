@@ -12,6 +12,17 @@ def resolve_profile_path(profile_path: Path | str) -> Path:
     if (p / "chrome_data_1" / "Default").exists():
         return p / "chrome_data_1"
     
+    # 1. Kiểm tra trong runtime/chrome_profiles
+    runtime_profiles = Path("runtime") / "chrome_profiles"
+    if runtime_profiles.exists():
+        if (runtime_profiles / p.name / "Default").exists():
+            return runtime_profiles / p.name
+        if (runtime_profiles / "chrome_data_1" / "Default").exists() and (str(p) in ("chrome_profiles", "runtime/chrome_profiles", "runtime\\chrome_profiles", ".")):
+            return runtime_profiles / "chrome_data_1"
+        if (runtime_profiles / "chrome_data_1" / "Default").exists():
+            return runtime_profiles / "chrome_data_1"
+
+    # 2. Tương thích ngược với chrome_profiles ở thư mục gốc
     base_profiles = Path("chrome_profiles")
     if (base_profiles / str(profile_path) / "Default").exists():
         return base_profiles / str(profile_path)

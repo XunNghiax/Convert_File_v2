@@ -68,8 +68,16 @@ class ResourceLoader:
         return chars
 
     def load_all(self):
-        filters_dir = self.base_dir / "filters"
-        data_dir = self.base_dir / "data"
+        # 1. Tìm thư mục bộ lọc (filters)
+        filters_dir = self.base_dir / "resources" / "filters"
+        if not filters_dir.exists():
+            filters_dir = self.base_dir / "filters"
+
+        # 2. Tìm thư mục từ điển (dictionaries)
+        data_dir = self.base_dir / "resources" / "dictionaries"
+        if not data_dir.exists():
+            data_dir = self.base_dir / "data"
+
         self.single_surnames, self.compound_surnames = self.load_surnames(filters_dir / "surnames.txt")
         self.pronouns = self.load_word_set(filters_dir / "pronouns.txt")
         self.non_person = self.load_word_set(filters_dir / "non_person.txt")

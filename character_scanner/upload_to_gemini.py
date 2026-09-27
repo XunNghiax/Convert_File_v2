@@ -10,17 +10,22 @@ def sort_key_func(p: Path) -> int:
     return int(m.group(1)) if m else 0
 
 def run_upload_workflow(
-    scanner_dir: Path | str = "scanner",
-    profile_dir: Path | str = "chrome_profiles",
-    output_json: Path | str = "import.json",
+    scanner_dir: Path | str = "output/scanner",
+    profile_dir: Path | str = "runtime/chrome_profiles",
+    output_json: Path | str = "output/import.json",
     delay: int = 5,
     headless: bool = False,
     reset_progress: bool = False
 ) -> int:
     s_dir = Path(scanner_dir)
     if not s_dir.exists():
-        print(f"[-] Lỗi: Không tìm thấy thư mục '{scanner_dir}'. Hãy chạy quét trước!")
-        return 0
+        if (Path("output") / scanner_dir).exists():
+            s_dir = Path("output") / scanner_dir
+        elif Path("scanner").exists():
+            s_dir = Path("scanner")
+        else:
+            print(f"[-] Lỗi: Không tìm thấy thư mục '{scanner_dir}'. Hãy chạy quét trước!")
+            return 0
 
     progress_file = s_dir / ".gemini_progress.json"
     if reset_progress and progress_file.exists():
@@ -82,9 +87,9 @@ def run_upload_workflow(
 
 def main():
     parser = argparse.ArgumentParser(description="Tự động hóa nạp các file scanner lên Gemini và tạo import.json")
-    parser.add_argument("--scanner-dir", default="scanner", help="Thư mục chứa các file scanner_*.md")
-    parser.add_argument("--profile-dir", default="chrome_profiles", help="Thư mục profile Chrome (mặc định: chrome_profiles)")
-    parser.add_argument("--output-json", default="import.json", help="Đường dẫn file import.json kết quả")
+    parser.add_argument("--scanner-dir", default="output/scanner", help="Thư mục chứa các file scanner_*.md (mặc định: output/scanner)")
+    parser.add_argument("--profile-dir", default="runtime/chrome_profiles", help="Thư mục profile Chrome (mặc định: runtime/chrome_profiles)")
+    parser.add_argument("--output-json", default="output/import.json", help="Đường dẫn file import.json kết quả (mặc định: output/import.json)")
     parser.add_argument("--delay", type=int, default=5, help="Thời gian nghỉ (giây) giữa các file")
     parser.add_argument("--headless", action="store_true", help="Chạy ẩn danh không mở cửa sổ Chrome")
     parser.add_argument("--reset-progress", action="store_true", help="Xóa lịch sử tiến trình cũ và chạy lại từ đầu")

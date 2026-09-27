@@ -4,3 +4,5 @@ __pycache__/
 .pytest_cache/
 user_data/
 chrome_profiles/
+output/
+runtime/

@@ -43,15 +43,15 @@ def main_menu():
 
         elif choice == "1":
             print("\n--- [1] QUÉT VĂN BẢN VÀ TỰ ĐỘNG GỬI GEMINI ---")
-            inp = input("Nhập tên file văn bản cần quét [Mặc định: exam.txt]: ").strip() or "exam.txt"
+            inp = input("Nhập tên file văn bản cần quét [Mặc định: samples/exam.txt]: ").strip() or "samples/exam.txt"
             min_cnt = input("Số lần xuất hiện tối thiểu (để loại bỏ từ xuất hiện quá thấp) [Mặc định: 1]: ").strip() or "1"
-            prof = input("Nhập thư mục Profile Chrome [Mặc định: chrome_profiles]: ").strip() or "chrome_profiles"
-            out_json = input("Nhập tên file kết quả [Mặc định: import.json]: ").strip() or "import.json"
+            prof = input("Nhập thư mục Profile Chrome [Mặc định: runtime/chrome_profiles]: ").strip() or "runtime/chrome_profiles"
+            out_json = input("Nhập tên file kết quả [Mặc định: output/import.json]: ").strip() or "output/import.json"
 
             cmd = [
                 sys.executable, "-m", "character_scanner.main",
                 "--input", inp,
-                "--output", "scanner",
+                "--output", "output/scanner",
                 "--min-count", min_cnt,
                 "--upload-gemini",
                 "--profile-dir", prof,
@@ -63,14 +63,14 @@ def main_menu():
 
         elif choice == "2":
             print("\n--- [2] CHỈ QUÉT VĂN BẢN ---")
-            inp = input("Nhập tên file văn bản cần quét [Mặc định: exam.txt]: ").strip() or "exam.txt"
+            inp = input("Nhập tên file văn bản cần quét [Mặc định: samples/exam.txt]: ").strip() or "samples/exam.txt"
             min_cnt = input("Số lần xuất hiện tối thiểu (để loại bỏ từ xuất hiện quá thấp) [Mặc định: 1]: ").strip() or "1"
             chunk = input("Số lượng block mỗi file .md [Mặc định: 40]: ").strip() or "40"
 
             cmd = [
                 sys.executable, "-m", "character_scanner.main",
                 "--input", inp,
-                "--output", "scanner",
+                "--output", "output/scanner",
                 "--min-count", min_cnt,
                 "--chunk-size", chunk
             ]
@@ -80,14 +80,14 @@ def main_menu():
 
         elif choice == "3":
             print("\n--- [3] CHỈ GỬI CÁC FILE SCANNER CÓ SẴN LÊN GEMINI ---")
-            prof = input("Nhập thư mục Profile Chrome [Mặc định: chrome_profiles]: ").strip() or "chrome_profiles"
-            out_json = input("Nhập tên file kết quả [Mặc định: import.json]: ").strip() or "import.json"
+            prof = input("Nhập thư mục Profile Chrome [Mặc định: runtime/chrome_profiles]: ").strip() or "runtime/chrome_profiles"
+            out_json = input("Nhập tên file kết quả [Mặc định: output/import.json]: ").strip() or "output/import.json"
             delay = input("Thời gian nghỉ giữa các file (giây) [Mặc định: 5]: ").strip() or "5"
 
             cmd = [
                 sys.executable, "-m", "character_scanner.main",
                 "--upload-only",
-                "--output", "scanner",
+                "--output", "output/scanner",
                 "--profile-dir", prof,
                 "--output-import-json", out_json,
                 "--gemini-delay", delay
@@ -100,10 +100,11 @@ def main_menu():
             print("\n--- [4] ĐẶT LẠI TIẾN TRÌNH & GỬI LẠI LÊN GEMINI ---")
             confirm = input("⚠️ Bạn có chắc muốn xóa lịch sử tiến trình cũ và gửi lại từ file 1? (y/n): ").strip().lower()
             if confirm in ("y", "yes"):
-                prof = input("Nhập thư mục Profile Chrome [Mặc định: chrome_profiles]: ").strip() or "chrome_profiles"
+                prof = input("Nhập thư mục Profile Chrome [Mặc định: runtime/chrome_profiles]: ").strip() or "runtime/chrome_profiles"
                 cmd = [
                     sys.executable, "-m", "character_scanner.main",
                     "--upload-only",
+                    "--output", "output/scanner",
                     "--profile-dir", prof,
                     "--reset-gemini-progress"
                 ]
@@ -127,7 +128,7 @@ def main_menu():
             cmd = [
                 sys.executable, "-m", "character_scanner.main",
                 "--filter-only",
-                "--output", "scanner",
+                "--output", "output/scanner",
                 "--min-count", min_cnt,
                 "--chunk-size", chunk
             ]

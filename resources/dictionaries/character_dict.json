@@ -1,0 +1,320 @@
+[
+    {
+        "id": "ch-1",
+        "source": "Ung nhân",
+        "target": "Yasuhito",
+        "Tag": "Thiên hoàng"
+    },
+    {
+        "id": "ch-2",
+        "source": "Thực hạnh tiểu bách hợp",
+        "target": "Jikko Sayuri",
+        "Tag": "Hoàng hậu"
+    },
+    {
+        "id": "ch-3",
+        "source": "Tiểu Lâm Huệ Mỹ",
+        "target": "Kobayashi Emi",
+        "Tag": "Mỹ phi"
+    },
+    {
+        "id": "ch-4",
+        "source": "Rượu tỉnh Ưu Hương",
+        "target": "Sakai Yuka",
+        "Tag": "Hương phi (Gốc: Tửu Tỉnh Ưu Hương)"
+    },
+    {
+        "id": "ch-5",
+        "source": "Vinh tử",
+        "target": "Eiko",
+        "Tag": "Con gái Thiên hoàng"
+    },
+    {
+        "id": "ch-6",
+        "source": "Thu tiểu cung văn nhân",
+        "target": "Akishino Fumihito",
+        "Tag": "Thân vương (Em trai Thiên hoàng)"
+    },
+    {
+        "id": "ch-7",
+        "source": "Cạn thương vũ mỹ",
+        "target": "Asakura Yumi",
+        "Tag": "Vương phi (Gốc: Thiển Thương Vũ Mỹ)"
+    },
+    {
+        "id": "ch-8",
+        "source": "Linh Mộc ma nại mỹ",
+        "target": "Suzuki Manami",
+        "Tag": "Vương quý phi"
+    },
+    {
+        "id": "ch-9",
+        "source": "Thu tiểu cung du nhân",
+        "target": "Akishino Hisahito",
+        "Tag": "Thân vương (Con trai trưởng)"
+    },
+    {
+        "id": "ch-10",
+        "source": "Thuần tử",
+        "target": "Junko",
+        "Tag": "Con gái Văn Nhân"
+    },
+    {
+        "id": "ch-11",
+        "source": "Tiểu Điền mẫn nhã tử",
+        "target": "Oda Minako",
+        "Tag": "Chị gái Thiên hoàng"
+    },
+    {
+        "id": "ch-12",
+        "source": "Kim Tuệ Mẫn",
+        "target": "Kim Hye-min",
+        "Tag": "Tên gốc Hàn Quốc/Trung Quốc"
+    },
+    {
+        "id": "ch-13",
+        "source": "tiểu Điền năm mươi lang",
+        "target": "Oda Gojuro",
+        "Tag": "Chồng trước (Gốc: Tiểu Điền Ngũ Thập Lang)"
+    },
+    {
+        "id": "ch-14",
+        "source": "trương Thái Hòa",
+        "target": "Zhang Taihe",
+        "Tag": "Chồng sau (Tên người Hoa)"
+    },
+    {
+        "id": "ch-15",
+        "source": "Thực tử",
+        "target": "Jitsuko",
+        "Tag": "Chị gái Văn Nhân"
+    },
+    {
+        "id": "ch-16",
+        "source": "Giai tử",
+        "target": "Kako",
+        "Tag": "Em gái Văn Nhân"
+    },
+    {
+        "id": "ch-17",
+        "source": "Đông lâu nhĩ thịnh dày",
+        "target": "Higashikuni Morihiro",
+        "Tag": "Thủ tướng (Gốc: Đông Cửu Nhĩ Thịnh Hậu)"
+    },
+    {
+        "id": "ch-18",
+        "source": "Xuyên nguyên dương tử",
+        "target": "Kawahara Yoko",
+        "Tag": "Phu nhân Thủ tướng"
+    },
+    {
+        "id": "ch-19",
+        "source": "Ma nguyên Thái Lang",
+        "target": "Asahara Taro",
+        "Tag": "Ngoại tướng"
+    },
+    {
+        "id": "ch-20",
+        "source": "Cung trạch mỹ huệ",
+        "target": "Miyazawa Yoshie",
+        "Tag": "Phu nhân Ngoại tướng"
+    },
+    {
+        "id": "ch-21",
+        "source": "Sơn Tỉnh Phong Yêu",
+        "target": "Yamai Fuyo",
+        "Tag": "Tên nhân vật (Họ: Yamai)"
+    },
+    {
+        "id": "ch-22",
+        "source": "Linh Mộc hạnh lý",
+        "target": "Suzuki Anri",
+        "Tag": "Tên nhân vật"
+    },
+    {
+        "id": "ch-23",
+        "source": "Ma Nguyên",
+        "target": "Asahara",
+        "Tag": "Họ nhân vật"
+    },
+    {
+        "id": "ch-24",
+        "source": "Ma Nguyên tiên sinh",
+        "target": "Asahara tiên sinh",
+        "Tag": "Họ + Danh xưng (Có thể đổi thành 'Ngài Asahara' hoặc 'Asahara sensei')"
+    },
+    {
+        "id": "ch-25",
+        "source": "Tiểu Lâm",
+        "target": "Kobayashi",
+        "Tag": "Họ (Dùng để gọi: Kobayashi tiên sinh/phu nhân)"
+    },
+    {
+        "id": "ch-26",
+        "source": "Rượu tỉnh",
+        "target": "Sakai",
+        "Tag": "Họ (Do máy dịch lỗi chữ Tửu Tỉnh)"
+    },
+    {
+        "id": "ch-27",
+        "source": "Tửu Tỉnh",
+        "target": "Sakai",
+        "Tag": "Họ (Bản Hán Việt chuẩn)"
+    },
+    {
+        "id": "ch-28",
+        "source": "Thu tiểu cung",
+        "target": "Akishino",
+        "Tag": "Tên cung/nhánh hoàng gia (Thường gọi: Thân vương Akishino)"
+    },
+    {
+        "id": "ch-29",
+        "source": "Cạn thương",
+        "target": "Asakura",
+        "Tag": "Họ (Do máy dịch lỗi chữ Thiển Thương)"
+    },
+    {
+        "id": "ch-30",
+        "source": "Thiển Thương",
+        "target": "Asakura",
+        "Tag": "Họ (Bản Hán Việt chuẩn)"
+    },
+    {
+        "id": "ch-31",
+        "source": "Linh Mộc",
+        "target": "Suzuki",
+        "Tag": "Họ"
+    },
+    {
+        "id": "ch-32",
+        "source": "Tiểu Điền",
+        "target": "Oda",
+        "Tag": "Họ"
+    },
+    {
+        "id": "ch-33",
+        "source": "Đông lâu nhĩ",
+        "target": "Higashikuni",
+        "Tag": "Họ hoàng tộc (Do máy dịch lỗi chữ Đông Cửu Nhĩ)"
+    },
+    {
+        "id": "ch-34",
+        "source": "Đông Cửu Nhĩ",
+        "target": "Higashikuni",
+        "Tag": "Họ hoàng tộc (Bản Hán Việt chuẩn)"
+    },
+    {
+        "id": "ch-35",
+        "source": "Xuyên nguyên",
+        "target": "Kawahara",
+        "Tag": "Họ"
+    },
+    {
+        "id": "ch-36",
+        "source": "Ma nguyên",
+        "target": "Asahara",
+        "Tag": "Họ"
+    },
+    {
+        "id": "ch-37",
+        "source": "Cung trạch",
+        "target": "Miyazawa",
+        "Tag": "Họ"
+    },
+    {
+        "id": "ch-38",
+        "source": "Sơn Tỉnh",
+        "target": "Yamai",
+        "Tag": "Họ"
+    },
+    {
+        "id": "ch-41",
+        "source": "Áng mây bác",
+        "target": "Kumohiro",
+        "Tag": "Tên nhân vật (Gốc: Vân Bác - bị dịch chữ Vân thành 'Áng mây')"
+    },
+    {
+        "id": "ch-42",
+        "source": "tuệ hương",
+        "target": "Keiko",
+        "Tag": "Tên nhân vật (Gốc: Tuệ Hương)"
+    },
+    {
+        "id": "ch-43",
+        "source": "Sơn tỉnh nghị nam",
+        "target": "Yamai Yoshio",
+        "Tag": "Tên nhân vật"
+    },
+    {
+        "id": "ch-44",
+        "source": "Sơn tỉnh hoành nhất",
+        "target": "Yamai Koichi",
+        "Tag": "Tên nhân vật"
+    },
+    {
+        "id": "ch-45",
+        "source": "Sơn tỉnh hoành",
+        "target": "Yamai Hiroshi",
+        "Tag": "Tên nhân vật (Nên add sau 'Sơn tỉnh hoành nhất')"
+    },
+    {
+        "id": "ch-47",
+        "source": "kiêu hoành bạt hỗ",
+        "target": "kiêu ngạo hống hách",
+        "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
+    },
+    {
+        "id": "ch-48",
+        "source": "Làm Vân bác",
+        "target": "Tác Vân bác",
+        "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
+    },
+    {
+        "id": "ch-49",
+        "source": "Làm Vân Cô Mụ",
+        "target": "Tác Vân bác gái",
+        "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
+    },
+    {
+        "id": "ch-50",
+        "source": "Gavin đẹp",
+        "target": "Giả Văn Mỹ",
+        "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
+    },
+    {
+        "id": "ch-51",
+        "source": "Gavin Phong",
+        "target": "Giả Văn Phong",
+        "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
+    },
+    {
+        "id": "ch-51",
+        "source": "Gavin Tĩnh",
+        "target": "Giả Văn tĩnh",
+        "Tag": "Thành ngữ (Fix lỗi Hán Việt)"
+    },
+    {
+        "id": "ch-52",
+        "source": "Thẩm bóng hình xinh đẹp",
+        "target": "Thẩm Thiến Ảnh",
+        "Tag": "Dì Long Kiếm Phi (Gốc: 沈倩影)"
+    },
+    {
+        "id": "ch-53",
+        "source": "bóng hình xinh đẹp",
+        "target": "Thiến Ảnh",
+        "Tag": "Tên riêng (Gốc: 倩影)"
+    },
+    {
+        "id": "ch-54",
+        "source": "dì bóng hình xinh đẹp",
+        "target": "dì Thiến Ảnh",
+        "Tag": "Xưng hô (Gốc: 倩影阿姨)"
+    },
+    {
+        "id": "ch-55",
+        "source": "Lưu Tuệ Đẹp",
+        "target": "Lưu Tuệ Lệ",
+        "Tag": "Nhân vật (Gốc: 刘慧丽)"
+    }
+]
