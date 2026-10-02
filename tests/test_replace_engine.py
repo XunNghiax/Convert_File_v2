@@ -31,7 +31,7 @@ def test_non_cascading_replacement():
     assert result == "B gặp C tại quán trà."
 
 def test_empty_or_same_source_target():
-    """Kiểm tra các mục không cần thay thế (source == target hoặc rỗng) được lọc bỏ sạch sẽ."""
+    """Kiểm tra các mục rỗng được lọc bỏ, còn mục chuẩn hóa thực thể (Vương Bá Đao -> Vương Bá Đao) vẫn chuẩn hóa được chữ thường."""
     custom_map = {
         "Vương Bá Đao": "Vương Bá Đao",
         "": "Không tên",
@@ -39,10 +39,13 @@ def test_empty_or_same_source_target():
     }
     engine = ReplaceEngine(custom_mapping=custom_map)
 
-    assert len(engine.sorted_keys) == 1
-    assert engine.sorted_keys == ["Trương Tam"]
+    # Mục rỗng bị loại bỏ, chỉ còn 2 mục hợp lệ
+    assert len(engine.sorted_keys) == 2
+    assert "vương bá đao" in engine.sorted_keys
+    assert "trương tam" in engine.sorted_keys
 
-    text = "Vương Bá Đao nói chuyện với Trương Tam."
+    # Kiểm tra chuẩn hóa chữ thường thành Title Case
+    text = "vương bá đao nói chuyện với Trương Tam."
     result = engine.replace_line(text)
     assert result == "Vương Bá Đao nói chuyện với Trương Tam Phong."
 
@@ -60,8 +63,8 @@ def test_stats_tracking():
     engine.replace_line(text1)
     engine.replace_line(text2)
 
-    assert engine.stats_counter["Long Kiếm Phi"] == 2
-    assert engine.stats_counter["Trương Tử Kiến"] == 1
+    assert engine.stats_counter["long kiếm phi"] == 2
+    assert engine.stats_counter["trương tử kiến"] == 1
 
 def test_replace_file_stream_and_atomic(tmp_path: Path):
     """Kiểm tra thay thế file văn bản dạng streaming và tính atomic write."""
@@ -110,9 +113,9 @@ def test_dictionary_loading_and_override_priority(tmp_path: Path):
     engine = ReplaceEngine(char_dict_path=char_dict, common_dict_path=common_dict)
 
     # Long Phi phải lấy theo char_dict ("Long Kiếm Phi") chứ không lấy "Long Phi (Chung)"
-    assert engine.dict_map["Long Phi"] == "Long Kiếm Phi"
-    assert engine.dict_map["Đại ca"] == "ca ca"
-    assert engine.dict_map["Tử Kiến"] == "Trương Tử Kiến"
+    assert engine.dict_map["long phi"] == "Long Kiếm Phi"
+    assert engine.dict_map["đại ca"] == "ca ca"
+    assert engine.dict_map["tử kiến"] == "Trương Tử Kiến"
 
 def test_character_dict_loads_pre_normalized_entries(tmp_path: Path):
     """Kiểm tra các mục tên nhân vật đã chuẩn hóa (source == target) vẫn được nạp vào dict_map."""
@@ -152,4 +155,14 @@ def test_noop_exact_target_does_not_increment_stats():
     assert result == "Từ Thanh gặp Kiều Ngọc tại hoa viên."
     assert sum(engine.stats_counter.values()) == 0
 
+def test_mixed_casing_variants():
+    """Kiểm tra các biến thể chữ hoa / chữ thường lộn xộn đều được đưa về chuẩn Title Case."""
+    custom_map = {
+        "Kiều Ngọc": "Kiều Ngọc"
+    }
+    engine = ReplaceEngine(custom_mapping=custom_map)
 
+    assert engine.replace_line("kiều ngọc đi dạo.") == "Kiều Ngọc đi dạo."
+    assert engine.replace_line("Kiều ngọc đi dạo.") == "Kiều Ngọc đi dạo."
+    assert engine.replace_line("KIỀU NGỌC đi dạo.") == "Kiều Ngọc đi dạo."
+    assert engine.replace_line("Kiều Ngọc đi dạo.") == "Kiều Ngọc đi dạo."
