@@ -95,12 +95,19 @@ def main_menu():
         try:
             clear_screen()
             print_banner()
-            print("  [ QUY TRÌNH QUÉT & BIÊN TẬP AI ]")
-            print("  [1] 🚀 Toàn trình: Quét văn bản + Tự động gửi Gemini -> samples/import.json")
-            print("  [2] 🔍 Chỉ quét văn bản (Xuất thư mục scanner/ gồm .md & master JSON)")
+            print("  [ QUY TRÌNH QUÉT NHÂN VẬT & BIÊN TẬP AI ]")
+            print("  [1] 🚀 Toàn trình: Quét nhân vật + Tự động gửi Gemini -> samples/import.json")
+            print("  [2] 🔍 Chỉ quét nhân vật (Xuất scanner/ gồm .md & master JSON)")
             print("  [3] 🌐 Chỉ gửi các file trong scanner/ lên Gemini -> samples/import.json")
             print("  [4] 🎯 Lọc nhanh scanner/ theo số lần xuất hiện (min-count)")
             print("  [5] ♻️  Đặt lại tiến trình (Reset progress) gửi Gemini")
+            print()
+            print("  [ QUY TRÌNH QUÉT TỪ HÁN VIỆT BẤT THƯỜNG ]")
+            print("  [10] 🏮 Toàn trình: Quét Hán Việt + Gửi Gemini -> samples/import_hanviet.json")
+            print("  [11] 🔍 Chỉ quét từ Hán Việt & Cụm từ bất thường (Xuất scanner/hanviet/)")
+            print("  [12] 🌐 Chỉ gửi các file trong scanner/hanviet/ lên Gemini -> samples/import_hanviet.json")
+            print("  [13] 🎯 Lọc nhanh scanner/hanviet/ theo số lần xuất hiện (min-count)")
+            print("  [14] 📥 Nạp kết quả Hán Việt vào hanviet_dict.json")
             print()
             print("  [ TỪ ĐIỂN & IMPORT DỮ LIỆU ]")
             print("  [6] 📥 Nạp dữ liệu vào từ điển (Tự động phân bổ theo 'is_character')")
@@ -114,7 +121,7 @@ def main_menu():
             print("  [0] ❌ Thoát chương trình")
             print("=" * 68)
 
-            choice = input("👉 Nhập lựa chọn của bạn (0-9) [Mặc định: 1]: ").strip()
+            choice = input("👉 Nhập lựa chọn của bạn (0-14) [Mặc định: 1]: ").strip()
             if not choice:
                 choice = "1"
 
@@ -134,7 +141,7 @@ def main_menu():
                 cmd = [
                     sys.executable, "-m", "src.scanner.main",
                     "--input", inp,
-                    "--output", "output/scanner",
+                    "--output", "scanner",
                     "--chunk-size", chunk,
                     "--min-count", min_cnt,
                     "--upload-gemini",
@@ -157,7 +164,7 @@ def main_menu():
                 cmd = [
                     sys.executable, "-m", "src.scanner.main",
                     "--input", inp,
-                    "--output", "output/scanner",
+                    "--output", "scanner",
                     "--min-count", min_cnt,
                     "--chunk-size", chunk
                 ]
@@ -169,7 +176,7 @@ def main_menu():
 
             elif choice == "3":
                 print("\n--- [3] CHỈ GỬI CÁC FILE SCANNER CÓ SẴN LÊN GEMINI ---")
-                scanner_dir = input("Thư mục chứa các file .md [Mặc định: output/scanner]: ").strip() or "output/scanner"
+                scanner_dir = input("Thư mục chứa các file .md [Mặc định: scanner]: ").strip() or "scanner"
                 prof = input("Thư mục Profile Chrome [Mặc định: runtime/chrome_profiles]: ").strip() or "runtime/chrome_profiles"
                 out_json = input("File JSON kết quả [Mặc định: samples/import.json]: ").strip() or "samples/import.json"
                 delay = input("Thời gian nghỉ giữa các file (giây) [Mặc định: 5]: ").strip() or "5"
@@ -195,7 +202,7 @@ def main_menu():
                 cmd = [
                     sys.executable, "-m", "src.scanner.main",
                     "--filter-only",
-                    "--output", "output/scanner",
+                    "--output", "scanner",
                     "--min-count", min_cnt,
                     "--chunk-size", chunk
                 ]
@@ -211,7 +218,7 @@ def main_menu():
                     cmd = [
                         sys.executable, "-m", "src.scanner.main",
                         "--upload-only",
-                        "--output", "output/scanner",
+                        "--output", "scanner",
                         "--profile-dir", prof,
                         "--reset-gemini-progress"
                     ]
@@ -253,13 +260,101 @@ def main_menu():
                 print("\n--- [9] THAY THẾ VĂN BẢN BẰNG TỪ ĐIỂN (REPLACE ENGINE) ---")
                 inp = prompt_input_file("samples/exam.txt")
                 p_inp = Path(inp)
-                default_out = f"output/replaced/{p_inp.stem}_converted{p_inp.suffix}"
+                default_out = f"convert/{p_inp.stem}_converted{p_inp.suffix}"
                 out = input(f"Đường dẫn file kết quả [Mặc định: {default_out}]: ").strip() or default_out
 
                 cmd = [
                     sys.executable, "-m", "src.replacer.main",
                     "--input", inp,
                     "--output", out
+                ]
+                print(f"\n[*] Đang thực thi: {' '.join(cmd)}\n")
+                subprocess.run(cmd)
+                input("\n👉 Nhấn Enter để quay lại menu chính...")
+
+            elif choice == "10":
+                print("\n--- [10] TOÀN TRÌNH: QUÉT HÁN VIỆT & TỰ ĐỘNG GỬI GEMINI ---")
+                inp = prompt_input_file("samples/exam.txt")
+                min_cnt = input("Số lần xuất hiện tối thiểu [Mặc định: 1]: ").strip() or "1"
+                chunk = input("Số lượng block mỗi file nhỏ .md [Mặc định: 40]: ").strip() or "40"
+                prof = input("Thư mục Profile Chrome [Mặc định: runtime/chrome_profiles]: ").strip() or "runtime/chrome_profiles"
+                out_json = input("File JSON kết quả [Mặc định: samples/import_hanviet.json]: ").strip() or "samples/import_hanviet.json"
+
+                cmd = [
+                    sys.executable, "-m", "src.scanner.hanviet_scanner",
+                    "--input", inp,
+                    "--output", "scanner/hanviet",
+                    "--chunk-size", chunk,
+                    "--min-count", min_cnt,
+                    "--upload-gemini",
+                    "--profile-dir", prof,
+                    "--output-import-json", out_json
+                ]
+                print(f"\n[*] Đang thực thi: {' '.join(cmd)}\n")
+                subprocess.run(cmd)
+                input("\n👉 Nhấn Enter để quay lại menu chính...")
+
+            elif choice == "11":
+                print("\n--- [11] CHỈ QUÉT TỪ HÁN VIỆT & CỤM TỪ BẤT THƯỜNG ---")
+                inp = prompt_input_file("samples/exam.txt")
+                min_cnt = input("Số lần xuất hiện tối thiểu [Mặc định: 1]: ").strip() or "1"
+                chunk = input("Số lượng block mỗi file nhỏ .md [Mặc định: 40]: ").strip() or "40"
+
+                cmd = [
+                    sys.executable, "-m", "src.scanner.hanviet_scanner",
+                    "--input", inp,
+                    "--output", "scanner/hanviet",
+                    "--min-count", min_cnt,
+                    "--chunk-size", chunk
+                ]
+                print(f"\n[*] Đang thực thi: {' '.join(cmd)}\n")
+                subprocess.run(cmd)
+                input("\n👉 Nhấn Enter để quay lại menu chính...")
+
+            elif choice == "12":
+                print("\n--- [12] CHỈ GỬI CÁC FILE HÁN VIỆT LÊN GEMINI ---")
+                scanner_dir = input("Thư mục chứa các file .md [Mặc định: scanner/hanviet]: ").strip() or "scanner/hanviet"
+                prof = input("Thư mục Profile Chrome [Mặc định: runtime/chrome_profiles]: ").strip() or "runtime/chrome_profiles"
+                out_json = input("File JSON kết quả [Mặc định: samples/import_hanviet.json]: ").strip() or "samples/import_hanviet.json"
+                delay = input("Thời gian nghỉ giữa các file (giây) [Mặc định: 5]: ").strip() or "5"
+
+                cmd = [
+                    sys.executable, "-m", "src.scanner.hanviet_scanner",
+                    "--upload-only",
+                    "--output", scanner_dir,
+                    "--profile-dir", prof,
+                    "--output-import-json", out_json,
+                    "--gemini-delay", delay
+                ]
+                print(f"\n[*] Đang thực thi: {' '.join(cmd)}\n")
+                subprocess.run(cmd)
+                input("\n👉 Nhấn Enter để quay lại menu chính...")
+
+            elif choice == "13":
+                print("\n--- [13] LỌC NHANH FILE HÁN VIỆT THEO SỐ LẦN XUẤT HIỆN (MIN-COUNT) ---")
+                min_cnt = input("Số lần xuất hiện tối thiểu cần giữ lại [Mặc định: 2]: ").strip() or "2"
+                chunk = input("Số block mỗi file .md [Mặc định: 40]: ").strip() or "40"
+
+                cmd = [
+                    sys.executable, "-m", "src.scanner.hanviet_scanner",
+                    "--filter-only",
+                    "--output", "scanner/hanviet",
+                    "--min-count", min_cnt,
+                    "--chunk-size", chunk
+                ]
+                print(f"\n[*] Đang thực thi: {' '.join(cmd)}\n")
+                subprocess.run(cmd)
+                input("\n👉 Nhấn Enter để quay lại menu chính...")
+
+            elif choice == "14":
+                print("\n--- [14] NẠP KẾT QUẢ VÀO TỪ ĐIỂN HÁN VIỆT (HANVIET_DICT.JSON) ---")
+                file_imp = input("File JSON cần import [Mặc định: samples/import_hanviet.json]: ").strip() or "samples/import_hanviet.json"
+                dict_dst = "resources/dictionaries/hanviet_dict.json"
+
+                cmd = [
+                    sys.executable, "-m", "src.importer.main",
+                    "--file", file_imp,
+                    "--dict", dict_dst
                 ]
                 print(f"\n[*] Đang thực thi: {' '.join(cmd)}\n")
                 subprocess.run(cmd)

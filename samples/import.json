@@ -2,1931 +2,321 @@
   {
     "id": "ch_0001",
     "is_character": true,
-    "source": "Lâm Thi Âm",
-    "target": "Lâm Thi Âm",
-    "context": "Lâm Thi Âm, 46 tuổi, lâm bằng tường muội muội, lấy gã bác sĩ, thành thục mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '46 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 492
+    "source": "tôn như sương",
+    "target": "Tôn Như Sương",
+    "context": "Từ Thanh nhìn tôn như sương bức này bộ dạng, hắn tâm lý cũng hiện ra một chút khô nóng, tôn như sương tuy rằng tam hơn 40 tuổi, nhưng bởi vì bảo dưỡng uống ngon thiên sinh lệ chất, làn da lại rất tinh tế trắng mịn, nhìn thật giống như là nhị mười mấy tuổi thiếu nữ giống như, như vậy vưu vật đối với nam nhân mà nói tuyệt đối có phi thường cường liệt sức dụ dỗ.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 695,
+    "suggested_target": "Tôn Như Sương"
   },
   {
     "id": "ch_0002",
     "is_character": true,
-    "source": "Kim Tử Phi",
-    "target": "Kim Tử Phi",
-    "context": "Kim Tử Phi, nữ, 23 tuổi, thiếu nữ xinh đẹp Trương Tử Cường, Trương Tử Kiến cùng cha khác mẹ muội muội.",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '23 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 159
+    "source": "văn Liên",
+    "target": "Văn Liên",
+    "context": "\" Đối diện văn Liên Tâm không chút nào phát hiện điện thoại bên kia mẫu thân đang bị một cái cùng chính mình tuổi tác xấp xỉ nam nhân đặt ở dưới hông, điên cuồng phát ra.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 207,
+    "suggested_target": "Văn Liên Tâm"
   },
   {
     "id": "ch_0003",
     "is_character": true,
-    "source": "Mã Như Lan",
-    "target": "Mã Như Lan",
-    "context": "Mã Như Lan, 44 tuổi, trứ danh Việt kịch hí khúc biểu diễn gia, thành thục mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '44 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 250
+    "source": "La Thải",
+    "target": "La Thải",
+    "context": "La Thải nhi cười tủm tỉm gật đầu, tiếp lấy mở ra chính mình mê người miệng nhỏ, chậm rãi đem Từ Thanh quy đầu ngậm vào trong miệng.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 86,
+    "suggested_target": "La Thải Nhi"
   },
   {
     "id": "ch_0004",
     "is_character": true,
-    "source": "bách hợp hoàng hậu",
-    "target": "Hoàng hậu Sayuri",
-    "context": "Sau lại Long Kiếm Phi biết được Mỹ phi Tiểu Lâm Huệ Mỹ, hương phi rượu tỉnh Ưu Hương, cạn thương vũ mỹ Vương phi, Linh Mộc ma nại mỹ Vương quý phi, thực tử, giai tử, anh tử, thuần tử, cung trạch mỹ huệ, tùng đảo phong yêu, lười hộ lý hương, sơn tỉnh tuệ hương, kim trạch văn tử, trì điền hương tình, thậm chí ngay cả 44 tuổi Thủ tướng phu nhân xuyên nguyên dương tử đều nghi ngờ mang thai, trừ bỏ xuất tại trong miệng anh đào đằng nguyên tĩnh hương bình yên vô sự ở ngoài, sở hữu bị Long Kiếm Phi trải qua nữ nhân đều Lam Điền loại ngọc, thực hạnh tiểu bách hợp hoàng hậu đương nhiên cũng ở trong đó.",
+    "source": "la Thải nhi",
+    "target": "La Thải Nhi",
+    "context": "Nghe vậy, la Thải nhi trong lòng lập tức cũng có một chút lúng túng khó xử, hắn nhìn mẫu thân trên mặt thất lạc biểu cảm, liền vội vàng theo Từ Thanh trong lòng tránh thoát đi ra ngoài, đi đến la Vũ Đồng bên người ngồi xuống, ôm la Vũ Đồng bả vai, an ủi: \"Mẹ, kỳ thật ngươi cũng không dùng thương tâm, ngươi mới ba mươi tuổi, đúng là hào hoa phong nhã thời điểm chỗ nào già đi?",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 177
+    "so_lan_xuat_hien": 597,
+    "suggested_target": "La Thải Nhi"
   },
   {
     "id": "ch_0005",
     "is_character": true,
-    "source": "vũ mỹ Vương phi",
-    "target": "Vương phi Mami",
-    "context": "Sau lại Long Kiếm Phi biết được Mỹ phi Tiểu Lâm Huệ Mỹ, hương phi rượu tỉnh Ưu Hương, cạn thương vũ mỹ Vương phi, Linh Mộc ma nại mỹ Vương quý phi, thực tử, giai tử, anh tử, thuần tử, cung trạch mỹ huệ, tùng đảo phong yêu, lười hộ lý hương, sơn tỉnh tuệ hương, kim trạch văn tử, trì điền hương tình, thậm chí ngay cả 44 tuổi Thủ tướng phu nhân xuyên nguyên dương tử đều nghi ngờ mang thai, trừ bỏ xuất tại trong miệng anh đào đằng nguyên tĩnh hương bình yên vô sự ở ngoài, sở hữu bị Long Kiếm Phi trải qua nữ nhân đều Lam Điền loại ngọc, thực hạnh tiểu bách hợp hoàng hậu đương nhiên cũng ở trong đó.",
+    "source": "La Vũ Đồng",
+    "target": "La Vũ Đồng",
+    "context": "La Vũ Đồng híp lấy mắt, hưởng thụ Từ Thanh khối này tuổi trẻ thân thể cường tráng cấp chính mình mang tới khoái cảm, mặc dù nói la Vũ Đồng lớn tuổi Từ Thanh không ít, nhưng là nàng lại được bảo dưỡng nghi, phong vận vẫn còn, gò má nàng đỏ bừng , một đôi ánh mắt đóng chặt, lông mi thật dài tại run rẩy, khóe miệng treo mỉm cười, hiện ra tâm tình của nàng bây giờ cực độ sung sướng, la Vũ Đồng hô hấp dồn dập, sắc mặt ửng hồng, bởi vì dục vọng của nàng tại liên tục không ngừng phóng thích .",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 136
+    "so_lan_xuat_hien": 482,
+    "suggested_target": "La Vũ Đồng"
   },
   {
     "id": "ch_0006",
     "is_character": true,
-    "source": "Thái Lang",
-    "target": "Ishihara Shintaro",
-    "context": "Văn nhân thân vương cùng đông lâu nhĩ thịnh hậu Thủ tướng cười đến đem trong miệng nước trà phun tới, nội vụ phủ đại thần thạch nguyên thận Thái Lang cười đến ôm phu nhân mỹ trúc lạnh tử, bóng đá minh tinh Trung Điền anh thọ cười đến ôm bạn gái trứ danh diễn viên mễ thương lạnh tử, Bộ giáo dục bộ trưởng tây thôn hạnh hữu cười đến ôm phu nhân độ lười tinh, hài tinh trận nội trí tắc cười đến ôm phu nhân đằng nguyên tĩnh hương, tam lăng tập đoàn tài chính chủ tịch tùng hạ tốt nhìn nhìn phu nhân mỹ nữ cảnh đốc trì điền hương tình u oán vẻ mặt, là câm điếc ngậm bồ hòn mà im có khổ tự mình biết, lúc này dở khóc dở cười, đành phải xấu hổ nan kham cười làm lành.",
+    "source": "Vũ Đồng",
+    "target": "Vũ Đồng",
+    "context": "Hai người đều rơi vào điên cuồng cảnh giới, tại la Vũ Đồng thúc giục phía dưới, Từ Thanh không ngừng tăng nhanh tần suất, hai mắt của hắn đỏ bừng, mồ hôi sớm thẩm ướt cái kia rắn chắc lồng ngực, miệng của hắn phát ra như dã thú rống giận âm thanh, phần hông không ngừng về phía trước đẩy, cỗ kia hung mãnh sức lực đạo khiến cho la Vũ Đồng sắc nhọn quát to tiếng trở nên càng ngày càng thê lương.",
     "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 60
+    "so_lan_xuat_hien": 224,
+    "suggested_target": "La Vũ Đồng"
   },
   {
     "id": "ch_0007",
     "is_character": true,
-    "source": "Liễu Ngọc",
-    "target": "Liễu Ngọc Như",
-    "context": "Liễu Ngọc như cười một tiếng, quyến rũ động lòng người, gắt giọng: \"Tuổi còn trẻ liền miệng lưỡi trơn tru, trách không được trường học nhiều như vậy cô gái thích ngươi đâu.",
+    "source": "Lâm Thanh",
+    "target": "Lâm Thanh",
+    "context": "Từ Thanh nhìn đến Lâm Thanh lộ bộ dáng, trong lòng càng thêm phấn khích rồi, bắt lấy Lâm Thanh lộ hai vú liền hướng đến miệng của mình bên trong đưa, ngậm viên kia no đủ màu hồng phấn anh đào chính là mạnh mẽ mút thỏa thích, đầu lưỡi liên tục không ngừng liếm lấy Lâm Thanh lộ kia mềm mại trơn bóng vú thịt, làm Lâm Thanh lộ không khỏi thoải mái rầm rì lên.",
     "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 136
+    "so_lan_xuat_hien": 678,
+    "suggested_target": "Lâm Thanh Lộ"
   },
   {
     "id": "ch_0008",
     "is_character": true,
-    "source": "Chu Ngọc",
-    "target": "Chu Ngọc Mị",
-    "context": "Chu Ngọc mị khoác tiểu bao lúc gần đi lại đang Liễu Ngọc như bên tai nói một câu cái gì, Như tỷ thẹn thùng đuổi theo muốn đánh, Chu Ngọc mị sớm cười duyên chạy xa.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 58
+    "source": "Tần Vận",
+    "target": "Tần Vận",
+    "context": "Nghe được mẫu thân lời nói, Tần Vận gương mặt xinh đẹp lập tức đỏ bừng vô cùng, trái tim của nàng bang bang cấp tốc nhảy lên, đồng thời thầm mắng chính mình bất tranh khí, thế nhưng theo là mẫu thân nói mấy câu liền hoảng hốt thành cái bộ dạng này, nàng vụng trộm liếc Từ Thanh liếc nhìn một cái, chỉ thấy Từ Thanh biểu cảm bình tĩnh như trước như nước, không chút nào chịu ảnh hưởng bộ dạng, thậm chí còn hướng nàng nháy mắt một cái, nàng miệng nhỏ không khỏi quyệt .",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 1187,
+    "suggested_target": "Tần Vận"
   },
   {
     "id": "ch_0009",
     "is_character": true,
-    "source": "Dương ngọc thục",
-    "target": "Dương Ngọc Thục",
-    "context": "Dương ngọc thục, 35 tuổi, Nam Phương thành phố pháp viện khoa trưởng, Tam tỷ, thành thục mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '35 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 360
+    "source": "Lưu Minh",
+    "target": "Lưu Minh",
+    "context": "Điện thoại kia một bên Lưu Minh huy cười trả lời, \"Từ tổng, ta đã cùng lúc còn nhỏ hội đàm tốt lắm, chúng ta nguyện ý bị bắt mua sắm, chỉ cần tám trăm vạn, ngài liền có thể bắt Đan thành.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 76,
+    "suggested_target": "Lưu Minh Huy"
   },
   {
     "id": "ch_0010",
     "is_character": true,
-    "source": "Tạ làm vân",
-    "target": "Tạ Tác Vân",
-    "context": "Tạ làm vân, 42 tuổi, Long Kiếm Phi bác, thành thục mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '42 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 31
+    "source": "Vương Dương",
+    "target": "Vương Dương",
+    "context": "\" Từ Thanh gật gật đầu, buông xuống chiếc xe hàng phía trước cùng xếp sau ở giữa chắn bản, hướng về phòng điều khiển Vương Dương nói, \"Đi thương trường.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 27,
+    "suggested_target": "Vương Dương"
   },
   {
     "id": "ch_0011",
     "is_character": true,
-    "source": "Tạ mỹ phượng",
-    "target": "Tạ Mỹ Phượng",
-    "context": "Tạ mỹ phượng, 32 tuổi, tạ quốc hoa cùng vợ trước nữ nhi, lấy chồng ở xa Hongkong, mỹ mạo thiếu phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '32 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 375
+    "source": "Đường thiền y",
+    "target": "Đường Thiền Y",
+    "context": "\" Đường thiền y đôi mắt mở, con ngươi của nàng bên trong tràn ngập mê muội cách xa chi sắc, một luồng xuân tình tại trong đôi mắt nhộn nhạo, bộ kia kiều diễm du tích bộ dáng làm Từ Thanh càng thêm điên cuồng, hắn không ngừng cắn cắn mẫu thân Đường thiền y anh đào miệng nhỏ, mút thỏa thích mẫu thân Đường thiền y trong miệng ngọt ngào hương thơm nước bọt, đồng thời miệng rộng không hoàn toàn xé rách mẫu thân Đường thiền y cái lưỡi đinh hương, không cho nàng bất kỳ cái gì trốn tránh cơ hội.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 1156,
+    "suggested_target": "Đường Thiền Y"
   },
   {
     "id": "ch_0012",
     "is_character": true,
-    "source": "Lâm bằng tường",
-    "target": "Lâm Bằng Tường",
-    "context": "Lâm bằng tường, 53 tuổi, Nam Phương tỉnh tỉnh trưởng",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '53 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 165
+    "source": "Diệp Mạn Văn",
+    "target": "Diệp Mạn Văn",
+    "context": "Diệp Mạn Văn nói làm Từ Thanh ngẩn ra, ánh mắt của hắn rơi vào quan uyển bạch trên người, thân thể của nàng tại liên tục không ngừng run rẩy, cặp mắt kia đống chặt lấy, không dám mở, giống như sợ nhìn thấy cái gì không nên nhìn đến đồ vật, nhưng này trắng nõn thon dài cổ lại bại lộ nàng kỳ thật đều không phải là như trên mặt ngoài nhìn trấn định như vậy.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 161,
+    "suggested_target": "Diệp Mạn Văn"
   },
   {
     "id": "ch_0013",
     "is_character": true,
-    "source": "Hứa tiểu điệp",
-    "target": "Hứa Tiểu Điệp",
-    "context": "Hứa tiểu điệp, 48 tuổi, lâm bằng tường tỉnh trưởng phu nhân, hứa tiểu trúc tỷ tỷ, Lăng Vân tập đoàn công ty tổng giám đốc, thành thục mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '48 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 481
+    "source": "Lý Văn",
+    "target": "Lý Văn",
+    "context": "Nghe thấy Lý Văn đào nói muốn đi, tô cũng có thể cuối cùng là thở phào một hơi, Từ Thanh sao có thể làm hắn liền đi như vậy, vòng eo dùng sức thúc một cái, to dài long căn toàn bộ nhập vào nàng non mềm bên trong, hung hăng va chạm hoa tâm của nàng.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 69,
+    "suggested_target": "Lý Văn Đào"
   },
   {
     "id": "ch_0014",
     "is_character": true,
-    "source": "Lâm tử hùng",
-    "target": "Lâm Tử Hùng",
-    "context": "Lâm tử hùng, 28 tuổi, lâm bằng tường hứa tiểu điệp con, Lăng Vân tập đoàn công ty Phó tổng kinh lý",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '28 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 163
+    "source": "trương dung",
+    "target": "Trương Dung",
+    "context": "Từ Thanh chú ý tới trương dung sắc mặt biến hóa, hắn liền vội vàng ngồi vào mẫu thân bên người, cười hề hề đổi chủ đề, \"Như thế nào đàm luận khởi chuyện này đến đây?",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 42,
+    "suggested_target": "Trương Dung"
   },
   {
     "id": "ch_0015",
-    "is_character": true,
-    "source": "Diệp như hổ",
-    "target": "Diệp Như Hổ",
-    "context": "Diệp như hổ, 50 tuổi, diệp Ngọc Thiến ba ba, Nam Phương thành phố buôn bán bên ngoài cục trưởng",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '50 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 58
+    "is_character": false,
+    "source": "hình như có",
+    "target": "Hình Như Có",
+    "context": "Tần Vận cảm nhận đến Từ Thanh ép tại chính mình thân thể phía trên trầm trọng thân thể, nàng thân thể yêu kiều không tự chủ được rùng mình , hô hấp trở nên dồn dập, tâm nhảy trở nên nhanh hơn, một cỗ không hiểu được ngứa ngáy theo đáy lòng của nàng truyền ra, thân thể của nàng bắt đầu nóng lên, nàng cảm giác được Từ Thanh trên người truyền lại đi ra nam tính khí tức, những cái này khí tức hình như có chứa nào đó thần bí mị lực, làm nàng tâm nhảy càng lúc càng nhanh, hô hấp cũng trở nên càng thêm dồn dập, nàng bất an vặn vẹo một chút thân thể yêu kiều.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 25,
+    "suggested_target": "hình như có"
   },
   {
     "id": "ch_0016",
-    "is_character": true,
-    "source": "Tần khả",
-    "target": "Tần Khả Cầm",
-    "context": "Tần khả cầm, 47 tuổi, diệp Ngọc Thiến mẹ, Nam Phương thành phố Phó thị trưởng, thành thục mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '47 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 316
+    "is_character": false,
+    "source": "đại dương vật",
+    "target": "Đại Dương Vật",
+    "context": "Đúng lúc này, Từ Thanh trong lòng kích thích tới cực điểm, hắn cũng không nhịn được nữa, túi túi bắt đầu kịch liệt co lại , tiếp lấy hắn đại dương vật tại mẫu thân tiểu huyệt bắt đầu có tiết tấu nhảy chuyển động, một lớp lại một lớp khoái cảm thổi quét Từ Thanh mỗi một dây thần kinh.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 237,
+    "suggested_target": "đại dương vật"
   },
   {
     "id": "ch_0017",
     "is_character": true,
-    "source": "Âu Dương phi phi",
-    "target": "Âu Dương Phi Phi",
-    "context": "Âu Dương phi phi, 46 tuổi, giả Thương Hải vợ trước, gấm Tô Châu ngươi đan công ty Tổng kinh lý của, Âu Dương như tuyết mẹ, thành thục mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '46 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 133
+    "source": "Thi Nhã",
+    "target": "Thi Nhã",
+    "context": "Từ Thanh đưa tay đặt ở trước ngực của nàng, tại phía trên hung hăng bóp, lâm Thi Nhã không khỏi phát ra một tiếng nũng nịu kêu to âm thanh, thân thể của nàng tại Từ Thanh bàn tay hạ xoay lấy, nàng cả người đều tựa như là hòa tan, điều này làm cho Từ Thanh hưng phấn dị thường, nàng kia mềm mại không xương thân thể yêu kiều không ngừng vặn vẹo, mỗi một tấc làn da, mỗi một nơi, đều phát tán ra mê người hương vị.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 88,
+    "suggested_target": "Lâm Thi Nhã"
   },
   {
     "id": "ch_0018",
     "is_character": true,
-    "source": "Âu Dương như tuyết",
-    "target": "Âu Dương Như Tuyết",
-    "context": "Giả Thương Hải, 52 tuổi, viễn dương công ty lão tổng Âu Dương phi phi, 46 tuổi, giả Thương Hải vợ trước, gấm Tô Châu ngươi đan công ty lão tổng, Âu Dương như tuyết mẹ ngô nguyệt kiều, 38 tuổi, giả Thương Hải thê tử, Âu Dương như tuyết kế mẫu, trứ danh diễn viên giả Thương Giang, 44 tuổi, giả Thương Hải đệ đệ, viễn dương công ty Phó tổng tô tuyết nghi, 42 tuổi, giả Thương Giang thê tử, Tô Nguyên Xuân Tô Tích Xuân Tô Liên Xuân bác Gavin phong, 26 tuổi, giả Thương Hải Âu Dương phi phi con, Âu Dương như tuyết ca ca, viễn dương công ty Phó tổng Tô Liên Xuân, 26 tuổi, Gavin phong thê tử, Tô Nguyên Xuân Tô Tích Xuân muội muội dương mưa doanh, Gavin phong tình phụ, trứ danh ngôi sao ca nhạc Gavin đẹp, 32 tuổi, giả thương nàng tiên cá, Âu Dương như tuyết cùng cha khác mẹ tỷ tỷ, giáo sư Âu Dương như tuyết, 24 tuổi, giả Thương Hải Âu Dương phi phi nữ nhi, lưu học nghiên cứu sinh Gavin tĩnh, 16 tuổi, giả Thương Hải ngô nguyệt kiều nữ nhi, Âu Dương như tuyết cùng cha khác mẹ muội muội, đệ tử lâm bằng tường, 53 tuổi, mỗ tỉnh trưởng hứa tiểu điệp, 48 tuổi, lâm bằng tường tỉnh trưởng phu nhân, hứa tiểu trúc tỷ tỷ, Lăng Vân tập đoàn công ty tổng giám đốc lâm tử hùng, 28 tuổi, lâm bằng tường hứa tiểu điệp con, Lăng Vân tập đoàn công ty Phó tổng kinh lý Lâm Thi Âm, 46 tuổi, lâm bằng tường muội muội, lấy gã bác sĩ Lâm Ngọc Chi, 28 tuổi, Lâm Thi Âm nữ nhi, Nam Phương tỉnh đài truyền hình trứ danh người chủ trì Lâm Uyển Bích, 42 tuổi, Lâm Thi Âm đường muội, y tá trưởng lâm nhã thơ, 19 tuổi, Lâm Uyển Bích nữ nhi, y tá diệp như hổ, 50 tuổi, diệp Ngọc Thiến ba ba, Nam Phương thành phố buôn bán bên ngoài cục trưởng tần khả cầm, 47 tuổi, diệp Ngọc Thiến mẹ, Nam Phương thành phố Phó thị trưởng diệp Ngọc Thiến, 26 tuổi, diệp như hổ tần khả cầm nữ nhi, đại Trung Hoa công ty Tổng kinh lý của trợ lý \"Tốt bác!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 245
+    "source": "Lâm Thi Nhã",
+    "target": "Lâm Thi Nhã",
+    "context": "\" Lâm Thi Nhã điên cuồng kêu, nàng kia tuyết trắng làn da chớp mắt nổi lên một chút đỏ bừng, nàng cả người giống như vừa từ đáy biển đi ra con cá vậy, cả người ướt sũng , từng cổ mồ hôi theo trám của nàng, cổ, trước ngực không ngừng nhỏ giọt rơi, nàng thân thể yêu kiều đang kịch liệt giật giật , thân thể của nàng không ngừng run rẩy, nàng kia cao ngất lồng ngực kịch liệt lên xuống nhấp nhô , cái loại này cảm giác vui thích làm nàng khó nói thành lời, nàng kia tuyết trắng bắp đùi thon dài không ngừng đặng đá , nàng mông liên tục không ngừng vặn vẹo, cái loại này vui biểu cảm hình như muốn đem linh hồn của nàng đều ném bay ra ngoài.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 87,
+    "suggested_target": "Lâm Thi Nhã"
   },
   {
     "id": "ch_0019",
     "is_character": true,
-    "source": "Ngô nguyệt kiều",
-    "target": "Ngô Nguyệt Kiều",
-    "context": "Ngô nguyệt kiều, 38 tuổi, giả Thương Hải thê tử, Âu Dương như tuyết kế mẫu, trứ danh diễn viên, thành thục mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '38 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 75
+    "source": "Đường nguyên phong",
+    "target": "Đường Nguyên Phong",
+    "context": "Nói, Đường nguyên phong đột nhiên nâng cao tiếng lượng, lấy ra một chi sắc nhọn bút máy đâm về phía Từ Thanh, nhưng là Từ Thanh sớm có phát hiện, nhất nắm chặc Đường nguyên phong cổ tay, Đường nguyên phong ăn đau đớn phía dưới, sắc nhọn bút máy rơi xuống đến trên mặt đất, Đường nguyên phong bàn tay còn bị Từ Thanh chặt chẽ nắm.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 31,
+    "suggested_target": "Đường Nguyên Phong"
   },
   {
     "id": "ch_0020",
     "is_character": true,
-    "source": "Tô tuyết nghi",
-    "target": "Tô Tuyết Nghi",
-    "context": "Tô tuyết nghi, 42 tuổi, giả Thương Giang thê tử, Tô Nguyên Xuân Tô Tích Xuân Tô Liên Xuân bác, thành thục mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '42 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 163
+    "source": "Đường Khiếu",
+    "target": "Đường Khiếu",
+    "context": "\" Đường Khiếu mỉm cười gật đầu, đối với lão nhân y thuật, hắn vẫn là thực tín nhiệm , lão nhân tuy rằng lớn tuổi, nhưng là y thuật vẫn như cũ tinh xảo, nếu không Đường gia cũng không có khả năng mời này lão nhân đảm nhiệm y sư chức vị.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 34,
+    "suggested_target": "Đường Khiếu"
   },
   {
     "id": "ch_0021",
-    "is_character": true,
-    "source": "Tô Liên Xuân",
-    "target": "Tô Liên Xuân",
-    "context": "Tô Liên Xuân, 26 tuổi, Gavin phong thê tử, Tô Nguyên Xuân Tô Tích Xuân muội muội, mỹ mạo thiếu phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '26 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 219
+    "is_character": false,
+    "source": "Thân thể",
+    "target": "Thân Thể",
+    "context": "\" Thân thể của mẫu thân bỗng nhiên cong lên đến, mật huyệt kịch liệt co lại, kẹp hút Từ Thanh côn thịt, tử cung bên trong giống như tiết hồng, nóng bỏng dâm thủy vẩy tại Từ Thanh quy đầu phía trên, sảng khoái không được.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 75,
+    "suggested_target": "thân thể"
   },
   {
     "id": "ch_0022",
     "is_character": true,
-    "source": "Viên Minh Minh",
-    "target": "Viên Minh Minh",
-    "context": "Viên Minh Minh cười nói, \"Chúng ta chuẩn bị trước hết để cho ngươi làm đào Vân tỷ tỷ người hầu, ngươi phải biết rằng biển xanh kim sa khả là chúng ta vũ lâm đại hội trận chung kết giai đoạn trọng yếu hợp tác đồng bọn tài trợ đồng bọn một trong nga!",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 176
+    "source": "trần mộng di",
+    "target": "Trần Mộng Di",
+    "context": "\"A ~ Từ Thanh ~~ ngươi nhẹ chút ~ a đội lên bên trong ~ a a ~ thật thoải mái ~ thật sự sảng khoái a ~ Từ Thanh đệ đệ thật lợi hại ~ tỷ tỷ thật thoải mái ~\" biểu tỷ trần mộng di hai gò má đỏ ửng, hai mắt thủy quang liễm diễm, mị thái liên tục xuất hiện, nũng nịu âm thanh phối hợp kia tiêu hồn thực cốt rên rỉ, làm người ta nghe được xương cốt đều nhanh tô rớt.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 572,
+    "suggested_target": "Trần Mộng Di"
   },
   {
     "id": "ch_0023",
-    "is_character": true,
-    "source": "la quân",
-    "target": "La Quân",
-    "context": "Long Kiếm Phi đột nhiên động tình thân hôn lên thành thục mỹ phụ la mẫn miệng anh đào nhỏ, nàng rất nhanh liền quên mất nữ nhi tuyết đình liền ở bên cạnh không chớp mắt nhìn mình chằm chằm, hoàn toàn bị lạc khi hắn thành thạo ẩm ướt tài hôn xảo trước mặt, lời lẽ đan vào, mút vào liếm động, nước bọt mọc lan tràn, nàng động tình phun ra hương vị ngọt ngào cái lưỡi tùy ý hắn dây dưa mút vào, thân thể mềm mại run run, đùi ngọc mềm yếu, um tùm ngọc thủ không tự chủ được cách quần áo ấn lên hắn thật cao đáp khởi lều trại, nàng cũng rõ ràng cảm giác được của hắn cực đại cứng rắn, cảm giác được hắn dời đi lấy ôn nhu liếm láp gặm cắm nàng trắng nõn mềm mại vành tai, đó là nàng mẫn cảm nhất khu vực một trong, nàng cảm giác được nội tâm của mình chỗ sâu xôn xao cùng khát vọng tại rục rịch, thân thể ở chỗ sâu trong cũng bắt đầu nhức mỏi mềm yếu, gãi ngứa khó chịu, bao nhiêu năm đoan trang hiền thục, tại đế quốc tập đoàn là cao cấp thành phần tri thức nữ cường nhân, ở nhà là gia đình bà chủ hiền thê lương mẫu, toàn tâm toàn ý vì đệ đệ la quân xử lý công ty, ở nhà lại thụ trượng phu vương đại vĩ khí, nửa đời người thật cẩn thận trong ngoài lo liệu cẩn trọng, lại bởi vì lương tâm lý trí xung đột lọt vào đệ đệ cùng trượng phu liên thủ phản bội, không phải buồn bực không vui hậm hực mà chết, cũng phải bị chim ưng lang cố đệ đệ la quân thống hạ thủ đoạn độc ác thí xe giữ tướng, may mắn chiếm được cúc trì tiểu bách hợp cứu trợ, lại đạt được mệnh trung quý nhân Long Kiếm Phi cứu, la mẫn mới thu được tân sinh, lần này xuyên qua, nàng không chỉ có thu được mới tinh sinh mệnh, là trọng yếu hơn là thu được nữ nhân khoái hoạt, cũng là la mẫn trước nay chưa có nữ nhân khoái hoạt, nàng mới biết được nữ nhân có thể nhanh như vậy nhạc như thế thở gấp như thế rên rỉ như thế dục tiên dục tử như thế phiêu phiêu dục tiên, bị Long Kiếm Phi trước mặt nữ nhi tuyết đình mặt lại ôn nhu ẩm ướt hôn, hổ lang tuổi thành thục nữ nhân dục vọng kìm lòng không đặng hoàn toàn thả ra ngoài, nàng cả người vô lực, hô hấp tiệm dần gấp rút.",
+    "is_character": false,
+    "source": "bao giờ",
+    "target": "Bao Giờ",
+    "context": "A ~\" mẫu thân thân thể yêu kiều đã hoàn toàn mềm xuống, thân thể xụi lơ tại trong ngực Từ Thanh, mặc cho Từ Thanh ép buộc, nàng chỉ có thể nhẹ nhàng thở gấp, hưởng thụ loại này chưa bao giờ có cảm nhận, hơn nữa nội tâm chỗ sâu còn dâng lên một cỗ khát vọng, khát vọng bị Từ Thanh tiếp tục xâm phạm thân thể của chính mình.",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 240
+    "so_lan_xuat_hien": 56,
+    "suggested_target": "bao giờ"
   },
   {
     "id": "ch_0024",
     "is_character": true,
-    "source": "La mẫn",
-    "target": "La Mẫn",
-    "context": "La mẫn, 40 tuổi, la quân tỷ tỷ, đế quốc tập đoàn tài vụ quản lí, u oán mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '40 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 423
+    "source": "Lý Mộc",
+    "target": "Lý Mộc",
+    "context": "\" Bọn hắn âm thanh cung kính đối với Từ Thanh cúi đầu, Từ Thanh nhẹ nhàng vuốt cằm, sau đó quay đầu đối với Lý Mộc tử nói, \"Đây là quản gia của ta cùng người giúp việc, bọn hắn chiếu cố tốt ngươi, nếu như gặp phải cái gì không giải quyết được sự tình, ngươi có thể liên hệ bọn hắn.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 38,
+    "suggested_target": "Lý Mộc Tử"
   },
   {
     "id": "ch_0025",
     "is_character": true,
-    "source": "Đào hồng",
-    "target": "Đào Hồng",
-    "context": "Đào hồng, 42 tuổi, quốc hoa tập đoàn hạ mang chúc công ty du lịch quản lí, thành thục mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '42 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 301
+    "source": "lý viện triều",
+    "target": "Lý Viện Triều",
+    "context": "Đế đô vùng ngoại thành nhất ngôi biệt thự tầng hầm bên trong, lý viện triều cùng con Lý Cương, thê tử nào vân ba người bị trói buộc tại ghế dựa phía trên, bọn hắn liên tục không ngừng giãy dụa, đáng tiếc hai chân của bọn hắn đã gãy mất, căn bản làm cho không ra kính nhi.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 60,
+    "suggested_target": "Lý Viện Triều"
   },
   {
     "id": "ch_0026",
     "is_character": true,
-    "source": "Mạnh lệ",
-    "target": "Mạnh Lệ",
-    "context": "Mạnh lệ, 20 tuổi, Lăng Vân tập đoàn thành phần tri thức, đào hồng nữ nhi",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '20 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 435
+    "source": "Lý Minh",
+    "target": "Lý Minh",
+    "context": "Lý Minh ngọc hưng phấn nói năng lộn xộn, nàng không ngừng gật đầu, nàng hiện tại đã hoàn toàn yêu phía trên Từ Thanh, trên cái thế giới này hạnh phúc nhất nữ nhân không ai qua được này a, Từ Thanh năng lực làm nàng dục tiên dục tử, nàng hận không thể vĩnh viễn nằm ở Từ Thanh dưới người hưởng thụ phần kia kích thích, đáng tiếc Từ Thanh cũng là một cái hoa tâm quỷ, hắn chính là cùng chính mình trêu đùa vài lần sẽ không lý mình, điều này làm cho Lý Minh ngọc phi thường thất vọng.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 297,
+    "suggested_target": "Lý Minh Ngọc"
   },
   {
     "id": "ch_0027",
     "is_character": true,
-    "source": "Đào vân",
-    "target": "Đào Vân",
-    "context": "Đào vân, 36 tuổi, đào hồng muội muội, quốc hoa tập đoàn biển xanh kim sa quản lí, xinh đẹp thiếu phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '36 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 443
+    "source": "Hoắc Hoa Đức",
+    "target": "Hoắc Hoa Đức",
+    "context": "\"Vì sao, cùng gia tộc của ta hợp tác là ngài lợi nhuận tối đại hóa cũng là nhẹ nhàng nhất , ta là tại thực hiện không thể tưởng được ngài còn có khả năng cùng ai hợp tác? \" Hoắc Hoa Đức nghi ngờ nói.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 64,
+    "suggested_target": "Howard"
   },
   {
     "id": "ch_0028",
     "is_character": true,
-    "source": "Nhan lệ kỳ",
-    "target": "Nhan Lệ Kỳ",
-    "context": "Nhan lệ kỳ, 25 tuổi, nhan mỹ kỳ muội muội, sườn xám mỹ nữ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '25 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 230
+    "source": "Hạ nhã",
+    "target": "Hạ Nhã",
+    "context": "Hạ nhã mặc dù là một cái thành thục nữ tính, nhưng dù sao cũng là hơn hai mươi tuổi tuổi tác, hơn nữa lại từ nhỏ sống ở thư hương thế gia, mưa dầm thấm sâu phía dưới, trong xương cốt ít nhiều có một chút truyền thống nữ tính tư duy, cho nên, đối với ở phương diện này sự tình tuy rằng khát vọng, nhưng cũng không mãnh liệt, nhưng là lần này cùng Từ Thanh phân biệt mấy ngày về sau, cũng là phá lệ tưởng niệm Từ Thanh, nàng cũng không biết vì sao, rõ ràng đã thói quen cùng Từ Thanh tại cùng một chỗ, nhưng là một khi Từ Thanh biến mất, nàng cũng cảm giác toàn bộ trong gian phòng lạnh như băng , trong lòng vắng vẻ , giống như mất hồn nhi.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 607,
+    "suggested_target": "Hạ Nhã"
   },
   {
     "id": "ch_0029",
     "is_character": true,
-    "source": "nhan mỹ kỳ",
-    "target": "Nhan Mỹ Kỳ",
-    "context": "Bán xế chiều, lúc này nằm ở trên giường Long Kiếm Phi không ngờ đã khép lại đôi mắt, hôm nay thật có chút mệt mỏi, không phải thể xác và tinh thần mệt mỏi, mà là tinh thần mệt mỏi, vốn là khai trương điển lễ việc vui, nhưng bởi vì nhất chi tiết biến hóa mà chuyển hoán thành nay chuyện này cảnh, chỉ là vừa mới vừa ở trong TV thấy được phượng hoàng đài đưa tin, khai trương điển lễ phi thường oanh động, chính là chủ trì khai trương điển lễ nhân vật chính từ con biến thành mẹ, quân như mẹ dáng vẻ ngàn vạn cùng tân hoa xã lãnh đạo còn có Hongkong đặc thủ phu nhân cùng nhau long trọng cắt băng, xem ra trương hoa xinh đẹp nhan mỹ kỳ tốt đẹp Phượng tỷ tỷ vận tác thực thành công, tại Hongkong các giới đưa tới to lớn hưởng ứng, hắn giờ này khắc này nằm ở Mộc Lan trên giường hoa, rốt cục có thể an tâm nghỉ ngơi một hồi rồi, dù sao chạng vạng còn muốn bay trở về Nam Phương thành phố đi giải quyết một vấn đề.",
+    "source": "Đại Na",
+    "target": "Đại Na",
+    "context": "Từ Thanh vẫn không nói gì, Đại Na đột nhiên ngồi dậy, sau đó nàng quỳ ở trên giường, ôm lấy Từ Thanh vòng eo, miệng từ đầu đến cuối đều ngậm Từ Thanh đầu vú, phấn nộn đầu lưỡi không được quét làm đầu vú thượng kia tinh mịn lông tơ, kia phấn nộn đầu lưỡi liên tục không ngừng liếm lấy, kia ẩm ướt trượt đầu lưỡi giống như mang theo ma lực giống như, nàng kia hùng trước hai luồng quả cầu thịt tùy theo nàng động tác mà lên xuống nhấp nhô , kia hai khỏa đậu đỏ cũng theo lấy nhảy chuyển động, kia hai hạt đậu đỏ cũng biến thành căng tròn , tựa như chín muồi hồng anh đào giống nhau, tỏa ra mê người thơm ngọt khí tức.",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 195
+    "so_lan_xuat_hien": 178,
+    "suggested_target": "Diana"
   },
   {
     "id": "ch_0030",
     "is_character": true,
-    "source": "Thái Trân Trân",
-    "target": "Thái Trân Trân",
-    "context": "Thái Trân Trân, 24 tuổi, đầy đặn diễm lệ, tỷ tỷ, sườn xám mỹ nữ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '24 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 207
+    "source": "An Cát Lệ Na",
+    "target": "An Cát Lệ Na",
+    "context": "An Cát Lệ Na nhìn thẹn thùng không thôi Từ Thanh, trong lòng cười thầm không thôi, Từ Thanh trên mặt ngoài giả vờ trấn tĩnh, kỳ thật hắn tâm lý tố chất xa xa không sánh được chính mình, bằng không hắn cũng không lại nhanh như vậy liền bại lui, An Cát Lệ Na nội tâm mừng thầm không thôi, nàng đối với Từ Thanh càng ngày càng cảm thấy hứng thú, muốn mau chóng được đến diên thọ kéo dài thuốc phối phương, sau đó hoàn Thành gia tộc bàn giao cấp nhiệm vụ của mình.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 89,
+    "suggested_target": "Angelina"
   },
   {
     "id": "ch_0031",
     "is_character": true,
-    "source": "Thái Liên Liên",
-    "target": "Thái Liên Liên",
-    "context": "Thái Liên Liên, 21 tuổi, chocolate mỹ nữ, nhị muội, sườn xám mỹ nữ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '21 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 194
+    "source": "Trần Thiến",
+    "target": "Trần Thiến",
+    "context": "Trần Thiến văn lời nói trung đã mang theo nức nở, bởi vì giờ khắc này, Từ Thanh tại xung kích đồng thời, nàng rõ ràng cảm giác được một cỗ ấm áp mà dinh dính đồ vật từ phía dưới tuôn tiến đến, hơn nữa tùy theo Từ Thanh mỗi một lần thật sâu va chạm, cỗ kia sền sệt dính dính và trắng mịn chất lỏng liền phun tung toé đi ra, ướt nhẹp thân thể nàng thượng mỗi một chỗ làn da, làm nàng cảm giác được mình tựa như tại trong thủy bơi lội giống như, những chất lỏng kia thuận theo vú của nàng hướng bốn phía lan tràn, làm nàng cảm giác được dị thường thoải mái cùng hưng phấn, nhất là tùy theo Từ Thanh mỗi một lần xung phong, loại chất lỏng này đều có khả năng hất tới nàng  xiong bộ, làm nàng cảm giác được ngứa , lại làm nàng phi thường thoải mái, không để cho nàng cấm nhẹ giọng líu ríu, rên rỉ không ngừng.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 555,
+    "suggested_target": "Trần Thiến Văn"
   },
   {
     "id": "ch_0032",
     "is_character": true,
-    "source": "Thái y y",
-    "target": "Thái Y Y",
-    "context": "Thái y y, 18 tuổi, xinh xắn lanh lợi cốt cảm mỹ nữ, Tam muội, sườn xám mỹ nữ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '18 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 175
-  },
-  {
-    "id": "ch_0033",
-    "is_character": true,
-    "source": "lô Trùng Khánh",
-    "target": "Lô Trùng Khánh",
-    "context": "Y yên tĩnh vừa mới bị trượng phu lô Trùng Khánh thương tâm, giờ này khắc này chỉ có tại tình lang nơi này được an bình an ủi, này mới gặp mặt hai lần Tạ gia long lúc này cư nhiên thành nàng tránh né mưa gió cảng, trong ngày thường đoan trang thanh tao lịch sự cậy tài khinh người mới nữ minh tinh y yên tĩnh, hôm nay hoàn toàn lật đổ mình, hổ lang tuổi thành thục nữ nhân dục vọng kìm lòng không đặng hoàn toàn thả ra ngoài, nàng cả người vô lực, hô hấp tiệm dần gấp rút.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 38
-  },
-  {
-    "id": "ch_0034",
-    "is_character": true,
-    "source": "Ôn hồng",
-    "target": "Ôn Hồng",
-    "context": "Ôn hồng, 36 tuổi, trứ danh minh tinh điện ảnh, từng diễn viên chính quá phim cấp 3 《 phong tình vạn chủng 》, phong tao mỹ phụ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '36 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 244
-  },
-  {
-    "id": "ch_0035",
-    "is_character": true,
-    "source": "Phương mỹ dung",
-    "target": "Phương Mỹ Dung",
-    "context": "Phương mỹ dung, 44 tuổi, thành thục mỹ phụ, chu phương băng mẹ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '44 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 516
-  },
-  {
-    "id": "ch_0036",
-    "is_character": true,
-    "source": "Chu phương băng",
-    "target": "Chu Phương Băng",
-    "context": "Chu phương băng, 22 tuổi, đương hồng ảnh thị ca minh tinh, diễn viên chính quá 《 Hoàn Châu các các 》《 nho 》《 điện thoại 》 đợi ảnh thị kịch",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '22 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 172
-  },
-  {
-    "id": "ch_0037",
-    "is_character": true,
-    "source": "Lưu nhã lỵ",
-    "target": "Lưu Nhã Lỵ",
-    "context": "Lưu nhã lỵ, 42 tuổi, thành thục mỹ phụ thực, tôn mưa phỉ mẹ",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '42 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 738
-  },
-  {
-    "id": "ch_0038",
-    "is_character": true,
-    "source": "Tôn mưa phỉ",
-    "target": "Tôn Vũ Phỉ",
-    "context": "Tôn mưa phỉ, 20 tuổi, đương hồng ảnh thị ca minh tinh, diễn viên chính quá 《 thần điêu hiệp lữ 》《 kim phấn thế gia 》《 công phu 》 đợi ảnh thị kịch",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '20 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 32
-  },
-  {
-    "id": "ch_0039",
-    "is_character": true,
-    "source": "Đường gia lệ",
-    "target": "Đường Gia Lệ",
-    "context": "Đường gia lệ, 22 tuổi, mỹ nữ phục vụ viên",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '22 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 189
-  },
-  {
-    "id": "ch_0040",
-    "is_character": false,
-    "source": "Đông Phương",
-    "target": "phương Đông",
-    "context": "Quân Như mẹ có Đông Phương nữ nhân ít có cao lớn dáng người, tuy rằng năm đã ba mươi sáu tuổi, nhưng được bảo dưỡng nghi, quả thật là một cái thành thục khêu gợi đầy đặn trung niên mỹ phụ nhân, kiêm cụ thành thục nữ tính ý nhị cùng hiền lành mẫu thân xinh đẹp gương mặt, một loại sống an nhàn sung sướng phu nhân phong tư, trưởng thiên kiều bá mị, mặt xinh đẹp tuyệt luân, trong trắng lộ hồng da thịt, đôi mi thanh tú hơi cong giống như nguyệt, hai mắt thật to hắc bạch phân minh, lông mi dài nhỏ đen nhánh, cái mũi cao thẳng long thẳng, đỏ tươi môi hơi nhếch lên, đôi môi đầy đặn ngậm lấy một cỗ trời sanh mị thái, môi anh đào giác mọc lên một đỏ tươi mỹ nhân chí, mê người nhất là kia một đôi thủy uông uông đại mị nhãn, mỗi tại chuyển động liếc xem nhân lúc, tựa hồ trước mặt đựng một đốm lửa, đốt tâm linh người, câu nhân thỉ phách giống nhau, nhất phiêu vừa chuyển có thể câu nhân hồn.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 78
-  },
-  {
-    "id": "ch_0041",
-    "is_character": true,
-    "source": "tiền cá",
-    "target": "Tiền Ngư",
-    "context": "Nói thật lòng, nàng tìm không thấy khuyết điểm của mình, tiếc nuối duy nhất là, nàng này như hoa như ngọc người nhi nhưng lại gả cho một cái so nàng đại hơn mười tuổi kỳ mạo xấu xí trượng phu, tuy rằng tiền cá cùng trong chính trị từng bước thăng chức, con đường làm quan đắc ý, nhưng là vợ chồng hai người cảm tình giống như, chưa nói tới ân ái, hơn nữa tiền cá cùng khả năng có gặp ở ngoài, vợ chồng hai người bằng mặt không bằng lòng, đồng sàng dị mộng, tự kết hôn tới nay, tại sinh hoạt tình dục thượng nhất thời chưa đã từng thỏa mãn.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 31
-  },
-  {
-    "id": "ch_0042",
-    "is_character": true,
-    "source": "Kiếm Phi",
-    "target": "Long Kiếm Phi",
-    "context": "Nàng ngày hôm đó đổ vương dạ yến phía trước hoàn lòng tràn đầy hy vọng Long Kiếm Phi là tỷ tỷ nàng cùng tạ quốc hoa mồ côi từ trong bụng mẹ, nhưng là, dạ yến bên trong trải qua lần đó quấy rầy dâm loạn sau, Long Kiếm Phi rồi hướng nàng và đệ đệ Ô gia vệ như vậy giúp tiền trợ giúp cực lực chiếu cố, mấy ngày qua trong lòng của nàng thế nhưng ẩn ẩn hy vọng Long Kiếm Phi không phải tỷ tỷ nàng con trai ruột, rốt cuộc là nguyên nhân gì, có lẽ chỉ có nàng tự mình biết, có lẽ liền cả chính nàng cũng cũng không biết, bởi vì lúc này giờ phút này bị Long Kiếm Phi để sát vào bên tai thấp giọng nói chuyện, nàng đều cảm giác tim đập như hươu chạy, khoảng cách gần như vậy tiếp xúc, lại ngửi được trên người hắn vẻ này phi thường dễ ngửi đặc hơn nam tử Hán Dương cương khí hơi thở, nàng lại có loại không giải thích được khát vọng cảm giác, mặt phấn không tự chủ được bay lên đỏ ửng.",
-    "yeu_to_nhan_biet": "Đứng trước từ chỉ quan hệ 'tỷ tỷ'",
-    "so_lan_xuat_hien": 39
-  },
-  {
-    "id": "ch_0043",
-    "is_character": true,
-    "source": "Trương Mẫn",
-    "target": "Trương Mẫn Mẫn",
-    "context": "Hạng hóa cường tâm tình phức tạp nhìn Long Kiếm Phi liếc mắt một cái, Long Kiếm Phi thật sự là một người cao lớn cường tráng trẻ tuổi tiểu tử, hơn nữa so bình thường có vẻ còn muốn khỏe mạnh uy mãnh một ít, mặc một kiện T-shirt (áo sơ mi) cùng quần đùi, tráng kiện rắn chắc cánh tay của cùng đùi hiện ra màu đồng cổ, đột bạo xuất cánh tay cơ cùng cơ đùi thịt càng hiện ra tiểu tử này tràn đầy thể lực, hơn nữa tại ngực cùng trên đùi còn có khá nhiều lông mọc trên thân thể, có vẻ cực đoan gợi cảm, tuyệt đối là mỹ phụ thục nữ thích tính đối tượng, trách không được thê tử Trương Mẫn mẫn nghe nói tên Long Kiếm Phi đều sẽ nhịn không được thân thể mềm mại run lên đâu!",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 333
-  },
-  {
-    "id": "ch_0044",
-    "is_character": true,
-    "source": "lý Như Yên",
-    "target": "Lý Như Yên",
-    "context": "Long Kiếm Phi gặp lý Như Yên mặc một thân màu hồng lễ phục, kiều mỵ mà trong veo, trắng nõn nà hồng nhuận nhuận gương mặt của có điểm mẫu thân nàng bóng dáng, hoạt thoát thoát một cái mềm mại bản bóng hình xinh đẹp dì, chính là nàng lúc này nhiều chút kiều mỵ cùng phấn nộn, bán vãn lên mái tóc minh châu ngọc liên hoàn thúc, phía sau toàn bộ cúi sau thuận lưng xuống, tựa như tinh linh, màu hồng lễ phục đem nàng kia mềm mại trên thân cấp bao khỏa quá chặt chẽ đấy, vậy đối với tiểu vú khoa trương bạo nhũ hở ra, màu hồng lễ phục nhẹ nhàng mà uyển chuyển hàm xúc, quyến rũ mà thanh lệ, trong suốt mà ngồi tiểu mỹ mông đem lễ phục băng bó quá chặt chẽ đấy, tiểu mỹ mông kia hoàn mỹ độ cong tuyệt đẹp mà cám dỗ, tính cả tú thẳng lưng trắng giống như người trong bức họa bình thường tao nhã, nhưng thật ra được mẹ nàng bóng hình xinh đẹp dì đại bộ phận vĩ đại di truyền.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 52
-  },
-  {
-    "id": "ch_0045",
-    "is_character": true,
-    "source": "Như Yên",
-    "target": "Như Yên",
-    "context": "Đã bắn quá tinh Long Kiếm Phi cũng không có bởi vì dì nhạc mẫu cao trào mà phun ra, ngược lại là nhấc lên hắn lớn hơn dục hỏa, hai mắt đỏ ngầu thoáng nhìn quỳ nằm ở chỗ này hôn nồng nhiệt bóng hình xinh đẹp dì Như Yên biểu muội, chỉ thấy nàng tình mê ý loạn, xuân tình bộc phát tại hôn mẫu thân nàng không để đồng thời cặp kia trắng noãn như hành hai tay của đã leo lên vậy đối với từng phân bố sữa dưỡng dục quá nàng đầy đặn tuyết trắng vú lớn, đang ở nơi đó tình mê ý loạn trảo nhu lấy, toàn thân không một tia bán lũ, trong trắng lộ hồng da thịt trong suốt ướt át, tinh xảo đặc sắc nhan sắc hiện lên sáng bóng, mềm mại nộn như phấn giống như chi, tinh tế hồng nhuận, bởi vì thiếu nữ xuân tình lấn tới, toàn thân trên dưới tản ra mị người mùi thơm, nhục dục hơi thở, theo cổ chỗ loan ra một đạo tuyệt đẹp độ cong thẳng quá lưng trắng sau cùng kết nối lấy kia cao kiều rất lộ viên nộn mông, sau đó theo cặp kia tú thẳng trắng đẹp, trơn mềm tế nị đùi thẳng đến đầu gối, đầu gối quỳ gối mềm mại trên giường, tiểu thối tao nhã trắng noãn, mê người không thôi, kia trắng noãn chân nhỏ ngay ngắn đối với Long Kiếm Phi, mười đáng yêu chân chỉnh tề yên lặng dán tại trên giường, thật sự.",
-    "yeu_to_nhan_biet": "Đứng trước từ chỉ quan hệ 'biểu muội'",
-    "so_lan_xuat_hien": 248
-  },
-  {
-    "id": "ch_0046",
-    "is_character": true,
-    "source": "Hoàng Long",
-    "target": "Hoàng Long",
-    "context": "Lòng bình thường tức là tự tự nhiên nhiên, hoàn toàn không có chế tạo, vô thị phi lấy hay bỏ, chỉ để ý hành ở tọa nằm, ứng cơ giao tiếp lâm bằng tường lục Hoàng Long tuệ khai thiền sư có tên không cửa quan thứ 19 tắc cùng giả Thương Hải tiên sinh cùng nỗ lực hắn lại không biết mình lão bà đường đường tỉnh trưởng phu nhân đang ở mắt của hắn da dưới bị Long Kiếm Phi sắc thủ vuốt ve vuốt ve dâm loạn quấy rầy đâu!",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ",
-    "so_lan_xuat_hien": 30
-  },
-  {
-    "id": "ch_0047",
-    "is_character": true,
-    "source": "Ngọc Khanh",
-    "target": "Dương Ngọc Khanh",
-    "context": "Long Kiếm Phi nghe quân như mẹ cùng thành thục mỹ phụ nhạc mẫu Âu Dương phi phi đều cùng đề cử hắn trong cảm nhận nữ thần dương ngọc Khanh tỷ tỷ là tuyệt đại giai nhân, hắn cũng không cấm tâm hoa nộ phóng, nhớ tới đã lâu không có nhìn thấy dương ngọc Khanh tỷ tỷ, còn có dương ngọc nhàn dương ngọc Nhã tỷ muội, nghĩ đến từ bành thủy sư gặp chuyện không may, nhất thời không có đi vấn an ngọc Khanh tỷ tỷ, thứ nhất chính mình phân thân thiếu phương pháp, thứ hai ngọc Khanh tỷ tỷ ru rú trong nhà không muốn để cho nhân thấy nàng thể xác và tinh thần tiều tụy không chịu nổi quẫn cảnh, tam tắc dương ngọc nhàn dương ngọc Nhã tỷ muội làm bạn bên cạnh an ủi chiếu cố đều tắt máy lảng tránh cùng ngoại giới liên hệ, Long Kiếm Phi trong lòng ám than mình là thời điểm hẳn là đi thăm an ủi hỏi một chút ngọc Khanh tỷ tỷ rồi, lại tiếp tục tò mò hỏi tới: \"Ngọc Khanh tỷ tỷ đương nhiên là xinh đẹp không thể tả đấy, như vậy còn có một cái mỹ nữ là ai đâu này?",
-    "yeu_to_nhan_biet": "Đứng trước từ chỉ quan hệ 'tỷ tỷ'",
-    "so_lan_xuat_hien": 47
-  },
-  {
-    "id": "ch_0048",
-    "is_character": true,
-    "source": "Mã Kiến Thiết Đường",
-    "target": "Mã Kiến Thiết",
-    "context": "Kim Tuệ Mẫn tất nhiên khen ngợi liên tiếp gật đầu, Tô Nguyên Xuân Mã Như Lan hứa tiểu trúc đường văn thanh đều kích động vỗ tay ủng hộ, nhạc đàn lục tông vũ Mã Kiến Thiết Đường Văn Hưng đợi vô cùng cảm kích bội phục không thôi ôm quyền chắp tay đồng thanh nói: \"Bang chủ anh minh!",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ",
-    "so_lan_xuat_hien": 27
-  },
-  {
-    "id": "ch_0049",
-    "is_character": true,
-    "source": "Văn Hưng",
-    "target": "Đường Văn Hưng",
-    "context": "Nhạc đàn lục tông vũ Mã Kiến Thiết Đường Văn Hưng khó tránh khỏi khuyên can Trương Tử Kiến Nhật Bản chuyến đi, Long Kiếm Phi dứt khoát kiên quyết nói: \"Ý ta đã quyết!",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 27
-  },
-  {
-    "id": "ch_0050",
-    "is_character": true,
-    "source": "Xảo Xảo",
-    "target": "Xảo Xảo",
-    "context": "Long Kiếm Phi tại tam nữ thân thể mềm mại giở trò trêu đùa, \"Xảo Xảo tỷ tỷ nếu là Huyền Vũ đại đế ảnh thị truyền thông Tổng kinh lý của, lần này thuận lý thành chương làm là thứ nhất giới Á châu điện ảnh tivi tiết mục nghệ thuật tổng bày ra, hoa Thiến tỷ tỷ tốt đẹp kỳ tỷ tỷ làm Phó tổng bày ra, lại chớ quên mình là Tử La lan công ty giải trí quản lí thân phận, càng phải khắp nơi lấy chúng ta Tử La lan minh tinh trao đổi kế hoạch làm mục đích cuối cùng, quảng phát thiệp mời, căn cứ thà giết lầm ba ngàn không thể đổ vào một cái nguyên tắc, chú ý một cái lưới trời tuy thưa nhưng khó lọt, các ngươi nói thế nào à?",
-    "yeu_to_nhan_biet": "Đứng trước từ chỉ quan hệ 'tỷ tỷ'",
-    "so_lan_xuat_hien": 54
-  },
-  {
-    "id": "ch_0051",
-    "is_character": true,
-    "source": "văn thanh",
-    "target": "Đường Văn Thanh",
-    "context": "Dương ngọc khanh minh bạch, chính mình được cho ung dung cao quý đoan trang thanh tao lịch sự, bàn về tư sắc so Long Kiếm Phi mỹ nữ bên cạnh tỷ tỷ bọn muội muội không kém chút nào, Lệ Na lâm nhã thơ tiền tuyết văn thanh thuần động lòng người, lý Như Yên Gavin uyển Hàn Tuyết ngọt hoạt bát, đường văn thanh tuyết đình Mã Lỵ Lỵ linh khí, Tô Nguyên Xuân Tô Tích Xuân Tô Liên Xuân diệp Ngọc Thiến hạ ngọc hà Lâm Ngọc Chi Kim Tử Phi gợi cảm động lòng người, mà Quân Như mẹ Lâm Thi Âm lại đẹp để cho người ta kinh diễm!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 138
-  },
-  {
-    "id": "ch_0052",
-    "is_character": false,
-    "source": "thẩm thẩm",
-    "target": "thẩm thẩm",
-    "context": "Mềm mại đen bóng tóc dài mâm ở trên đầu, chải một cái phu nhân kế, xinh đẹp mặt cười, tú rất mũi ngọc, tiên diễm hồng nhuận miệng anh đào nhỏ, phấn nộn tỉ mỉ trắng nõn vành tai chuế lấy mỹ ngọc khuyên tai, hơn ba mươi tuổi thiếu phụ, mặt mày xinh đẹp như tranh vẽ, một thân màu lam tơ tằm váy liền áo, một chút không che giấu được vẻ đẹp của nàng tốt mạn diệu dáng người, đầy đặn cao ngất bộ ngực sữa, eo thon chi, thon dài rất tròn đùi ngọc, đẫy đà nhục cảm mông đẹp, Long Kiếm Phi ôn nhu nhẹ nhàng ôm thẹn thùng thiếu phụ thẩm thẩm điền tú hồng mảnh mai, cảm thụ được thiếu phụ đẫy đà hoạt nộn da thịt, tinh xảo đặc sắc dáng người, vừa nhìn thấy thẹn thùng thiếu phụ thẩm thẩm điền tú hồng ôn tĩnh kiều khiếp bộ dáng cùng váy liền áo hạ đầy đặn cân xứng thân thể, Long Kiếm Phi liền kìm lòng không đặng nổi lên phản ứng, nam nhân càng thích mảnh mai e lệ nữ tính.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 880
-  },
-  {
-    "id": "ch_0053",
-    "is_character": false,
-    "source": "Dương gia",
-    "target": "nhà họ Dương",
-    "context": "Hai người vừa xuống xe lập tức khiến cho mọi người chú mục, ký giả truyền thông lại tia sáng huỳnh quang đèn láo liên không ngừng, một cái nhảy qua quốc tập đoàn tuổi trẻ tài cao Tổng kinh lý của, gần nhất tại Hongkong múa phong sinh thủy khởi sang sông long, một cái di cư nước ngoài thoái ẩn xuất gia bao nhiêu năm không có lộ diện ngày xưa siêu sao, giờ này khắc này cùng xuất hiện tại Dương gia tiệc cưới lên, làm sao có thể không dẫn phát oanh động đâu này?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 105
-  },
-  {
-    "id": "ch_0054",
-    "is_character": false,
-    "source": "ôn nhu an ủi",
-    "target": "ôn nhu an ủi",
-    "context": "Long Kiếm Phi biết tỷ tỷ cùng hỗ này vừa cảm tình nguy cơ càng ngày càng nghiêm trọng, mình trêu đùa có vẻ thập phần lỗi thời, nhịn không được cầm tỷ tỷ um tùm ngọc thủ ôn nhu an ủi: \"Tỷ, không cần phải vì hắn mà làm hại chính mình phiền não ưu thương.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 37
-  },
-  {
-    "id": "ch_0055",
-    "is_character": true,
-    "source": "văn oanh",
-    "target": "Lã Văn Oanh",
-    "context": "Lã văn oanh 24 tuổi tầm đó, đội một bức tơ vàng biên kính mắt, mặc một thân màu vàng nhạt bộ váy, màu đen tất chân nổi bật lên nàng ngà voi da thịt càng thêm tuyết trắng mềm mại, tinh xảo đặc sắc dáng người vô hạn tốt đẹp, mi mục như họa, kia xinh đẹp kiều diễm khuôn mặt, trong suốt linh động mắt to, tinh xảo khéo léo màu hồng cái miệng nhỏ nhắn, trắng nõn tế trợt cái má cùng giống như sân phi sân nhăn mày cười, quả thật có thể xưng là là quốc sắc thiên hương rồi, nàng dáng người thon thả xinh đẹp tuyệt trần, váy phụ trợ ở dưới song chưởng cùng hai chân càng thêm có vẻ trắng nõn động lòng người.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 306
-  },
-  {
-    "id": "ch_0056",
-    "is_character": true,
-    "source": "Âu Dương",
-    "target": "Âu Dương Như Tuyết",
-    "context": "Giả Thương Hải, 52 tuổi, viễn dương công ty lão tổng Âu Dương phi phi, 46 tuổi, giả Thương Hải vợ trước, gấm Tô Châu ngươi đan công ty lão tổng, Âu Dương như tuyết mẹ ngô nguyệt kiều, 38 tuổi, giả Thương Hải thê tử, Âu Dương như tuyết kế mẫu, trứ danh diễn viên giả Thương Giang, 44 tuổi, giả Thương Hải đệ đệ, viễn dương công ty Phó tổng tô tuyết nghi, 42 tuổi, giả Thương Giang thê tử, Tô Nguyên Xuân Tô Tích Xuân Tô Liên Xuân bác Gavin phong, 26 tuổi, giả Thương Hải Âu Dương phi phi con, Âu Dương như tuyết ca ca, viễn dương công ty Phó tổng Tô Liên Xuân, 26 tuổi, Gavin phong thê tử, Tô Nguyên Xuân Tô Tích Xuân muội muội dương mưa doanh, Gavin phong tình phụ, trứ danh ngôi sao ca nhạc Gavin đẹp, 32 tuổi, giả thương nàng tiên cá, Âu Dương như tuyết cùng cha khác mẹ tỷ tỷ, giáo sư Âu Dương như tuyết, 24 tuổi, giả Thương Hải Âu Dương phi phi nữ nhi, lưu học nghiên cứu sinh Gavin tĩnh, 16 tuổi, giả Thương Hải ngô nguyệt kiều nữ nhi, Âu Dương như tuyết cùng cha khác mẹ muội muội, đệ tử lâm bằng tường, 53 tuổi, mỗ tỉnh trưởng hứa tiểu điệp, 48 tuổi, lâm bằng tường tỉnh trưởng phu nhân, hứa tiểu trúc tỷ tỷ, Lăng Vân tập đoàn công ty tổng giám đốc lâm tử hùng, 28 tuổi, lâm bằng tường hứa tiểu điệp con, Lăng Vân tập đoàn công ty Phó tổng kinh lý Lâm Thi Âm, 46 tuổi, lâm bằng tường muội muội, lấy gã bác sĩ Lâm Ngọc Chi, 28 tuổi, Lâm Thi Âm nữ nhi, Nam Phương tỉnh đài truyền hình trứ danh người chủ trì Lâm Uyển Bích, 42 tuổi, Lâm Thi Âm đường muội, y tá trưởng lâm nhã thơ, 19 tuổi, Lâm Uyển Bích nữ nhi, y tá diệp như hổ, 50 tuổi, diệp Ngọc Thiến ba ba, Nam Phương thành phố buôn bán bên ngoài cục trưởng tần khả cầm, 47 tuổi, diệp Ngọc Thiến mẹ, Nam Phương thành phố Phó thị trưởng diệp Ngọc Thiến, 26 tuổi, diệp như hổ tần khả cầm nữ nhi, đại Trung Hoa công ty Tổng kinh lý của trợ lý \"Tốt bác!",
-    "yeu_to_nhan_biet": "Đứng sau chức danh 'giáo sư', mang họ hợp lệ",
-    "so_lan_xuat_hien": 51
-  },
-  {
-    "id": "ch_0057",
-    "is_character": true,
-    "source": "Võ đằng nguyên",
-    "target": "Mutou Gen",
-    "context": "Võ đằng nguyên, 38 tuổi, Yamaguchi Group bang chủ.",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '38 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 46
-  },
-  {
-    "id": "ch_0058",
-    "is_character": true,
-    "source": "Kim trạch văn tử",
-    "target": "Kanazawa Fumiko",
-    "context": "Kim trạch văn tử, 36 tuổi, bởi vì bảo dưỡng quan hệ, thoạt nhìn bất quá giống hai mươi bảy hai mươi tám tuổi, như tranh vẽ lông mi, khéo léo cái mũi, khêu gợi môi đỏ mọng, xinh đẹp gương mặt của.",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '36 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 44
-  },
-  {
-    "id": "ch_0059",
-    "is_character": true,
-    "source": "Võ đằng lan",
-    "target": "Mutou Ran",
-    "context": "Võ đằng lan, 28 tuổi, võ đằng nguyên nghĩa muội muội.",
-    "yeu_to_nhan_biet": "Cấu trúc hồ sơ giới thiệu, đi kèm '28 tuổi', mang họ hợp lệ",
-    "so_lan_xuat_hien": 25
-  },
-  {
-    "id": "ch_0060",
-    "is_character": false,
-    "source": "Hoa Nhị",
-    "target": "hoa nhị",
-    "context": "Sống bốn mươi sáu tuổi, kết hôn cũng có hơn hai mươi năm, quá quán sống an nhàn sung sướng ung dung cao quý hào môn quý phu nhân cuộc sống, theo không nghĩ tới giữa nam nữ có thể như thế phóng đãng thế nhưng có thể có như vậy tuyệt vời tuyệt luân tư vị, tâm hoa tiệm phóng chu linh linh chỉ cảm thấy hồn phách đều bị đưa đến thiên ngoại, trên người Long Kiếm Phi động tác mặc dù không cường liệt, cũng là mỗi một cái đều khắc sâu kích thích nàng trọng điểm, khiêu khích lực đạo trực thấu buồng tim, thoải mái đến làm người ta khó có thể tưởng tượng, nàng không khỏi bản năng uốn éo, làm cho kia phì nộn nhạy cảm Hoa Nhị, dùng gì góc độ , mặc kệ phương nào thức bị con rể âu yếm đông tích, tô đổ mồ hôi đầm đìa, mặc dù không dám nức nở suyễn kêu, cũng là không chút nào kháng cự thừa nhận cùng hắn liều chết triền miên tư vị, toàn thân toàn tâm thể hội lấy kia khó nói lên lời khoái hoạt, thực cốt mất hồn khoái ý, làm chu linh linh muốn ngừng mà không được, nàng hô hấp càng lúc càng dồn dập, càng lúc càng khoái hoạt cảm giác kia bị hắn đưa vào trong cơ thể đủ loại tư vị, trước nay chưa có thỏa mãn phong phú, giống như tại trong ngực của hắn đầu , có thể cảm giác được vô cùng an toàn thư sướng, triều dâng lên hướng trong đó, chu linh linh rốt cục lại cảm nhận được cái gì gọi là dục tiên dục tử tư vị.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ",
-    "so_lan_xuat_hien": 173
-  },
-  {
-    "id": "ch_0061",
-    "is_character": true,
-    "source": "văn nhân",
-    "target": "Fumihito",
-    "context": "Long Kiếm Phi chỉ thấy văn nhân thân vương tỷ tỷ thực tử, cao vãn vân kế, lộ ra thon dài tuyết trắng gáy ngọc, xinh đẹp giống như thiên nga, màu xanh da trời thấp ngực váy liền áo, buộc vòng quanh mạn diệu tốt đẹp dáng người, mơ hồ có thể thấy được màu đen tất chân đầy đặn đùi đẹp, đập vào mặt một cỗ Pháp quốc nước hoa lẫn vào nhàn nhạt xông quần áo thảo mùi, chèn ép của một xinh đẹp tuyệt luân gương mặt, mày liễu mắt phượng, mũi ngọc má đào, hồng hồng môi thoáng dày rộng, lại tăng thêm gợi cảm, giống như y theo Lysa bạch Taylor, Hongkong minh tinh thư kỳ, gợi cảm cám dỗ, đầy đặn cao ngất bộ ngực sữa, đem váy chống đỡ cổ phình bụng, thật sâu khe ngực chọc người hà tư, eo thon chi, phong phu mông đẹp, lồi lõm có hứng thú, hẳn là gần 40 rồi, lại bảo dưỡng trắng noãn xinh đẹp, dường như thiếu phụ đang trổ hoa, khóe mắt mơ hồ có thể thấy được nếp nhăn nơi khoé mắt, không chỉ có không có ảnh hưởng vẻ đẹp của nàng, ngược lại càng lộ vẻ thuỳ mị.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 156
-  },
-  {
-    "id": "ch_0062",
-    "is_character": false,
-    "source": "hoa cúc hoàng triều",
-    "target": "hoàng triều Hoa Cúc",
-    "context": "Cho nên, hắn đối hạnh lý tỷ tỷ tổng thể lời bình là, dáng người đúng giờ, diện mạo tú lệ, quần áo hoàn mỹ, khí chất cường thế, xem như tiếp cận nhất Nhật Bản hoa cúc hoàng triều hoàng hậu thực hạnh tiểu bách hợp khí chất cực phẩm mỹ nữ, bất quá Long Kiếm Phi biết nàng tại người khác nhìn không thấy thời điểm cũng sẽ lộ ra Quân Như mẹ cái loại này chỉ vì một mình hắn triển hiện thuộc loại cực phẩm tiên nữ mới có mềm mại đáng yêu hiền thục cùng cám dỗ dâm mỹ vô thượng vẻ.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 32
-  },
-  {
-    "id": "ch_0063",
-    "is_character": false,
-    "source": "vũ mỹ",
-    "target": "vũ mỹ",
-    "context": "Gặp mỹ Phượng tỷ tỷ thực muốn khóc, kia lê hoa đái vũ mỹ cảm mặc dù làm người ta khó nén chinh phục xúc động, nhưng Long Kiếm Phi trong lòng biết không thể quá mau, hắn cường ức trong quần rục rịch, đè nén mỹ Phượng tỷ tỷ mê người lõa đỗng, khinh hôn nhẹ nàng kiểu nhiêu hương thơm cánh môi, hưởng thụ nàng ngọt ngào, hai tay coi sóc mỹ Phượng tỷ tỷ thân thể là lúc, cũng ít chút khiêu khích, nhiều ôn nhu ý tứ hàm xúc, rốt cục dần dần làm mỹ Phượng tỷ tỷ nước mắt thu về.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 68
-  },
-  {
-    "id": "ch_0064",
-    "is_character": true,
-    "source": "lý hương",
-    "target": "Seto Rika",
-    "context": "Sau lại Long Kiếm Phi biết được Mỹ phi Tiểu Lâm Huệ Mỹ, hương phi rượu tỉnh Ưu Hương, cạn thương vũ mỹ Vương phi, Linh Mộc ma nại mỹ Vương quý phi, thực tử, giai tử, anh tử, thuần tử, cung trạch mỹ huệ, tùng đảo phong yêu, lười hộ lý hương, sơn tỉnh tuệ hương, kim trạch văn tử, trì điền hương tình, thậm chí ngay cả 44 tuổi Thủ tướng phu nhân xuyên nguyên dương tử đều nghi ngờ mang thai, trừ bỏ xuất tại trong miệng anh đào đằng nguyên tĩnh hương bình yên vô sự ở ngoài, sở hữu bị Long Kiếm Phi trải qua nữ nhân đều Lam Điền loại ngọc, thực hạnh tiểu bách hợp hoàng hậu đương nhiên cũng ở trong đó.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 86
-  },
-  {
-    "id": "ch_0065",
-    "is_character": true,
-    "source": "Thi Âm",
-    "target": "Lâm Thi Âm",
-    "context": "Long Kiếm Phi ôn ngôn nhuyễn ngữ nói lấy, hai tay gắt gao đem thành thục mỹ phụ nhạc mẫu thành thục mỹ phụ nhạc mẫu Lâm Thi Âm lâu ôm vào trong ngực, bước nhanh đi trở về thành thục mỹ phụ nhạc mẫu Lâm Thi Âm căn phòng của, một tay có thể cảm nhận được thành thục mỹ phụ nhạc mẫu thành thục mỹ phụ nhạc mẫu Lâm Thi Âm bắp đùi đầy đặn rất tròn cùng co dãn mười phần, tay kia thì cũng có thể y hi cảm thấy thành thục mỹ phụ nhạc mẫu thành thục mỹ phụ nhạc mẫu Lâm Thi Âm bộ ngực đầy đặn chiến chiến nguy nguy, theo đi lại khi hắn trước ngực run run, đẫy đà mềm mại thân thể, hương mùi thơm ngào ngạt hương khí, Long Kiếm Phi cảm giác giống như đang ở trong sương mù, rốt cục đem hồn khiên mộng nhiễu thần nữ tỷ tỷ thành thục mỹ phụ nhạc mẫu thành thục mỹ phụ nhạc mẫu Lâm Thi Âm ôm vào trong ngực, thật là đẹp mộng trở thành sự thật, không kìm được vui mừng.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 121
-  },
-  {
-    "id": "ch_0066",
-    "is_character": false,
-    "source": "lý giải",
-    "target": "lý giải",
-    "context": "Long Kiếm Phi đầu lưỡi lợi hại như vậy, đương trên vú bị đầu lưỡi của hắn dâm tà xâm phạm lúc, quân như mẹ đã biết bảo Bối Nhi tử là sắc trung hảo thủ, nhiều mỹ nữ như vậy tỷ tỷ muội muội nhạc mẫu a di đối với hắn lòng say thần mê thần hồn điên đảo cũng sẽ không khó lý giải rồi, bảo Bối Nhi tử chỉ dùng đầu lưỡi liền liếm quân như mẹ thần hồn điên đảo, thiếu chút nữa liền cả hồn cũng không phải là rồi, không nghĩ tới miệng của hắn lưỡi xâm nhập chính mình hơi thở mùi đàn hương từ miệng trong đó, ký thô bạo lại ôn nhu xâm phạm, làm quân như mẹ thiếu chút nữa không thể hô hấp, kia mãnh liệt thế công mang đến cảm giác, cho cho dù cách khác mới xâm phạm càng thêm lửa nóng.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 93
-  },
-  {
-    "id": "ch_0067",
-    "is_character": true,
-    "source": "Triệu Nhã",
-    "target": "Triệu Nhã Chi",
-    "context": "Triệu Nhã chi hai chân gắt gao bóp chặt Long Kiếm Phi hông của, hai tay ôm sát cổ của hắn, sau lại chân của nàng càng giáp càng nhanh, Long Kiếm Phi biết Triệu Nhã chi sắp tới nữ tính hưng phấn đỉnh, vì thế hắn tăng thêm tốc độ cùng độ mạnh yếu, mà nàng liền do từng tiếng rên rỉ, biến thành liên tục không ngừng quát to, Long Kiếm Phi chọc vào càng sâu nhanh hơn, tay cũng bắt đầu dùng sức xoa bóp Triệu Nhã chi vú, Triệu Nhã chi tiếng kêu càng lúc càng lớn, hô hấp càng lúc càng nặng, hắn mặc kệ nhiều như vậy, chính là càng quất càng mạnh mẽ, càng sáp càng ngoan, hắn thư sướng tiết ra tinh dịch của mình, toàn bộ đúc nhập mẫu thân Bạch Tố Trinh huyệt dâm.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 326
-  },
-  {
-    "id": "ch_0068",
-    "is_character": false,
-    "source": "tương lai",
-    "target": "tương lai",
-    "context": "Long Kiếm Phi gầm nhẹ một tiếng vươn hai tay đem tại Như Yên biểu muội 'Chân cổ' lên, về phía trước dùng sức giống đem nước tiểu vậy đem Như Yên biểu muội hạ nửa thanh thân mình bãi chánh, Như Yên biểu muội kinh hô một tiếng, đời trước nhất thời úp sấp mẫu thân nàng mềm mại trên mỹ nhũ, mà hạ thân đã bị Long Kiếm Phi 'Đem' lên, mềm mại phấn khố cùng mẫu thân nàng kia 'Toàn là nước' phì nhiêu mật huyệt tương đối, không cong tròn trịa cái mông nhỏ đối diện lấy bụng của hắn, hơn nữa gần ngay trước mắt, Long Kiếm Phi có thể cảm nhận được Như Yên biểu muội kia mềm mại thấm ướt phấn khố nhiệt độ, loại này độ ấm thích hợp cày cấy gieo, nó là thai nghén tương lai mình con gái bảo địa, nơi đó cùng mẫu thân nàng Lam Điền giống nhau phì nhiêu nhiều thủy, lửa nóng sâu thẳm, hơn nữa hoa tâm có kinh người cắn lực, nhạc mẫu dì bóng hình xinh đẹp nói đó là bỉ mục ngư vẫn 'Mật huyệt dũng đạo \" loại nữ nhân này thực dễ dàng mang thai.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 204
-  },
-  {
-    "id": "ch_0069",
-    "is_character": true,
-    "source": "Vũ đan",
-    "target": "Bạch Vũ Đan",
-    "context": "Mạnh lệ đẩy cửa đi đến, hạ ngọc hà tiền ngọc văn đều đã người mang có thai, mai ngọc huyên từ lúc quốc hoa tập đoàn xác nhập lễ mừng thượng liền từ Long Kiếm Phi lời của lý nghe được hắn đối mạnh lệ Bạch Vũ đan đợi nữ phá lệ chiếu cố, tự nhiên thiện giải nhân ý địa tướng mạnh lệ an bài đến tổng giám đốc thư ký vị trí, lần này mạnh lệ mẹ đào hồng cùng dương ngọc nhàn dương ngọc khanh dương ngọc thục dương ngọc Nhã tỷ muội trở về tình cảnh dũ phát ấn chứng đào hồng mạnh lệ mẹ con tại Long Kiếm Phi trong cảm nhận giữ lấy nhỏ nhoi, còn có đào vân giống như phong cương đại lại dường như một người kinh doanh biển xanh kim sa, lại khiến cho Đào thị tỷ muội cùng mạnh lệ địa vị bất thường, nhất khó được là quan khán lông mi cùng đi lại, cô gái nhỏ này cư nhiên vẫn còn thân xử tử, tại Long Kiếm Phi phần đông mỹ nữ tỷ tỷ muội bên trong lâu như vậy vẫn có thể thủ thân như ngọc thật sự là không dám tưởng tượng chuyện tình, Nguyễn ngọc sai mai ngọc huyên lưu tuệ đẹp tam nữ đối này tiểu Molly cũng là vài phần kính trọng quan ái có thừa.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 98
-  },
-  {
-    "id": "ch_0070",
-    "is_character": false,
-    "source": "nhạc mẫu a di",
-    "target": "nhạc mẫu a di",
-    "context": "Long Kiếm Phi đầu lưỡi lợi hại như vậy, đương trên vú bị đầu lưỡi của hắn dâm tà xâm phạm lúc, quân như mẹ đã biết bảo Bối Nhi tử là sắc trung hảo thủ, nhiều mỹ nữ như vậy tỷ tỷ muội muội nhạc mẫu a di đối với hắn lòng say thần mê thần hồn điên đảo cũng sẽ không khó lý giải rồi, bảo Bối Nhi tử chỉ dùng đầu lưỡi liền liếm quân như mẹ thần hồn điên đảo, thiếu chút nữa liền cả hồn cũng không phải là rồi, không nghĩ tới miệng của hắn lưỡi xâm nhập chính mình hơi thở mùi đàn hương từ miệng trong đó, ký thô bạo lại ôn nhu xâm phạm, làm quân như mẹ thiếu chút nữa không thể hô hấp, kia mãnh liệt thế công mang đến cảm giác, cho dù cách khác mới xâm phạm càng thêm lửa nóng.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 94
-  },
-  {
-    "id": "ch_0071",
-    "is_character": false,
-    "source": "đại phôi đản",
-    "target": "đại phôi đản",
-    "context": "Mình có thể cắt đứt yếu ớt tâm mà cùng các thật đẹp nữ tỷ tỷ muội muội ở chung hòa thuận, nhưng nghe đến nhìn đến hắn và phần đông mỹ nữ tỷ tỷ muội muội lão bà ở ngoài nữ nhân ở chung với nhau thời điểm lại mọi cách tư vị, chính mình cũng không ăn giấm, bởi vì đại phôi đản vốn chính là đa tình mầm móng, nhưng thực lòng chua xót, lòng chua xót chính mình tuy rằng nhận thức hắn so ba cái tỷ tỷ đều sớm, nhưng là ngọc khanh nhị tỷ đều đã người mang có thai rồi, khả là mình hoàn không có một chút động tĩnh, chán ghét kinh nguyệt là đúng hạn đã đến, không thể có bầu hài tử của hắn ngày chính mình không biết còn sống có nào hương vị, có lẽ đã chết rất tốt, thiếu hâm mộ ghen tỵ khổ sở, cũng là một loại giải thoát, tại ngọc khanh nhị tỷ vì hắn sanh con dưỡng cái ngày nào đó trầm tĩnh chết đi...",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 83
-  },
-  {
-    "id": "ch_0072",
-    "is_character": false,
-    "source": "an ủi",
-    "target": "an ủi",
-    "context": "Bề ngoài lãnh diễm đoan trang hỗ Lệ Bình thân là đi qua hôn nhân con đường nữ nhân, đã lĩnh ngộ quá nam nữ giao hoan khi cái loại này tiêu hồn thực cốt khoái cảm, thành thục quyến rũ nàng sinh lý tất nhiên có điều nhu cầu, nhưng từ có na na, vợ chồng đôn luân đã không có lúc trước kích tình, lão công giang triều phu thăng nhiệm cảnh đốc về sau, dáng người mập ra, năng lực không đông đảo, lại mê luyến cho con đường làm quan, trong khoảng thời gian này lại lãnh lạc nàng, đêm dài vắng người cô giường ngủ một mình, Nguyệt Dạ đêm đẹp giường không bị hàn, mỗi khi tưởng đi lên cùng tuổi trẻ cường tráng cảnh sát trượng phu giang triều phu cá nước thân mật, vợ chồng ân ái tình cảnh không khỏi dũ phát hư không tịch mịch, tình dục cùng tịch mịch dây dưa vạn bất đắc dĩ, trong gia đình huynh đệ tỷ muội trong đó lại hục hặc với nhau ngươi lừa ta gạt, thân là oán phụ nàng thống khổ tới cực điểm, mỗi khi trằn trọc khó có thể ngủ lúc, nàng đành phải mượn dùng chạy bằng điện gậy đấm bóp quất làm lỗ lồn, nhờ vào tự an ủi phương thức thỏa mãn phát tiết thân là thành thục thân thể mềm mại khó nén ham muốn, nhu cầu sinh lý, ai có thể trả lời bề ngoài khí chất cao quý đoan trang hỗ Lệ Bình, nội tâm đúng là như thế buồn khổ, như vậy đói khát!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 439
-  },
-  {
-    "id": "ch_0073",
-    "is_character": false,
-    "source": "hình như",
-    "target": "hình như",
-    "context": "Trước không nói tha sự trước chuẩn bị đầy đủ, còn chưa ái ân liền biến thành tỷ tỷ mỹ phượng phiêu phiêu dục tiên, toàn thân mỗi một tấc tiên cơ ngọc cốt chỉ khát cầu mây mưa chi vui mừng, liền cả sáp tỷ tỷ mỹ phượng huyệt mềm khi đều là thật cẩn thận, xung kích lấy trong huyệt lực đạo không chỉ có toàn không kém hơn trượng phu hỗ này vừa, còn có phần hơn, đút vào hết sức lại càng không mang một chút đau đớn, lệnh tỷ tỷ mỹ phượng chỉ cảm thấy thoải mái vui thích, trong huyệt lại trơn trợt, nhuận được hắn rất tốt động tác, hơn nữa Long Kiếm Phi quái vật lớn ký to mà trưởng, đỉnh rất là lúc kỹ xảo quen thuộc nhàn, không chỉ có trướng mỹ phượng vui sướng đến cực điểm, rút ra đút vào trong đó hoàn khi có câu chọn, cự long nơi cuối hình như có nếu không có lau chuẩn bị mỹ phượng mềm mại nhạy cảm hoa tâm, biến thành xuân tâm nhộn nhạo mỹ phượng càng thêm tình nóng khó đè nén, tại Long Kiếm Phi trên người ngây thơ đáng yêu vặn vẹo, trong miệng khi như nhũn ra ngữ, mềm mại dâm mị, è hèm liên tục, cả người đều giống như tràn đầy lửa nóng tình dục, đối với hắn thật sự là vừa yêu vừa hận.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 161
-  },
-  {
-    "id": "ch_0074",
-    "is_character": false,
-    "source": "lưu luyến triền miên",
-    "target": "lưu luyến triền miên",
-    "context": "Giai lỵ mợ ngượng ngùng chậm rãi đưa hắn móc ra, không giống tối hôm qua như vậy rình coi, lúc này có thể tận tình duỗi thân ở trước mặt của nàng, rốt cuộc là huyết khí phương cương trẻ tuổi nhân, đặc hơn nam tử Hán Dương cương khí hơi thở đập vào mặt truyền đến, nàng trắng noãn ngọc thủ nắm giữ ở Long Kiếm Phi cự long nhẹ nhàng sáo động lấy vuốt vuốt, lại không nhịn được xuân tâm nhộn nhạo, chủ động tác hôn, phun ra hương diễm ngọt cái lưỡi cùng Long Kiếm Phi lời lẽ đan vào, nước bọt mọc lan tràn, lưu luyến triền miên, ngọc thủ lại càng lúc càng nhanh, càng ngày càng thành thạo, dần dần yêu thích không buông tay.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 39
-  },
-  {
-    "id": "ch_0075",
-    "is_character": false,
-    "source": "trương đảm",
-    "target": "trương đảm",
-    "context": ", biết hắn lại có nhiều như vậy mỹ nữ tỷ tỷ muội muội đều thu vào quốc hoa biệt thự, chỉ biết hắn phong lưu hoa tâm, nhưng không ngờ hắn không kiêng nể gì như thế, đào vân ly dị một chỗ thiếu phụ, làm sao chịu được Long Kiếm Phi như vậy minh mục trương đảm khiêu khích, mặt phấn ửng đỏ, tâm hoảng ý loạn đổi chủ đề nói: \"Long Kiếm Phi, các ngươi trước nghỉ ngơi một chút, giữa trưa chúng ta biển xanh kim sa cho các ngươi bày tiệc mời khách, buổi chiều lại an bài bơi lội lướt sóng, được không?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 31
-  },
-  {
-    "id": "ch_0076",
-    "is_character": false,
-    "source": "Trương Hợp",
-    "target": "trương hợp",
-    "context": "Long Kiếm Phi ôn nhu lột lập Lâm Thi Âm áo ngủ cùng quần lót viền tơ, si ngốc cao thấp quét mắt nàng trần trụi xinh đẹp thân thể, như là thưởng thức một kiện vật báu vô giá vậy, ôn nhu, nhẹ nhàng vuốt ve thành thục mỹ phụ nhạc mẫu Lâm Thi Âm kia như hoa sen mới nở vậy mặt phấn, nàng ngà voi điêu khắc cổ, tay hắn đặt lên thành thục mỹ phụ nhạc mẫu Lâm Thi Âm to lớn no đủ, mềm mại như miên vú tròn, lưu luyến cho thành thục mỹ phụ nhạc mẫu Lâm Thi Âm vẫn bằng phẳng như thiếu nữ vậy tuyết trắng non mịn bụng, nhẹ vỗ về kia tròn trịa tiểu rốn, tay hắn xâm nhập vào thành thục mỹ phụ nhạc mẫu Lâm Thi Âm tuyết trắng giữa chân ngọc đỏ tươi non mềm như trai ngọc vậy hơi hơi Trương Hợp lấy đóa hoa u cốc, một cái bàn tay của An Lộc Sơn vuốt ve nắn bóp nàng đầy đặn rất tròn nhũ phong, một cái sắc thủ trợt xuống thành thục mỹ phụ nhạc mẫu Lâm Thi Âm thon dài tuyết trắng mượt mà như son đùi ngọc trong đó khiêu khích trêu chọc lấy nàng kiều diễm linh lung đóa hoa u cốc.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ",
-    "so_lan_xuat_hien": 25
-  },
-  {
-    "id": "ch_0077",
-    "is_character": false,
-    "source": "đơn giản",
-    "target": "đơn giản",
-    "context": "Vương khả khả tự nhiên là thiên ân vạn tạ, ngồi ở Long Kiếm Phi bên người lưu đào, cũng thật không ngờ, Long Kiếm Phi đã vậy còn quá đơn giản liền đáp ứng đầu tư cứu trợ chồng của nàng vương khả khả công ty, một đôi thủy uông uông trong mắt to, không khỏi lộ ra một tia tia sáng kỳ dị, mà trượng phu vương khả khả trước hôn nhân đối với nàng giấu diếm tình hình thực tế, để cho nàng gần như bị lừa gả vào ngụy hào môn, nay công ty tài chính liên xuất hiện nghiêm trọng nguy cơ thời điểm, lại lấy nàng này người vợ sử dụng mỹ nhân kế, lưu đào nhìn dối trá nhẫn tâm ích kỷ trượng phu vương khả khả, nhìn nhìn lại tuổi trẻ tài cao anh tuấn tiêu sái Long Kiếm Phi, trong lúc bất chợt cầm lên trên bàn khăn mặt, tại Long Kiếm Phi giác lau, miệng cũng hờn dỗi mà nói: \"Long tổng, ngươi xem ngươi, uống rượu cũng không chú ý một điểm, biến thành khóe miệng đổ chỗ đều là, giống là cái dạng gì nữa trời nha.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 369
-  },
-  {
-    "id": "ch_0078",
-    "is_character": true,
-    "source": "tiêu oánh thu",
-    "target": "Tiêu Oánh Thu",
-    "context": "mỹ sĩ quan nữ quân nhân quan quân thiếu phụ tiêu oánh thu người mặc màu xanh ô liu quân trang đồng phục bộ váy, màu đen trong suốt sợi thủy tinh miệt bao vây lấy đầy đặn bạch đùi ngọc, đều là bộ ngực sữa đầy đặn cao ngất đem đồng phục đính đến phình đấy, theo mềm mại mảnh mai, đến cao ngất to lớn bộ ngực sữa, đến trái phải tăng lên rất tròn nhếch lên đầy đặn mông đẹp, xuân lan thu cúc mỗi người một vẻ, toàn thân đều tràn đầy 30 hơn tuổi thiếu phụ mê người thuỳ mị cùng đồng phục mỹ nữ gợi cảm cám dỗ.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 161
-  },
-  {
-    "id": "ch_0079",
-    "is_character": true,
-    "source": "văn viện",
-    "target": "Lục Văn Viện",
-    "context": "Đã ba mươi sáu tuổi lục văn viện, kết hôn hơn mười năm rồi, tuy nói trước kia tại phân công ty đã làm, sau lại triệu hồi tổng công ty phòng thị trường bình thường cùng Khưu ngọc trinh đợi nữ tán gẫu bát quái thời điểm, biểu hiện coi như lớn mật mở ra, nhưng đây chẳng qua là giới hạn cho nữ nhân ở giữa nói chuyện phiếm, nơi nào có bị trừ trượng phu lý đức hưng ở ngoài nam nhân như vậy thân mật đụng vào quá, hơn nữa lý đức hưng bận việc giao tế tại Tử La lan hàng đêm sênh ca, làm cho các nàng vợ chồng lãnh đạm làm bất hòa hơn nửa năm, trong lòng không có một chút khát vọng kia là không thể nào.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 239
-  },
-  {
-    "id": "ch_0080",
-    "is_character": true,
-    "source": "hoa Thiến",
-    "target": "Hoa Thiến",
-    "context": "Long Kiếm Phi tại tam nữ thân thể mềm mại giở trò trêu đùa, \"Xảo Xảo tỷ tỷ nếu là Huyền Vũ đại đế ảnh thị truyền thông Tổng kinh lý của, lần này thuận lý thành chương làm là thứ nhất giới Á châu điện ảnh tivi tiết mục nghệ thuật tổng bày ra, hoa Thiến tỷ tỷ tốt đẹp kỳ tỷ tỷ làm Phó tổng bày ra, lại chớ quên mình là Tử La lan công ty giải trí quản lí thân phận, càng phải khắp nơi lấy chúng ta Tử La lan minh tinh trao đổi kế hoạch làm mục đích cuối cùng, quảng phát thiệp mời, căn cứ thà giết lầm ba ngàn không thể đổ vào một cái nguyên tắc, chú ý một cái lưới trời tuy thưa nhưng khó lọt, các ngươi nói thế nào à?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 48
-  },
-  {
-    "id": "ch_0081",
-    "is_character": true,
-    "source": "lý đức hưng",
-    "target": "Lý Đức Hưng",
-    "suggested_target": "Lý Đức Hưng",
-    "context": "Long Kiếm Phi nghe trương nghe thấy xa nói về cao á long cùng lý đức hưng phân biệt bao nuôi Tử La lan câu lạc bộ đêm hai cái vương bài vũ nữ chuyện tình, lúc này thưởng thức lãnh diễm thiếu phụ lý úc quân đầy đặn gợi cảm và hấp lực kinh người thiếu phụ thân thể, mừng rỡ, chỉ sợ cũng chỉ có mai ngọc huyên lưu tuệ đẹp Khưu ngọc trinh Lâm Ngọc Chi đợi vài cái thiếu phụ hấp lực có thể cùng nàng so sánh, nhịn không được vuốt ve lãnh diễm thiếu phụ lý úc quân tuyết trắng ngọn núi đầy đặn, mềm giọng ôn tồn nói, \"Ta nhất định sẽ tượng đối đãi của ta này tỷ tỷ muội muội giống nhau đối đãi ngươi yêu thương của ngươi, được không?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 83
-  },
-  {
-    "id": "ch_0082",
-    "is_character": true,
-    "source": "cao á long",
-    "target": "Cao Á Long",
-    "suggested_target": "Cao Á Long",
-    "context": "Long Kiếm Phi nghe trương nghe thấy xa nói về cao á long cùng lý đức hưng phân biệt bao nuôi Tử La lan câu lạc bộ đêm hai cái vương bài vũ nữ chuyện tình, lúc này thưởng thức lãnh diễm thiếu phụ lý úc quân đầy đặn gợi cảm và hấp lực kinh người thiếu phụ thân thể, mừng rỡ, chỉ sợ cũng chỉ có mai ngọc huyên lưu tuệ đẹp Khưu ngọc trinh Lâm Ngọc Chi đợi vài cái thiếu phụ hấp lực có thể cùng nàng so sánh, nhịn không được vuốt ve lãnh diễm thiếu phụ lý úc quân tuyết trắng ngọn núi đầy đặn, mềm giọng ôn tồn nói, \"Ta nhất định sẽ tượng đối đãi của ta này tỷ tỷ muội muội giống nhau đối đãi ngươi yêu thương của ngươi, được không?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 53
-  },
-  {
-    "id": "ch_0083",
-    "is_character": true,
-    "source": "úc quân",
-    "target": "Úc Quân",
-    "suggested_target": "Lý Úc Quân",
-    "context": "Long Kiếm Phi nghe trương nghe thấy xa nói về cao á long cùng lý đức hưng phân biệt bao nuôi Tử La lan câu lạc bộ đêm hai cái vương bài vũ nữ chuyện tình, lúc này thưởng thức lãnh diễm thiếu phụ lý úc quân đầy đặn gợi cảm và hấp lực kinh người thiếu phụ thân thể, mừng rỡ, chỉ sợ cũng chỉ có mai ngọc huyên lưu tuệ đẹp Khưu ngọc trinh Lâm Ngọc Chi đợi vài cái thiếu phụ hấp lực có thể cùng nàng so sánh, nhịn không được vuốt ve lãnh diễm thiếu phụ lý úc quân tuyết trắng ngọn núi đầy đặn, mềm giọng ôn tồn nói, \"Ta nhất định sẽ tượng đối đãi của ta này tỷ tỷ muội muội giống nhau đối đãi ngươi yêu thương của ngươi, được không?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 228
-  },
-  {
-    "id": "ch_0084",
-    "is_character": false,
-    "source": "cảnh sát",
-    "target": "Cảnh Sát",
-    "suggested_target": "cảnh sát",
-    "context": "Bề ngoài lãnh diễm đoan trang hỗ Lệ Bình thân là đi qua hôn nhân con đường nữ nhân, đã lĩnh ngộ quá nam nữ giao hoan khi cái loại này tiêu hồn thực cốt khoái cảm, thành thục quyến rũ nàng sinh lý tất nhiên có điều nhu cầu, nhưng từ có na na, vợ chồng đôn luân đã không có lúc trước kích tình, lão công giang triều phu thăng nhiệm cảnh đốc về sau, dáng người mập ra, năng lực không đông đảo, lại mê luyến cho con đường làm quan, trong khoảng thời gian này lại lãnh lạc nàng, đêm dài vắng người cô giường ngủ một mình, Nguyệt Dạ đêm đẹp giường không bị hàn, mỗi khi tưởng đi lên cùng tuổi trẻ cường tráng cảnh sát trượng phu giang triều phu cá nước thân mật, vợ chồng ân ái tình cảnh không khỏi dũ phát hư không tịch mịch, tình dục cùng tịch mịch dây dưa vạn bất đắc dĩ, trong gia đình huynh đệ tỷ muội trong đó lại hục hặc với nhau ngươi lừa ta gạt, thân là oán phụ nàng thống khổ tới cực điểm, mỗi khi trằn trọc khó có thể ngủ lúc, nàng đành phải mượn dùng chạy bằng điện gậy đấm bóp quất làm lỗ lồn, nhờ vào tự an ủi phương thức thỏa mãn phát tiết thân là thành thục thân thể mềm mại khó nén ham muốn, nhu cầu sinh lý, ai có thể trả lời bề ngoài khí chất cao quý đoan trang hỗ Lệ Bình, nội tâm đúng là như thế buồn khổ, như vậy đói khát!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 293
-  },
-  {
-    "id": "ch_0085",
-    "is_character": true,
-    "source": "Long Kiếm Phi tiểu",
-    "target": "Long Kiếm Phi Tiểu",
-    "suggested_target": "Long Kiếm Phi",
-    "context": "Hạng hóa cường đoán chừng là thê tử Trương Mẫn mẫn bắt đầu vận khởi nội kình, làm mỹ huyệt dũng đạo thịt khi giáp khi tùng, đem Long Kiếm Phi tiểu tử kia cự mãng kẹp chặt sảng khoái vô cùng, hạng hóa cường biết thê tử Trương Mẫn mẫn mỹ huyệt dũng đạo giáp hút nội kình vô cùng lợi hại, bình thường hạng hóa cường cùng thê tử Trương Mẫn mẫn lúc ân ái, nàng bình thường phải không vận nội kình đấy, chủ yếu là hạng hóa cường không chịu nổi như vậy kích thích, rất nhanh sẽ xuất tinh đấy, nhưng là tại thê tử lấy được tính thời điểm cao trào, thê tử Trương Mẫn mẫn mỹ huyệt dũng đạo cũng sẽ tự động giáp hút, hạng hóa cường không phân rõ thê tử Trương Mẫn mẫn bây giờ là bị vây loại tình huống đó.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 154
-  },
-  {
-    "id": "ch_0086",
-    "is_character": false,
-    "source": "nhạc mẫu đại nhân",
-    "target": "Nhạc Mẫu Đại Nhân",
-    "suggested_target": "nhạc mẫu đại nhân",
-    "context": "Chu linh linh ngọc thể mềm yếu vô lực mặc cho Long Kiếm Phi đem nàng ôm vào trong ngực, kiều thở hổn hển ủy khuất rù rì nói, tại hỗ gia làm quán đại thái thái, cho dù cùng hỗ chính đình ở riêng ly hôn, nàng cũng là hỗ này vừa hỗ đình đình mẫu thân, vẫn là ung dung cao quý đẫy đà mượt mà hào môn quý phụ nhân, lại liên tiếp bị Long Kiếm Phi này hoa Hoa công tử tiểu trứng thối Bá Vương ngạnh thượng cung mạnh mẽ giữ lấy, hơn nữa lần này hay là đang nhà các nàng lý, lại khi hắn mới vừa cùng đình đình hoan hảo sau, ngay sau đó liền đoạt lấy nàng này nhạc mẫu đại nhân, trong lòng lại là nổi giận lại là thẹn thùng lại là ủy khuất.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 57
-  },
-  {
-    "id": "ch_0087",
-    "is_character": true,
-    "source": "Mạnh lão sư",
-    "target": "Mạnh Lão Sư",
-    "suggested_target": "Mạnh",
-    "context": "Lâm thơ tình hiện ở một bên thầm mắng lão nhân khí tiết tuổi già khó giữ được say rượu không đức, một bên thầm mắng bảo Bối Nhi tử làm xằng làm bậy say rượu gặp rắc rối, càng thầm mắng Long Kiếm Phi tên hỗn đản này xen vào việc của người khác mạnh mẽ xuất đầu, mắng thì mắng, vẫn không thể không mạnh đánh tinh thần nói: \"Lần trước mở phiên toà ta cũng lấy tiến làm lùi có chút bất đắc dĩ, kỳ thật, đức thịnh say rượu lái xe gây chuyện đả thương người, chúng ta có thể cấp Mạnh lão sư chịu nhận lỗi cũng cấp cho nguyên vẹn bồi thường, đây cũng là hợp tình hợp lý ;",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 25
-  },
-  {
-    "id": "ch_0088",
-    "is_character": true,
-    "source": "Vệ Tư Lý",
-    "target": "Vệ Tư Lý",
-    "suggested_target": "Vệ Tư Lý",
-    "context": "Kỳ thật, những ngày qua mục tú trân lòng của để ẩn ẩn cảm giác được Hongkong rất có gió thổi mưa giông trước cơn bão xu thế, nhìn chung Hongkong quần anh, cũng chưa có năng lực xoay chuyển tình thế, tích hồ hỗ ứng đông hồ hồng diễm đều đã anh hùng tuổi xế chiều, hạng hóa cường dương thú thành hục hặc với nhau ngươi lừa ta gạt căn bản sẽ không xuất đầu mạo phạm mật tông thế lực, Vệ Tư Lý vì thanh danh sở mệt có chút bảo thủ, biểu tỷ Mộc Lan hoa sau khi kết hôn không chỉ có không có đổi thành thành thục ổn trọng, ngược lại càng thêm tính tình bốc lửa một điểm liền, nay một khi gặp chuyện không may quả nhiên không thể ỷ lại, Vệ Tư Lý hôn mê, cao tường mất tích, biểu tỷ Mộc Lan hoa trùng động, Vệ phu nhân Bạch Tố cũng có chút quan tâm sẽ bị loạn, càng nghĩ loáng thoáng thế nhưng cảm giác chỉ có Long Kiếm Phi rất có thể trở thành bị xua tan vẻ lo lắng hữu lực chọn người, ít nhất trước mắt trong lòng hắn hắn là \"bất nhị chi tuyển\" (không cần chỗ thứ 2).",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 214
-  },
-  {
-    "id": "ch_0089",
-    "is_character": true,
-    "source": "lâm thơ tình",
-    "target": "Lâm Thơ Tình",
-    "suggested_target": "Lâm Thi Tình",
-    "context": "Long Kiếm Phi không nhanh không chậm nói, Lý lão gia tử cả đời bất đảo ông, tham ô hủ bại làm được cẩn thận bắt không được một tia sơ hở, nhưng là, chỉ có như vậy một cái nhược điểm , mặc kệ người nào đều có nhược điểm, càng là gần như hoàn mỹ ra vẻ đạo mạo hảo người càng là có thêm trí mạng nhược điểm, yêu thích nữ sắc hơn nữa là tốt nữ nhân trẻ tuổi, lúc trước lâm thơ tình cũng là hợp ý leo lên phát đạt đấy, thật không ngờ Lý lão gia tử người già nhưng tâm không già, tâm địa gian giảo còn không thiếu, hạnh được nhạc đàn hàn cung chính làm thác mới câu được Lý lão gia tử con cá lớn  này, mạnh hổ dễ dàng đắc thủ chụp ảnh Lý lão gia tử tại Tử La lan câu lạc bộ đêm gươm quý không bao giờ cùn tư thế oai hùng.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 182
-  },
-  {
-    "id": "ch_0090",
-    "is_character": false,
-    "source": "hoa Hoa công tử",
-    "target": "Hoa Hoa Công Tử",
-    "suggested_target": "hoa hoa công tử",
-    "context": "hơn nữa Long Kiếm Phi cũng không nhàn rỗi, hai tay rốt cục như nàng mong muốn âu yếm chiếm hữu nàng đẫy đà mượt mà ngọc thể, bàn tay của An Lộc Sơn như nhu diện đoàn đùa bỡn lưu nhã lỵ to lớn no đủ vú, càng vẽ ra trong lòng nàng muốn tìm, làm nàng hừ nhẹ yêu kiều trong tiếng, cái lưỡi thơm tho động tác dũ phát chăm chỉ, thân mình cũng càng lúc càng nóng, u cốc đã mọc lên xuân tuyền, trong váy ngắn chữ \"T\" dưới quần lót trong cúc huyệt nhức mỏi tao cảm giác nhột càng ngày càng mãnh liệt, không tự chủ được kiều thở hổn hển, ưm nhiều tiếng, thấp giọng rên rỉ, nhớ tới chính mình vì nữ nhi bảo bối mưa phỉ tinh quang tiền đồ cấp này quốc hoa tập đoàn lão tổng Vân Long bang bang chủ Huyền Vũ ảnh thị truyền thông công ty đại đổng sự, cấp này hoa Hoa công tử Long Kiếm Phi bú liếm, là so nữ nhi mưa phỉ không lớn hơn mấy tuổi thanh niên, mập mờ cấm kỵ không chỉ kích thích, khiến cho như lang như hổ tuổi mềm mại đáng yêu thục phụ kìm lòng không đặng xuân tâm bừng bừng phấn chấn xuân tình nhộn nhạo, rốt cuộc bình tĩnh không được, vì lấy lòng này hoa Hoa công tử, vô luận như thế nào không thể để cho phương mỹ dung cùng chu phương băng mẹ con giành riêng tên đẹp, lưu nhã lỵ nghĩ đến đây càng thêm ra sức phun ra nuốt vào hút.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 295
-  },
-  {
-    "id": "ch_0091",
-    "is_character": false,
-    "source": "cao gầy",
-    "target": "Cao Gầy",
-    "suggested_target": "cao gầy",
-    "context": "Đem cửa phòng nhẹ nhàng mà cài đóng, Quân Như mẹ theo trong tủ quần áo đem áo cưới lấy ra chia đều ở trên giường, bên cạnh theo thứ tự là một cái màu da quần chữ đinh, một đôi màu da trong suốt thủy tinh lưới nhỏ mắt tất chân, một bộ mỏng ren dây buộc tất, Quân Như mẹ đứng ở gương to trước đem trên người khăn tắm tùng cởi ra, trong gương lộ ra ra một khối thành thục phụ nhân kia có lồi có lõm đẫy đà thân thể, hai tay của nàng nhẹ vỗ về đã bắt đầu nóng lên gò má của, trắng nõn lý lộ ra hơi đỏ mặt, tựa như trái táo chín, có vẻ phá lệ quyến rũ, ngón tay nhẹ nhàng đi xuống động, theo nhu thuận cần cổ đi vào trước ngực vậy đối với đầy đặn mềm mại vú, thạc đại hình cầu theo nàng dần dần nhanh hơn lòng của nhảy lên hạ phập phồng, nàng dùng ngón tay nhẹ nhàng niêm một chút hai nhạy cảm đầu vú, miệng nhất thời tràn ra nhất tiếng trầm trầm rên rỉ, ngón tay chạy nhanh ly khai, dừng lại lâu một hồi đều sẽ làm nàng không khống chế được, đi xuống đi vào như trước bằng phẳng rắn chắc bụng, này nhờ vào nhiều năm kiên trì hình thể rèn luyện, trên lưng còn chưa xuất hiện dư thừa sẹo lồi, đường cong thực nhu hòa, bởi vậy dần dần thay đổi rộng xương hông làm cái mông của nàng có vẻ rất no mãn rất tròn, tầm mắt của nàng ở trong gương theo hai cái thon dài thẳng chân dài đi xuống dao động, thành thục phụ nhân chân có khác với cô gái trẻ tuổi, cứ việc có 1m70 cao gầy dáng người, nhưng chân của nàng cũng bình thường cao nữ tử cái loại này gầy tiễu, buộc chặt mà không thất đẫy đà nhục cảm, ngón tay của nàng tại trên bụng chậm rãi sự trượt, mới vừa ở kia phiến rậm rạp màu đen rừng rậm tùy ý lay động vài cái cũng sắp không chịu nổi, nàng thật dài thở ra nhất khẩu đại khí, xoay người trở lại giường vừa bắt đầu mặc.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 68
-  },
-  {
-    "id": "ch_0092",
-    "is_character": false,
-    "source": "cổ động",
-    "target": "Cổ Động",
-    "suggested_target": "cổ động",
-    "context": "Xem ra không phải đầu óc ngu si tứ chi phát triển trẻ tuổi nhân, nhớ tới lúc trước cái kia Trương Tử Kiến không phải là không tuổi trẻ tài cao khôi hài hài hước, làm hại chính mình hồng hạnh xuất tường (*), vẫn cùng hứa tiểu trúc cùng nhau bị hắn tam túc tam Phi Tẫn tình đùa bỡn, ai biết lại là cái gì Vân Long bang Long Kiếm Phi giả mạo đấy, nàng theo Tô Nguyên Xuân nơi đó biết được tin tức sau, tức giận đến giận sôi lên, thầm mắng người nọ hèn hạ hạ lưu vô sỉ vô tình, hận không thể bắt hắn lại sanh thôn hoạt bác, mới trả lời mối hận trong lòng, những ngày qua ru rú trong nhà bế môn tư quá, thật vất mở dưỡng hảo đau lòng, trượng phu lộ tụ ngọc làm vũ lâm đại hội trận chung kết giám khảo hội chủ tịch, luôn mãi cổ động thê tử cùng nhau tiến đến, cấp ngoại giới chế tạo vợ chồng ân ái bỉ dực song phi phụ xướng phu tùy mô phạm vợ chồng tốt đẹp hình tượng, nàng thế này mới đáp ứng lời mời đi ra làm đặc biệt giám khảo, thường xuyên báo cho chính mình nhất thiết không thể lại phạm sai lầm, tình nguyện coi chừng vô năng trượng phu độc thủ hoạt quả (*sống một mình thờ chồng chết) nhẫn nại tịch mịch làm tự ngả hối tiếc oán phụ, cũng không dám lại càng Lôi Trì nửa bước rồi, nàng làm sao dự đoán được mệnh trung chú định tiểu oan gia lại tới trước mặt, minh minh bên trong trời xui đất khiến nhất định có phần này nghiệt duyên chờ đợi nàng lưu lạc bể dục.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 37
-  },
-  {
-    "id": "ch_0093",
-    "is_character": false,
-    "source": "kiều mỵ",
-    "target": "Kiều Mỵ",
-    "suggested_target": "kiều mỵ",
-    "context": "Lưu nhã lỵ tuy rằng hơn 40 tuổi rồi, bởi vì bình thường được bảo dưỡng pháp, hơn nữa cuộc sống giàu có, sống an nhàn sung sướng, này tư sắc tú lệ, làn da non mịn trắng noãn, phong tình ngàn vạn, giống như hơn ba mươi tuổi thiếu phụ, ba mươi như lang, 40 như hổ chi phụ nhân sinh lý cùng tâm lý đã trăn thành thục đỉnh phong trạng thái, đúng là dục niệm cường thịnh chi đói khát niên kỉ hoa, hơn nữa mấy năm này phóng túng, tự nhiên đối với nam nhân sinh lý tâm lý biết chi thật nhiều, mắt thấy này anh tuấn tiêu sái Tạ gia long sẽ bị lạc tại nàng quen thuộc mỹ mềm mại đáng yêu mị lực bên trong, đêm nay có thể tận tình hưởng dụng này người trẻ tuổi cường tráng huyết khí phương cương thân thể nam nhân rồi, không khỏi mặt mày hàm đất vụ xuân nhìn Long Kiếm Phi, thanh âm kiều mỵ khiến lòng run sợ, ánh mắt mềm mại đáng yêu có thể chảy ra nước, không khỏi có chút dương dương tự đắc cắn lỗ tai của hắn thấp giọng nói, \"Ta biết ngươi thích gì, ngươi biết không?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 463
-  },
-  {
-    "id": "ch_0094",
-    "is_character": false,
-    "source": "cố gắng",
-    "target": "Cố Gắng",
-    "suggested_target": "cố gắng",
-    "context": "Vừa mới phát giác dị biến, trong nháy mắt sự tình đã có kết quả, lâm hi lôi mệt mỏi ngẩng đầu ra, đã thấy đến một vị tuổi trẻ thanh niên anh tuấn anh hùng chính che ở trước người, đúng là gần nhất bốc lửa Hongkong sang sông long, quốc hoa tập đoàn tổng giám đốc Huyền Vũ ảnh thị truyền thông chủ tịch hào môn tài tuấn Long Kiếm Phi, trong lúc nhất thời trăm mối cảm xúc ngổn ngang, trong mắt châu lệ không tự chủ được lã chã trợt xuống, một tiếng \"Long tổng\" còn không có kêu ra miệng, đã là khóc không thành tiếng, khá tưởng đầu nhập Long Kiếm Phi trong lòng lên tiếng khóc lớn, lại nhân hai tay bị chặt chẽ trói ở, lại dùng sức thế nào cũng chỉ biến thành đỏ bừng cả khuôn mặt, trên tay khảo liêu vô luận như thế nào cũng không tránh thoát, cố gắng của nàng chỉ có thể nỗ lực diêu thiết luyện đinh thanh rung động mà thôi.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 274
-  },
-  {
-    "id": "ch_0095",
-    "is_character": false,
-    "source": "phòng làm việc",
-    "target": "Phòng Làm Việc",
-    "suggested_target": "phòng làm việc",
-    "context": "Nàng nhẹ thở cái lưỡi thơm tho, thật cẩn thận, trân trọng mút lấy kia cự mãng đỉnh, cảm thụ được kia lẫn vào chính mình thân thể trong veo cùng nam nhân nhục dục thể tức giận tư vị, tân hôn thê tử cư nhiên ở trong phòng làm việc vì trượng phu ở ngoài nam nhân hơn nữa còn là các nàng Tổng kinh lý của làm võ mồm phục vụ, nàng cũng từng vì trượng phu tạ uy đã làm bú liếm, nhưng là trượng phu tạ uy cái tên kia nơi nào có Long Kiếm Phi như vậy thiên phú dị bẩm to lớn không gì so sánh được, như vậy tiền vốn mới là nam nhân quyết đoán thể hiện, loại này cấm kỵ không chỉ hồng hạnh xuất tường (*) kích thích, càng phát giác phương tâm nhộn nhạo khó thu, phục vụ càng thêm rơi lực;",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 116
-  },
-  {
-    "id": "ch_0096",
-    "is_character": true,
-    "source": "Mẫn mẫn",
-    "target": "Mẫn Mẫn",
-    "suggested_target": "Trương Mẫn Mẫn",
-    "context": "Cũng không biết điên cuồng như vậy suyễn kêu, tận tình nghênh hợp bao lâu, Trương Mẫn mẫn chỉ cảm thấy cả người đều đã hóa thành một vũng nước , mặc kệ từ Long Kiếm Phi đột nhiên gấp gáp chậm động tác, bài bố cuộn sóng phiêu diêu, giờ phút này Long Kiếm Phi nếu không lên xuống rồi, hắn thật sâu để vào Trương Mẫn mẫn u cốc trong đó, cự mãng gắt gao nút chặt nàng mềm mại dị thường chỗ, kia chỗ chính là Trương Mẫn mẫn hoa tâm, nhất ẩn sâu nơi chỗ hiểm, Long Kiếm Phi tuy rằng to dài, mỗi lần đều giống như cày đình tảo huyệt vậy biến tập nàng u cốc, nhưng nếu phi hôm nay đùa đặc biệt lang thang điên cuồng, thoải mái cả người kiều chiến, mỗi tấc hương cơ cơ hồ đều bị tình dục nhiệt lực sở đốt nấu chảy, kia hoa tâm chỗ cũng sẽ không dễ dàng như vậy liền bạo lộ ra, rơi vào Long Kiếm Phi trong khống chế.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 32
-  },
-  {
-    "id": "ch_0097",
-    "is_character": false,
-    "source": "cầu xin tha thứ",
-    "target": "Cầu Xin Tha Thứ",
-    "suggested_target": "cầu xin tha thứ",
-    "context": "Long Kiếm Phi ngoài miệng cười hắc hắc, cố ý làm mỹ Phượng tỷ tỷ cảm giác được của hắn dâm tà, xấu hổ đến người này thê thiếu phụ mặt đỏ tới mang tai, tưởng từ chối lại thôi không ra hắn, hơn nữa ôm vặn vẹo trong đó, hắn cố ý làm cự mãng trượt vào mỹ Phượng tỷ tỷ môi mật đóa hoa, tại kia chỗ lõm xuống nhẹ nhàng sự trượt, cự mãng đỉnh mấy khả chạm đến u cốc miệng, gần thủy lâu đài lây nàng ẩm ướt, như vậy khiêu khích làm người ta không tự chủ được liên tưởng đến nam nữ tính việc, làm mỹ Phượng tỷ tỷ nhịn không được dục hỏa đại thịnh, thiếu chút nữa muốn mở miệng cầu xin tha thứ, bị hắn như vậy trêu chọc, chỉ cảm thấy trong cơ thể hừng hực liệt hỏa cháy sạch càng thêm vượng, phảng phất lại không có một cái nào địa phương có thể may mắn thoát khỏi, mỹ Phượng tỷ tỷ khẽ cắn ngân nha, đã hận hắn hoàn cố ý dày vò chính mình, lại khát vọng của hắn ban cho, kia sự đau khổ thật đúng là không đủ vì ngoại nhân nói.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 129
-  },
-  {
-    "id": "ch_0098",
-    "is_character": false,
-    "source": "dụ dỗ gian dâm",
-    "target": "Dụ Dỗ Gian Dâm",
-    "suggested_target": "dụ dỗ gian dâm",
-    "context": "Chu linh linh mặc dù đã sanh con dưỡng cái qua tuổi bất hoặc, nhưng dáng người nhất thời được bảo dưỡng tốt lắm, toàn thân thấm vào cao quý, thành thục, diễm lệ, mỗi da thịt giai tản tính dục mê người thành thục mỹ phụ hơi thở, huống chi vợ chồng sinh hoạt tình dục xa cách rất lâu, nàng lại một hướng giữ mình trong sạch, Long Kiếm Phi điên cuồng như thế rõ ràng khiêu khích tính dục ôm hôn cơ hồ khiến nàng muốn ngất xỉu, chánh sở vị ăn tủy trong xương mới biết liếm nó cũng ngon, từ bị Long Kiếm Phi luân phiên dâm nhục dụ dỗ gian dâm sau, thể xác và tinh thần càng phát ra mẫn cảm, càng ngày càng chống cự không được này hoa Hoa công tử hôn môi ôm xâm nhập.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 53
-  },
-  {
-    "id": "ch_0099",
-    "is_character": false,
-    "source": "đại mỹ nữ",
-    "target": "Đại Mỹ Nữ",
-    "suggested_target": "đại mỹ nữ",
-    "context": "Nhìn đến chính mình ngưỡng mộ trong lòng nam nhân vô kỳ hạn vọng cùng cổ vũ ngôn ngữ, đại mỹ nữ bạch ngọc khiết nhìn nhìn nhậm thiên khoái hoạt, lại nhìn một chút hắn trong quần trong tay cự vật, cảm giác trong tay cự vật cũng không tượng bình thường đáng sợ như vậy nha, nó như vậy đáng yêu, như vậy cường tráng, cùng chủ nhân của nó cũng không có cái gì hai loại a, ta đương nó là Long Kiếm Phi, cùng anh tuấn tuổi trẻ Tổng kinh lý của hôn môi cũng không có cái gì đáng sợ việc nha?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 89
-  },
-  {
-    "id": "ch_0100",
-    "is_character": false,
-    "source": "cao quý",
-    "target": "Cao Quý",
-    "suggested_target": "cao quý",
-    "context": "Bóng hình xinh đẹp dì làm một hiền thê lương mẫu, nàng tại thất thân cấp cháu ngoại trai Long Kiếm Phi phía trước cũng là cao quý thanh lịch, thành thục thông minh y tá trưởng , đợi tại khuê phòng làm lụng vất vả việc nhà, giúp chồng giáo nữ, người trước người sau đều đoan trang hiền lành, chính là cùng trượng phu lý đầu to sinh hoạt vợ chồng cũng là quy củ, chưa bao giờ dám vượt qua chỉ e mất phụ đức, mà trượng phu lý đầu to cũng là thân thể không đông đảo, đa dạng cực nhỏ, sinh Yên nhi sau hắn liền càng ngày càng không được, tam hai tháng có lẽ có thể tới một lần, nhưng cũng chỉ là qua loa chấm dứt sau đó mê đầu Đại Thụy, mà mấy năm qua này hắn đã không được, cũng tựu kiền thúy đừng tới, tuổi già sức yếu uể oải không phấn chấn càng phát không dám mặt đối với mình, đây hết thảy tuy rằng để cho nàng chưa thỏa mãn dục vọng, u oán không chịu nổi, nhưng nàng còn có nữ nhi, ngày quá 'Không muốn' một ít vẫn còn tính mỹ mãn, nhưng không nghĩ lúc này chính mình cùng cháu ngoại của mình có một đoạn như vậy nghiệt duyên, sau cùng vẫn cùng hắn tại nữ nhi bảo bối trước mặt đã xảy ra quan hệ, cùng hắn mây mưa thất thường , mặc kệ hắn đem kia phá nữ nhi mình thân mình cự mãng lại cắm đến thai nghén nữ nhi địa phương , mặc kệ này cày cấy chà đạp, chính mình lại vô cùng hưởng thụ, thân thể cùng tâm lý đều phản bội trượng phu, phản bội gia đình, phản bội nhân luân đạo đức, tại ngoại sinh nữ tế dưới thân uyển chuyển hầu hạ, sung sướng bị sủng hạnh, tại nữ nhi Như Yên trước mặt thậm chí cùng nữ nhi Như Yên cùng nhau bị tên bại hoại này ngoại sinh nữ tế mang theo Vu sơn chi đoan, hiện tại nữ nhi Như Yên lại phát hiện mình vừa rồi tại trên bàn cơm giống như cháu ngoại trai ám thông xã giao rồi, điều này làm cho nàng làm sao mà chịu nổi, trong lúc nhất thời xấu hổ muốn chết!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 312
-  },
-  {
-    "id": "ch_0101",
-    "is_character": false,
-    "source": "Hồng Hưng",
-    "target": "Hồng Hưng",
-    "suggested_target": "Hồng Hưng",
-    "context": "Lúc này, hạng hóa cường trong lòng cũng khó tránh khỏi có chút hối ý, có chút ghen tị, nhưng là muốn vừa nghĩ nếu muốn mượn loại, sẽ tìm tối nam nhân ưu tú đến mượn loại, càng muốn người đàn ông này có thể bảo thủ bí mật nhìn chung hạng hóa mạnh tôn nghiêm cùng mặt mũi, hiện tại chỉ có Long Kiếm Phi phù hợp điều kiện này, là trọng yếu hơn là lo lắng đến tương lai Hồng Hưng sẽ cùng Vân Long bang liên hợp, hồng tinh công ty dính vào quốc hoa tập đoàn Huyền Vũ ảnh thị truyền thông đùi, hạng hóa cường đáy lòng thở dài, về công về tư trước mắt xem ra, này Long Kiếm Phi đều là thích hợp nhất không có hai nhân tuyển, vì con vì Hạng gia vì tương lai đường ra, liền y theo kế hoạch chấp hành đi xuống đi!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 33
-  },
-  {
-    "id": "ch_0102",
-    "is_character": true,
-    "source": "Lan Hoa",
-    "target": "Lan Hoa",
-    "suggested_target": "Mộc Lan Hoa",
-    "context": "Vốn mặc dù đánh bạo chòng ghẹo này băng sơn nữ hiệp, Long Kiếm Phi cảm thấy hoàn có chút bất an, rất sợ da mặt cực mỏng nàng trước mặt lâm hi lôi mặt chẳng biết lúc nào lãnh tính phát tác, làm cho phát nữ hiệp tính tình, nhưng xem nàng hiện tại thẹn thùng mị nhãn như tơ, trên da thịt đầu lộ ra một tầng mật đào vậy ửng đỏ, ngọt ngào trơn mềm giống như khả kháp xuất thủy ra, một bức nhiệt tình như lửa, chỉ đợi nam nhân khai thác bài bố đói khát hình dáng, trong lòng không yên không khỏi càng buông xuống chút, một bên tham thủ đi vồ lấy Mộc Lan hoa môi, thân lưỡi đi thăm dò nàng hương thơm thơm ngọt, một bên tay đã nhịn không được hoàn ở Mộc Lan hoa thân thể mềm mại, chậm rãi tham hướng nàng kia tiền đột hậu kiều, kiện mỹ kiêu nhân tốt đẹp dáng người, \"Lan Hoa tỷ tỷ, nóng như vậy.",
-    "yeu_to_nhan_biet": "Đứng trước từ chỉ quan hệ 'tỷ tỷ'",
-    "so_lan_xuat_hien": 69
-  },
-  {
-    "id": "ch_0103",
-    "is_character": true,
-    "source": "Mỹ Phượng",
-    "target": "Mỹ Phượng",
-    "suggested_target": "Mỹ Phượng",
-    "context": "Mỹ Phượng tỷ tỷ mảnh khảnh mảnh mai bản năng chân thành đong đưa, trơn mềm cánh hoa đang run rẩy trung thu phóng, mỹ Phượng tỷ tỷ cảm giác lỗ nhị một loại rất khó hình dung, căng căng đấy, tô tô cảm giác thỏa mãn, nàng đã thở dốc rên rỉ liên tiếp tả thân, Long Kiếm Phi đã ở mỹ Phượng tỷ tỷ lỗ nhị ở chỗ sâu trong điên cuồng đút vào, buông ra cái giá, sử ra tất cả vốn liếng, cảm thụ mỹ Phượng tỷ tỷ dần dần sinh ra khoái cảm đồng thời, mình cũng hưởng thụ mỹ Phượng tỷ tỷ kia tuyệt vời hậu đình kiều diễm lỗ đít sở mang cho hắn dục tiên dục tử, lâng lâng, như lên tiên cảnh cao trào dư vị, mỹ Phượng tỷ tỷ cao trào không ngừng, nàng cặp kia say lòng người mà thần bí linh động tinh mâu lúc này nửa hí, trưởng mà vi thiêu lông mi cao thấp run rẩy, nhu hòa đứng thẳng sáng loáng chóp mũi hơi thấy mồ hôi trạch, mũi thở khép mở, đường cong duyên dáng môi mềm khẽ nhếch thở khẽ, như chỉ lan vậy mùi thơm như xuân phong vậy tập tại Long Kiếm Phi trên mặt của, không ngừng sinh ra khoái cảm mãnh liệt, mỹ Phượng tỷ tỷ rốt cục giống như dã thú gầm rú.",
-    "yeu_to_nhan_biet": "Đứng trước từ chỉ quan hệ 'tỷ tỷ'",
-    "so_lan_xuat_hien": 605
-  },
-  {
-    "id": "ch_0104",
-    "is_character": true,
-    "source": "Bạch Tố",
-    "target": "Bạch Tố",
-    "suggested_target": "Bạch Tố",
-    "context": "Kỳ thật, những ngày qua mục tú trân lòng của để ẩn ẩn cảm giác được Hongkong rất có gió thổi mưa giông trước cơn bão xu thế, nhìn chung Hongkong quần anh, cũng chưa có năng lực xoay chuyển tình thế, tích hồ hỗ ứng đông hồ hồng diễm đều đã anh hùng tuổi xế chiều, hạng hóa cường dương thú thành hục hặc với nhau ngươi lừa ta gạt căn bản sẽ không xuất đầu mạo phạm mật tông thế lực, Vệ Tư Lý vì thanh danh sở mệt có chút bảo thủ, biểu tỷ Mộc Lan hoa sau khi kết hôn không chỉ có không có đổi thành thành thục ổn trọng, ngược lại càng thêm tính tình bốc lửa một điểm liền, nay một khi gặp chuyện không may quả nhiên không thể ỷ lại, Vệ Tư Lý hôn mê, cao tường mất tích, biểu tỷ Mộc Lan hoa trùng động, Vệ phu nhân Bạch Tố cũng có chút quan tâm sẽ bị loạn, càng nghĩ loáng thoáng thế nhưng cảm giác chỉ có Long Kiếm Phi rất có thể trở thành bị xua tan vẻ lo lắng hữu lực chọn người, ít nhất trước mắt trong lòng hắn hắn là \"bất nhị chi tuyển\" (không cần chỗ thứ 2).",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 1043
-  },
-  {
-    "id": "ch_0105",
-    "is_character": true,
-    "source": "chu Tuệ Mẫn",
-    "target": "Chu Tuệ Mẫn",
-    "suggested_target": "Chu Tuệ Mẫn",
-    "context": "Người này thật là một trời sanh tiểu trứng thối đại sắc lang, tuổi còn trẻ liền kinh nghiệm phong phú thật sự là hắn thật biết câu dẫn người đấy, nhìn đầu lưỡi ta của hắn trên ngón tay thượng liếm láp lấy, chu Tuệ Mẫn trong lòng miễn bàn nhiều ngứa ngáy, liền giống như hắn tại liếm tiểu muội của nàng muội...",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 365
-  },
-  {
-    "id": "ch_0106",
-    "is_character": true,
-    "source": "Cổ Tĩnh Văn",
-    "target": "Cổ Tĩnh Văn",
-    "suggested_target": "Cổ Tĩnh Văn",
-    "context": "Nàng thật sự là khó có thể tưởng tượng, mình u cốc lại bị một cái vừa nóng lại dài, câu trợt linh động bảo bối cấp từng bước xâm nhập, tại kia bảo bối mau chuyển chậm chọn dưới, nguyên đã xuân tuyền cuồn cuộn u cốc trong đó, lại xuân triều nhộn nhạo, lập tức thích thấu nội tâm, không tự chủ được nhất tiết ngàn dặm, thoải mái làm Cổ Tĩnh Văn thiếu chút nữa nghĩ đến, mình làm thực thành tiên đấy!",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 29
-  },
-  {
-    "id": "ch_0107",
-    "is_character": true,
-    "source": "ôn bích hà",
-    "target": "Ôn Bích Hà",
-    "suggested_target": "Ôn Bích Hà",
-    "context": "Long Kiếm Phi tại dưới cây lớn gắt gao để ở ôn bích hà thân thể mềm mại, một bàn tay còn tại nàng dũng đạo lý không chút kiêng kỵ khiêu khích trêu chọc, một bàn tay ôn nhu vuốt ve gò má của nàng, tiếu lệ tóc ngắn đen nhánh sáng mềm, đuôi tóc đoan trang thượng cuốn, tăng thêm vài phần mềm mại đáng yêu, bơ vậy trắng nõn ngọt ngấy da thịt, thậm chí có điểm nhu nhược bệnh trạng mỹ, điểm tâm vậy tùng hóa mỹ vị trên má, khéo léo ngũ quan tinh xảo lại có một đôi thủy uông uông mắt to, liên lụy hồng nhuận cái miệng anh đào nhỏ nhắn, làm người ta không nhịn được nghĩ thường một ngụm, qua tuổi bất hoặc thành thục nữ nhân có thể được bảo dưỡng như thế tinh xảo đã rất hiếm thấy, cho cho dù nhìn kỹ khóe mắt nếp nhăn nơi khoé mắt loáng thoáng, nhiên này thản nhiên nếp nhăn không chỉ có không có ảnh hưởng vẻ đẹp của nàng, ngược lại càng lộ vẻ nàng đẫy đà thành thục mỹ, gợi cảm mềm mại đáng yêu mỹ, lại nhiều mỹ nữ minh tinh ít có đoan trang.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 106
-  },
-  {
-    "id": "ch_0108",
-    "is_character": false,
-    "source": "võ công",
-    "target": "Võ Công",
-    "suggested_target": "võ công",
-    "context": "Nói đến hắn không chỉ có võ công cái thế, dung mạo anh tuấn, dáng người kiện mỹ, hơn nữa trên giường này công phu lại siêu quần, hơn nữa này thiên phú dị bẩm, to lớn không gì so sánh được không gì sánh kịp cự long thượng sở trường, luôn có thể làm mỹ nữ tỷ tỷ bọn muội muội thử qua sau hô to tuyệt diệu, chính là trước mặt này chu linh linh là một lạnh lùng ung dung cao quý hào môn quý phu nhân, không để ra tất cả vốn liếng, cũng sẽ không thể chân chính chinh phục này thành thục mỹ phụ nhạc mẫu thể xác và tinh thần, giờ này khắc này Long Kiếm Phi chính là giữ chặt nhạc mẫu mỹ phụ màu mỡ non mềm Hoa Nhị không để, bên hông cũng không ở ngược chiều kim đồng hồ bên phải mài, hơn nữa ngẫu nhiên khinh đỉnh cạn trạc vài cái, xúc chu linh linh thần hồn phiêu đãng, Hoa Nhị tại thủ đoạn của hắn hạ dần dần mở ra, càng trán càng mỹ, thoải mái tư vị làm chu linh linh không khỏi khoái hoạt lên.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 53
-  },
-  {
-    "id": "ch_0109",
-    "is_character": true,
-    "source": "Hoa nữ hiệp",
-    "target": "Hoa Nữ Hiệp",
-    "suggested_target": "Mộc Lan Hoa",
-    "context": "\"Nếu lan Hoa nữ hiệp cùng tú trân tỷ tỷ nói, cũng sẽ không bắn tên không đích đấy, phỏng chừng nơi này bao nhiêu có chút kỳ quái.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 32
-  },
-  {
-    "id": "ch_0110",
-    "is_character": true,
-    "source": "dương đắt mị",
-    "target": "Dương Đắt Mị",
-    "suggested_target": "Dương Quý Mị",
-    "context": "Nhưng là đối diện Long Kiếm Phi còn không có xuất tinh dấu hiệu, hắn không ngừng biến đổi các loại tính giao tư thế, đem dương đắt mị gian được chết đi sống lại, nhất mạc mạc kinh ngạc tính giao trường hợp tại lý gia hân trước mặt trình diễn, nàng nhịn không được lại bắt đầu tự an ủi, trong lòng thầm trách lão công như thế nào đem thê tử một người lưu lại nơi này sao dâm đãng địa phương!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 217
-  },
-  {
-    "id": "ch_0111",
-    "is_character": true,
-    "source": "thích Long",
-    "target": "Thích Long",
-    "suggested_target": "Long Kiếm Phi",
-    "context": "Bạch Tố Trinh cảm xúc cũng lây hứa sĩ lâm, hắn nhớ tới nhiều năm như vậy ủy khuất, cũng giống như đứa bé giống nhau khóc thút thít, đem đối với mẫu thân tưởng niệm hóa thành thâm tình hôn môi, vì thế Long Kiếm Phi môi tại Triệu Nhã chi trên vú vong tình tùy ý, kia trắng nõn mềm mại nhũ thịt, tại Long Kiếm Phi liếm láp hàm thường xuống, dần dần hiện ra đỏ ửng, Long Kiếm Phi cằm đụng chạm tới đầu vú nàng, chẳng biết lúc nào đã rất đứng lên, Long Kiếm Phi há mồm ngậm dùng sức hút, giống như muốn từ bên trong hút ra sữa tươi giống nhau, mặc dù không thể theo một người trung niên thục nữ giữa cặp vú hút ra sữa tươi, nhưng là cảm giác kia giống nhau phi thường ngọt lành, Long Kiếm Phi lấy tay bắt lấy nàng cái khác vú, nắm đầu vú nhẹ nhàng nhu động, nó từ lâu ngạo nghễ đứng thẳng, nộn hồng no đủ, kích thích Long Kiếm Phi tay, mỹ thục nữ thân thể cũng nhạy cảm như vậy.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 63
-  },
-  {
-    "id": "ch_0112",
-    "is_character": true,
-    "source": "mục tú trân",
-    "target": "Mục Tú Trân",
-    "suggested_target": "Mục Tú Trân",
-    "context": "Gặp mục tú trân như thế mị thái, Long Kiếm Phi trong lòng biết này tú trân tỷ tỷ bị hắn mới vừa rồi cố ý chế tạo cách giải quyết làm cho quá ác, dục hỏa chi vượng trước đó chưa từng có, tuyệt không chờ mong xảo dồn thế công, hắn tuy biết mới vừa rồi làm như vậy sẽ làm hai nàng cùng thụ kích thích, chính là ngao chiến vài nữ khi bí kỹ, lại không nghĩ rằng mục tú trân liền cả thích hai hồi, còn có như thế nhiệt lực, trong lòng không khỏi chấn động, bỏ qua đủ loại thủ đoạn nhỏ, mà là lấy cự mãng tận tình co lại mãnh liệt mãnh đưa, một bên tấn công mạnh lấy nàng giữa đùi Ngọc Môn quan, một bên hai tay bắt lấy nàng kia tràn ngập co dãn xinh đẹp hai vú, đem kia duyên dáng yêu kiều hồng lôi thu tại ngón giữa, bằng nóng bỏng phương pháp gia dĩ kích thích, sử chịu không nổi hắn đùa bỡn mục tú trân dâm ngữ ra hết, sóng vỗ lộ ra, không tiếp tục pháp tự kềm chế.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 428
-  },
-  {
-    "id": "ch_0113",
-    "is_character": true,
-    "source": "tiền Hiểu Mẫn",
-    "target": "Tiền Hiểu Mẫn",
-    "suggested_target": "Tiền Hiểu Mẫn",
-    "context": "Long Kiếm Phi thập phần không thôi ngẩng đầu lên nhìn dưới thân này làm mình thất hồn lạc phách người vợ tiền Hiểu Mẫn, theo giữ lấy nàng kiều mỵ thân mình một khắc kia bắt đầu, toàn thân liền tràn đầy một loại đạt được ước muốn cảm giác hưng phấn, lúc này lại vừa thấy nàng kia tràn đầy dâm mị phóng túng tình xinh đẹp mặt, liền làm hắn cảm thấy một loại mãnh liệt tự hào cảm: \"Hiểu Mẫn tỷ tỷ, ta yêu ngươi!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 235
-  },
-  {
-    "id": "ch_0114",
-    "is_character": true,
-    "source": "Chu Tử Vi",
-    "target": "Chu Tử Vi",
-    "suggested_target": "Chu Tử Vi",
-    "context": "Chu Tử Vi yên lặng không nói gì, trong lòng vẫn đang suy nghĩ ngày hôm qua Long Kiếm Phi vụng trộm vuốt ve quấy rầy vẻ đẹp của nàng mông thời điểm, kia nóng hừng hực ánh mắt giống như cũng là không chớp mắt tại nàng kia tất chân trên chân đẹp nhìn tới nhìn lui đấy, hôm nay lại nghe hắn nói lên tất chân nói cặn kẽ như vậy, thoạt nhìn này long tổng tám chín phần mười cũng là tất chân ham mê người;",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 265
-  },
-  {
-    "id": "ch_0115",
-    "is_character": true,
-    "source": "lương huệ như",
-    "target": "Lương Huệ Như",
-    "suggested_target": "Lương Huệ Như",
-    "context": "Lúc trước tuy biết mẫu thân lương huệ như cùng phụ thân cảm tình xuất hiện nguy cơ mà ở riêng nhiều năm, lương hiểu tịnh thật không nghĩ đến, mẹ lương huệ như đối chuyện nam nữ không chỉ chưa coi như việc không dám làm, thậm chí đối với dụ dỗ chính mình hồng hạnh xuất tường (*) mất hiền thê lương mẫu trinh tiết Long Kiếm Phi, còn có một ti khác thường tình cảm tồn tại, trong lòng một loại khó nói lên lời buồn bực xẹt qua, liền thành mẹ mát xa vai tay, cũng không khỏi chậm hai nhịp.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 299
-  },
-  {
-    "id": "ch_0116",
-    "is_character": false,
-    "source": "Thân ái",
-    "target": "Thân Ái",
-    "suggested_target": "thân ái",
-    "context": "Long Kiếm Phi vuốt kia khe rãnh trên u cốc nồng đậm phương thảo, phương thảo phía dưới mê người mỹ huyệt chính phát ra tính khát cầu, trắng noãn vú bởi vì Long Kiếm Phi vuốt ve khiến cho hồng nộn đầu vú đã cứng rắn lập như đậu, Long Kiếm Phi đem khêu gợi đóa hoa hướng hai bên tách ra, khiến cho hồng nộn như xử nữ mỹ huyệt làm tốt sau cùng tiến vào chuẩn bị, mà trình tử san một đôi Câu Hồn Mỵ Nhãn chính nhìn hắn, tựa hồ cổ vũ hắn tiếp tục, Long Kiếm Phi không bao giờ nữa nghe trình tử san trong miệng nói ra gạt người ngôn ngữ, đem màu đen tất chân đùi đẹp hướng hai bên thật to tách ra, sử cự mãng nhắm ngay thấm ướt nhu mỹ huyệt, nói: \"Thân ái tử san phu nhân ta sắp ra rồi, để cho chúng ta vong tình làm tình a!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 42
-  },
-  {
-    "id": "ch_0117",
-    "is_character": true,
-    "source": "tạ uy",
-    "target": "Tạ Uy",
-    "suggested_target": "Tạ Uy",
-    "context": "Nàng nhẹ thở cái lưỡi thơm tho, thật cẩn thận, trân trọng mút lấy kia cự mãng đỉnh, cảm thụ được kia lẫn vào chính mình thân thể trong veo cùng nam nhân nhục dục thể tức giận tư vị, tân hôn thê tử cư nhiên ở trong phòng làm việc vì trượng phu ở ngoài nam nhân hơn nữa còn là các nàng Tổng kinh lý của làm võ mồm phục vụ, nàng cũng từng vì trượng phu tạ uy đã làm bú liếm, nhưng là trượng phu tạ uy cái tên kia nơi nào có Long Kiếm Phi như vậy thiên phú dị bẩm to lớn không gì so sánh được, như vậy tiền vốn mới là nam nhân quyết đoán thể hiện, loại này cấm kỵ không chỉ hồng hạnh xuất tường (*) kích thích, càng phát giác phương tâm nhộn nhạo khó thu, phục vụ càng thêm rơi lực;",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 60
-  },
-  {
-    "id": "ch_0118",
-    "is_character": false,
-    "source": "đậu đỏ",
-    "target": "Đậu Đỏ",
-    "suggested_target": "đậu đỏ",
-    "context": "\" Nói xong Long Kiếm Phi liền vươn cái kia song hữu lực bàn tay to đặt tại mỹ Phượng tỷ tỷ đây đối với cắm vào vân tiêu dặm nhũ phong, bốn con thô ráp ngón cái cùng ngón trỏ giống như niệp hoa ngón tay vậy tại mỹ Phượng tỷ tỷ bộ ngực sữa hai điểm thượng bắt đầu hoạt động, tứ ngón tay hoàn chuẩn xác không có lầm nắm nàng kia hai khỏa không chịu cô đơn đậu đỏ, ngón tay mấy chuyện xấu nắm nàng hai cái thần kinh mạch máu tại cao vút trong mây quả nhiên bộ ngực sữa lý trái phải cao thấp trước sau lay động.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 47
-  },
-  {
-    "id": "ch_0119",
-    "is_character": true,
-    "source": "Phương Phương",
-    "target": "Phương Phương",
-    "suggested_target": "Phương Phương",
-    "context": "Nhìn xem cúc tuyết bình đáy lòng thở gấp một tiếng, dựa vào nàng hai mươi năm y học kinh nghiệm cùng hổ lang tuổi thành thục nữ tính bản năng, cúc tuyết bình trong lòng cũng không khỏi cảm thán này Long Kiếm Phi khổng lồ, vong phu so với hắn thật sự là tiểu vu kiến đại vu, nữ nhi Phương Phương vừa rồi mặt phấn ửng đỏ xuân tâm nhộn nhạo mị thái, thuyết minh này tiểu trứng thối hôn môi vuốt ve trên giường kỹ xảo cao siêu thành thạo không hổ là hoa Hoa công tử, cúc tuyết bình đột nhiên bừng tỉnh, thầm mắng mình ở phía sau như thế nào miên man suy nghĩ đâu này?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 463
-  },
-  {
-    "id": "ch_0120",
-    "is_character": false,
-    "source": "viên hàng",
-    "target": "Viên Hàng",
-    "suggested_target": "viên hàng không",
-    "context": "Long Kiếm Phi chậm rãi đẩy mạnh, làm cự mãng từng điểm từng điểm nhập vào dưới thân ngọc nữ tiếp viên hàng không khối này như ma quỷ đỗng trong cơ thể, hơn nữa, ngay tại mẫu thân nàng cúc tuyết bình trước mắt!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 91
-  },
-  {
-    "id": "ch_0121",
-    "is_character": false,
-    "source": "đinh hương",
-    "target": "Đinh Hương",
-    "suggested_target": "đinh hương",
-    "context": "Lấy lại tinh thần hữu điền thực hi phát giác được con sững sờ, liền đánh thức hắn, sợ bị nhìn xuyên tâm sự con hoảng hốt lay lấy trong bát cơm, rối ren trung biến thành bên miệng dính đầy hạt cơm, hữu điền thực hi liền yêu say đắm cầm khăn tay bang con lau chùi, sớm bị mẫu thân kiều mỵ mê say con đắm chìm trong mình trong ảo tưởng, tưởng tượng thấy là xinh đẹp mẫu thân đang dùng kia khêu gợi môi cùng mê người đinh hương lưỡi liếm láp lấy cái miệng của hắn, kèm theo mộng nghệ bàn âm nhạc, con đắm chìm trong mình trong ảo tưởng, lúc này mẫu thân tiếng nói chuyện cắt đứt ảo tưởng của hắn, trở về thực tế con đề ý bang mẫu thân rửa bát, nhưng thật ra là nghĩ mẫu thân vừa mới đã dùng qua thìa, nơi đó lây dính lấy mẫu thân đôi môi hơi thở.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 116
-  },
-  {
-    "id": "ch_0122",
-    "is_character": false,
-    "source": "đại mỹ nhân",
-    "target": "Đại Mỹ Nhân",
-    "suggested_target": "đại mỹ nhân",
-    "context": "Một cái xinh đẹp linh lung mũi ngọc nho nhỏ, một tấm như anh đào đỏ tươi cái miệng nhỏ nhắn hơn nữa đường cong lưu sướng tuyệt đẹp, tú lệ tuyệt tục má đào, tựa hồ cổ kim sở hữu tuyệt sắc đại mỹ nhân ưu điểm đều tập trung vào trên mặt nàng, chỉ liếc mắt nhìn tựu sẽ khiến nhân tim đập thình thịch, càng còn có nàng kia trắng noãn được giống như trong suốt dường như tuyết cơ ngọc phu, mềm mại được liền tượng nụ hoa sơ trán khi đóa hoa giống nhau tinh tế trơn, toàn thân tràn đầy ung dung hoa quý, khí chất thanh lịch hiên ngang thiếu phụ phong vận, hoàn mỹ thừa kế quân như mẹ gien di truyền, tuy rằng Long Kiếm Phi biết đây là tỷ tỷ của hắn, cũng không cấm có chút đầu váng mắt hoa, tâm tinh thần diêu!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 61
-  },
-  {
-    "id": "ch_0123",
-    "is_character": true,
-    "source": "hồ hồng diễm",
-    "target": "Hồ Hồng Diễm",
-    "suggested_target": "Hồ Hồng Diễm",
-    "context": "Long Kiếm Phi vừa thấy người nói chuyện cũng là từng có gặp mặt một lần địa phương tổ quang, từng tại hồ hồng diễm dạ yến thượng nhận thức quá, nhưng lại tại trong sàn nhảy thừa dịp bóng đêm dụ dỗ gian dâm mỹ mạo của hắn thê tử trứ danh minh tinh ôn vực.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 32
-  },
-  {
-    "id": "ch_0124",
-    "is_character": true,
-    "source": "chu linh linh",
-    "target": "Chu Linh Linh",
-    "suggested_target": "Chu Linh Linh",
-    "context": "Long Kiếm Phi đi ô-tô, khu xa nhắm thẳng hỗ gia trang vườn biệt thự mà đến, nhưng là trong nhà lãnh lãnh Thanh Thanh, hóa ra người một nhà đều ngồi mù mịt đi Thượng Hải quan khán thế bác sẽ đi rồi, chỉ có tỷ tỷ tạ mỹ phượng cùng bà bà chu linh linh bởi vì chiếu khán ở nhà lưu thủ, bởi vì chu linh linh cùng Long Kiếm Phi có quan hệ mập mờ, nàng bây giờ đối với tạ mỹ phượng cũng yêu ai yêu cả đường đi thái độ đại biến, có vẻ ôn nhu săn sóc hiền lành rất nhiều, chính là ngẫu nhiên nhìn mỹ phượng không khỏi nghĩ khởi Long Kiếm Phi thời điểm vẫn còn có chút xấu hổ không tự thắng.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 201
-  },
-  {
-    "id": "ch_0125",
-    "is_character": false,
-    "source": "tưởng rằng",
-    "target": "Tưởng Rằng",
-    "suggested_target": "tưởng rằng",
-    "context": "Ngay từ đầu nàng còn tưởng rằng là Long Kiếm Phi khó được hảo tâm, mặc dù đang vì mình giải độc thời điểm, còn tại trong lời nói không ngừng nhắc đến tỉnh nàng, nàng cuối cùng Vệ Tư Lý thê tử, mặc dù Vệ Tư Lý đã trúng cổ hôn mê, lý trí ánh mắt vẫn hoàn nhìn nàng đủ loại, làm Bạch Tố còn có thể miễn cưỡng bảo trì chính mình, không bị kia mạnh mẽ chí cực khoái cảm đánh tan thể xác và tinh thần, hoàn toàn biến thành dưới háng của hắn tù binh, lại không nghĩ rằng càng nghĩ như vậy, sinh hoạt vợ chồng đang lúc thậm chí cảm giác trượng phu Vệ Tư Lý ở bên xem, hồng hạnh xuất tường (*) ý xấu hổ, phản làm nàng càng khó nhẫn nại, sau cùng luôn luôn loại hoàn toàn bị hắn chinh phục lỗi cảm giác.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 97
-  },
-  {
-    "id": "ch_0126",
-    "is_character": true,
-    "source": "Long Kiếm Phi to",
-    "target": "Long Kiếm Phi To",
-    "suggested_target": "Long Kiếm Phi",
-    "context": "Mỹ Phượng tỷ tỷ mỹ huyệt dũng đạo lý nóng bỏng dính trợt âm dịch lại càng trào càng nhiều, đầy tràn toàn bộ mỹ huyệt dũng đạo, trơn lấy Long Kiếm Phi to cứng rắn quái vật lớn, bỏng đến của hắn đầu rồng nóng hầm hập trơn mượt càng thêm phồng lớn, mỗi một lần rút ra đều mang ra khỏi một cỗ nóng dính âm thủy, mỗi một lần cắm vào đều chen lấn mỹ Phượng tỷ tỷ âm thủy bắn ra bốn phía, chít chít hướng ra phía ngoài tràn đầy, mỹ Phượng tỷ tỷ âm thủy thấm ướt Long Kiếm Phi hòn dái tốt đẹp Phượng tỷ tỷ mu lồn, theo hai người âm mao lưu tại mỹ Phượng tỷ tỷ trên mông đít, mỹ Phượng tỷ tỷ thân mình dưới sàng đan đều đắm mình ướt đẫm một mảnh.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 59
-  },
-  {
-    "id": "ch_0127",
-    "is_character": true,
-    "source": "dương duy",
-    "target": "Dương Duy",
-    "suggested_target": "Dương Duy",
-    "context": "Long Kiếm Phi cấp chừng Chu Tử Vi mặt mũi, đứng dậy cùng dương duy bắt tay, đánh giá này thanh tú đàng hoàng người trẻ tuổi, cười nói, \"Không cần cám tạ ta, muốn tạ liền cám ơn ngươi có tốt lão bà, nếu không tử vi cực lực đề cử, ta cũng không nghĩ ra dùng của ngươi.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 31
-  },
-  {
-    "id": "ch_0128",
-    "is_character": false,
-    "source": "bao bọc",
-    "target": "Bao Bọc",
-    "suggested_target": "bao bọc",
-    "context": "Mỹ Phượng tỷ tỷ màu hồng nhũ tiêu hơi hơi hướng về phía trước kiều, da thịt trắng như tuyết tại ngọn đèn chiếu xuống hiển hiện ra diễm lệ sáng bóng, giống như tuyết trắng mỹ ngọc phấn mài mà thành, kiều diễm mê người nhũ thịt gắt gao bao bọc lấy Phi nhi cự mãng, nhìn tại chính mình phụng sĩ xuống, tại viên thịt xoa bóp trung dần dần trướng đại cự mãng, dần dần chiếm hết toàn bộ khe ngực, bắt đầu đem nhũ thịt ra bên ngoài bài trừ, mỹ Phượng tỷ tỷ tươi cười càng phát ra rực rỡ rồi.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 25
-  },
-  {
-    "id": "ch_0129",
-    "is_character": false,
-    "source": "dụ dỗ",
-    "target": "Dụ Dỗ",
-    "suggested_target": "dụ dỗ",
-    "context": "Từ cùng đệ đệ có quan hệ về sau, mỹ Phượng tỷ tỷ ở nhà liền không còn có mặc quá kia trói buộc bộ ngực nịt vú, dù sao ở trong nhà này, không phải mẹ chính là đệ đệ, mà đệ đệ Long Kiếm Phi mỗi thời mỗi khắc cũng phải làm cho nàng liêu khởi áo cho hắn mút vào đầu vú, mặc kia trói buộc bộ ngực sữa nịt vú ngược lại là một loại dư thừa làm nền, bởi vì đệ đệ không cần nàng ren nịt vú đa dạng như thế nào sức dụ dỗ, hắn thủy chung thầm nghĩ ngoạn nàng 36C vú cùng kia dâm đãng không chịu điều khiển tự động thân thể, hơn nữa đệ đệ lại trực lai trực khứ huyết khí phương cương người thanh niên, đối với không có trói buộc bộ ngực sữa tại trong áo trên đột hiển hai điểm càng có thể kích phát dục vọng của hắn, cho nên, từ ngày đó bắt đầu, nàng liền không còn có mặc những trói buộc kia bộ ngực sữa trang sức phẩm.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 169
-  },
-  {
-    "id": "ch_0130",
-    "is_character": false,
-    "source": "trần truồng",
-    "target": "Trần Truồng",
-    "suggested_target": "trần truồng",
-    "context": "\" Sơn tỉnh hoành hiển nhiên không chú ý tới tại bên cạnh mình nằm thê tử kia lóe ra bất an ánh mắt, càng không chú ý tới thê tử trong chăn liền chứa chấp lấy một cái trần truồng nam nhân, hơn nữa người đàn ông này đúng là thê tử cháu Long Kiếm Phi, vừa mới từ nữ nhi mình trên người leo xuống, toàn thân trên dưới đều dính đầy nữ nhi đổ mồ hôi cùng dâm thủy chất mật, lúc này hai tay của hắn chính từ phía sau lưng đi vòng qua phía trước mâm nắm thê tử vậy đối với mềm mại phì nộn vú, mà thê tử lại thở mạnh cũng không dám một tiếng.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 275
-  },
-  {
-    "id": "ch_0131",
-    "is_character": false,
-    "source": "lỗ tai",
-    "target": "Lỗ Tai",
-    "suggested_target": "lỗ tai",
-    "context": "Mỹ Phượng tỷ tỷ càng ngày càng cảm thấy mình khuôn mặt nóng quá, lỗ tai cũng rất nóng, trái tim cũng nhảy rất nhanh, khí cũng suyễn thật sự dồn dập, còn có một cổ chất nhầy theo mỹ Phượng tỷ tỷ trong thân thể tràn đầy lên, thực không biết tại sao, càng là tại trường hợp này, mỹ Phượng tỷ tỷ lại càng giống mối tình đầu tiểu cô nương giống như, tức nghĩ Phi nhi nhanh chút đến ôm mỹ Phượng tỷ tỷ, vừa muốn Phi nhi nhìn hơn mỹ Phượng tỷ tỷ vài lần, khả lại sợ lúc này sẽ có người trong lúc bất chợt xông tới phá hư chuyện tốt, tóm lại, mỹ Phượng tỷ tỷ lòng của nhi càng loạn mỹ Phượng tỷ tỷ liền loạn không chịu khống, toàn thân trên dưới đều không tự chủ được hơi hơi lấy tô sướng nhìn Phi nhi, khát vọng vị này nhiệt huyết tiểu Nam nhi lúc này có thể cho mỹ Phượng tỷ tỷ tối mất hồn, sung sướng nhất cảm giác!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 214
-  },
-  {
-    "id": "ch_0132",
-    "is_character": false,
-    "source": "trần như nhộng",
-    "target": "Trần Như Nhộng",
-    "suggested_target": "trần như nhộng",
-    "context": "Này nếu đổi thành một cái truyền thống nữ nhân Trung quốc, nhất định sẽ cảm thấy Long Kiếm Phi thực quá đáng, dù sao nàng hiện tại toàn thân là trần như nhộng đấy, nhưng lý gia hân trời sinh tính tình hướng ngoại, lại đang Anh hoàng công ty diễn nhiều như vậy điện ảnh bị văn hóa ngoại quốc ảnh hưởng, hơn nữa vừa rồi tại phòng khiêu vũ giống như Long Kiếm Phi từng có thực thân mật sinh thực khí tiếp xúc, lúc ấy thậm chí ngay cả anh đào đều bị Long Kiếm Phi hôn qua rồi, cho nên thật đúng là phản đối hành vi của hắn sinh ra phản cảm, chính là cho là hắn đang cùng mình hồ nháo, cảm thấy này cái tuổi trẻ tài cao anh tuấn tiêu sái đẹp trai biểu đệ chơi rất khá.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 155
-  },
-  {
-    "id": "ch_0133",
-    "is_character": true,
-    "source": "Diệp ngọc khanh",
-    "target": "Diệp Ngọc Khanh",
-    "suggested_target": "Diệp Ngọc Khanh",
-    "context": "Diệp ngọc khanh gặp trong ngày thường tại trước mặt nàng tùy hứng điêu ngoa nữ nhi bảo bối đối Long Kiếm Phi như thế cúi đầu nghe theo, ôn nhu thẹn thùng, biết nữ nhi trưởng thành, đối này anh tuấn tiêu sái tuổi trẻ tài cao hoa Hoa công tử bao nhiêu động thiếu nữ chi tâm, rất sợ cô gái nhỏ thật sự bị hắn câu dẫn làm ra chuyện xuất cách gì tình, cuống quít lôi kéo thật thật nói lời từ biệt đi qua.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 256
-  },
-  {
-    "id": "ch_0134",
-    "is_character": true,
-    "source": "hoàng tuyết",
-    "target": "Hoàng Tuyết",
-    "suggested_target": "Hoàng Tuyết Cầm",
-    "context": "Lúc này Long Kiếm Phi có thể nói là dương dương đắc ý, có thể chinh phục cùng giữ lấy như thế xinh đẹp thành thục phụ nhân, làm hắn vô luận là theo thân thể hay là từ tâm linh đều chiếm được trước nay chưa có thỏa mãn, loại cảm giác này làm hắn không khỏi liền nghĩ tới chính mình kia xinh đẹp mê người thẩm thẩm hoàng tuyết cầm ra, hắn dâm sắc đôi mắt chăm chú nhìn dưới thân đã hoàn toàn bị chính mình dâm biến thành dục tiên dục tử thành thục mỹ phụ, chậm rãi theo nàng trên mặt thấy được kia làm mình cả đời đều khó khăn lấy quên được mỹ phụ y tá Ô mỹ vân tuyệt mỹ gương mặt của, nghĩ đến hắn lúc này đang ở dâm chuẩn bị nữ nhân chính là Ô mỹ vân tỷ tỷ, Ô Thiến Thiến đại di mụ, cái loại cảm giác này tràn đầy cấm kỵ không chỉ khoái cảm, làm hắn càng thêm hưng phấn, càng thêm kích thích, càng thêm điên cuồng lên.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 153
-  },
-  {
-    "id": "ch_0135",
-    "is_character": false,
-    "source": "hồng nhuận",
-    "target": "Hồng Nhuận",
-    "suggested_target": "hồng nhuận",
-    "context": "Đã bắn quá tinh Long Kiếm Phi cũng không có bởi vì dì nhạc mẫu cao trào mà phun ra, ngược lại là nhấc lên hắn lớn hơn dục hỏa, hai mắt đỏ ngầu thoáng nhìn quỳ nằm ở chỗ này hôn nồng nhiệt bóng hình xinh đẹp dì Như Yên biểu muội, chỉ thấy nàng tình mê ý loạn, xuân tình bộc phát tại hôn mẫu thân nàng không để đồng thời cặp kia trắng noãn như hành hai tay của đã leo lên vậy đối với từng phân bố sữa dưỡng dục quá nàng đầy đặn tuyết trắng vú lớn, đang ở nơi đó tình mê ý loạn trảo nhu lấy, toàn thân không một tia bán lũ, trong trắng lộ hồng da thịt trong suốt ướt át, tinh xảo đặc sắc nhan sắc hiện lên sáng bóng, mềm mại nộn như phấn giống như chi, tinh tế hồng nhuận, bởi vì thiếu nữ xuân tình lấn tới, toàn thân trên dưới tản ra mị người mùi thơm, nhục dục hơi thở, theo cổ chỗ loan ra một đạo tuyệt đẹp độ cong thẳng quá lưng trắng sau cùng kết nối lấy kia cao kiều rất lộ viên nộn mông, sau đó theo cặp kia tú thẳng trắng đẹp, trơn mềm tế nị đùi thẳng đến đầu gối, đầu gối quỳ gối mềm mại trên giường, tiểu thối tao nhã trắng noãn, mê người không thôi, kia trắng noãn chân nhỏ ngay ngắn đối với Long Kiếm Phi, mười đáng yêu chân chỉnh tề yên lặng dán tại trên giường, thật sự.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 239
-  },
-  {
-    "id": "ch_0136",
-    "is_character": true,
-    "source": "Văn thêu",
-    "target": "Văn Thêu",
-    "suggested_target": "Văn Tú",
-    "context": "Đóng cửa lại, Long Kiếm Phi chầm chậm từ từ đi đến trước mặt nàng, rắn chắc song chưởng xanh tại bên cạnh bàn, đem nàng vây khốn tại chính mình cùng bàn công tác trong đó, thâm thúy con ngươi đen thế này mới không chút nào che giấu ra trong đó nóng bỏng, hắn trêu đùa: \"Văn thêu tẩu tử, ta chỉ là đang nghĩ ngươi 16 tuổi khi bộ dạng.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 75
-  },
-  {
-    "id": "ch_0137",
-    "is_character": true,
-    "source": "hoàng dĩnh dĩnh",
-    "target": "Hoàng Dĩnh Dĩnh",
-    "suggested_target": "Hoàng Dĩnh Dĩnh",
-    "context": "Đại nam hài cảm giác quá sung sướng, giờ khắc này làm hắn cảm thấy nội tâm vô cùng đắc ý, hắn hiện tại đang ở dâm làm cho nữ nhân là lúc tuấn thê tử, giúp Ô mỹ vân Ô Thiến Thiến trả thù khoái cảm cũng bởi vậy mà sinh, huống chi nghiêm khắc trên ý nghĩa mà nói, này hoàng tuyết cầm coi như là trưởng bối của hắn rồi, lại hoàng dĩnh dĩnh mẫu thân, nội tâm vẻ này cấm kỵ không chỉ khoái cảm liền càng phát mãnh liệt.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 130
-  },
-  {
-    "id": "ch_0138",
-    "is_character": true,
-    "source": "phượng kiều",
-    "target": "Phượng Kiều",
-    "suggested_target": "Ô Phượng Kiều",
-    "context": "Còn lại hai cái thành thục mỹ phụ đứng ở nơi đó ngơ ngác sững sờ, hoàng tuyết cầm thể xác và tinh thần đã bị hắn chinh phục, Ô phượng kiều cũng là tâm hoảng ý loạn, không biết mình có thể hay không ngăn cản được này tiểu trứng thối đại sắc lang từng bước ép sát, trái lại nghĩ đến chính mình qua tuổi bất hoặc còn có thể khiến cho đại nam hài yêu thích, đáy lòng cũng không miễn có vài nữ nhân hư vinh tâm thỏa mãn.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 138
-  },
-  {
-    "id": "ch_0139",
-    "is_character": true,
-    "source": "Trần Tư Tư",
-    "target": "Trần Tư Tư",
-    "suggested_target": "Trần Tư Tư",
-    "context": "Trần Tư Tư đã nói không ra lời, còn sót lại chỉ có mị hoặc lòng người tiếng thở gấp, vung vẩy lấy đến eo thẳng phát, xấu hổ và giận dữ địa tướng đầu xoay hướng một bên, không nhìn tới Long Kiếm Phi đắc ý ánh mắt cùng cố ý giơ lên cao trước mắt dính đầy chính mình dâm dịch ngón tay của, tuy nhiên lại cố tình truyền đến Long Kiếm Phi hút ngón tay thanh âm, này dâm thú tội gì làm người ta như vậy quẫn bách.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 122
-  },
-  {
-    "id": "ch_0140",
-    "is_character": true,
-    "source": "trần khai tân",
-    "target": "Trần Khai Tân",
-    "suggested_target": "Trần Khai Tân",
-    "context": "Bề ngoài mốt, mặc thành ma đăng mỹ nữ minh tinh dương cung như, nhưng thật ra là một cái quan niệm bảo thủ, tư tưởng truyền thống nữ tính, nếu không lấy điều kiện của nàng, có thể nói người theo đuổi chúng, nhưng là tại đây cạnh tranh xã hội thượng, vì cầu cùng mẫu thân cuộc sống ấm no, cùng với phụ thân khổng lồ tiền thuốc men, dụng hết tâm cơ cùng thủ đoạn, lấy vẻ đẹp của mình tìm kiếm diễn nghệ sự nghiệp phát triển, đạt tới ảnh thị nghiệp thượng công trạng, thẳng đến kết hôn gả cho trần khai tân sau vẫn phụ tá trượng phu phát triển sự nghiệp điện ảnh, trở thành của hắn ái thê sau, dương cung như liền không hề xuất đầu lộ diện, từ nay về sau ru rú trong nhà, làm cái chuyên trách ở tiểu nữ nhân, chuyên lòng chiếu cố mẫu thân.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 33
-  },
-  {
-    "id": "ch_0141",
-    "is_character": true,
-    "source": "cung như",
-    "target": "Cung Như",
-    "suggested_target": "Dương Cung Như",
-    "context": "Bề ngoài mốt, mặc thành ma đăng mỹ nữ minh tinh dương cung như, nhưng thật ra là một cái quan niệm bảo thủ, tư tưởng truyền thống nữ tính, nếu không lấy điều kiện của nàng, có thể nói người theo đuổi chúng, nhưng là tại đây cạnh tranh xã hội thượng, vì cầu cùng mẫu thân cuộc sống ấm no, cùng với phụ thân khổng lồ tiền thuốc men, dụng hết tâm cơ cùng thủ đoạn, lấy vẻ đẹp của mình tìm kiếm diễn nghệ sự nghiệp phát triển, đạt tới ảnh thị nghiệp thượng công trạng, thẳng đến kết hôn gả cho trần khai tân sau vẫn phụ tá trượng phu phát triển sự nghiệp điện ảnh, trở thành của hắn ái thê sau, dương cung như liền không hề xuất đầu lộ diện, từ nay về sau ru rú trong nhà, làm cái chuyên trách ở tiểu nữ nhân, chuyên lòng chiếu cố mẫu thân.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 280
-  },
-  {
-    "id": "ch_0142",
-    "is_character": true,
-    "source": "Triệu Nhã chi",
-    "target": "Triệu Nhã Chi",
-    "suggested_target": "Triệu Nhã Chi",
-    "context": "Long Kiếm Phi đối Triệu Nhã chi Pearl đài hoa khiêu khích liên tục thật lâu sau, theo tương tư đậu bị liếm, Triệu Nhã chi cảm thấy giữa đùi không nói ra được khoái cảm, hơn nữa càng ngày càng mãnh liệt, dần dần ngay cả Triệu Nhã chi chính mình cũng có thể cảm giác được dịch bắt đầu chia bí, Triệu Nhã chi gặp thân thể mình bị Long Kiếm Phi làm nhục như thế, không khỏi xấu hổ và giận dữ không chịu nổi, bi từ giữa ra, đồng thời lại bắt đầu hận khởi phu quân của mình hoàng cẩm viêm ra, nếu không mấy năm này lão phu lão thê trong đó ít có quá vợ chồng cuộc sống, nàng nơi nào sẽ là như thế này đâu rồi, phải biết rằng nàng bây giờ tuổi đã đến lang hổ chi niên, đối với tình dục cần phải là càng ngày càng mãnh liệt, cố tình mấy năm này hoàng cẩm viêm đối với nàng hờ hững, mới tạo thành trường kỳ áp chế trong cơ thể mình tình dục, bây giờ bị Long Kiếm Phi như vậy nhất câu dẫn, có lẽ chính là cỗ này tình dục lập tức ở trong người ở chỗ sâu trong bộc phát ra rồi.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 758
-  },
-  {
-    "id": "ch_0143",
-    "is_character": true,
-    "source": "Trương Mẫn mẫn",
-    "target": "Trương Mẫn Mẫn",
-    "suggested_target": "Trương Mẫn Mẫn",
-    "context": "Hạng hóa cường đoán chừng là thê tử Trương Mẫn mẫn bắt đầu vận khởi nội kình, làm mỹ huyệt dũng đạo thịt khi giáp khi tùng, đem Long Kiếm Phi tiểu tử kia cự mãng kẹp chặt sảng khoái vô cùng, hạng hóa cường biết thê tử Trương Mẫn mẫn mỹ huyệt dũng đạo giáp hút nội kình vô cùng lợi hại, bình thường hạng hóa cường cùng thê tử Trương Mẫn mẫn lúc ân ái, nàng bình thường phải không vận nội kình đấy, chủ yếu là hạng hóa cường không chịu nổi như vậy kích thích, rất nhanh sẽ xuất tinh đấy, nhưng là tại thê tử lấy được tính thời điểm cao trào, thê tử Trương Mẫn mẫn mỹ huyệt dũng đạo cũng sẽ tự động giáp hút, hạng hóa cường không phân rõ thê tử Trương Mẫn mẫn bây giờ là bị vây loại tình huống đó.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 309
-  },
-  {
-    "id": "ch_0144",
-    "is_character": false,
-    "source": "tăng thêm",
-    "target": "Tăng Thêm",
-    "suggested_target": "tăng thêm",
-    "context": "Triệu Nhã chi hai chân gắt gao bóp chặt Long Kiếm Phi hông của, hai tay ôm sát cổ của hắn, sau lại chân của nàng càng giáp càng nhanh, Long Kiếm Phi biết Triệu Nhã chi sắp tới nữ tính hưng phấn đỉnh, vì thế hắn tăng thêm tốc độ cùng độ mạnh yếu, mà nàng liền do từng tiếng rên rỉ, biến thành liên tục không ngừng quát to, Long Kiếm Phi chọc vào càng sâu nhanh hơn, tay cũng bắt đầu dùng sức xoa bóp Triệu Nhã chi vú, Triệu Nhã chi tiếng kêu càng lúc càng lớn, hô hấp càng lúc càng nặng, hắn mặc kệ nhiều như vậy, chính là càng quất càng mạnh mẽ, càng sáp càng ngoan, hắn thư sướng tiết ra tinh dịch của mình, toàn bộ đúc nhập mẫu thân Bạch Tố Trinh huyệt dâm.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 136
-  },
-  {
-    "id": "ch_0145",
-    "is_character": false,
-    "source": "kiều bá mị",
-    "target": "Kiều Bá Mị",
-    "suggested_target": "kiều bá mị",
-    "context": "Quân Như mẹ có Đông Phương nữ nhân ít có cao lớn dáng người, tuy rằng năm đã ba mươi sáu tuổi, nhưng được bảo dưỡng nghi, quả thật là một cái thành thục khêu gợi đầy đặn trung niên mỹ phụ nhân, kiêm cụ thành thục nữ tính ý nhị cùng hiền lành mẫu thân xinh đẹp gương mặt, một loại sống an nhàn sung sướng phu nhân phong tư, trưởng thiên kiều bá mị, mặt xinh đẹp tuyệt luân, trong trắng lộ hồng da thịt, đôi mi thanh tú hơi cong giống như nguyệt, hai mắt thật to hắc bạch phân minh, lông mi dài nhỏ đen nhánh, cái mũi cao thẳng long thẳng, đỏ tươi môi hơi nhếch lên, đôi môi đầy đặn ngậm lấy một cỗ trời sanh mị thái, môi anh đào giác mọc lên một đỏ tươi mỹ nhân chí, mê người nhất là kia một đôi thủy uông uông đại mị nhãn, mỗi tại chuyển động liếc xem nhân lúc, tựa hồ trước mặt đựng một đốm lửa, đốt tâm linh người, câu nhân thỉ phách giống nhau, nhất phiêu vừa chuyển có thể câu nhân hồn.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 31
-  },
-  {
-    "id": "ch_0146",
-    "is_character": false,
-    "source": "ôn nhu",
-    "target": "Ôn Nhu",
-    "suggested_target": "ôn nhu",
-    "context": "Long Kiếm Phi đem bị chính mình biến thành hữu khí vô lực Như Yên biểu muội nhẹ nhàng buông, để cho nàng phấn khố cùng mẫu thân nàng phấn khố cơ hồ kề nhau đến một khối, lẫn nhau sấm lộ ra ngoài dâm thủy chất mật tương liên trao đổi, Long Kiếm Phi đỡ lấy Như Yên biểu muội kia thịt non nớt thịt đùi, dùng sức hướng hai bên tách ra, làm Như Yên biểu muội kia mềm mại đỏ tươi 'Thủy câu' càng thêm hiển lộ, chỉ thấy đỏ tươi 'Thủy câu' lý nhiều điểm hoa lộ đồng hồ nước xuống, nhỏ giọt phía dưới mẫu thân nàng mật huyệt dũng đạo trên miệng, làm mẫu thân nàng kia phì nhiêu lầy lội mật huyệt bảo địa trơn bóng trong suốt, Long Kiếm Phi đem kia phồng lớn tím bầm hoàn nhỏ giọt mẫu thân nàng dâm thủy chất mật quái vật lớn ôn nhu hướng Như Yên biểu muội trong mật huyệt nho nhỏ mặt thẳng tiến đi...",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 952
-  },
-  {
-    "id": "ch_0147",
-    "is_character": true,
-    "source": "Diệp Dung Dung",
-    "target": "Diệp Dung Dung",
-    "suggested_target": "Diệp Dung Dung",
-    "context": "Diệp Dung Dung cười híp mắt khiếm khởi thân thể mềm mại, thân thủ mở cửa sổ trên đài quạt điện, Long Kiếm Phi theo nàng cổ áo nhìn đến bị trắng nhạt Bra bao gồm rất tròn no đủ trắng noãn nhũ phong hơi rung động, đầy đặn nhũ phong giáp ra thâm thúy khe ngực, xuyên thấu qua mỏng gần như trong suốt tráo bôi, mơ hồ thấy trắng noãn nhũ phong chính giữa phấn hồng đầu vú đã rất đứng lên rồi.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 70
-  },
-  {
-    "id": "ch_0148",
-    "is_character": true,
-    "source": "dương thú thành",
-    "target": "Dương Thú Thành",
-    "suggested_target": "Dương Thú Thành",
-    "context": "Mỹ Phượng tỷ tỷ nói, \"Tối hôm qua tại dương thú thành phủ để trong tầng hầm ngầm giải cứu mất tích thiếu nữ, bắt bớ đi một tí tà giáo giáo đồ, dương thú thành dương này long phụ tử bởi vì cấu kết tà giáo phi pháp bắt cóc phi pháp giam cầm đã bị bắt, đông hưng bang cũng nhận được tẩy trừ, ngươi lần này lại lập được một cái công lớn nha!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 46
-  },
-  {
-    "id": "ch_0149",
-    "is_character": false,
-    "source": "kiều tiểu",
-    "target": "Kiều Tiểu",
-    "suggested_target": "kiều tiểu",
-    "context": "Quân Như mẹ dẫn đạo thương con, chậm rãi theo xót xa nằm biến thành nàng tại hạ hắn ở trên cao, con trẻ tuổi thân thể cường tráng và rắn chắc, áp đến nàng kiều tiểu trên người lúc, nàng mới cảm thấy có thể được một cái như vậy rắn chắc nam tính thân thể bao trùm là rất hạnh phúc đấy, cái kia sao nóng, mạnh như vậy tráng.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 50
-  },
-  {
-    "id": "ch_0150",
-    "is_character": true,
-    "source": "lý gia hân",
-    "target": "Lý Gia Hân",
-    "suggested_target": "Lý Gia Hân",
-    "context": "Lúc này Long Kiếm Phi nhắm mắt lại, đại cự mãng dùng sức đỉnh mài lý gia hân hoa tâm, tinh tế hưởng thụ nàng thiên hạ này độc nhất vô nhị bảo huyệt cho hắn mang tới khoái cảm, thỉnh thoảng phát ra Híz-khà zz Hí-zzz hút không khí thanh âm, hắn lần đầu tiên nếm được như vậy bị nàng kia 'Có nhân tuần trăng mật' thêm \"Ngọc xoáy huyệt\" thật lớn lực hút hút đại cự mãng thoải mái hết sức tư vị, bao ở mãng đầu hoa tâm tượng móng vuốt giống nhau mãnh liệt trương lui, cư nhiên sinh ra giống lốc xoáy vậy lực hấp dẫn, cắm ở trong nhục động đại cự mãng bị 'Có nhân tuần trăng mật' kia từng vòng mật huyệt dũng đạo thịt non lấy trước nay chưa có lực đạo gắt gao bóp chặt, tựa hồ muốn đem nó chen làm dường như.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 68
-  },
-  {
-    "id": "ch_0151",
-    "is_character": false,
-    "source": "lưu luyến",
-    "target": "Lưu Luyến",
-    "suggested_target": "lưu luyến",
-    "context": "Đương cao trào tiến đến, lưu lại là ồ ồ thở dốc, tuy rằng thứ khoái cảm này không có chân thật xinh đẹp, nhưng vẫn như cũ làm bỏ đã lâu hữu điền thực hi rất là thoải mái, tại trở về chỗ cũ ở bên trong, chợt phát hiện trong khe cửa con mặt của, vội vàng đứng dậy sửa sang lại quần áo, con đã thoát đi, con từ nhỏ đến lớn vì mình vẽ chân dung truy nã vách tường, có một bức ngã xuống đất, nhặt lên, tại trong tiếng nhạc, nhìn đến con vẽ trong kia loại kéo dài mê luyến, biết mình đối với con mà nói không riêng gì mẫu thân lại kia trong lòng vĩnh viễn lưu luyến si mê cùng trong mộng tình nhân, tại một khắc kia, mẫu thân liền quyết định đem thân thể của mình giao cho yêu say đắm con trai của mình!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 97
-  },
-  {
-    "id": "ch_0152",
-    "is_character": true,
-    "source": "Tôn Nghiên",
-    "target": "Tôn Nghiên",
-    "suggested_target": "Tôn Nghiên",
-    "context": "Một tiếng dịu dàng mềm mại đáng yêu khẽ rên, Tôn Nghiên tại đây mới phát giác, chính mình chút bất tri bất giác đã đã quên hình, đùi ngọc nhẹ nhàng giơ lên, đầy đặn mượt mà bên chân khi hắn mông đít đang lúc cám dỗ vuốt ve, như vậy động tác khiến cho Long Kiếm Phi tuy là kéo nhẹ cạn sáp, động tác không coi là quá lớn, khả hai người chỗ giao hợp rò rỉ nước suối cũng đã bắn tung tóe đi ra, bể trong đó nhưng lại không khỏi lây dính việc làm xấu xa, lẫn vào một tia diễm mị mê người hồng, xấu hổ đến Tôn Nghiên suy nghĩ muốn nằm ngang, cũng là khó đè nén trong người chỗ sâu nhất bản năng xúc động, không khỏi khẽ rên lên.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 119
-  },
-  {
-    "id": "ch_0153",
-    "is_character": false,
-    "source": "nghiêm chỉnh",
-    "target": "Nghiêm Chỉnh",
-    "suggested_target": "nghiêm chỉnh",
-    "context": "Triệu Nhã chi \"A\" một tiếng, nàng nghĩ đến sự kiện kia hắn không có lưu ý, hoặc là đã biết cũng nghiêm chỉnh ngay mặt nói ra, cho nên Long Kiếm Phi những lời này để cho nàng tự tôn hoàn toàn bị phá hủy, tinh thần phòng tuyến hỏng mất, nữ nhân tối chuyện riêng tư tình bị trượng phu ở ngoài nam nhân nói ra, nàng xấu hổ bả đầu chuyển hướng một bên, Long Kiếm Phi hô hấp trầm trọng nói: \"Ngươi cũng đúng vậy, rình coi một người tuổi còn trẻ nam nhân làm tình giúp mình cao trào là bình thường, một hồi ngươi chỉ biết, ta so chồng ngươi hoàng cẩm viêm càng có thể thỏa mãn ngươi, ngươi sẽ rất thoải mái, thực thoải mái!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 29
-  },
-  {
-    "id": "ch_0154",
-    "is_character": true,
-    "source": "nghê chấn",
-    "target": "Nghê Chấn",
-    "suggested_target": "Nghê Chấn",
-    "context": "Tuổi gần bất hoặc hổ lang tuổi chu Tuệ Mẫn bốn mươi năm đến chưa bao giờ bị nam nhân làm như vậy quá, trong khe lồn chưa bao giờ bị như thế thô to lửa nóng cự mãng đút vào, cùng Long Kiếm Phi so sánh với, trước kia cùng lão công nghê chấn chuyện phòng the căn bản không có thể tính làm tính giao.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 117
-  },
-  {
-    "id": "ch_0155",
-    "is_character": false,
-    "source": "cầu ngươi",
-    "target": "Cầu Ngươi",
-    "suggested_target": "cầu ngươi",
-    "context": "Y yên tĩnh giờ khắc này ở trên giường đầy cõi lòng lên chờ hắn, mà dữu Trùng Khánh lại nằm vật xuống tại nàng tình nhân giữa hai chân, của hắn cự mãng diệu võ dương oai tại dữu Trùng Khánh trước mặt cao ngất lấy, dữu Trùng Khánh hô hấp cơ hồ có thể cảm nhận được cái kia tráng kiện dương cụ, dữu Trùng Khánh cứ như vậy quỳ gối một cái càng tuổi trẻ, hơn cường tráng nam tính trước mặt, mà dữu Trùng Khánh trong quần đáng thương tiểu tử kia nhưng bởi vì thấp như vậy tiện hành vi vô lực ngọa nguậy, dữu Trùng Khánh trả lời là: \"Long tổng, cầu ngươi, thay ta thật tốt thao hắn, cầu ngươi...",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 154
-  },
-  {
-    "id": "ch_0156",
-    "is_character": true,
-    "source": "Lưu dịch phỉ",
-    "target": "Lưu Dịch Phỉ",
-    "suggested_target": "Lưu Dịch Phỉ",
-    "context": "Lưu dịch phỉ đã sớm nhìn ra mẹ cùng Long Kiếm Phi quan hệ mập mờ, bởi vì theo Thượng Hải trở về mẹ lưu nhã lỵ liền trở nên tinh thần toả sáng vẻ mặt hưng phấn đấy, mở miệng ngậm miệng luôn sẽ ở lưu dịch phỉ trước mặt khích lệ Long Kiếm Phi như thế nào tuổi trẻ tài cao như thế nào anh tuấn tiêu sái, hiện tại mẹ lưu nhã lỵ vừa nhìn thấy Long Kiếm Phi ánh mắt của liền lập tức trở nên mị nhãn như tơ, lưu dịch phỉ chỉ biết mẹ lưu nhã lỵ cùng Long Kiếm Phi quan hệ thực không bình thường rồi, kỳ thật, mẹ ly dị tới nay, vì nàng thành danh thành tinh đường trả giá rất nhiều, lưu dịch phỉ cũng đầy tâm hy vọng mẹ có thể nhiều vì mình suy tính một chút, sinh hoạt khoái hoạt hạnh phúc một ít, đoán được mẹ có Long Kiếm Phi như vậy một cái tình lang cũng là mừng thay cho nàng, chỉ là vừa mới trải qua Long Kiếm Phi anh hùng cứu mỹ nhân thức phấn khích biểu diễn, càng thấy hắn lại là trẻ tuổi anh tuấn như vậy tiêu sái kiện mỹ một thanh niên nam tử, nhất là hắn mới vừa rồi còn lấy thần điêu hiệp lữ đến ám dụ hai người trường hợp, thiếu nữ phương tâm cũng không cấm có điểm tâm hoảng ý loạn, giờ này khắc này nhìn mẹ lưu nhã lỵ cùng Long Kiếm Phi ở bên kia liếc mắt đưa tình mắt đi mày lại bộ dạng, lưu dịch phỉ thế nhưng đối mẹ sinh ra một tia hâm mộ cùng ghen tỵ.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 68
-  },
-  {
-    "id": "ch_0157",
-    "is_character": true,
-    "source": "dịch phỉ",
-    "target": "Dịch Phỉ",
-    "suggested_target": "Dịch Phỉ",
-    "context": "Long Kiếm Phi cười nói, \"Không cần long tổng long tổng đấy, ta so dịch phỉ tiểu thư lớn hơn vài tuổi, dịch phỉ tiểu thư bảo ta Long ca ca tốt lắm!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 28
-  },
-  {
-    "id": "ch_0158",
-    "is_character": true,
-    "source": "Long tổng",
-    "target": "Long Tổng",
-    "suggested_target": "Long Tổng",
-    "context": "Vương khả khả tự nhiên là thiên ân vạn tạ, ngồi ở Long Kiếm Phi bên người lưu đào, cũng thật không ngờ, Long Kiếm Phi đã vậy còn quá đơn giản liền đáp ứng đầu tư cứu trợ chồng của nàng vương khả khả công ty, một đôi thủy uông uông trong mắt to, không khỏi lộ ra một tia tia sáng kỳ dị, mà trượng phu vương khả khả trước hôn nhân đối với nàng giấu diếm tình hình thực tế, để cho nàng gần như bị lừa gả vào ngụy hào môn, nay công ty tài chính liên xuất hiện nghiêm trọng nguy cơ thời điểm, lại lấy nàng này người vợ sử dụng mỹ nhân kế, lưu đào nhìn dối trá nhẫn tâm ích kỷ trượng phu vương khả khả, nhìn nhìn lại tuổi trẻ tài cao anh tuấn tiêu sái Long Kiếm Phi, trong lúc bất chợt cầm lên trên bàn khăn mặt, tại Long Kiếm Phi giác lau, miệng cũng hờn dỗi mà nói: \"Long tổng, ngươi xem ngươi, uống rượu cũng không chú ý một điểm, biến thành khóe miệng đổ chỗ đều là, giống là cái dạng gì nữa trời nha.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 339
-  },
-  {
-    "id": "ch_0159",
-    "is_character": false,
-    "source": "cố tình",
-    "target": "Cố Tình",
-    "suggested_target": "cố tình",
-    "context": "Long Kiếm Phi có thể rõ ràng cảm thấy mỹ phượng mồ hôi ẩm ướt thân thể mềm mại kề sát hắn ngăm đen khỏe mạnh thân thể, run rẩy, giãy dụa, là như vậy nhu nhược bất lực, bất tri bất giác, mỹ phượng mỹ huyệt dũng đạo đã dần dần quen thuộc thích ứng hắn thạc đại quái vật lớn, đau đớn đã lặng yên rút đi, mỹ phượng thân thể cũng phát sinh biến hóa, hai người tính giao đã từ từ rơi vào cảnh đẹp, hắn và mỹ phượng một vào một ra, nhất nghênh nhất đưa, đều như vậy nhịp nhàng ăn khớp, tuyệt không thể tả, bọn họ tựa tựa như một đôi tướng nhu nhiều năm ân ái vợ chồng, đối kia quái vật lớn tráng kiện cùng kình đạo chi vừa lòng cùng nhiệt tình yêu thương đó là không cần nói, cố tình Long Kiếm Phi tuy có tuyệt kỹ, lại không chịu tẫn thi, Minh Minh mỗi lần đánh sâu vào trong đó, cũng có thể đem uy lực tận tình triển phóng, đem mỹ Phượng tỷ tỷ thúy nộn hoa tâm tận tình chà đạp, qua giây lát liền làm mỹ phượng thích đến chết đi sống lại, rút ra đút vào trong đó động tác lại hết ý mềm mại thu hoạch, làm mỹ Phượng tỷ tỷ tuy là thoải mái vui sướng, phảng phất từng cái lỗ chân lông đều ở đây vui mừng hát, mỗi tấc da thịt đều ở đây say mê, nhưng không có bị hắn toàn lực chinh phục lúc, như vậy toàn bộ hỏng mất tận hứng, làm tình nùng dục nóng mỹ Phượng tỷ tỷ giống như là đang bị mồi câu liêu chuẩn bị con cá giống như, nàng đã thoải mái đến hồn nhiên vong ngã, thần trí sớm bay đến thiên ngoại, thật là nhớ muốn lên câu cho hắn bộ đi, này ý xấu đệ đệ nhi Long Kiếm Phi lại cố tình không chịu cúp máy, chính là đọc đã mắt lấy nàng kia khát cầu hình dáng, phảng phất chính thích thú dường như.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 67
-  },
-  {
-    "id": "ch_0160",
-    "is_character": false,
-    "source": "đại khái",
-    "target": "Đại Khái",
-    "suggested_target": "đại khái",
-    "context": "Quân Như mẹ không có để cho bảo Bối Nhi tử làm như thế nào động tác, lại phóng đãng mẫu thân đại khái cũng không phải làm như vậy, bảo Bối Nhi tử ngón tay của lại rõ ràng ở hạ thể của nàng thăm dò, bóng loáng dính đầy dâm thủy mật huyệt dũng đạo khang thượng này đói khát niêm mạc, một khắc không ngừng hướng bảo Bối Nhi tử ngón tay của thượng quấn quanh.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 79
-  },
-  {
-    "id": "ch_0161",
-    "is_character": false,
-    "source": "cường bạo",
-    "target": "Cường Bạo",
-    "suggested_target": "cường bạo",
-    "context": "Quân Như mẹ thất thần, mềm nhũn nằm ở trên giường, Long Kiếm Phi tiếp tục dùng lực cường bạo lấy Quân Như mẹ, Quân Như mẹ dụ thân thể cao thấp lay động, mê người hai vú tuy bị hắn bóp xoa lấy, nhưng hai vú vẫn theo thân thể lay động mà lên hạ chớp lên, sau lại hắn quỳ, hai tay nâng lên Quân Như mẹ khêu gợi cái mông vuốt ve, cự mãng tại Quân Như mẹ mật huyệt bên trong dũng đạo tiến sâu sâu ra, hắn đem Quân Như mẹ cái mông trên dưới trái phải diêu động, phòng tắm tiếng nước ngừng, hắn chạy nhanh sửa sang lại chính mình, cũng bang Quân Như mẹ chà lau hạ thể, mặc vào quần lót viền tơ, cài nút ren áo ngực, đi lên hoàn nhịn không được hôn môi Quân Như mẹ, lại một lần nữa dâm loạn Quân Như mẹ xinh đẹp thân thể, hôn môi, xoa bóp Quân Như mẹ vú, cái mông, bộ phận sinh dục, hai chân, Quân Như mẹ xinh đẹp thân thể bị hắn tàn phá, nhựu 躝, làm nhục, dâm loạn, Quân Như mẹ bị hắn cường bạo, hắn rốt cục cưỡng gian Quân Như mẹ!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 37
-  },
-  {
-    "id": "ch_0162",
-    "is_character": true,
-    "source": "Lương tuệ như",
-    "target": "Lương Tuệ Như",
-    "suggested_target": "Lương Tuệ Như",
-    "context": "Lương tuệ như mặc dù đã qua tuổi bốn mươi, nhưng là đối với gien trội hơn thường nhân nàng mà nói, tuổi căn bản không phải vấn đề, vóc người của nàng được bảo dưỡng mỹ lệ mạn diệu, đẫy đà mượt mà, đồng thời đem nàng và lương hiểu tịnh hai mẹ con ôm vào trong ngực, Long Kiếm Phi cảm giác nhạc mẫu lương tuệ như thân mình nhục cảm mười phần, đặc biệt to lớn no đủ nhũ phong cùng màu mỡ tuyết trắng phong đồn, là lương hiểu tịnh so sánh không bằng, đầy đặn nhục cảm thân thể, tế trợt da thịt, nộn đến cơ hồ có thể bóp xuất thủy.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 124
-  },
-  {
-    "id": "ch_0163",
-    "is_character": false,
-    "source": "kiều diễm",
-    "target": "Kiều Diễm",
-    "suggested_target": "kiều diễm",
-    "context": "Mỹ Phượng tỷ tỷ mảnh khảnh mảnh mai bản năng chân thành đong đưa, trơn mềm cánh hoa đang run rẩy trung thu phóng, mỹ Phượng tỷ tỷ cảm giác lỗ nhị một loại rất khó hình dung, căng căng đấy, tô tô cảm giác thỏa mãn, nàng đã thở dốc rên rỉ liên tiếp tả thân, Long Kiếm Phi đã ở mỹ Phượng tỷ tỷ lỗ nhị ở chỗ sâu trong điên cuồng đút vào, buông ra cái giá, sử ra tất cả vốn liếng, cảm thụ mỹ Phượng tỷ tỷ dần dần sinh ra khoái cảm đồng thời, mình cũng hưởng thụ mỹ Phượng tỷ tỷ kia tuyệt vời hậu đình kiều diễm lỗ đít sở mang cho hắn dục tiên dục tử, lâng lâng, như lên tiên cảnh cao trào dư vị, mỹ Phượng tỷ tỷ cao trào không ngừng, nàng cặp kia say lòng người mà thần bí linh động tinh mâu lúc này nửa hí, trưởng mà vi thiêu lông mi cao thấp run rẩy, nhu hòa đứng thẳng sáng loáng chóp mũi hơi thấy mồ hôi trạch, mũi thở khép mở, đường cong duyên dáng môi mềm khẽ nhếch thở khẽ, như chỉ lan vậy mùi thơm như xuân phong vậy tập tại Long Kiếm Phi trên mặt của, không ngừng sinh ra khoái cảm mãnh liệt, mỹ Phượng tỷ tỷ rốt cục giống như dã thú gầm rú.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 213
-  },
-  {
-    "id": "ch_0164",
-    "is_character": true,
-    "source": "Lưu cũng phỉ",
-    "target": "Lưu Cũng Phỉ",
-    "suggested_target": "Lưu Diệc Phi",
-    "context": "Lưu cũng phỉ chỉ cảm thấy đã biết hồi thật sự là tiết được vui sướng đã cực, hai ngày này ham muốn cùng đối Long Kiếm Phi khát vọng, nhất là hôm nay tại Á châu điện ảnh tivi tiết tiền thính gặp vua như mẹ mỹ Phượng tỷ tỷ thời điểm, cấp Long Kiếm Phi khiêu khích lên, mà không chiếm được phát tiết tình dục, phảng phất đều theo mới vừa rồi kích tình phát tiết chảy ra, trong thân thể đầu noãn dung dung, bị hắn lửa nóng kình xạ trướng đến tràn đầy, mặc dù hai lần bắn nhanh Long Kiếm Phi đã mềm nhũn đi xuống, héo ở dưới cứng rắn mà lửa nóng đại cự mãng sớm bị giữa hai chân huyệt mềm nhỏ cấp bài trừ bên ngoài cơ thể, hôn sâu trong đó cảm giác vẫn là say lòng người, võ mồm quấn quít đang lúc đã không có bao nhiêu tình dục hương vị, nhiều cũng là uyển chuyển quấn quýt si mê ngọt ngào, lưu cũng phỉ chỉ cảm thấy mới vừa rồi phiêu tại đám mây cảm giác vẫn ở trong người bồi hồi, thật không tưởng tỉnh lại.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 462
-  },
-  {
-    "id": "ch_0165",
-    "is_character": false,
-    "source": "tất cả",
-    "target": "Tất Cả",
-    "suggested_target": "tất cả",
-    "context": "Mỹ Phượng tỷ tỷ mảnh khảnh mảnh mai bản năng chân thành đong đưa, trơn mềm cánh hoa đang run rẩy trung thu phóng, mỹ Phượng tỷ tỷ cảm giác lỗ nhị một loại rất khó hình dung, căng căng đấy, tô tô cảm giác thỏa mãn, nàng đã thở dốc rên rỉ liên tiếp tả thân, Long Kiếm Phi đã ở mỹ Phượng tỷ tỷ lỗ nhị ở chỗ sâu trong điên cuồng đút vào, buông ra cái giá, sử ra tất cả vốn liếng, cảm thụ mỹ Phượng tỷ tỷ dần dần sinh ra khoái cảm đồng thời, mình cũng hưởng thụ mỹ Phượng tỷ tỷ kia tuyệt vời hậu đình kiều diễm lỗ đít sở mang cho hắn dục tiên dục tử, lâng lâng, như lên tiên cảnh cao trào dư vị, mỹ Phượng tỷ tỷ cao trào không ngừng, nàng cặp kia say lòng người mà thần bí linh động tinh mâu lúc này nửa hí, trưởng mà vi thiêu lông mi cao thấp run rẩy, nhu hòa đứng thẳng sáng loáng chóp mũi hơi thấy mồ hôi trạch, mũi thở khép mở, đường cong duyên dáng môi mềm khẽ nhếch thở khẽ, như chỉ lan vậy mùi thơm như xuân phong vậy tập tại Long Kiếm Phi trên mặt của, không ngừng sinh ra khoái cảm mãnh liệt, mỹ Phượng tỷ tỷ rốt cục giống như dã thú gầm rú.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 227
-  },
-  {
-    "id": "ch_0166",
-    "is_character": true,
-    "source": "Dương Lan",
-    "target": "Dương Lan",
-    "suggested_target": "Dương Lan",
-    "context": "Dương Lan lan trong lòng là vừa mừng vừa sợ vừa thẹn, vừa rồi chính là khen tặng mà thôi, vốn là là ngựa chết thì trước mắt thấy ngựa sống thì chọn, cũng không ôm nhiều hy vọng, ai ngờ này tuổi trẻ tài cao anh tuấn tiêu sái long tổng lại còn thực sự có chút tài năng, vừa rồi mơ hồ chẳng qua là cảm thấy mát xa xoa lấy được thật thoải mái đấy, so với chính mình trước kia đi qua gì một nhà người mù mát xa quán đều thoải mái hưởng thụ, sau lại liền dần dần thấy ra tương lai, chính mình vốn chết lặng vô tri giác eo của cư nhiên bị hắn dựa vào được tê tê đấy, long tổng to tay giống như có ma lực giống như, nhiệt hồ hồ, bị phỏng chính mình một trận giật mình, cư nhiên có thể cảm giác đau đớn!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 177
-  },
-  {
-    "id": "ch_0167",
-    "is_character": true,
-    "source": "Long Kiếm Phi nắm",
-    "target": "Long Kiếm Phi Nắm",
-    "suggested_target": "Long Kiếm Phi",
-    "context": "Long Kiếm Phi nắm chặt hông của nàng, hít sâu một hơi, bắt đầu một vòng càng thêm mãnh liệt đút vào, lúc này nàng không hề vặn vẹo rồi, có lẽ nàng không thể thừa nhận cường độ như thế khoái cảm, bắt đầu lớn tiếng rên rỉ, trong thanh âm mang có một chút khóc nức nở, nàng rên rỉ tiết tấu cùng Long Kiếm Phi đút vào là giống nhau, như vậy Long Kiếm Phi có thể cảm giác được Long Kiếm Phi đối với nàng thân thể khống chế, Long Kiếm Phi đại lực va chạm để cho nàng sẽ vong tình quát to, Long Kiếm Phi thoáng dừng lại nàng sẽ thừa này thở dốc, khống chế được trong quần nữ nhân cũng sẽ cấp nam nhân thắng lợi cảm giác.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 27
-  },
-  {
-    "id": "ch_0168",
-    "is_character": true,
-    "source": "Hoàng phượng nghi",
-    "target": "Hoàng Phượng Nghi",
-    "suggested_target": "Hoàng Phượng Nghi",
-    "context": "Hoàng phượng nghi bĩu môi, bất quá nàng cũng biết Long Kiếm Phi lời nói không kém, liền cả mật tông tà giáo lôi ba Lạt Ma đều không phải là đối thủ của hắn, chớ đừng nói chi là quách đài sáng tỏ, tuy rằng hắn cũng là Đài Loan trúc liên bang Đường chủ, nhưng là mấy năm nay đã sớm sống an nhàn sung sướng mới lạ luyện công, vô luận như thế nào cũng không thể cùng Long Kiếm Phi võ công như thế cao thủ so sánh với, nàng vương nhìn trái phải mà nói hắn cười nói: \"Không biết Long tiên sinh muốn nói những gì đâu này?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 76
-  },
-  {
-    "id": "ch_0169",
-    "is_character": true,
-    "source": "Bạch Tố Trinh",
-    "target": "Bạch Tố Trinh",
-    "suggested_target": "Bạch Tố Trinh",
-    "context": "Triệu Nhã chi hai chân gắt gao bóp chặt Long Kiếm Phi hông của, hai tay ôm sát cổ của hắn, sau lại chân của nàng càng giáp càng nhanh, Long Kiếm Phi biết Triệu Nhã chi sắp tới nữ tính hưng phấn đỉnh, vì thế hắn tăng thêm tốc độ cùng độ mạnh yếu, mà nàng liền do từng tiếng rên rỉ, biến thành liên tục không ngừng quát to, Long Kiếm Phi chọc vào càng sâu nhanh hơn, tay cũng bắt đầu dùng sức xoa bóp Triệu Nhã chi vú, Triệu Nhã chi tiếng kêu càng lúc càng lớn, hô hấp càng lúc càng nặng, hắn mặc kệ nhiều như vậy, chính là càng quất càng mạnh mẽ, càng sáp càng ngoan, hắn thư sướng tiết ra tinh dịch của mình, toàn bộ đúc nhập mẫu thân Bạch Tố Trinh huyệt dâm.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 47
-  },
-  {
-    "id": "ch_0170",
-    "is_character": true,
-    "source": "lý thu ca",
-    "target": "Lý Thu Ca",
-    "suggested_target": "Lý Thu Ca",
-    "context": "Dương Hiểu Yến nhìn đến Long Kiếm Phi tráng kiện cứng rắn cự mãng, hoàn toàn bị nó mê hoặc, ánh mắt đột nhiên mở thật lớn, trành ở nơi nào quên cách chức mắt, hắn kinh người nhỏ thật sự để cho nàng chấn động, dương Hiểu Yến không thể tưởng được tuổi quá trẻ Long Kiếm Phi tên nhưng lại lớn như vậy, lại dài vừa thô cự mãng treo ở cơ bắp cường kiện hai chân ở bên trong, giống như con thô to, tà ác mãng xà tựa như run lên run lên ngọa nguậy, chiếu lấp lánh đại trước cự mãng đoan đã chảy ra một điểm nam nhân hưng phấn chất mật dâm thủy, cự mãng tại trước mắt của nàng nhẹ nhàng vũ động, tựa như một cái vươn xà tín độc xà đối với con mồi vậy đối với này sinh ra lý thu ca mẹ, dương Hiểu Yến cũng đã không thể đem tầm mắt của nàng rời đi kia phảng phất là hung nhất mãnh người đang lúc hung khí, mặt trong lúc bất chợt phồng đến đỏ bừng, quả thực tượng muốn chảy ra thủy đến giống như, cả người dường như mau bất tỉnh đi dường như đỡ lấy bên bồn tắm duyên.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 351
-  },
-  {
-    "id": "ch_0171",
-    "is_character": true,
-    "source": "Dương Hiểu Yến",
-    "target": "Dương Hiểu Yến",
-    "suggested_target": "Dương Hiểu Yến",
-    "context": "Dương Hiểu Yến tuy rằng năm đã hơn 40 tuổi, nhưng là tư sắc lại vô cùng xinh đẹp, mặc dù là từ nương bán lão, dù sao phong vận dư âm, năm tháng vô tình trôi qua, không có ở nàng thân thể hiện ra tàn nhẫn tàn phá, ngược lại, lại sử dương Hiểu Yến thân thể càng tản mát ra một cỗ thành thục con gái ý nhị, nàng cả người tuyết trắng như nõn nà vậy da thịt tuyết nộn, là như vậy bóng loáng cẩn thận, không có chút nào hà, xem ra cơ hồ tựa như hơi mờ bạch ngọc, một đầu áo choàng mái tóc giống như như thác nước triệt dừng ở nàng kia mập du sau lưng của cùng mềm mại tròn chắc trên đầu vai, hai cái cánh tay trắng mịn trơn bóng, tựa như hai đoạn ngọc ngẫu, trước ngực cao vút hai rất tròn no đủ vú lớn, tựa như hai cái bóng cao su giống nhau bắt tại bộ ngực của nàng, lại lớn lại bạch, như vậy động nhân tâm hồn, hơi có chút rủ xuống, ước chừng có 38 đến 40 như vậy số đo.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 234
-  },
-  {
-    "id": "ch_0172",
-    "is_character": true,
-    "source": "Tạ Vĩnh Cường",
-    "target": "Tạ Vĩnh Cường",
-    "suggested_target": "Tạ Vĩnh Cường",
-    "context": "Cùng lúc phải làm bộ cao quý thê tử cùng trượng phu Tạ Vĩnh Cường nói việc nhà, cùng lúc vừa muốn chịu được tình nhân Long Kiếm Phi ở dưới mặt khiêu khích câu dẫn.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 35
-  },
-  {
-    "id": "ch_0173",
-    "is_character": true,
-    "source": "Dương Lan lan",
-    "target": "Dương Lan Lan",
-    "suggested_target": "Dương Lan",
-    "context": "Tiết được hữu khí vô lực hơi thở mong manh Dương Lan lan bị Long Kiếm Phi buông trên vai khiêng hai chân để cho nàng lấy hơi, mỹ nhân ghé vào Long Kiếm Phi trong lòng, vốn cả nước nổi tiếng tri tính mỹ người nữ chủ trì lúc này cũng có chút chim nhỏ nép vào người hương vị, ôn nhu khiếp khiếp song chưởng bạch tuộc vậy quấn quít lấy vòng quanh ôm kia ngăm đen rắn chắc mạt một bả sáng loáng lượng phát đạt da lưng , mặc kệ kia phô thiên cái địa khó nghe gay mũi giống đực động dục hơi thở đem mình bao vây, chính là từng ngụm từng ngụm thở hổn hển, thổ khí như lan, dễ ngửi thủy hoa sen mùi thơm lại càng thêm nồng nặc, kích thích Long Kiếm Phi miệng rộng tại nàng cao kiều kiên đĩnh no đủ trắng noãn trên vú lớn gặm hút, năm này linh giống như nhất đứa bé tại ăn mẫu thân nãi.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 111
-  },
-  {
-    "id": "ch_0174",
-    "is_character": true,
-    "source": "uông đầu bếp",
-    "target": "Uông Đầu Bếp",
-    "suggested_target": "Uông Tiểu Phi",
-    "context": "Từ hi viện mặc tuyết trắng áo cưới, công chúa giống nhau kiêu ngạo mà ưỡn ngực thang, hạnh phúc mà hơi ngượng ngùng kéo uông đầu bếp cánh tay của, đối mặt cả sảnh đường tân khách, nàng cũng không có chút nào luống cuống, thanh âm không cao lại dị thường kiên định nói: \"Ta nhất định sẽ là một tốt thê tử!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 90
-  },
-  {
-    "id": "ch_0175",
-    "is_character": true,
-    "source": "Ny Khả",
-    "target": "Ny Khả",
-    "suggested_target": "Nicole",
-    "context": "Long Kiếm Phi màu đen trong đôi mắt của phóng xạ ra hào quang, trên mặt toát ra nét mặt hưng phấn, hắn đem ngón tay đặt ở bên miệng, hướng về phía Ny Khả Cơ Đức mạn làm cái nhẹ giọng động tác, thấp giọng nói: \"Ny Khả phu nhân ngươi xem, bảo bối của ta nhóm đều đang ngủ, cẩn thận, đừng đánh thức bọn họ.",
-    "yeu_to_nhan_biet": "Đứng trước từ chỉ quan hệ 'phu nhân'",
-    "so_lan_xuat_hien": 26
-  },
-  {
-    "id": "ch_0176",
-    "is_character": true,
-    "source": "Quân Như",
-    "target": "Quân Như",
-    "suggested_target": "Quân Như",
-    "context": "Đem cửa phòng nhẹ nhàng mà cài đóng, Quân Như mẹ theo trong tủ quần áo đem áo cưới lấy ra chia đều ở trên giường, bên cạnh theo thứ tự là một cái màu da quần chữ đinh, một đôi màu da trong suốt thủy tinh lưới nhỏ mắt tất chân, một bộ mỏng ren dây buộc tất, Quân Như mẹ đứng ở gương to trước đem trên người khăn tắm tùng cởi ra, trong gương lộ ra ra một khối thành thục phụ nhân kia có lồi có lõm đẫy đà thân thể, hai tay của nàng nhẹ vỗ về đã bắt đầu nóng lên gò má của, trắng nõn lý lộ ra hơi đỏ mặt, tựa như trái táo chín, có vẻ phá lệ quyến rũ, ngón tay nhẹ nhàng đi xuống động, theo nhu thuận cần cổ đi vào trước ngực vậy đối với đầy đặn mềm mại vú, thạc đại hình cầu theo nàng dần dần nhanh hơn lòng của nhảy lên hạ phập phồng, nàng dùng ngón tay nhẹ nhàng niêm một chút hai nhạy cảm đầu vú, miệng nhất thời tràn ra nhất tiếng trầm trầm rên rỉ, ngón tay chạy nhanh ly khai, dừng lại lâu một hồi đều sẽ làm nàng không khống chế được, đi xuống đi vào như trước bằng phẳng rắn chắc bụng, này nhờ vào nhiều năm kiên trì hình thể rèn luyện, trên lưng còn chưa xuất hiện dư thừa sẹo lồi, đường cong thực nhu hòa, bởi vậy dần dần thay đổi rộng xương hông làm cái mông của nàng có vẻ rất no mãn rất tròn, tầm mắt của nàng ở trong gương theo hai cái thon dài thẳng chân dài đi xuống dao động, thành thục phụ nhân chân có khác với cô gái trẻ tuổi, cứ việc có 1m70 cao gầy dáng người, nhưng chân của nàng cũng bình thường cao nữ tử cái loại này gầy tiễu, buộc chặt mà không thất đẫy đà nhục cảm, ngón tay của nàng tại trên bụng chậm rãi sự trượt, mới vừa ở kia phiến rậm rạp màu đen rừng rậm tùy ý lay động vài cái cũng sắp không chịu nổi, nàng thật dài thở ra nhất khẩu đại khí, xoay người trở lại giường vừa bắt đầu mặc.",
-    "yeu_to_nhan_biet": "Đứng trước từ chỉ quan hệ 'mẹ'",
-    "so_lan_xuat_hien": 3051
-  },
-  {
-    "id": "ch_0177",
-    "is_character": false,
-    "source": "an phận",
-    "target": "An Phận",
-    "suggested_target": "an phận",
-    "context": "Long Kiếm Phi nhìn tràng diện này cũng là hưng phấn khó nhịn, mang lấy chân của nàng đút vào tốc độ càng lúc càng nhanh, cơ hồ là bị đâm cho tiểu Laury nhẹ thân mình không ngừng bãi động, tay cũng bắt đầu không an phận hướng trên người các nàng vuốt, bất kể là mỹ Phượng tỷ tỷ mượt mà no đủ vú, là Liên Liên muội muội non mịn khéo léo ấu nhũ, bắt đầu vuốt ve, bất đồng xúc cảm càng làm cho nhân kích thích, giờ khắc này Long Kiếm Phi hưng phấn trái tim đều có chút không chịu nổi.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 27
-  },
-  {
-    "id": "ch_0178",
-    "is_character": false,
-    "source": "thủy uông uông",
-    "target": "Thủy Uông Uông",
-    "suggested_target": "thủy uông uông",
-    "context": "Vương khả khả tự nhiên là thiên ân vạn tạ, ngồi ở Long Kiếm Phi bên người lưu đào, cũng thật không ngờ, Long Kiếm Phi đã vậy còn quá đơn giản liền đáp ứng đầu tư cứu trợ chồng của nàng vương khả khả công ty, một đôi thủy uông uông trong mắt to, không khỏi lộ ra một tia tia sáng kỳ dị, mà trượng phu vương khả khả trước hôn nhân đối với nàng giấu diếm tình hình thực tế, để cho nàng gần như bị lừa gả vào ngụy hào môn, nay công ty tài chính liên xuất hiện nghiêm trọng nguy cơ thời điểm, lại lấy nàng này người vợ sử dụng mỹ nhân kế, lưu đào nhìn dối trá nhẫn tâm ích kỷ trượng phu vương khả khả, nhìn nhìn lại tuổi trẻ tài cao anh tuấn tiêu sái Long Kiếm Phi, trong lúc bất chợt cầm lên trên bàn khăn mặt, tại Long Kiếm Phi giác lau, miệng cũng hờn dỗi mà nói: \"Long tổng, ngươi xem ngươi, uống rượu cũng không chú ý một điểm, biến thành khóe miệng đổ chỗ đều là, giống là cái dạng gì nữa trời nha.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 43
-  },
-  {
-    "id": "ch_0179",
-    "is_character": false,
-    "source": "tăng vọt",
-    "target": "Tăng Vọt",
-    "suggested_target": "tăng vọt",
-    "context": "Lý Như Yên không nghi ngờ gì, đem Long Kiếm Phi kia xâm nhập quá mẫu thân nàng hoa điền trong mật huyệt ngón giữa ngậm vào nàng lửa kia sự tăng vọt ẩm ướt trong cái miệng nhỏ nhắn, kia linh hoạt Tiểu Nhu lưỡi liếm láp lấy Long Kiếm Phi ngón tay của, làm Long Kiếm Phi lòng của đều tao lên.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 41
-  },
-  {
-    "id": "ch_0180",
-    "is_character": true,
-    "source": "lý huyên huyên",
-    "target": "Lý Huyên Huyên",
-    "suggested_target": "Lý Huyên Huyên",
-    "context": "\" Ghé vào Long Kiếm Phi háng lý, mỹ Phượng tỷ tỷ miệng khang lý đút lấy một cây hùng vĩ nam bộ phận sinh dục, còn có một tiểu tiết lộ ở bên ngoài, nàng đành phải dọn ra một bàn tay đến triệt xoa xoa khoang miệng phía ngoài nửa thanh cự mãng, nghe được lý huyên huyên lời nói, nàng một câu cũng nói không nên lời, bởi vì Long Kiếm Phi lúc này quá làm chuyện xấu, hắn dùng hai tay thật chặc ngăn chận đầu của nàng không cho nàng ngẩng đầu lên, to dài cự mãng liền đội lên cổ họng của nàng sâu lộ trình, làm hại nàng thiếu chút nữa liền nôn ra một trận.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 68
-  },
-  {
-    "id": "ch_0181",
-    "is_character": false,
-    "source": "bao vây",
-    "target": "Bao Vây",
-    "suggested_target": "bao vây",
-    "context": "Bị Long Kiếm Phi bỗng nhiên cắm vào, sau đó sáp đến trong tử cung nghiền nát, Như Yên biểu muội cả người đều run rẩy, một tiếng ngấy nhu yêu kiều, Như Yên biểu muội giống chỉ bát bắt cá giống nhau gắt gao cuốn lấy Long Kiếm Phi thân thể, mềm mại hẹp hòi, lửa nóng thấm ướt mật huyệt dũng đạo nhuyễn hút, hút cọ xát lấy Long Kiếm Phi quái vật lớn, 'Cá miệng' chỗ lại gắt gao tạp cắn Long Kiếm Phi mãng đầu lõm xuống vị trí không để, đem Long Kiếm Phi mãng đầu 'Hàm' tại trong tử cung, trong tử cung nháy mắt trào phồng ra lượng lớn lửa nóng nóng bỏng, thấm ướt sềnh sệch mật hoa, đem Long Kiếm Phi quái vật lớn mãng đầu nhanh chóng bao vây, sấm ép mà ra nháy mắt đem Long Kiếm Phi quái vật lớn bao vây tại lửa nóng dâm dục trong hải dương, Long Kiếm Phi lúc này chính là tưởng nhẫn cũng không nhịn được xuất tinh xúc động, bắn một nửa đến mẫu thân nàng trong cơ thể còn có một bán tinh dịch chưa bắn quái vật lớn lại một lần nữa núi lửa bùng nổ, nóng rực nóng bỏng dung nham kịch liệt phun ra đi, nháy mắt bỏ thêm vào mãn Như Yên biểu muội kia mềm mại tử cung...",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 94
-  },
-  {
-    "id": "ch_0182",
-    "is_character": true,
-    "source": "lưu đào",
-    "target": "Lưu Đào",
-    "suggested_target": "Lưu Đào",
-    "context": "Vương khả khả tự nhiên là thiên ân vạn tạ, ngồi ở Long Kiếm Phi bên người lưu đào, cũng thật không ngờ, Long Kiếm Phi đã vậy còn quá đơn giản liền đáp ứng đầu tư cứu trợ chồng của nàng vương khả khả công ty, một đôi thủy uông uông trong mắt to, không khỏi lộ ra một tia tia sáng kỳ dị, mà trượng phu vương khả khả trước hôn nhân đối với nàng giấu diếm tình hình thực tế, để cho nàng gần như bị lừa gả vào ngụy hào môn, nay công ty tài chính liên xuất hiện nghiêm trọng nguy cơ thời điểm, lại lấy nàng này người vợ sử dụng mỹ nhân kế, lưu đào nhìn dối trá nhẫn tâm ích kỷ trượng phu vương khả khả, nhìn nhìn lại tuổi trẻ tài cao anh tuấn tiêu sái Long Kiếm Phi, trong lúc bất chợt cầm lên trên bàn khăn mặt, tại Long Kiếm Phi giác lau, miệng cũng hờn dỗi mà nói: \"Long tổng, ngươi xem ngươi, uống rượu cũng không chú ý một điểm, biến thành khóe miệng đổ chỗ đều là, giống là cái dạng gì nữa trời nha.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 160
-  },
-  {
-    "id": "ch_0183",
-    "is_character": false,
-    "source": "thích hợp",
-    "target": "Thích Hợp",
-    "suggested_target": "thích hợp",
-    "context": "Long Kiếm Phi gầm nhẹ một tiếng vươn hai tay đem tại Như Yên biểu muội 'Chân cổ' lên, về phía trước dùng sức giống đem nước tiểu vậy đem Như Yên biểu muội hạ nửa thanh thân mình bãi chánh, Như Yên biểu muội kinh hô một tiếng, đời trước nhất thời úp sấp mẫu thân nàng mềm mại trên mỹ nhũ, mà hạ thân đã bị Long Kiếm Phi 'Đem' lên, mềm mại phấn khố cùng mẫu thân nàng kia 'Toàn là nước' phì nhiêu mật huyệt tương đối, không cong tròn trịa cái mông nhỏ đối diện lấy bụng của hắn, hơn nữa gần ngay trước mắt, Long Kiếm Phi có thể cảm nhận được Như Yên biểu muội kia mềm mại thấm ướt phấn khố nhiệt độ, loại này độ ấm thích hợp cày cấy gieo, nó là thai nghén tương lai mình con gái bảo địa, nơi đó cùng mẫu thân nàng Lam Điền giống nhau phì nhiêu nhiều thủy, lửa nóng sâu thẳm, hơn nữa hoa tâm có kinh người cắn lực, nhạc mẫu dì bóng hình xinh đẹp nói đó là bỉ mục ngư vẫn 'Mật huyệt dũng đạo \" loại nữ nhân này thực dễ dàng mang thai.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 31
-  },
-  {
-    "id": "ch_0184",
-    "is_character": true,
-    "source": "lưu dậy sóng",
-    "target": "Lưu Dậy Sóng",
-    "suggested_target": "Lưu Đào",
-    "context": "Lần này hoan ái ước chừng giằng co một canh giờ, Long Kiếm Phi càng đánh càng hăng, lưu dậy sóng lại càng ngày càng không đông đảo, bùn nặn được giống nhau tùy kia Long Kiếm Phi nhu làm thịt chà xát viên, cuối cùng mài thành thịt sưng, sảng khoái đang lúc cũng bắt đầu đau đớn thời điểm, nàng cuối cùng không dám lại như thế thừa nhận đi xuống, cường đánh tinh thần vặn vẹo vòng eo xin tha giống nhau cọ xát lấy Long Kiếm Phi cự mãng, lại nhéo mấy chục lần, mới cuối cùng cảm thấy Long Kiếm Phi ca tụng nhi cứng ở trong âm đạo, phốc một cỗ tinh đặc rót vào đã bị tương nước phình lên trong âm đạo.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 58
-  },
-  {
-    "id": "ch_0185",
-    "is_character": true,
-    "source": "lâm chí linh",
-    "target": "Lâm Chí Linh",
-    "suggested_target": "Lâm Chí Linh",
-    "context": "Long Kiếm Phi phiết lấy môi, nhìn cười đến như là anh tuấn ác ma giống nhau, ung dung nhìn lâm chí linh biểu diễn, nhưng là ra vẻ hào phóng không sợ trực diện của hắn nàng, kỳ thật đã cả người đều đang hơi run lên, khi hắn xâm lược tính dưới ánh mắt, nàng rất nhanh liền thua trận, không dám nhìn nữa hắn, xoay người trốn vào trong phòng tắm, phía sau truyền đến hắn cao ngạo thanh âm, \"Chí Linh tỷ tỷ, ta dường như quên không nói cho ngươi biết, ta có chính trị quản lý cùng tâm lý học song bằng Thạc sĩ, là buông tha cho ngươi vô dụng chống cự a, trong lòng của ngươi đã hoàn toàn bị ta nắm giữ, ha ha.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 186
-  },
-  {
-    "id": "ch_0186",
-    "is_character": true,
-    "source": "tiêu sắc",
-    "target": "Tiêu Sắc",
-    "suggested_target": "Tiêu Sắc",
-    "context": "Long Kiếm Phi tại kiều mềm trên đầu vú bấm một cái, kháp tiêu sắc cả người run lên, tiếp theo cúi đầu nhẹ nhàng ngậm dái tai của nàng, ở phía trên dùng đầu lưỡi vuốt một cái, nhẹ nhàng rù rì nói: \"Tiêu Sắc tỷ tỷ, lúc này không có người sẽ đến, chúng ta không phát ra rất lớn tiếng âm, nào có nhân sẽ phát hiện.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 92
-  },
-  {
-    "id": "ch_0187",
-    "is_character": true,
-    "source": "Hứa Tình Tình",
-    "target": "Hứa Tình Tình",
-    "suggested_target": "Hứa Tình Tình",
-    "context": "Hứa Tình Tình nói còn chưa dứt lời, dưới chân lại là vừa trợt, lảo đảo thân mình đã ngã vào Long Kiếm Phi trong lòng, hắn tạ cơ ôm cổ nàng, trực tiếp đem nàng kia đầy đặn bộ ngực sữa nhanh lãm tựa vào trước ngực của hắn, tay hắn cũng trực tiếp với vào bên trong quần áo của nàng, chạm tới nàng nhu nị da thịt, là như vậy khoan khoái thoải mái, nàng trội hơn hai vú đỉnh tại ngực của hắn, hai mềm mại vú cùng ngực của hắn tư cọ xát lấy.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 122
-  },
-  {
-    "id": "ch_0188",
-    "is_character": false,
-    "source": "thủy linh",
-    "target": "Thủy Linh",
-    "suggested_target": "thủy linh",
-    "context": "Lệ Na nghỉ ngơi trong chốc lát dần dần hoãn quá thần lai, gặp biểu ca không có động tĩnh, nghi ngờ khi mở mắt ra, lại ngượng ngùng phát hiện lúc này ái lang cùng mẹ đã tại lưỡi hôn, hai cái đầu lưỡi dây dưa cùng một chỗ hết sức kịch liệt, mà biểu ca tay càng không ngừng xoa lấy lấy mẹ to lớn vú, mẹ cũng động tình tại biểu ca rắn chắc trên người của sờ loạn khó trách trong cơ thể đại gia hỏa luôn không thành thật nhảy loạn, Lệ Na thẹn thùng \"Phi\" một tiếng, cũng không đi quấy rầy giữa hai người ôn nhu, có chút si mê nhìn lúc này mẹ, tiếu mỹ trên mặt của tất cả đều là hạnh phúc đỏ ửng, ẩn ẩn còn có thể thấy nàng không che giấu được ý cười, làn da càng ngày càng nộn, quả thực giống như là hai mươi tuổi cô gái, bộ dáng cũng càng ngày càng thủy linh, để cho mình đều có chút ghen tỵ!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 29
-  },
-  {
-    "id": "ch_0189",
-    "is_character": true,
-    "source": "tương chuyên",
-    "target": "Tương Chuyên",
-    "suggested_target": "Tưởng Cần Cần",
-    "context": "Long Kiếm Phi hai tay sửa nắm tương chuyên cần cầm eo nhỏ, dùng sức hướng về phía trước giơ tương chuyên cần cầm, sau đó lại một xả hơi, tương chuyên cần cầm liền chính mình mới hạ xuống, \"Thủy linh tỷ tỷ, thấy được chưa, cứ như vậy, trên thân thể hạ lên xuống.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 58
-  },
-  {
-    "id": "ch_0190",
-    "is_character": false,
-    "source": "chung quanh",
-    "target": "Chung Quanh",
-    "suggested_target": "chung quanh",
-    "context": "Mỹ Phượng tỷ tỷ biết đệ đệ khiêu khích trêu chọc mút vào miệng pháp cao siêu thành thạo, lại thật không ngờ Long Kiếm Phi mút vào kỹ xảo càng ngày càng già nói, càng không nghĩ đến hắn này thần sớm uống sữa lòng của mãnh liệt như vậy, mỹ Phượng tỷ tỷ chỉ cảm thấy mình núm vú tại trong miệng của hắn không phải là bị môi thật chặc giáp cắn, chính là bị hàm răng của hắn bán cắn bán xả trạng thái, nếu không phải là dùng đầu lưỡi của hắn khắp nơi quay chung quanh ở nàng kia kiều đứng lên đầu vú cuồng hút, lại có chỉ dùng để cái kia đầu lưỡi tại trên đầu vú nàng quấn quanh bán mang, đầu vú nàng tại cái miệng của hắn khang lý tựa như một cái thơm nồng mật ngọt chocolate, tả hàm hàm bên phải hút hút, viên này cắn cắn viên kia cắn cắn, hai khỏa tiên hồng sắc đầu vú cứ như vậy tại trong miệng của hắn thay đổi để đổi lại, nàng cho hắn biến thành thoải mái muốn chết đi.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 70
-  },
-  {
-    "id": "ch_0191",
-    "is_character": false,
-    "source": "cảnh tượng",
-    "target": "Cảnh Tượng",
-    "suggested_target": "cảnh tượng",
-    "context": "Lúc này, hai cái vưu vật hôn xong rồi, hai người đều là quần áo xốc xếch, tóc tai rối bời, chỉ thấy mỹ Phượng tỷ tỷ liếm môi, một bộ hài lòng bộ dáng, còn cố ý cấp Long Kiếm Phi một cái kiêu ngạo chí cực ánh mắt, Quân Như mẹ là ngượng ngùng chùi miệng biên nước bọt, ngượng ngùng ngồi vào Long Kiếm Phi bên cạnh, thận trọng nhìn bảo Bối Nhi tử ái lang phản ứng, gặp Long Kiếm Phi đáy mắt không có bất mãn ngược lại tràn đầy hưng phấn, tại thẹn thùng rất nhiều, tâm lý phòng tuyến cũng bắt đầu buông lỏng, thậm chí đang suy tư có phải hay không bảo Bối Nhi tử thích như vậy kích thích mà hương diễm cảnh tượng.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 63
-  },
-  {
-    "id": "ch_0192",
-    "is_character": true,
-    "source": "Long ca ca",
-    "target": "Long Ca Ca",
-    "suggested_target": "Long Ca Ca",
-    "context": "Như Yên biểu muội nghe được Long Kiếm Phi trong lời nói xấu hổ đỏ mặt, lại nghe đến mẹ kia ngoài mạnh trong yếu hờn dỗi xấu hổ uống, trong lúc nhất thời có chút chần chờ, bị mụ mụ kia xấu hổ, ngọt nhơn nhớt thẹn thùng rên rỉ biến thành phương tâm tô nhột Như Yên biểu muội kiều mỵ thê liếc mắt một cái mẫu thân nàng, chỉ thấy mẫu thân kia dung nhan đà say, ửng đỏ như máu, mị nhãn nửa khép khinh trương, mị ý nhộn nhạo, mê ly mờ mịt mông lung mẫu thân thủy mâu, lượn lờ sóng mắt tràn đầy nhục dục sắc thái, làm người ta huyết khí bí tăng rên rỉ từng đợt tiếp theo từng đợt, mà kia hai cực đại trắng noãn vú tròn lúc này bị Long ca ca xoa nắn kia tạo thành các loại các dạng hình thái...",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 97
-  },
-  {
-    "id": "ch_0193",
-    "is_character": true,
-    "source": "hình xinh đẹp",
-    "target": "Hình Xinh Đẹp",
-    "suggested_target": "Thiến Ảnh",
-    "context": "Cảm giác không đúng bóng hình xinh đẹp dì vội vàng làm ra một cái hạ thân về phía trước động tác, muốn đem nguy hiểm cự mãng một lần nữa kẹp ở hai người bụng của trung gian, ý không ngờ được chuyện tình đã xảy ra, ngay tại bóng hình xinh đẹp dì đỉnh động xương hông trước trong nháy mắt, Long Kiếm Phi mãng đầu đã theo hai người vặn vẹo trong lúc vô ý đem bóng hình xinh đẹp dì trơn mềm môi mật tách ra, gần phân nửa mãng đầu hơi hơi trộm nhập nàng nhanh ấm trơn trợt kiều lỗ nhỏ miệng, bởi vì đây chỉ có không phẩy mấy giây kém, bóng hình xinh đẹp dì động tác này tính chất đã xảy ra căn bản thay đổi, từ phản kháng biến thành lửa cháy đổ thêm dầu, nàng ma xui quỷ khiến một cái căn bản là tương đương chủ động giúp cháu ngoại trai hoàn thành hắn lớn lên thành nam nhân lần đầu tiên cắm vào, \"Phác chi\" một chút đem hắn vừa mới nhập cảnh theo dõi thô to cự mãng nuốt vào ấm áp mật huyệt dũng đạo, bởi vì bóng hình xinh đẹp dì mật huyệt dũng đạo cũng không sâu, Long Kiếm Phi cùng tuổi của hắn không tương xứng lớn cự mãng một chút liền đội lên miệng tử cung, nàng non mềm hoa tâm tao thụ mãng đầu đột nhiên nhất kích!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 496
-  },
-  {
-    "id": "ch_0194",
-    "is_character": false,
-    "source": "trần trụi",
-    "target": "Trần Trụi",
-    "suggested_target": "trần trụi",
-    "context": "Thiên sinh lệ chất, hơn nữa được bảo dưỡng nghi, năm tháng, cũng không có tại Quân Như mẹ ngạo nhân thân thể trên có khắc hạ bất cứ dấu vết gì, vô luận là dáng người là làn da cũng có thể so hơn mười hai mươi tuổi nữ nhân trẻ tuổi, tăng thêm bỏ thêm chín muồi ý nhị cùng mị lực, nữ nhân bốn mươi như lang như hổ, trần trụi nữ thể tản mát ra hấp dẫn giống đực thành thục mùi, chỉ làm cho hắn muốn ngừng mà không được, hận không thể ngày đêm đam phạt.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 58
-  },
-  {
-    "id": "ch_0195",
-    "is_character": false,
-    "source": "mạnh mẽ",
-    "target": "Mạnh Mẽ",
-    "suggested_target": "mạnh mẽ",
-    "context": "Phi nhi yêu Quân Như mẹ, Phi nhi bây giờ có thể làm Quân Như mẹ cảm thấy khoái trá rồi, hồi tưởng Quân Như mẹ thỉnh thoảng ngẫu nhiên cô đơn, mê mang, cô tịch tình cảm biểu lộ, Phi nhi muốn cho Quân Như mẹ cả đời đều thoải mái, hạnh phúc, đây là Phi nhi nguyện vọng cũng là Phi nhi trách nhiệm, ôm này mộc mạc lại mông sung tình cảm giác, Phi nhi quên mất thời gian, địa điểm, chỉ hồi tưởng vừa rồi Quân Như mẹ kia vẻ mặt hạnh phúc, thoải mái biểu tình, Phi nhi lại bắt đầu trớ thực khởi Quân Như mẹ trong quần cái miệng nhỏ nhắn, Quân Như mẹ thân thể cơ bắp căng thẳng, hai tay mạnh mẽ đem Phi nhi gương mặt của thật chặc đặt tại trên âm hộ của nàng, Phi nhi không hề có thể trớ thực Quân Như mẹ cái miệng nhỏ nhắn, nhưng phi nhi lập tức lại dùng đầu lưỡi bắt đầu thỉ liếm môi bao trùm chỗ mềm mại, Quân Như mẹ lại lập tức lấy tay dùng sức đẩy ra Phi nhi ra sức trước dựa vào là đầu, Phi nhi cùng Quân Như mẹ đi tới đi lui lấy trò chơi này, Quân Như mẹ đè xuống Phi nhi đầu phủ mặt đang bay nhi bên tai nhỏ giọng khinh tố: \"Cục cưng, đừng làm rộn, tỷ tỷ còn không có trở về phòng ngủ, đợi lát nữa được không?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 51
-  },
-  {
-    "id": "ch_0196",
-    "is_character": false,
-    "source": "hầu hạ",
-    "target": "Hầu Hạ",
-    "suggested_target": "hầu hạ",
-    "context": "Long Kiếm Phi cày cấy được càng thêm ra sức, giờ này khắc này, mỹ Phượng tỷ tỷ phương tâm ở chỗ sâu trong đã bị bảo bối đệ đệ hoàn toàn khơi mào, hưng chỗ tới, đã không thể ngăn cản bản năng yêu cầu, lỗ nhị trong ngoài căng đau dù chưa toàn bộ tiêu tán, cũng đã bị khác thường khoái cảm hoàn toàn áp đảo, vui sướng cảm như sóng chụp sóng triều vậy đánh tới, thoải mái nàng cả người phát run, trong nháy mắt, cái gì đoan trang cao nhã nhân cách tôn nghiêm cái gì tỷ đệ thân phận luân lý đạo đức cái gì nhã nhặn lịch sự phong phạm thục nữ, tất cả đều vứt xuống một bên, chẳng những không hề cầu xin tha thứ kháng cự, hoàn bản năng nhô lên phong đồn, túng thể hầu hạ, động tình xu nịnh.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 41
-  },
-  {
-    "id": "ch_0197",
-    "is_character": false,
-    "source": "tất chân",
-    "target": "Tất Chân",
-    "suggested_target": "tất chân",
-    "context": "Đem cửa phòng nhẹ nhàng mà cài đóng, Quân Như mẹ theo trong tủ quần áo đem áo cưới lấy ra chia đều ở trên giường, bên cạnh theo thứ tự là một cái màu da quần chữ đinh, một đôi màu da trong suốt thủy tinh lưới nhỏ mắt tất chân, một bộ mỏng ren dây buộc tất, Quân Như mẹ đứng ở gương to trước đem trên người khăn tắm tùng cởi ra, trong gương lộ ra ra một khối thành thục phụ nhân kia có lồi có lõm đẫy đà thân thể, hai tay của nàng nhẹ vỗ về đã bắt đầu nóng lên gò má của, trắng nõn lý lộ ra hơi đỏ mặt, tựa như trái táo chín, có vẻ phá lệ quyến rũ, ngón tay nhẹ nhàng đi xuống động, theo nhu thuận cần cổ đi vào trước ngực vậy đối với đầy đặn mềm mại vú, thạc đại hình cầu theo nàng dần dần nhanh hơn lòng của nhảy lên hạ phập phồng, nàng dùng ngón tay nhẹ nhàng niêm một chút hai nhạy cảm đầu vú, miệng nhất thời tràn ra nhất tiếng trầm trầm rên rỉ, ngón tay chạy nhanh ly khai, dừng lại lâu một hồi đều sẽ làm nàng không khống chế được, đi xuống đi vào như trước bằng phẳng rắn chắc bụng, này nhờ vào nhiều năm kiên trì hình thể rèn luyện, trên lưng còn chưa xuất hiện dư thừa sẹo lồi, đường cong thực nhu hòa, bởi vậy dần dần thay đổi rộng xương hông làm cái mông của nàng có vẻ rất no mãn rất tròn, tầm mắt của nàng ở trong gương theo hai cái thon dài thẳng chân dài đi xuống dao động, thành thục phụ nhân chân có khác với cô gái trẻ tuổi, cứ việc có 1m70 cao gầy dáng người, nhưng chân của nàng cũng bình thường cao nữ tử cái loại này gầy tiễu, buộc chặt mà không thất đẫy đà nhục cảm, ngón tay của nàng tại trên bụng chậm rãi sự trượt, mới vừa ở kia phiến rậm rạp màu đen rừng rậm tùy ý lay động vài cái cũng sắp không chịu nổi, nàng thật dài thở ra nhất khẩu đại khí, xoay người trở lại giường vừa bắt đầu mặc.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 108
-  },
-  {
-    "id": "ch_0198",
-    "is_character": false,
-    "source": "hạ thể",
-    "target": "Hạ Thể",
-    "suggested_target": "hạ thể",
-    "context": "Phi nhi không chút nào thương tiếc va chạm vẻ đẹp của nàng huyệt, dính đầy nước bọt cự mãng dễ dàng đột phá chặt khít mật huyệt dũng đạo, xuân đánh cuối Hoa Nhị, theo xả đưa, cự mãng cùng thành thịt ma sát hoàn phát ra phốc xuy phốc xuy dâm thủy tiếng nước, mỹ Phượng tỷ tỷ cảm thấy hạ thể một trận cực độ khó nhịn hư không, kia chỗ sâu ngứa chỉ có mãnh liệt đánh sâu vào mới có thể ngừng, nàng liều mạng ưỡn ẹo thân thể, cái mông dùng sức ngồi xuống, tưởng phải nhanh lên một chút tới khoái hoạt đỉnh phong.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 60
-  },
-  {
-    "id": "ch_0199",
-    "is_character": false,
-    "source": "ma sát",
-    "target": "Ma Sát",
-    "suggested_target": "ma sát",
-    "context": "\" Ở Quân Như mẹ tuổi tác này nữ nhân, mật huyệt bên trong dũng đạo vách tường tính là nhiều năm không có cự mãng ma sát, cũng không có khả năng so thiếu nữ mẫn cảm.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 62
-  },
-  {
-    "id": "ch_0200",
-    "is_character": false,
-    "source": "đại cự mãng",
-    "target": "Đại Cự Mãng",
-    "suggested_target": "đại cự mãng",
-    "context": "Ta mười sáu tuổi sinh nhật ngày đó, ta như một đại nhân giống nhau dùng mình đại cự mãng lần đầu tiên cắm vào mẹ lồn của ngươi, hơn nữa lúc ấy liền đem ngươi sáp đã đến cao trào, sau lại còn tại tử cung của ngươi lý rót đầy tinh dịch của ta!",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 29
-  },
-  {
-    "id": "ch_0201",
-    "is_character": false,
-    "source": "cố ý",
-    "target": "Cố Ý",
-    "suggested_target": "cố ý",
-    "context": "Lúc này, hai cái vưu vật hôn xong rồi, hai người đều là quần áo xốc xếch, tóc tai rối bời, chỉ thấy mỹ Phượng tỷ tỷ liếm môi, một bộ hài lòng bộ dáng, còn cố ý cấp Long Kiếm Phi một cái kiêu ngạo chí cực ánh mắt, Quân Như mẹ là ngượng ngùng chùi miệng biên nước bọt, ngượng ngùng ngồi vào Long Kiếm Phi bên cạnh, thận trọng nhìn bảo Bối Nhi tử ái lang phản ứng, gặp Long Kiếm Phi đáy mắt không có bất mãn ngược lại tràn đầy hưng phấn, tại thẹn thùng rất nhiều, tâm lý phòng tuyến cũng bắt đầu buông lỏng, thậm chí đang suy tư có phải hay không bảo Bối Nhi tử thích như vậy kích thích mà hương diễm cảnh tượng.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 30
+    "source": "vân tuyết",
+    "target": "Vân Tuyết",
+    "context": "Nhìn phụ thân như thế cưng chìu mẫu thân, từ vân tuyết trong lòng có một chút ghen tị, nhưng là cũng không dám nói gì.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 36,
+    "suggested_target": "Từ Vân Tuyết"
   }
 ]
