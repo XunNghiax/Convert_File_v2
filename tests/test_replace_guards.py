@@ -50,3 +50,21 @@ def test_negative_context_guard_preserves_descriptive_phrases():
     # 4. Tên riêng không có từ miêu tả phía trước
     text_name2 = "Nàng bóng hình xinh đẹp khẽ mỉm cười e lệ."
     assert engine.replace_line(text_name2) == "Nàng Thiến Ảnh khẽ mỉm cười e lệ."
+
+
+def test_prefix_guard_case_insensitive():
+    """Kiểm tra Prefix Guard hoạt động chính xác khi tiền tố xuất hiện ở bất kỳ định dạng hoa thường nào."""
+    custom_map = {
+        "kiếm phi": "Long Kiếm Phi"
+    }
+    engine = ReplaceEngine(custom_mapping=custom_map)
+
+    # 1. Đứng độc lập với chữ thường
+    assert engine.replace_line("kiếm phi xuất chiêu.") == "Long Kiếm Phi xuất chiêu."
+
+    # 2. Đã có họ 'long' viết thường đi trước -> không biến thành 'long Long Kiếm Phi'
+    assert engine.replace_line("long kiếm phi xuất chiêu.") == "long kiếm phi xuất chiêu."
+
+    # 3. Đã có họ 'Long' viết hoa đi trước -> không biến thành 'Long Long Kiếm Phi'
+    assert engine.replace_line("Long kiếm phi xuất chiêu.") == "Long kiếm phi xuất chiêu."
+

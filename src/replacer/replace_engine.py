@@ -198,12 +198,12 @@ class ReplaceEngine:
                 guards = []
 
                 # 1. Prefix Guard: Ngăn chặn lỗi lặp họ (ví dụ Kiếm Phi -> Long Kiếm Phi khi đã có 'Long ')
-                if tgt.endswith(k) and len(tgt) > len(k):
+                if tgt.lower().endswith(k.lower()) and len(tgt) > len(k):
                     prefix = tgt[:-len(k)].strip()
                     if prefix:
                         guards.append(f"(?<!{re.escape(prefix)}\\s)")
 
-                # 2. Negative Context Guard: Ngăn chặn thay thế từ miêu tả vóc dáng (ví dụ 'một bóng hình xinh đẹp')
+                # 2. Negative Context Guard: Ngăn chặn thay thế từ miêu tả vóc dáng
                 if k.lower() in AMBIGUOUS_DESCRIPTIVE_WORDS:
                     for dp in DESCRIPTIVE_PREFIXES:
                         guards.append(f"(?<!{re.escape(dp)}\\s)")
@@ -213,7 +213,7 @@ class ReplaceEngine:
                 else:
                     pattern_parts.append(re.escape(k))
 
-            self.pattern = re.compile("|".join(pattern_parts))
+            self.pattern = re.compile("|".join(pattern_parts), flags=re.IGNORECASE)
         else:
             self.pattern = None
 
