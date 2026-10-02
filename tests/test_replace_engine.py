@@ -113,3 +113,18 @@ def test_dictionary_loading_and_override_priority(tmp_path: Path):
     assert engine.dict_map["Long Phi"] == "Long Kiếm Phi"
     assert engine.dict_map["Đại ca"] == "ca ca"
     assert engine.dict_map["Tử Kiến"] == "Trương Tử Kiến"
+
+def test_character_dict_loads_pre_normalized_entries(tmp_path: Path):
+    """Kiểm tra các mục tên nhân vật đã chuẩn hóa (source == target) vẫn được nạp vào dict_map."""
+    char_dict = tmp_path / "char_dict.json"
+    char_dict.write_text(json.dumps([
+        {"id": "ch-264", "source": "Kiều Ngọc", "target": "Kiều Ngọc"},
+        {"id": "ch-265", "source": "tô tư văn", "target": "Tô Tư Văn"}
+    ], ensure_ascii=False), encoding="utf-8")
+
+    engine = ReplaceEngine(char_dict_path=char_dict, common_dict_path=None, hanviet_dict_path=None)
+    assert "kiều ngọc" in engine.dict_map
+    assert engine.dict_map["kiều ngọc"] == "Kiều Ngọc"
+    assert "tô tư văn" in engine.dict_map
+    assert engine.dict_map["tô tư văn"] == "Tô Tư Văn"
+

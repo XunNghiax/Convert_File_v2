@@ -10,6 +10,7 @@ import sys
 # Đường dẫn mặc định chuẩn của dự án
 DEFAULT_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_CHARACTER_DICT = DEFAULT_PROJECT_ROOT / "resources" / "dictionaries" / "character_dict.json"
+DEFAULT_HANVIET_DICT = DEFAULT_PROJECT_ROOT / "resources" / "dictionaries" / "hanviet_dict.json"
 DEFAULT_COMMON_DICT = DEFAULT_PROJECT_ROOT / "resources" / "dictionaries" / "common_dict.json"
 
 DESCRIPTIVE_PREFIXES = [
@@ -93,10 +94,12 @@ class ReplaceEngine:
     def __init__(
         self,
         char_dict_path: Optional[Union[str, Path]] = DEFAULT_CHARACTER_DICT,
+        hanviet_dict_path: Optional[Union[str, Path]] = DEFAULT_HANVIET_DICT,
         common_dict_path: Optional[Union[str, Path]] = DEFAULT_COMMON_DICT,
         custom_mapping: Optional[Dict[str, str]] = None
     ):
         self.char_dict_path = Path(char_dict_path) if char_dict_path else None
+        self.hanviet_dict_path = Path(hanviet_dict_path) if hanviet_dict_path else None
         self.common_dict_path = Path(common_dict_path) if common_dict_path else None
         self.dict_map: Dict[str, str] = {}
         self.sorted_keys: List[str] = []
@@ -109,7 +112,7 @@ class ReplaceEngine:
             self.load_dictionaries()
 
     def load_dictionaries(self):
-        """Nạp và hợp nhất từ điển nhân vật và từ điển chung."""
+        """Nạp và hợp nhất từ điển nhân vật, từ điển Hán Việt và từ điển chung."""
         merged: Dict[str, str] = {}
 
         # 1. Nạp từ điển chung (Ưu tiên cơ bản)
@@ -120,14 +123,38 @@ class ReplaceEngine:
                     for item in data:
                         src = str(item.get("source", "")).strip()
                         tgt = str(item.get("target") or item.get("suggested_target", "")).strip()
-                        # Chuẩn hóa: Từ điển chung luôn lower toàn bộ target
                         tgt = tgt.lower()
-                        if src and tgt and src != tgt:
-                            merged[src] = tgt
+                        if src and tgt:
+                            merged[src.lower()] = tgt
+                elif isinstance(data, dict):
+                    for k, v in data.items():
+                        src = str(k).strip()
+                        tgt = str(v).strip().lower()
+                        if src and tgt:
+                            merged[src.lower()] = tgt
             except Exception as e:
                 print(f"[!] Cảnh báo: Không thể nạp common_dict: {e}")
 
-        # 2. Nạp từ điển nhân vật (Ghi đè, ưu tiên cao hơn)
+        # 2. Nạp từ điển Hán Việt (Ưu tiên cao hơn từ điển chung)
+        if self.hanviet_dict_path and self.hanviet_dict_path.exists():
+            try:
+                data = json.loads(self.hanviet_dict_path.read_text(encoding="utf-8"))
+                if isinstance(data, list):
+                    for item in data:
+                        src = str(item.get("source", "")).strip()
+                        tgt = str(item.get("target") or item.get("suggested_target", "")).strip()
+                        if src and tgt:
+                            merged[src.lower()] = tgt
+                elif isinstance(data, dict):
+                    for k, v in data.items():
+                        src = str(k).strip()
+                        tgt = str(v).strip()
+                        if src and tgt:
+                            merged[src.lower()] = tgt
+            except Exception as e:
+                print(f"[!] Cảnh báo: Không thể nạp hanviet_dict: {e}")
+
+        # 3. Nạp từ điển nhân vật (Ghi đè, ưu tiên cao nhất)
         if self.char_dict_path and self.char_dict_path.exists():
             try:
                 data = json.loads(self.char_dict_path.read_text(encoding="utf-8"))
@@ -138,8 +165,8 @@ class ReplaceEngine:
                         # Chuẩn hóa: Tên nhân vật luôn upcase chữ cái đầu mỗi từ
                         words = tgt.split()
                         tgt = " ".join(w[:1].upper() + w[1:] for w in words)
-                        if src and tgt and src != tgt:
-                            merged[src] = tgt
+                        if src and tgt:
+                            merged[src.lower()] = tgt
             except Exception as e:
                 print(f"[!] Cảnh báo: Không thể nạp character_dict: {e}")
 
@@ -148,9 +175,9 @@ class ReplaceEngine:
     def load_custom_mapping(self, mapping: Dict[str, str]):
         """Nạp trực tiếp mapping từ điển thủ công (dùng cho testing hoặc mở rộng)."""
         clean_map = {
-            str(k).strip(): str(v).strip()
+            str(k).strip().lower(): str(v).strip()
             for k, v in mapping.items()
-            if str(k).strip() and str(v).strip() and str(k).strip() != str(v).strip()
+            if str(k).strip() and str(v).strip()
         }
         self._compile_from_dict(clean_map)
 
