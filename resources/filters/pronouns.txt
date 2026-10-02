@@ -1,4 +1,8 @@
 # DANH SÁCH ĐẠI TỪ NHÂN XƯNG & TỪ MỞ ĐẦU CÂU (PRONOUNS & STARTS)
+chỗ sâu
+cha
+Phụ thân
+đã trở thành
 a
 ai
 ai nha
@@ -38,6 +42,7 @@ chính văn
 cô gái
 công tử
 có
+tốt
 có thể
 cuối cùng
 cười lạnh
@@ -88,6 +93,7 @@ mỉm cười
 mình
 mọi người
 mỗ
+một đường
 một bên
 một cái
 một lát

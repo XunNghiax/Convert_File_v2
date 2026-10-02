@@ -4,5 +4,9 @@ __pycache__/
 .pytest_cache/
 user_data/
 chrome_profiles/
-output/
+/convert/
+/scanner/
 runtime/
+venv/
+.venv/
+temp.txt

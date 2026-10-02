@@ -49,7 +49,7 @@ def main():
     
     # Nhóm tham số quét văn bản
     parser.add_argument("--input", default="samples/exam.txt", help="Đường dẫn file văn bản đầu vào (mặc định: samples/exam.txt)")
-    parser.add_argument("--output", default="output/scanner", help="Thư mục xuất kết quả markdown và master json (mặc định: output/scanner)")
+    parser.add_argument("--output", default="scanner", help="Thư mục xuất kết quả markdown và master json (mặc định: scanner)")
     parser.add_argument("--prompt", default="resources/prompts/prompt.md", help="File prompt mẫu (mặc định: resources/prompts/prompt.md)")
     parser.add_argument("--ground-truth", default="samples/file_nhan_vat.json", help="File đối chiếu ground truth (mặc định: samples/file_nhan_vat.json)")
     parser.add_argument("--chunk-size", type=int, default=40, help="Số block mỗi file md (mặc định: 40)")
@@ -75,9 +75,7 @@ def main():
     if args.filter_only:
         output_dir = Path(args.output)
         if not output_dir.exists():
-            if (Path("output") / args.output).exists():
-                output_dir = Path("output") / args.output
-            elif Path("scanner").exists():
+            if Path("scanner").exists():
                 output_dir = Path("scanner")
         source_path = output_dir / "scanner_all.json" if (output_dir / "scanner_all.json").exists() else (output_dir / "scanner_master.json")
         if not source_path.exists():

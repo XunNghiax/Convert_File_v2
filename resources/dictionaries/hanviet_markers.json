@@ -1,0 +1,177 @@
+[
+  {
+    "pattern": "thập phần",
+    "suggestion": "vô cùng",
+    "category": "adverb"
+  },
+  {
+    "pattern": "đáo để",
+    "suggestion": "rốt cuộc",
+    "category": "adverb"
+  },
+  {
+    "pattern": "hảo tượng",
+    "suggestion": "hình như",
+    "category": "adverb"
+  },
+  {
+    "pattern": "hảo tự",
+    "suggestion": "như thể",
+    "category": "adverb"
+  },
+  {
+    "pattern": "dĩ kinh",
+    "suggestion": "đã",
+    "category": "adverb"
+  },
+  {
+    "pattern": "chích thị",
+    "suggestion": "chỉ là",
+    "category": "conjunction"
+  },
+  {
+    "pattern": "thảng như",
+    "suggestion": "nếu như",
+    "category": "conjunction"
+  },
+  {
+    "pattern": "nhược thị",
+    "suggestion": "nếu là",
+    "category": "conjunction"
+  },
+  {
+    "pattern": "bất quá",
+    "suggestion": "nhưng mà",
+    "category": "conjunction"
+  },
+  {
+    "pattern": "hồi sự",
+    "suggestion": "chuyện gì",
+    "category": "noun_phrase"
+  },
+  {
+    "pattern": "nhất tràng",
+    "suggestion": "một hồi",
+    "category": "measure_word"
+  },
+  {
+    "pattern": "tại sao sẽ",
+    "suggestion": "sao lại",
+    "category": "question"
+  },
+  {
+    "pattern": "hữu ta",
+    "suggestion": "có chút",
+    "category": "adverb"
+  },
+  {
+    "pattern": "nhất kiện",
+    "suggestion": "một việc",
+    "category": "measure_word"
+  },
+  {
+    "pattern": "nhất đán",
+    "suggestion": "một khi",
+    "category": "conjunction"
+  },
+  {
+    "pattern": "tất cánh",
+    "suggestion": "dù sao",
+    "category": "adverb"
+  },
+  {
+    "pattern": "cực độ",
+    "suggestion": "vô cùng",
+    "category": "adverb"
+  },
+  {
+    "pattern": "đồng dạng",
+    "suggestion": "tương tự",
+    "category": "adverb"
+  },
+  {
+    "pattern": "bất hảo",
+    "suggestion": "không hay",
+    "category": "adjective"
+  },
+  {
+    "pattern": "nhất hạ tử",
+    "suggestion": "trong chốc lát",
+    "category": "time"
+  },
+  {
+    "pattern": "bán thiên",
+    "suggestion": "hồi lâu",
+    "category": "time"
+  },
+  {
+    "pattern": "chước tửu",
+    "suggestion": "rót rượu",
+    "category": "verb_phrase"
+  },
+  {
+    "pattern": "tiểu tử",
+    "suggestion": "tiểu tử",
+    "category": "pronoun"
+  },
+  {
+    "pattern": "nha đầu",
+    "suggestion": "nha đầu",
+    "category": "pronoun"
+  },
+  {
+    "pattern": "nam nhân",
+    "suggestion": "đàn ông",
+    "category": "noun"
+  },
+  {
+    "pattern": "nữ nhân",
+    "suggestion": "phụ nữ",
+    "category": "noun"
+  },
+  {
+    "pattern": "mỹ phụ",
+    "suggestion": "thiếu phụ xinh đẹp",
+    "category": "noun"
+  },
+  {
+    "pattern": "cự mãng",
+    "suggestion": "con trăn khổng lồ",
+    "category": "noun"
+  },
+  {
+    "pattern": "dũng đạo",
+    "suggestion": "hoa đạo",
+    "category": "noun"
+  },
+  {
+    "pattern": "mê người",
+    "suggestion": "mê đắm",
+    "category": "adjective"
+  },
+  {
+    "pattern": "nhưng là",
+    "suggestion": "nhưng mà",
+    "category": "conjunction"
+  },
+  {
+    "pattern": "chính mình",
+    "suggestion": "bản thân",
+    "category": "pronoun"
+  },
+  {
+    "pattern": "càng thêm",
+    "suggestion": "càng",
+    "category": "adverb"
+  },
+  {
+    "pattern": "có chút",
+    "suggestion": "có phần",
+    "category": "adverb"
+  },
+  {
+    "pattern": "một cái",
+    "suggestion": "một",
+    "category": "measure_word"
+  }
+]

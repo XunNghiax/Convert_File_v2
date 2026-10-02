@@ -1,7 +1,16 @@
 # DANH SÁCH ĐỘNG TỪ & TRỢ TỪ Ở ĐUÔI (TRAILING STOPWORDS)
 # Trong cụm 2 từ, nếu từ thứ hai là từ trong danh sách này thì cụm đó không phải tên riêng (ví dụ: 'Phi mang', 'Hắn nhìn').
 # Mỗi dòng một từ (không phân biệt hoa/thường). Dòng bắt đầu bằng # là chú thích.
-
+chỗ sâu
+cha
+Quý phi
+Vương phi
+trở về
+vợ 
+thê tử
+đã trở thành
+nắm
+to
 bay
 biết
 buông
@@ -184,7 +193,6 @@ trả
 trốn
 trừng
 tu
-tâm
 tìm
 tại
 tạo
@@ -240,3 +248,27 @@ yêu
 tuổi
 hơn
 tuổi
+thoáng
+đương
+thấp
+cao
+đen
+sẫm
+trắng
+nhẹ
+khẽ
+chậm
+nhanh
+sớm
+muộn
+ngay
+lập tức
+bỗng nhiên
+đột nhiên
+rồi
+nữa
+qua
+lại
+lên
+xuống
+

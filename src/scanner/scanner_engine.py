@@ -20,9 +20,10 @@ class CharacterBlock:
     dong_xuat_hien: int = 0
     confidence: float = 0.0
     cac_dong_xuat_hien: list[int] = field(default_factory=list)
+    bien_the: list[str] = field(default_factory=list)
 
     def to_output_dict(self):
-        return {
+        d = {
             "id": self.id,
             "is_character": self.is_character,
             "source": self.source,
@@ -31,6 +32,9 @@ class CharacterBlock:
             "yeu_to_nhan_biet": self.yeu_to_nhan_biet,
             "so_lan_xuat_hien": self.so_lan_xuat_hien
         }
+        if self.bien_the:
+            d["bien_the"] = self.bien_the
+        return d
 
     def to_dict(self):
         return self.to_output_dict()
@@ -113,10 +117,20 @@ class ScannerEngine:
         self.extractor = CandidateExtractor(self.loader, self.trimmer, skip_known=skip_known)
         self.expander = ContextExpander()
 
+    HUMAN_ACTION_VERBS = {
+        "nói", "hỏi", "cười", "quát", "thở dài", "đáp", "gật đầu", "lắc đầu",
+        "ôm", "nhìn", "bước", "đi", "nghĩ", "thầm nghĩ", "lẩm bẩm", "hét", "kêu"
+    }
+
     @staticmethod
     def _score_block(confidence: float, context: str, line_idx: int) -> tuple:
-        has_profile_cue = any(kw in context.lower() for kw in ("tuổi", "thê tử", "mẫu thân", "tỷ tỷ", "bang chủ", "tỉnh trưởng"))
-        return (confidence, 1 if has_profile_cue else 0, len(context), -line_idx)
+        ctx_low = context.lower()
+        has_dialogue = '"' in context or '“' in context or '”' in context or ':' in context or '：' in context
+        has_action = any(v in ctx_low for v in ScannerEngine.HUMAN_ACTION_VERBS)
+        has_profile_cue = any(kw in ctx_low for kw in ("tuổi", "thê tử", "mẫu thân", "bảo mẫu", "tiểu di", "tỷ tỷ", "bang chủ", "tỉnh trưởng"))
+        action_score = (2 if has_dialogue else 0) + (2 if has_action else 0) + (1 if has_profile_cue else 0)
+        tier = 2 if confidence >= 0.90 else (1 if confidence >= 0.80 else 0)
+        return (tier, action_score, confidence, len(context), -line_idx)
 
     def scan_file_stream(
         self,
@@ -254,7 +268,8 @@ class ScannerEngine:
                                 existing.cac_dong_xuat_hien.append(line_idx)
                             is_dirty = True
                             # Chỉ mở rộng ngữ cảnh khi độ tin cậy có thể vượt qua điểm số tốt nhất hiện có
-                            if cand.confidence >= best_scores[name_key][0]:
+                            cand_tier = 2 if cand.confidence >= 0.90 else (1 if cand.confidence >= 0.80 else 0)
+                            if cand_tier >= best_scores[name_key][0]:
                                 ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
                                 score = self._score_block(cand.confidence, ctx, line_idx)
                                 if score > best_scores[name_key]:
@@ -302,8 +317,111 @@ class ScannerEngine:
         if progress:
             progress.finish(len(tracked))
 
-        deduped = list(tracked.values())
+        deduped = self.cluster_aliases(list(tracked.values()))
+        if realtime_all_path:
+            realtime_all_path = Path(realtime_all_path)
+            realtime_all_path.parent.mkdir(parents=True, exist_ok=True)
+            tmp_path = realtime_all_path.with_suffix(realtime_all_path.suffix + ".tmp")
+            with open(tmp_path, "w", encoding="utf-8") as f_out:
+                f_out.write("[\n")
+                first = True
+                for b in deduped:
+                    if not first:
+                        f_out.write(",\n")
+                    else:
+                        first = False
+                    item_json = json.dumps(b.to_output_dict(), ensure_ascii=False, indent=2)
+                    indented = "  " + item_json.replace("\n", "\n  ")
+                    f_out.write(indented)
+                f_out.write("\n]\n")
+            tmp_path.replace(realtime_all_path)
+
         return deduped
+
+    def cluster_aliases(self, blocks: list[CharacterBlock]) -> list[CharacterBlock]:
+        if not blocks:
+            return []
+
+        alias_prefix_words = {"tiểu", "lão", "đại"}
+        alias_suffix_words = {
+            "thiếu gia", "công tử", "tiểu thư", "tổng", "lão sư",
+            "thúc", "bá", "di", "ca", "muội", "tỷ", "đệ"
+        }
+
+        full_name_blocks: dict[str, CharacterBlock] = {}
+        alias_blocks: list[CharacterBlock] = []
+
+        for b in blocks:
+            target_clean = b.target.strip()
+            words = target_clean.split()
+            target_low = target_clean.lower()
+
+            is_alias = False
+            if len(words) == 2 and words[0].lower() in alias_prefix_words:
+                is_alias = True
+            elif any(target_low.endswith(" " + s) for s in alias_suffix_words):
+                is_alias = True
+
+            if is_alias:
+                alias_blocks.append(b)
+            else:
+                full_name_blocks[target_low] = b
+
+        merged_aliases = set()
+        for ab in alias_blocks:
+            alias_name = ab.target.strip()
+            alias_words = alias_name.split()
+            matched_full: Optional[CharacterBlock] = None
+
+            # Case 1: "Tiểu X" -> tìm người có tên là X
+            if len(alias_words) == 2 and alias_words[0].lower() in alias_prefix_words:
+                given_name = alias_words[1].lower()
+                candidates = [
+                    fb for fb in full_name_blocks.values()
+                    if fb.target.split()[-1].lower() == given_name
+                ]
+                if candidates:
+                    matched_full = max(candidates, key=lambda c: (c.so_lan_xuat_hien, -c.dong_xuat_hien))
+
+            # Case 2: "Họ + chức vị/xưng hô" -> tìm người có họ tương ứng
+            elif any(alias_name.lower().endswith(" " + s) for s in alias_suffix_words):
+                for s in sorted(alias_suffix_words, key=len, reverse=True):
+                    if alias_name.lower().endswith(" " + s):
+                        surname_part = alias_name[:-len(s)].strip().lower()
+                        candidates = [
+                            fb for fb in full_name_blocks.values()
+                            if fb.target.split()[0].lower() == surname_part
+                        ]
+                        if len(candidates) == 1:
+                            matched_full = candidates[0]
+                        elif candidates:
+                            matched_full = max(candidates, key=lambda c: (c.so_lan_xuat_hien, -c.dong_xuat_hien))
+                        break
+
+            if matched_full:
+                matched_full.so_lan_xuat_hien += ab.so_lan_xuat_hien
+                for line in ab.cac_dong_xuat_hien:
+                    if line not in matched_full.cac_dong_xuat_hien:
+                        matched_full.cac_dong_xuat_hien.append(line)
+                matched_full.cac_dong_xuat_hien.sort()
+                if alias_name not in matched_full.bien_the:
+                    matched_full.bien_the.append(alias_name)
+                merged_aliases.add(ab.id)
+
+        # Giữ lại các alias không ghép được vào nhân vật nào
+        final_blocks = list(full_name_blocks.values())
+        for ab in alias_blocks:
+            if ab.id not in merged_aliases:
+                final_blocks.append(ab)
+
+        # Sắp xếp theo dòng xuất hiện đầu tiên
+        final_blocks.sort(key=lambda b: b.dong_xuat_hien)
+
+        # Đánh chỉ mục id tuần tự
+        for idx, b in enumerate(final_blocks, start=1):
+            b.id = f"ch_{idx:04d}"
+
+        return final_blocks
 
     def deduplicate_blocks(self, blocks: list[CharacterBlock]) -> list[CharacterBlock]:
         grouped: dict[str, list[CharacterBlock]] = defaultdict(list)
@@ -312,24 +430,17 @@ class ScannerEngine:
 
         deduped: list[CharacterBlock] = []
         for name_key, group in grouped.items():
-            all_lines = sorted(list(set(b.dong_xuat_hien for b in group)))
-            total_count = len(group)
+            all_lines = sorted(list(set(line for b in group for line in (b.cac_dong_xuat_hien or [b.dong_xuat_hien]))))
+            total_count = sum(b.so_lan_xuat_hien for b in group)
 
-            def score_block(b: CharacterBlock) -> tuple:
-                has_profile_cue = any(kw in b.context.lower() for kw in ("tuổi", "thê tử", "mẫu thân", "tỷ tỷ", "bang chủ", "tỉnh trưởng"))
-                return (b.confidence, 1 if has_profile_cue else 0, len(b.context), -b.dong_xuat_hien)
-
-            best_block = max(group, key=score_block)
+            best_block = max(group, key=lambda b: self._score_block(b.confidence, b.context, b.dong_xuat_hien))
             best_block.so_lan_xuat_hien = total_count
             best_block.cac_dong_xuat_hien = all_lines
-            best_block.dong_xuat_hien = all_lines[0]
+            best_block.dong_xuat_hien = all_lines[0] if all_lines else best_block.dong_xuat_hien
+            for b in group:
+                for bt in b.bien_the:
+                    if bt not in best_block.bien_the:
+                        best_block.bien_the.append(bt)
             deduped.append(best_block)
 
-        # Sort by first appearance line
-        deduped.sort(key=lambda b: b.dong_xuat_hien)
-
-        # Re-index sequential ids
-        for idx, b in enumerate(deduped, start=1):
-            b.id = f"ch_{idx:04d}"
-
-        return deduped
+        return self.cluster_aliases(deduped)

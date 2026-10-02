@@ -29,6 +29,15 @@ class CandidateExtractor:
         "người chủ trì", "diễn viên", "học sinh", "chủ quản", "quản lý", "quản lí"
     }
 
+    ANCHOR_TERMS = {
+        "bảo mẫu", "mẹ kế", "mẹ ruột", "mẹ", "mẫu thân", "tiểu di", "cô cô", "cô",
+        "bà ngoại", "ngoại bà", "bà nội", "nữ nhi", "con gái", "tỷ tỷ", "muội muội",
+        "biểu tỷ", "biểu muội", "đường tỷ", "đường muội", "tẩu tử", "chị dâu", "dượng",
+        "lão sư", "thầy giáo", "cô giáo", "chủ nhiệm", "bạn học", "đồng học", "hoa khôi",
+        "bác sĩ", "y tá", "viện trưởng", "chủ tịch", "tổng tài", "thị trưởng", "cục trưởng",
+        "tên là", "tên gọi là", "kêu là", "kêu", "ta gọi", "tự xưng là", "vị hôn thê", "hôn phu"
+    }
+
     ACTION_VERBS = {
         "nói", "hỏi", "la lớn", "thở dài", "cười", "nghĩ", "quát", "kêu"
     }
@@ -67,6 +76,19 @@ class CandidateExtractor:
             rf'(?i:\b({job_group})\s+)([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})\b'
         )
 
+        sorted_anchors = sorted(self.ANCHOR_TERMS, key=len, reverse=True)
+        anchor_group = "|".join(re.escape(a) for a in sorted_anchors)
+        self.anchor_pattern = re.compile(
+            rf'(?i:\b({anchor_group})(?:\s+(?:tên là|gọi là|kêu là|tên gọi là|đích|của ta|của hắn|của nàng))?\s*[:\-—]?\s*)([{VN_UPPER}{VN_LOWER}]+(?:\s+[{VN_UPPER}{VN_LOWER}]+){{1,3}})\b'
+        )
+
+        self.dialogue_speaker_pattern = re.compile(
+            rf'\b([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})(?:\s+[^:\n"“”]{{1,30}})?\s+(?:nói|hỏi|cười|quát|thở dài|lẩm bẩm|thầm nghĩ|đáp|kêu|hét)\s*:\s*["“]'
+        )
+        self.dialogue_after_pattern = re.compile(
+            rf'["”]\s*([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})(?:\s+[^,\n"“”]{{1,30}})?\s+(?:nói|hỏi|cười|quát|thở dài|lẩm bẩm|đáp)\b'
+        )
+
         self.cap_pattern = re.compile(
             rf'\b([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})\b'
         )
@@ -79,6 +101,22 @@ class CandidateExtractor:
             return results
 
         line_lower = line_clean.lower()
+
+        # -1. Direct match from deconvert dictionary (khôi phục từ dịch thô)
+        if self.loader.deconvert_dict:
+            for src, tgt in self.loader.deconvert_dict.items():
+                if src in line_lower:
+                    pattern_deconvert = re.compile(rf'\b{re.escape(src)}\b', re.IGNORECASE)
+                    for m in pattern_deconvert.finditer(line):
+                        cand = m.group(0).strip()
+                        results.append(CandidateMatch(
+                            name=tgt,
+                            raw=cand,
+                            start=m.start(),
+                            end=m.end(),
+                            confidence=1.0,
+                            reason=f"Khôi phục từ dịch thô '{src}'"
+                        ))
 
         # 0. Direct match from known characters dictionary (only when not skipping known)
         if not effective_skip and self.loader.known_characters:
@@ -157,6 +195,9 @@ class CandidateExtractor:
                 rel = m.group(2).strip()
                 if not raw_cand:
                     continue
+                # Nếu từ quan hệ là "con" nhưng đi kèm "ngươi" (con ngươi - con mắt/đồng tử)
+                if rel.lower() == "con" and line[m.end():m.end() + 10].lower().startswith("ngươi"):
+                    continue
                 words_before = raw_cand.lower().split()
                 if words_before and words_before[-1] in self.ACTION_OBJECT_VERBS:
                     continue
@@ -218,7 +259,76 @@ class CandidateExtractor:
                         reason=f"Đứng sau chức danh '{job}', mang họ hợp lệ"
                     ))
 
-        # 4. Capitalized TitleCase regex: 2 to 4 words starting with known surname
+        # 4. Anchor pattern for relations/roles followed by names (even lowercase)
+        if any(anc in line_lower for anc in self.ANCHOR_TERMS):
+            for m in self.anchor_pattern.finditer(line):
+                anc = m.group(1).strip()
+                raw_cand = m.group(2).strip()
+                clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[0].strip()
+                trimmed, _ = self.trimmer.trim(clean_cand)
+                words = trimmed.split()
+                if len(words) == 4:
+                    first_two = f"{words[0].lower()} {words[1].lower()}"
+                    if first_two not in self.loader.compound_surnames:
+                        trimmed = " ".join(words[:3])
+                        trimmed, _ = self.trimmer.trim(trimmed)
+                        words = trimmed.split()
+                if len(words) == 3:
+                    first_two = f"{words[0].lower()} {words[1].lower()}"
+                    if first_two not in self.loader.compound_surnames and words[2].lower() in self.trimmer.trailing_stopwords:
+                        trimmed = " ".join(words[:2])
+                        trimmed, _ = self.trimmer.trim(trimmed)
+                if self._is_negative(trimmed, skip_known=effective_skip):
+                    continue
+                norm_name = self.trimmer.normalize_name(trimmed)
+                if self._starts_with_surname(norm_name):
+                    results.append(CandidateMatch(
+                        name=norm_name,
+                        raw=trimmed,
+                        start=m.start(2),
+                        end=m.start(2) + len(trimmed),
+                        confidence=0.94,
+                        reason=f"Đứng sau mỏ neo xưng hô '{anc}', mang họ hợp lệ"
+                    ))
+
+        # 5. Dialogue speaker patterns
+        if (':' in line or '：' in line) and ('"' in line or '“' in line):
+            for m in self.dialogue_speaker_pattern.finditer(line):
+                raw_cand = m.group(1).strip()
+                clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
+                trimmed, _ = self.trimmer.trim(clean_cand)
+                if self._is_negative(trimmed, skip_known=effective_skip):
+                    continue
+                norm_name = self.trimmer.normalize_name(trimmed)
+                if self._starts_with_surname(norm_name):
+                    results.append(CandidateMatch(
+                        name=norm_name,
+                        raw=trimmed,
+                        start=m.start(1),
+                        end=m.start(1) + len(trimmed),
+                        confidence=0.96,
+                        reason="Chủ thể phát ngôn hội thoại, mang họ hợp lệ"
+                    ))
+
+        if '"' in line or '”' in line:
+            for m in self.dialogue_after_pattern.finditer(line):
+                raw_cand = m.group(1).strip()
+                clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[0].strip()
+                trimmed, _ = self.trimmer.trim(clean_cand)
+                if self._is_negative(trimmed, skip_known=effective_skip):
+                    continue
+                norm_name = self.trimmer.normalize_name(trimmed)
+                if self._starts_with_surname(norm_name):
+                    results.append(CandidateMatch(
+                        name=norm_name,
+                        raw=trimmed,
+                        start=m.start(1),
+                        end=m.start(1) + len(trimmed),
+                        confidence=0.95,
+                        reason="Chủ thể phát ngôn sau lời thoại, mang họ hợp lệ"
+                    ))
+
+        # 6. Capitalized TitleCase regex: 2 to 4 words starting with known surname
         # Fast-path: chỉ chạy khi dòng có ít nhất 1 chữ in hoa
         if any(c.isupper() for c in line):
             for m in self.cap_pattern.finditer(line):
@@ -242,7 +352,7 @@ class CandidateExtractor:
                         reason=reason
                     ))
 
-        # 5. Session cache matches (Fast-path: chỉ quét những tên thực sự xuất hiện trong dòng)
+        # 7. Session cache matches (Fast-path: chỉ quét những tên thực sự xuất hiện trong dòng)
         if self.session_cache:
             for known in self.session_cache:
                 if known.lower() in line_lower:
@@ -271,16 +381,19 @@ class CandidateExtractor:
                 and cand.name.lower().strip() not in self.loader.known_characters
             ]
 
+        # Chỉ cache các ứng viên có độ tin cậy rất cao (>= 0.94) và bắt buộc không nằm trong non_person
         for cand in unique_results:
             cand_low = cand.name.lower()
-            if effective_skip and (cand_low in self.loader.known_characters or cand.raw.lower().strip() in self.loader.known_characters):
+            raw_low = cand.raw.lower().strip()
+            if effective_skip and (cand_low in self.loader.known_characters or raw_low in self.loader.known_characters):
                 continue
-            if (cand.confidence >= 0.88 and 
+            if (cand.confidence >= 0.94 and 
                 self._starts_with_surname(cand.name) and 
                 cand_low not in self.loader.non_person and 
+                raw_low not in self.loader.non_person and 
                 cand_low not in self.loader.blacklist and 
                 cand_low not in self.loader.common_dict and 
-                len(cand.name.split()) >= 2):
+                2 <= len(cand.name.split()) <= 4):
                 self.session_cache.add(cand.name)
         return unique_results
 
@@ -296,8 +409,8 @@ class CandidateExtractor:
             return True
         if low in self.loader.blacklist or low in self.loader.common_dict:
             return True
-        # Nếu cụm từ viết thường và từ đầu là đại từ/phó từ/động từ
-        if clean and clean[0].islower() and (
+        # Nếu cụm từ viết thường và từ đầu là đại từ/phó từ/động từ (và không phải họ hợp lệ)
+        if clean and clean[0].islower() and not self._starts_with_surname(clean) and (
             words[0] in self.loader.pronouns or 
             words[0] in self.trimmer.DEFAULT_TRAILING or
             words[0] in self.trimmer.DEFAULT_LEADING

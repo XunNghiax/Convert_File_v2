@@ -42,3 +42,16 @@ def test_deduplicate_blocks():
     # The representative context should be the higher confidence one
     assert "24 tuổi" in lkp.context
     assert lkp.dong_xuat_hien == 10
+
+def test_alias_clustering():
+    loader = ResourceLoader()
+    engine = ScannerEngine(loader)
+    blocks = [
+        CharacterBlock(id="ch_1", source="Từ Thanh", target="Từ Thanh", context="Từ Thanh nói.", yeu_to_nhan_biet=""),
+        CharacterBlock(id="ch_2", source="Tiểu Thanh", target="Tiểu Thanh", context="Tiểu Thanh cười.", yeu_to_nhan_biet=""),
+    ]
+    clustered = engine.cluster_aliases(blocks)
+    assert len(clustered) == 1
+    assert clustered[0].target == "Từ Thanh"
+    assert "Tiểu Thanh" in clustered[0].bien_the
+    assert clustered[0].so_lan_xuat_hien == 2

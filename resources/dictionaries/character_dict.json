@@ -230,7 +230,7 @@
     {
         "id": "ch-41",
         "source": "Áng mây bác",
-        "target": "Kumohiro",
+        "target": "Thải Vân Bác",
         "Tag": "Tên nhân vật (Gốc: Vân Bác - bị dịch chữ Vân thành 'Áng mây')"
     },
     {
@@ -291,18 +291,6 @@
         "id": "ch-52",
         "source": "Thẩm bóng hình xinh đẹp",
         "target": "Thẩm Thiến Ảnh",
-        "Tag": "Khớp với từ điển nhân vật đã quy chuẩn"
-    },
-    {
-        "id": "ch-53",
-        "source": "bóng hình xinh đẹp",
-        "target": "Thiến Ảnh",
-        "Tag": "Khớp với từ điển nhân vật đã quy chuẩn"
-    },
-    {
-        "id": "ch-54",
-        "source": "dì bóng hình xinh đẹp",
-        "target": "Dì Thiến Ảnh",
         "Tag": "Khớp với từ điển nhân vật đã quy chuẩn"
     },
     {
@@ -1207,8 +1195,554 @@
     },
     {
         "id": "ch-205",
-        "source": "hình xinh đẹp",
-        "target": "Hình Xinh Đẹp",
+        "source": "Gavin uyển",
+        "target": "Giả Văn Uyển",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-206",
+        "source": "Liễu Ngọc",
+        "target": "Liễu Ngọc",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-207",
+        "source": "Chu Ngọc",
+        "target": "Chu Ngọc",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-208",
+        "source": "Tần khả",
+        "target": "Tần Khả",
+        "Tag": "Cấu trúc hồ sơ giới thiệu, đi kèm '47 tuổi', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-209",
+        "source": "Âu Dương",
+        "target": "Âu Dương",
+        "Tag": "Đứng sau chức danh 'giáo sư', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-210",
+        "source": "Trương Mẫn",
+        "target": "Trương Mẫn",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-211",
+        "source": "văn thanh",
+        "target": "Văn Thanh",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-212",
+        "source": "văn oanh",
+        "target": "Văn Oanh",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-213",
+        "source": "văn nhân",
+        "target": "Văn Nhân",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-214",
+        "source": "Thi Âm",
+        "target": "Thi Âm",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-215",
+        "source": "Triệu Nhã",
+        "target": "Triệu Nhã",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-216",
+        "source": "Vũ đan",
+        "target": "Vũ Đan",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-217",
+        "source": "văn viện",
+        "target": "Văn Viện",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-218",
+        "source": "phương băng",
+        "target": "Phương Băng",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-219",
+        "source": "Phượng Nghi",
+        "target": "Phượng Nghi",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-220",
+        "source": "vũ mỹ",
+        "target": "Vũ Mỹ",
+        "Tag": ""
+    },
+    {
+        "id": "ch-221",
+        "source": "râu rậm cẩn",
+        "target": "Hồ Ngọc Cẩn",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-222",
+        "source": "Lưu tuệ đẹp",
+        "target": "Lưu Tuệ Mỹ",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-223",
+        "source": "Tuệ Đẹp",
+        "target": "Tuệ Mỹ",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-224",
+        "source": "nghiêm ngọc doanh",
+        "target": "Nghiêm Ngọc Doanh",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-225",
+        "source": "Ngọc Doanh",
+        "target": "Ngọc Doanh",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-226",
+        "source": "Áng vi bác",
+        "target": "Thải Vi Bác",
+        "Tag": "Tên nhân vật (Gốc: Vân Bác - bị dịch chữ Vân thành 'Áng mây')"
+    },
+    {
+        "id": "ch-227",
+        "source": "Lã văn oanh",
+        "target": "Lã Văn Oanh",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-228",
+        "source": "Bạch Vũ",
+        "target": "Bạch Vũ",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-229",
+        "source": "lục văn viện",
+        "target": "Lục Văn Viện",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-230",
+        "source": "Tạ Tác Vân",
+        "target": "Tạ Tác Vân",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-231",
+        "source": "Lâm Uyển",
+        "target": "Lâm Uyển",
+        "Tag": "Đứng sau chức danh 'người chủ trì', mang họ hợp lệ"
+    },
+    {
+        "id": "ch-232",
+        "source": "Cao bồi",
+        "target": "Cao Bồi",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-233",
+        "source": "Ngọc Khanh",
+        "target": "Ngọc Khanh",
+        "Tag": "Đứng trước từ chỉ quan hệ 'tỷ tỷ'"
+    },
+    {
+        "id": "ch-234",
+        "source": "Võ đằng nguyên",
+        "target": "Muto Gen",
+        "Tag": "Đứng trước từ chỉ quan hệ 'tỷ tỷ'"
+    },
+    {
+        "id": "ch-235",
+        "source": "Kim trạch văn tử",
+        "target": "Kanazawa Fumiko",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-236",
+        "source": "tôn như sương",
+        "target": "Tôn Như Sương",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-237",
+        "source": "văn Liên Tâm",
+        "target": "Văn Liên Tâm",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-238",
+        "source": "La Thải",
+        "target": "La Thải",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-239",
+        "source": "la Thải nhi",
+        "target": "La Thải Nhi",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-240",
+        "source": "La Vũ Đồng",
+        "target": "La Vũ Đồng",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-241",
+        "source": "Vũ Đồng",
+        "target": "Vũ Đồng",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-242",
+        "source": "Lâm Thanh",
+        "target": "Lâm Thanh",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-243",
+        "source": "Tần Vận",
+        "target": "Tần Vận",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-244",
+        "source": "Lưu Minh",
+        "target": "Lưu Minh",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-245",
+        "source": "Vương Dương",
+        "target": "Vương Dương",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-246",
+        "source": "Đường thiền y",
+        "target": "Đường Thiền Y",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-247",
+        "source": "Diệp Mạn Văn",
+        "target": "Diệp Mạn Văn",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-248",
+        "source": "Lý Văn",
+        "target": "Lý Văn",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-249",
+        "source": "trương dung",
+        "target": "Trương Dung",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-250",
+        "source": "Thi Nhã",
+        "target": "Thi Nhã",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-251",
+        "source": "Lâm Thi Nhã",
+        "target": "Lâm Thi Nhã",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-252",
+        "source": "Đường nguyên phong",
+        "target": "Đường Nguyên Phong",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-253",
+        "source": "Đường Khiếu",
+        "target": "Đường Khiếu",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-254",
+        "source": "trần mộng di",
+        "target": "Trần Mộng Di",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-255",
+        "source": "Lý Mộc",
+        "target": "Lý Mộc",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-256",
+        "source": "lý viện triều",
+        "target": "Lý Viện Triều",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-257",
+        "source": "Lý Minh",
+        "target": "Lý Minh",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-258",
+        "source": "Hoắc Hoa Đức",
+        "target": "Hoắc Hoa Đức",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-259",
+        "source": "Hạ nhã",
+        "target": "Hạ Nhã",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-260",
+        "source": "Đại Na",
+        "target": "Đại Na",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-261",
+        "source": "An Cát Lệ Na",
+        "target": "An Cát Lệ Na",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-262",
+        "source": "Trần Thiến",
+        "target": "Trần Thiến",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-263",
+        "source": "vân tuyết",
+        "target": "Vân Tuyết",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-264",
+        "source": "Kiều Ngọc",
+        "target": "Kiều Ngọc",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-265",
+        "source": "Tô Tư Văn",
+        "target": "Tô Tư Văn",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-266",
+        "source": "Đường thiện lan",
+        "target": "Đường Thiện Lan",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-267",
+        "source": "Từ Quảng",
+        "target": "Từ Quảng",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-268",
+        "source": "Vương Tử",
+        "target": "Vương Tử",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-269",
+        "source": "Tô Cũng có thể",
+        "target": "Tô Diệc Khả",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-270",
+        "source": "Quan Uyển Bạch",
+        "target": "Quan Uyển Bạch",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-271",
+        "source": "Lâm thanh lộ",
+        "target": "Lâm Thanh Lộ",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-272",
+        "source": "Kiều hàng cảnh",
+        "target": "Kiều Hàng Cảnh",
+        "Tag": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động"
+    },
+    {
+        "id": "ch-273",
+        "source": "Mộng Di",
+        "target": "Mộng Di",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-274",
+        "source": "Vân trăm sông",
+        "target": "Vân Bách Giang",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-275",
+        "source": "Thiên diệp mộ nhã",
+        "target": "Thiên Diệp Mộ Nhã",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-276",
+        "source": "Tô Vận",
+        "target": "Tô Vận",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-277",
+        "source": "Diệp Mạn Văn",
+        "target": "Diệp Mạn Văn",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-278",
+        "source": "Từ Tân Đồng",
+        "target": "Từ Tân Đồng",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-279",
+        "source": "Lý Vân",
+        "target": "Lý Vân",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-280",
+        "source": "Tư Đặc Lâm",
+        "target": "Tư Đặc Lâm",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-282",
+        "source": "Y tư lâm ny",
+        "target": "Y Tư Lâm Ny",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-283",
+        "source": "Lý Vân",
+        "target": "Lý Vân",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-284",
+        "source": "Tư Đặc Lâm",
+        "target": "Tư Đặc Lâm",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-285",
+        "source": "Sở Thu Trì",
+        "target": "Sở Thu Trì",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-286",
+        "source": "Y tư lâm ny",
+        "target": "Y Tư Lâm Ny",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-287",
+        "source": "Lý Vân",
+        "target": "Lý Vân",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-288",
+        "source": "Tư Đặc Lâm",
+        "target": "Tư Đặc Lâm",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-290",
+        "source": "Trần Thiến Văn",
+        "target": "Trần Thiến Văn",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-291",
+        "source": "Lý Vân",
+        "target": "Lý Vân",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-292",
+        "source": "Tư Đặc Lâm",
+        "target": "Tư Đặc Lâm",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-294",
+        "source": "Y tư lâm ny",
+        "target": "Y Tư Lâm Ny",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-295",
+        "source": "Nạp Lan Thanh",
+        "target": "Nạp Lan Thanh",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-296",
+        "source": "Từ Linh San",
+        "target": "Từ Linh San",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-298",
+        "source": "Y tư lâm ny",
+        "target": "Y Tư Lâm Ny",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-299",
+        "source": "Ngu Hoa Lê",
+        "target": "Ngu Hoa Lê",
+        "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
+    },
+    {
+        "id": "ch-300",
+        "source": "Tô Đàn Hương",
+        "target": "Tô Đàn Hương",
         "Tag": "Khớp với tên nhân vật đã xác nhận trước đó"
     }
 ]

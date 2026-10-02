@@ -10,7 +10,7 @@ def sort_key_func(p: Path) -> int:
     return int(m.group(1)) if m else 0
 
 def run_upload_workflow(
-    scanner_dir: Path | str = "output/scanner",
+    scanner_dir: Path | str = "scanner",
     profile_dir: Path | str = "runtime/chrome_profiles",
     output_json: Path | str = "samples/import.json",
     delay: int = 5,
@@ -20,9 +20,7 @@ def run_upload_workflow(
 ) -> int:
     s_dir = Path(scanner_dir)
     if not s_dir.exists():
-        if (Path("output") / scanner_dir).exists():
-            s_dir = Path("output") / scanner_dir
-        elif Path("scanner").exists():
+        if Path("scanner").exists():
             s_dir = Path("scanner")
         else:
             print(f"[-] Lỗi: Không tìm thấy thư mục '{scanner_dir}'. Hãy chạy quét trước!")
@@ -34,7 +32,10 @@ def run_upload_workflow(
         print("[*] Đã đặt lại (reset) tiến trình cũ.")
 
     tracker = ProgressTracker(progress_file)
-    md_files = sorted(list(s_dir.glob("scanner_*.md")), key=sort_key_func)
+    folder_prefix = s_dir.name
+    md_files = sorted(list(s_dir.glob(f"{folder_prefix}_*.md")), key=sort_key_func)
+    if not md_files:
+        md_files = sorted(list(s_dir.glob("*.md")), key=sort_key_func)
     if not md_files:
         print(f"[-] Không tìm thấy file markdown nào trong '{scanner_dir}'.")
         return 0
@@ -107,7 +108,7 @@ def run_upload_workflow(
 
 def main():
     parser = argparse.ArgumentParser(description="Tự động hóa nạp các file scanner lên Gemini và tạo import.json")
-    parser.add_argument("--scanner-dir", default="output/scanner", help="Thư mục chứa các file scanner_*.md (mặc định: output/scanner)")
+    parser.add_argument("--scanner-dir", default="scanner", help="Thư mục chứa các file scanner_*.md (mặc định: scanner)")
     parser.add_argument("--profile-dir", default="runtime/chrome_profiles", help="Thư mục profile Chrome (mặc định: runtime/chrome_profiles)")
     parser.add_argument("--output-json", default="samples/import.json", help="Đường dẫn file import.json kết quả (mặc định: samples/import.json)")
     parser.add_argument("--delay", type=int, default=5, help="Thời gian nghỉ (giây) giữa các file")

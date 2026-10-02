@@ -17,6 +17,20 @@ class ResourceLoader:
         self.blacklist: set[str] = set()
         self.common_dict: set[str] = set()
         self.known_characters: dict[str, str] = {}
+        self.deconvert_dict: dict[str, str] = {}
+
+    def load_deconvert_dict(self, path: Path) -> dict[str, str]:
+        mapping = {}
+        if not path.exists():
+            return mapping
+        try:
+            data = json.loads(path.read_text(encoding="utf-8", errors="ignore"))
+            if isinstance(data, dict):
+                for k, v in data.items():
+                    mapping[k.strip().lower()] = v.strip()
+        except Exception:
+            pass
+        return mapping
 
     def load_surnames(self, path: Path) -> tuple[set[str], set[str]]:
         single, compound = set(), set()
@@ -90,3 +104,5 @@ class ResourceLoader:
         self.blacklist = self.load_word_set(filters_dir / "blacklist.txt")
         self.common_dict = self.load_common_dict(data_dir / "common_dict.json")
         self.known_characters = self.load_character_dict(data_dir / "character_dict.json")
+        self.deconvert_dict = self.load_deconvert_dict(data_dir / "deconvert_dict.json")
+
