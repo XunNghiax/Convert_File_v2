@@ -218,18 +218,21 @@ class ReplaceEngine:
             self.pattern = None
 
     def replace_line(self, line: str, track_stats: bool = True) -> str:
-        """Thay thế một dòng văn bản trong một lượt duy nhất (Single-Pass)."""
+        """Thay thế một dòng văn bản trong một lượt duy nhất (Single-Pass) với hỗ trợ không phân biệt hoa thường."""
         if not self.pattern or not line:
             return line
 
-        if track_stats:
-            def _repl(m: re.Match) -> str:
-                matched_str = m.group(0)
-                self.stats_counter[matched_str] += 1
-                return self.dict_map.get(matched_str, matched_str)
-            return self.pattern.sub(_repl, line)
-        else:
-            return self.pattern.sub(lambda m: self.dict_map.get(m.group(0), m.group(0)), line)
+        def _repl(m: re.Match) -> str:
+            matched_str = m.group(0)
+            canonical_key = matched_str.lower()
+            target = self.dict_map.get(canonical_key, matched_str)
+            if matched_str != target:
+                if track_stats:
+                    self.stats_counter[canonical_key] += 1
+                return target
+            return matched_str
+
+        return self.pattern.sub(_repl, line)
 
     def replace_file(
         self,
@@ -292,8 +295,8 @@ class ReplaceEngine:
         elapsed = max(0.001, time.time() - start_time)
         total_replacements = sum(self.stats_counter.values())
         top_list = [
-            (src, self.dict_map.get(src, ""), count)
-            for src, count in self.stats_counter.most_common(20)
+            (src_key, self.dict_map.get(src_key, ""), count)
+            for src_key, count in self.stats_counter.most_common(20)
         ]
 
         return ReplaceStats(

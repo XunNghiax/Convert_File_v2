@@ -128,3 +128,28 @@ def test_character_dict_loads_pre_normalized_entries(tmp_path: Path):
     assert "tô tư văn" in engine.dict_map
     assert engine.dict_map["tô tư văn"] == "Tô Tư Văn"
 
+def test_user_scenario_kieu_ngoc_normalization():
+    """Kiểm tra trường hợp thực tế của người dùng: 'kiều ngọc' được chuẩn hóa thành 'Kiều Ngọc'."""
+    custom_map = {
+        "Kiều Ngọc": "Kiều Ngọc"
+    }
+    engine = ReplaceEngine(custom_mapping=custom_map)
+
+    line = "ví dụ tượng kiều ngọc làm Từ Thanh mẹ kế."
+    result = engine.replace_line(line, track_stats=True)
+    assert result == "ví dụ tượng Kiều Ngọc làm Từ Thanh mẹ kế."
+    assert engine.stats_counter["kiều ngọc"] == 1
+
+def test_noop_exact_target_does_not_increment_stats():
+    """Nếu từ trong văn bản đã đúng chuẩn (Kiều Ngọc == Kiều Ngọc), không tính là lượt thay thế."""
+    custom_map = {
+        "Kiều Ngọc": "Kiều Ngọc"
+    }
+    engine = ReplaceEngine(custom_mapping=custom_map)
+
+    line = "Từ Thanh gặp Kiều Ngọc tại hoa viên."
+    result = engine.replace_line(line, track_stats=True)
+    assert result == "Từ Thanh gặp Kiều Ngọc tại hoa viên."
+    assert sum(engine.stats_counter.values()) == 0
+
+
