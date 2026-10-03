@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 from src.scanner.resource_loader import ResourceLoader
 
@@ -28,4 +29,17 @@ def test_load_deconvert_dict(tmp_path):
     loader.load_all()
     assert loader.deconvert_dict.get("tô cũng có thể") == "Tô Diệc Khả"
     assert loader.deconvert_dict.get("mực đầu hạ") == "Mặc Đầu Hạ"
+
+def test_resource_loader_loads_dict_format(tmp_path):
+    loader = ResourceLoader(base_dir=tmp_path)
+    char_file = tmp_path / "char.json"
+    char_file.write_text(json.dumps({"ung nhân": "Yasuhito"}), encoding="utf-8")
+    chars = loader.load_character_dict(char_file)
+    assert chars["ung nhân"] == "Yasuhito"
+
+    common_file = tmp_path / "common.json"
+    common_file.write_text(json.dumps({"đông phương": "phương đông"}), encoding="utf-8")
+    common = loader.load_common_dict(common_file)
+    assert "đông phương" in common
+
 

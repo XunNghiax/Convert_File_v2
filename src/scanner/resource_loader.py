@@ -63,10 +63,16 @@ class ResourceLoader:
             return words
         try:
             data = json.loads(path.read_text(encoding="utf-8", errors="ignore"))
-            for item in data:
-                src = item.get("source", "").strip().lower()
-                if src:
-                    words.add(src)
+            if isinstance(data, dict):
+                for k in data.keys():
+                    src = str(k).strip().lower()
+                    if src:
+                        words.add(src)
+            elif isinstance(data, list):
+                for item in data:
+                    src = item.get("source", "").strip().lower()
+                    if src:
+                        words.add(src)
         except Exception:
             pass
         return words
@@ -77,11 +83,18 @@ class ResourceLoader:
             return chars
         try:
             data = json.loads(path.read_text(encoding="utf-8", errors="ignore"))
-            for item in data:
-                src = item.get("source", "").strip()
-                tgt = item.get("target", "").strip()
-                if src:
-                    chars[src.lower()] = tgt
+            if isinstance(data, dict):
+                for k, v in data.items():
+                    src = str(k).strip().lower()
+                    tgt = str(v).strip()
+                    if src and tgt:
+                        chars[src] = tgt
+            elif isinstance(data, list):
+                for item in data:
+                    src = item.get("source", "").strip().lower()
+                    tgt = item.get("target", "").strip()
+                    if src and tgt:
+                        chars[src] = tgt
         except Exception:
             pass
         return chars

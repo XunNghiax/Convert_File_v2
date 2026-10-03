@@ -158,7 +158,15 @@ class ReplaceEngine:
         if self.char_dict_path and self.char_dict_path.exists():
             try:
                 data = json.loads(self.char_dict_path.read_text(encoding="utf-8"))
-                if isinstance(data, list):
+                if isinstance(data, dict):
+                    for k, v in data.items():
+                        src = str(k).strip()
+                        tgt = str(v).strip()
+                        words = tgt.split()
+                        tgt = " ".join(w[:1].upper() + w[1:] for w in words)
+                        if src and tgt:
+                            merged[src.lower()] = tgt
+                elif isinstance(data, list):
                     for item in data:
                         src = str(item.get("source", "")).strip()
                         tgt = str(item.get("target") or item.get("suggested_target", "")).strip()
