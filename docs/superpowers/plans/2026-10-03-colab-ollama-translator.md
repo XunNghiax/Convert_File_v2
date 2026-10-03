@@ -38,7 +38,7 @@
       char_count: int
   ```
 
-- [ ] **Bước 1: Viết test cho ChapterSplitter**
+- [x] **Bước 1: Viết test cho ChapterSplitter**
   Tạo `tests/test_chapter_splitter.py`:
   ```python
   from pathlib import Path
@@ -79,9 +79,9 @@
       assert len(chapters) >= 2
       assert chapters[0].title.startswith("第一章")
   ```
-- [ ] **Bước 2: Chạy test để xác nhận test chạy và FAIL (chưa có code)**
+- [x] **Bước 2: Chạy test để xác nhận test chạy và FAIL (chưa có code)**
   Chạy: `pytest tests/test_chapter_splitter.py`
-- [ ] **Bước 3: Cài đặt `ChapterSplitter`**
+- [x] **Bước 3: Cài đặt `ChapterSplitter`**
   Tạo `src/translator/__init__.py` và `src/translator/chapter_splitter.py`:
   ```python
   import re
@@ -172,9 +172,9 @@
           text = Path(filepath).read_text(encoding="utf-8", errors="ignore")
           return self.split_text(text, max_chars=max_chars)
   ```
-- [ ] **Bước 4: Chạy test xác nhận PASS**
+- [x] **Bước 4: Chạy test xác nhận PASS**
   Chạy: `pytest tests/test_chapter_splitter.py`
-- [ ] **Bước 5: Commit**
+- [x] **Bước 5: Commit**
   `git add src/translator/ tests/test_chapter_splitter.py`
   `git commit -m "feat(translator): implement ChapterSplitter with smart header detection and chunking"`
 
@@ -192,7 +192,7 @@
   - `build_prompt_glossary(chapter_text: str) -> str`: Tạo danh sách glossary phù hợp cho chương hiện tại.
   - `parse_and_integrate_new_terms(ai_response: str) -> tuple[str, dict[str, str]]`: Tách riêng bản dịch và các từ Hán Việt mới; tự động lưu từ mới vào từ điển hoặc file gợi ý `samples/suggested_terms.json`.
 
-- [ ] **Bước 1: Viết test cho GlossaryManager**
+- [x] **Bước 1: Viết test cho GlossaryManager**
   Tạo `tests/test_glossary_manager.py`:
   ```python
   import json
@@ -237,17 +237,17 @@ Long Kiếm Phi bước nhanh về phía bờ sông Viêm.
       assert new_terms.get("炎河") == "Sông Viêm"
       assert new_terms.get("稷下村") == "Tắc Hạ thôn"
   ```
-- [ ] **Bước 2: Chạy test để xác nhận FAIL**
+- [x] **Bước 2: Chạy test để xác nhận FAIL**
   Chạy: `pytest tests/test_glossary_manager.py`
-- [ ] **Bước 3: Cài đặt `GlossaryManager`**
+- [x] **Bước 3: Cài đặt `GlossaryManager`**
   Tạo `src/translator/glossary_manager.py`:
   - Nạp từ điển từ `resources/dictionaries/`.
   - Phương thức `build_prompt_glossary`: Quét chuỗi tìm các key xuất hiện, bổ sung cảnh báo deconvert cho các tên dễ bị dịch nghĩa đen.
   - Phương thức `parse_dual_output`: Tách nội dung sau `=== BẢN DỊCH ===` và phân tích các dòng gạch đầu dòng trong `=== TỪ ĐIỂN MỚI ===`.
   - Phương thức `integrate_terms`: Lưu các từ mới vào file `samples/suggested_terms.json` và cập nhật từ điển trong bộ nhớ.
-- [ ] **Bước 4: Chạy test xác nhận PASS**
+- [x] **Bước 4: Chạy test xác nhận PASS**
   Chạy: `pytest tests/test_glossary_manager.py`
-- [ ] **Bước 5: Commit**
+- [x] **Bước 5: Commit**
   `git add src/translator/glossary_manager.py tests/test_glossary_manager.py`
   `git commit -m "feat(translator): implement GlossaryManager for dynamic context glossary and term harvesting"`
 
@@ -267,7 +267,7 @@ Long Kiếm Phi bước nhanh về phía bờ sông Viêm.
   - `get_resume_index() -> int`
   - `get_stats() -> dict`
 
-- [ ] **Bước 1: Viết test cho TranslatorProgressTracker**
+- [x] **Bước 1: Viết test cho TranslatorProgressTracker**
   Tạo `tests/test_translator_progress.py`:
   ```python
   from pathlib import Path
@@ -300,16 +300,16 @@ Long Kiếm Phi bước nhanh về phía bờ sông Viêm.
       assert tracker_resume.get_resume_index() == 2
       assert tracker_resume.is_completed(1)
   ```
-- [ ] **Bước 2: Chạy test để xác nhận FAIL**
+- [x] **Bước 2: Chạy test để xác nhận FAIL**
   Chạy: `pytest tests/test_translator_progress.py`
-- [ ] **Bước 3: Cài đặt `TranslatorProgressTracker`**
+- [x] **Bước 3: Cài đặt `TranslatorProgressTracker`**
   Tạo `src/translator/progress_tracker.py`:
   - Quản lý tải và lưu JSON checkpoint atomic bằng file `.tmp`.
   - Ghi bản dịch vào file `.txt` ở chế độ append và flush ngay lập tức.
   - Theo dõi thời gian trung bình mỗi chương để tính ETA.
-- [ ] **Bước 4: Chạy test xác nhận PASS**
+- [x] **Bước 4: Chạy test xác nhận PASS**
   Chạy: `pytest tests/test_translator_progress.py`
-- [ ] **Bước 5: Commit**
+- [x] **Bước 5: Commit**
   `git add src/translator/progress_tracker.py tests/test_translator_progress.py`
   `git commit -m "feat(translator): implement TranslatorProgressTracker with atomic checkpoint and resume"`
 
@@ -326,7 +326,7 @@ Long Kiếm Phi bước nhanh về phía bờ sông Viêm.
 - Consumes: `OllamaTranslatorClient(base_url, model_name)`, `TranslatorEngine`
 - Produces: `TranslatorEngine.translate_novel(raw_path, output_path, start_chap, end_chap)` điều phối toàn trình từ đọc raw, gọi Colab, checkpoint, bồi đắp từ điển và hậu kỳ qua `ReplaceEngine`.
 
-- [ ] **Bước 1: Viết test cho OllamaTranslatorClient và TranslatorEngine (sử dụng mock requests)**
+- [x] **Bước 1: Viết test cho OllamaTranslatorClient và TranslatorEngine (sử dụng mock requests)**
   Tạo `tests/test_translator_engine.py`:
   ```python
   from unittest.mock import patch, MagicMock
@@ -371,18 +371,18 @@ Long Kiếm Phi bước vào khuôn viên trường học.
           assert out_file.exists()
           assert "Long Kiếm Phi bước vào" in out_file.read_text(encoding="utf-8")
   ```
-- [ ] **Bước 2: Chạy test để xác nhận FAIL**
+- [x] **Bước 2: Chạy test để xác nhận FAIL**
   Chạy: `pytest tests/test_translator_engine.py`
-- [ ] **Bước 3: Cài đặt `OllamaTranslatorClient` trong `src/translator/ollama_client.py`**
+- [x] **Bước 3: Cài đặt `OllamaTranslatorClient` trong `src/translator/ollama_client.py`**
   - Quản lý request POST `/api/chat` với payload cấu hình model: `temperature: 0.2`, `num_ctx: 8192`.
   - Tự động retry 3 lần, kiểm tra mã trạng thái HTTP 200.
-- [ ] **Bước 4: Cài đặt `TranslatorEngine` trong `src/translator/translator_engine.py`**
+- [x] **Bước 4: Cài đặt `TranslatorEngine` trong `src/translator/translator_engine.py`**
   - Kết nối `ChapterSplitter`, `GlossaryManager`, `TranslatorProgressTracker`, `OllamaTranslatorClient` và `ReplaceEngine`.
   - Vòng lặp dịch từng chương có hiển thị tiến trình, thời gian xử lý và lưu checkpoint.
   - Gọi `ReplaceEngine` tự động hậu kỳ sau khi hoàn thành.
-- [ ] **Bước 5: Chạy test xác nhận PASS**
+- [x] **Bước 5: Chạy test xác nhận PASS**
   Chạy: `pytest tests/test_translator_engine.py`
-- [ ] **Bước 6: Commit**
+- [x] **Bước 6: Commit**
   `git add src/translator/ollama_client.py src/translator/translator_engine.py tests/test_translator_engine.py`
   `git commit -m "feat(translator): implement OllamaTranslatorClient and TranslatorEngine orchestration"`
 
@@ -395,12 +395,12 @@ Long Kiếm Phi bước vào khuôn viên trường học.
 - Create: `tools/colab_ollama_server.ipynb`
 - Test: Kiểm tra `python run_cli.py` hiển thị tùy chọn [15]
 
-- [ ] **Bước 1: Tạo file notebook `tools/colab_ollama_server.ipynb`**
+- [x] **Bước 1: Tạo file notebook `tools/colab_ollama_server.ipynb`**
   - Chứa sẵn các code cell:
     1. Cài đặt Ollama + Cloudflared.
     2. Tải `qwen2.5:7b-instruct`.
     3. Chạy service và mở Cloudflare Tunnel hiển thị URL public HTTPS.
-- [ ] **Bước 2: Cập nhật `run_cli.py`**
+- [x] **Bước 2: Cập nhật `run_cli.py`**
   - Thêm lựa chọn menu:
     ```text
       [ QUY TRÌNH DỊCH THUẬT AI (OLLAMA / COLAB) ]
@@ -412,9 +412,9 @@ Long Kiếm Phi bước vào khuôn viên trường học.
     - Chọn file raw từ danh sách gợi ý trong `craw/` và `samples/`.
     - Chọn phạm vi chương (toàn bộ hoặc giới hạn số chương).
     - Thực thi `TranslatorEngine.translate_novel()`.
-- [ ] **Bước 3: Chạy test toàn bộ test suite để đảm bảo không có regression**
+- [x] **Bước 3: Chạy test toàn bộ test suite để đảm bảo không có regression**
   Chạy: `pytest tests/` (Tất cả tests phải PASS).
-- [ ] **Bước 4: Commit**
+- [x] **Bước 4: Commit**
   `git add run_cli.py tools/colab_ollama_server.ipynb`
   `git commit -m "feat(cli): add Colab Ollama translator option [15] to run_cli and provide notebook"`
 
@@ -427,8 +427,8 @@ Long Kiếm Phi bước vào khuôn viên trường học.
 - Run: Dịch thử nghiệm chương 1 của `craw/shao_long_feng_liu_raw.txt`
 - Output: `convert/translated/shao_long_feng_liu_vietnamese.txt`
 
-- [ ] **Bước 1: Chạy toàn bộ Unit Tests của dự án**
+- [x] **Bước 1: Chạy toàn bộ Unit Tests của dự án**
   Chạy: `pytest tests/` (Đảm bảo 100% PASS).
-- [ ] **Bước 2: Chạy kiểm thử dịch với file raw thực tế**
+- [x] **Bước 2: Chạy kiểm thử dịch với file raw thực tế**
   Kiểm tra chạy thử dịch chương 1 của `craw/shao_long_feng_liu_raw.txt` để đảm bảo văn phong mượt mà, tên `Long Kiếm Phi` chuẩn xác và không bị lỗi encoding hay đứt kết nối.
-- [ ] **Bước 3: Báo cáo kết quả hoàn thành cho người dùng.**
+- [x] **Bước 3: Báo cáo kết quả hoàn thành cho người dùng.**
