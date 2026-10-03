@@ -110,17 +110,88 @@ class ProgressPrinter:
             )
 
 class ScannerEngine:
-    def __init__(self, loader: ResourceLoader, skip_known: bool = True):
-        self.loader = loader
-        self.skip_known = skip_known
-        self.trimmer = BoundaryTrimmer(self.loader.trailing_stopwords)
-        self.extractor = CandidateExtractor(self.loader, self.trimmer, skip_known=skip_known)
-        self.expander = ContextExpander()
-
     HUMAN_ACTION_VERBS = {
         "nói", "hỏi", "cười", "quát", "thở dài", "đáp", "gật đầu", "lắc đầu",
         "ôm", "nhìn", "bước", "đi", "nghĩ", "thầm nghĩ", "lẩm bẩm", "hét", "kêu"
     }
+
+    ACTION_CLEANUP_WORDS = {
+        # Hành động, cử chỉ, chuyển động
+        "khiêu", "dùng", "lấy", "cầm", "đưa", "mang", "trêu", "nhìn", "thấy", "nghe",
+        "biết", "nói", "cười", "hỏi", "bước", "đi", "ngồi", "đứng", "chạy", "nhảy",
+        "ngã", "ôm", "hôn", "đánh", "giết", "bóp", "sờ", "kéo", "buông", "vỗ",
+        "mắng", "quát", "hét", "kêu", "đáp", "thở", "nghĩ", "lẩm", "bẩm", "gật", "lắc",
+        "chạm", "chỉ", "hiểu", "xem", "uống", "ăn", "nuốt", "rót", "mở", "đóng",
+        "tiến", "lùi", "quay", "xoay", "cúi", "ngẩng", "nhíu", "nhướng", "trừng",
+        "liếc", "nhòm", "dòm", "la", "nhắc", "than"
+    }
+
+    def __init__(self, loader: Optional[ResourceLoader] = None, skip_known: bool = True):
+        self.loader = loader
+        self.skip_known = skip_known
+        stopwords = self.loader.trailing_stopwords if self.loader else set()
+        self.trimmer = BoundaryTrimmer(stopwords)
+        self.extractor = CandidateExtractor(self.loader, self.trimmer, skip_known=skip_known) if self.loader else None
+        self.expander = ContextExpander()
+
+    def _is_action_verb_or_noise(self, tail_words: list[str]) -> bool:
+        if not tail_words:
+            return False
+        tail_words_low = [w.lower() for w in tail_words]
+        tail_str = " ".join(tail_words_low)
+        # Nếu có từ thuộc danh sách từ được bảo vệ trong tên người thì không coi là động từ/từ rác
+        if any(w in BoundaryTrimmer.PROTECTED_NAME_WORDS for w in tail_words_low):
+            return False
+        if tail_str in self.HUMAN_ACTION_VERBS:
+            return True
+        if any(w in self.ACTION_CLEANUP_WORDS for w in tail_words_low):
+            return True
+        trailing = self.trimmer.trailing_stopwords if hasattr(self, 'trimmer') and self.trimmer else BoundaryTrimmer.DEFAULT_TRAILING
+        if any(w in trailing for w in tail_words_low):
+            return True
+        return False
+
+    def _starts_with_surname(self, text: str) -> bool:
+        words = text.strip().split()
+        if not words:
+            return False
+        if hasattr(self, 'trimmer') and self.trimmer:
+            if self.trimmer.starts_with_surname(words):
+                return True
+        if hasattr(self, 'loader') and self.loader:
+            words_low = [w.lower() for w in words]
+            if len(words_low) >= 2 and f"{words_low[0]} {words_low[1]}" in self.loader.compound_surnames:
+                return True
+            if words_low[0] in self.loader.single_surnames:
+                return True
+        words_low = [w.lower() for w in words]
+        if len(words_low) >= 2 and f"{words_low[0]} {words_low[1]}" in BoundaryTrimmer.FALLBACK_SURNAMES:
+            return True
+        if words_low[0] in BoundaryTrimmer.FALLBACK_SURNAMES:
+            return True
+        return False
+
+    @staticmethod
+    def _merge_block_counts_and_lines(target_block: CharacterBlock, donor_block: CharacterBlock):
+        target_block.so_lan_xuat_hien += donor_block.so_lan_xuat_hien
+        lines = set(target_block.cac_dong_xuat_hien)
+        if not lines and target_block.dong_xuat_hien:
+            lines.add(target_block.dong_xuat_hien)
+        for l in donor_block.cac_dong_xuat_hien:
+            lines.add(l)
+        if donor_block.dong_xuat_hien:
+            lines.add(donor_block.dong_xuat_hien)
+        target_block.cac_dong_xuat_hien = sorted(list(lines))
+        if target_block.cac_dong_xuat_hien:
+            target_block.dong_xuat_hien = target_block.cac_dong_xuat_hien[0]
+        if not target_block.context and donor_block.context:
+            target_block.context = donor_block.context
+
+    @staticmethod
+    def _merge_variant(target_block: CharacterBlock, variant_name: str):
+        var_clean = variant_name.strip()
+        if var_clean and var_clean.lower() != target_block.target.lower() and var_clean not in target_block.bien_the:
+            target_block.bien_the.append(var_clean)
 
     @staticmethod
     def _score_block(confidence: float, context: str, line_idx: int) -> tuple:
@@ -365,20 +436,100 @@ class ScannerEngine:
             if is_alias:
                 alias_blocks.append(b)
             else:
-                full_name_blocks[target_low] = b
+                if target_low in full_name_blocks:
+                    self._merge_block_counts_and_lines(full_name_blocks[target_low], b)
+                    for bt in b.bien_the:
+                        self._merge_variant(full_name_blocks[target_low], bt)
+                else:
+                    full_name_blocks[target_low] = b
 
+        # 1. Action verb cleanup:
+        # Nếu một khối tên có đuôi là động từ hành động/từ rác dính kèm (vd "Từ Thanh khiêu", "Từ Thanh dùng")
+        # và khối tên gốc ("Từ Thanh") đã tồn tại, gộp khối dính động từ vào tên gốc.
+        to_remove = set()
+        for target_low, b in list(full_name_blocks.items()):
+            if target_low in to_remove:
+                continue
+            words_b = b.target.strip().split()
+            if len(words_b) < 3:
+                continue
+            for prefix_len in range(len(words_b) - 1, 1, -1):
+                prefix_words = words_b[:prefix_len]
+                prefix_key = " ".join(prefix_words).lower()
+                if prefix_key in full_name_blocks and prefix_key not in to_remove:
+                    tail = [w.lower() for w in words_b[prefix_len:]]
+                    if self._is_action_verb_or_noise(tail):
+                        base_block = full_name_blocks[prefix_key]
+                        self._merge_block_counts_and_lines(base_block, b)
+                        for bt in b.bien_the:
+                            self._merge_variant(base_block, bt)
+                        to_remove.add(target_low)
+                        break
+
+        for k in to_remove:
+            del full_name_blocks[k]
+
+        # 2. Super-string Consolidation:
+        # Khi tên ngắn hơn (vd "Đường Thiền" - 2 từ) và tên dài đầy đủ hợp lệ (vd "Đường Thiền Y" - 3 từ)
+        # cùng tồn tại (cùng họ và tiền tố từ đầu):
+        # Chọn tên dài đầy đủ làm khối mục tiêu chính, gộp số lần xuất hiện/dòng xuất hiện từ tên ngắn,
+        # và thêm tên ngắn vào danh sách biến thể (bien_the).
+        to_remove = set()
+        sorted_keys = sorted(
+            full_name_blocks.keys(),
+            key=lambda k: len(full_name_blocks[k].target.split())
+        )
+
+        for short_key in sorted_keys:
+            if short_key in to_remove:
+                continue
+            b_short = full_name_blocks[short_key]
+            words_short = b_short.target.strip().split()
+            words_short_low = [w.lower() for w in words_short]
+
+            if not (2 <= len(words_short) <= 3):
+                continue
+            if not self._starts_with_surname(b_short.target):
+                continue
+
+            candidates = []
+            for other_key, b_other in full_name_blocks.items():
+                if other_key == short_key or other_key in to_remove:
+                    continue
+                words_other = b_other.target.strip().split()
+                if len(words_other) <= len(words_short) or len(words_other) > 4:
+                    continue
+                words_other_low = [w.lower() for w in words_other]
+                if words_other_low[:len(words_short)] == words_short_low:
+                    tail = words_other_low[len(words_short):]
+                    if not self._is_action_verb_or_noise(tail):
+                        candidates.append(b_other)
+
+            if candidates:
+                best_long = max(candidates, key=lambda c: (c.so_lan_xuat_hien, -c.dong_xuat_hien))
+                self._merge_block_counts_and_lines(best_long, b_short)
+                self._merge_variant(best_long, b_short.target)
+                for bt in b_short.bien_the:
+                    self._merge_variant(best_long, bt)
+                to_remove.add(short_key)
+
+        for k in to_remove:
+            del full_name_blocks[k]
+
+        # 3. Alias Clustering:
         merged_aliases = set()
         for ab in alias_blocks:
             alias_name = ab.target.strip()
             alias_words = alias_name.split()
             matched_full: Optional[CharacterBlock] = None
 
-            # Case 1: "Tiểu X" -> tìm người có tên là X
+            # Case 1: "Tiểu X" -> tìm người có tên là X (hoặc biến thể có tên là X)
             if len(alias_words) == 2 and alias_words[0].lower() in alias_prefix_words:
                 given_name = alias_words[1].lower()
                 candidates = [
                     fb for fb in full_name_blocks.values()
                     if fb.target.split()[-1].lower() == given_name
+                    or any(bt.split()[-1].lower() == given_name for bt in fb.bien_the)
                 ]
                 if candidates:
                     matched_full = max(candidates, key=lambda c: (c.so_lan_xuat_hien, -c.dong_xuat_hien))
@@ -399,13 +550,10 @@ class ScannerEngine:
                         break
 
             if matched_full:
-                matched_full.so_lan_xuat_hien += ab.so_lan_xuat_hien
-                for line in ab.cac_dong_xuat_hien:
-                    if line not in matched_full.cac_dong_xuat_hien:
-                        matched_full.cac_dong_xuat_hien.append(line)
-                matched_full.cac_dong_xuat_hien.sort()
-                if alias_name not in matched_full.bien_the:
-                    matched_full.bien_the.append(alias_name)
+                self._merge_block_counts_and_lines(matched_full, ab)
+                self._merge_variant(matched_full, alias_name)
+                for bt in ab.bien_the:
+                    self._merge_variant(matched_full, bt)
                 merged_aliases.add(ab.id)
 
         # Giữ lại các alias không ghép được vào nhân vật nào

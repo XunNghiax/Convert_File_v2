@@ -547,7 +547,7 @@ class CandidateExtractor:
                 if not self._is_clause_boundary(line, tokens[start_idx].start()):
                     continue
                 words_in_cand = cand_raw.lower().split()
-                surname_len = 2 if (cand_spans[0][1] - cand_spans[0][0] == 3 and f"{words_in_cand[0]} {words_in_cand[1]}" in self.loader.compound_surnames) else 1
+                surname_len = 2 if len(words_in_cand) >= 2 and f"{words_in_cand[0]} {words_in_cand[1]}" in self.loader.compound_surnames else 1
                 given_words = words_in_cand[surname_len:]
                 if any(gw in self.ACTION_VERBS for gw in given_words):
                     continue
@@ -576,7 +576,7 @@ class CandidateExtractor:
                             reason=f"Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc '{matched_action}'"
                         ))
                         matched = True
-                        i = end_idx
+                        i = end_idx + 1
                         break
             if not matched:
                 i += 1
