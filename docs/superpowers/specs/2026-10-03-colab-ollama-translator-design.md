@@ -62,7 +62,7 @@ graph LR
   DANH SÁCH TÊN NHÂN VẬT & THUẬT NGỮ BẮT BUỘC DỊCH CHUẨN XÁC:
   - 龙剑飞 => Long Kiếm Phi
   - 沈倩影 => Thẩm Thiến Ảnh
-  - 炎河 => Sông Viêm
+  - 炎河 => Sông Viêm (Giang Viêm)
   ```
 
 ### 2.3. Khách hàng API Ollama (`src/translator/ollama_client.py`)
@@ -91,10 +91,31 @@ graph LR
   - Khi bắt đầu phiên dịch mới: Nếu phát hiện file tiến độ cũ, hệ thống tự động nhảy qua các chương đã hoàn thành và dịch tiếp từ chương tiếp theo.
   - File kết quả `.txt` được mở ở chế độ append (`"a"`), ghi đĩa và flush ngay sau mỗi chương hoàn tất.
 
-### 2.5. Hậu kỳ tự động (Post-processing Integration)
+### 2.5. Trích xuất & Bồi đắp Từ điển Động (Dynamic Dictionary Extraction & Curation)
+- **Nhiệm vụ:** Trong khi dịch từng chương, yêu cầu Qwen 2.5 đồng thời trích xuất danh sách các thực thể / từ vựng Hán Việt mới (Tên người, Tông môn, Địa danh, Thành ngữ 4 chữ, Công pháp, Cảnh giới).
+- **Cấu trúc phản hồi phân tách:**
+  ```text
+  === BẢN DỊCH ===
+  (Nội dung tiếng Việt mượt mà của chương)
+
+  === TỪ ĐIỂN MỚI ===
+  - 龙剑飞 => Long Kiếm Phi (Loại: Nhân vật)
+  - 稷下村 => Tắc Hạ thôn (Loại: Địa danh)
+  - 炎河 => Sông Viêm (Loại: Địa danh)
+  - 子欲养而亲不待 => Tử dục dưỡng nhi thân bất đãi (Loại: Thành ngữ)
+  ```
+- **Xử lý lưu trữ:**
+  - Tự động lọc các từ đã có trong `character_dict.json` và `common_dict.json` để tránh trùng lặp.
+  - Phân loại:
+    - Loại `Nhân vật` -> Tự động nạp hoặc gợi ý vào `resources/dictionaries/character_dict.json`.
+    - Loại `Địa danh`, `Thành ngữ`, `Công pháp` -> Nạp vào `resources/dictionaries/common_dict.json`.
+  - Tự động ghi vào file gợi ý `samples/suggested_terms.json` để theo dõi và hỗ trợ duyệt nhanh bằng `src/importer/main.py`.
+
+### 2.6. Hậu kỳ tự động (Post-processing Integration)
 - Sau khi toàn bộ các chương đã chọn được dịch xong, hệ thống tự động gọi `ReplaceEngine` (`src/replacer/replace_engine.py`) để:
   - Đồng bộ chuẩn hóa chữ hoa các tên riêng.
   - Sửa các hạt sạn cú pháp hoặc từ nối lặp lại.
+  - Áp dụng các luật khôi phục từ `deconvert_dict.json` để triệt tiêu mọi tên dị dạng.
   - Xuất ra file kết quả cuối cùng hoàn thiện tại `convert/translated/`.
 
 ---
