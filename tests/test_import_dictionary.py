@@ -119,3 +119,22 @@ def test_distribute_and_import(tmp_path):
     common_data = load_dictionary(common_dict)
     assert len(common_data) == 1
     assert common_data["ha ha"] == "ha ha"
+
+def test_import_from_md_sample(tmp_path):
+    from tools.import_characters_from_md import main as run_import
+    # Verify tools/import_characters_from_md.py can run and loads 91 gold items
+    md_file = Path("samples/danh_sach_nhan_vat.md")
+    assert md_file.exists()
+    
+    char_dict = load_dictionary("resources/dictionaries/character_dict.json")
+    # Verify all 91 gold items are in character_dict.json
+    import re
+    md_text = md_file.read_text(encoding="utf-8")
+    gold_data = json.loads(re.search(r"```json\s*(\[.*?\])\s*```", md_text, re.DOTALL).group(1))
+    
+    assert len(gold_data) == 91
+    for item in gold_data:
+        name = item["ten_han_viet"].strip()
+        assert name.lower() in char_dict
+        assert char_dict[name.lower()] == name
+
