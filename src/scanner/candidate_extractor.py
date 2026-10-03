@@ -35,7 +35,8 @@ class CandidateExtractor:
         "biểu tỷ", "biểu muội", "đường tỷ", "đường muội", "tẩu tử", "chị dâu", "dượng",
         "lão sư", "thầy giáo", "cô giáo", "chủ nhiệm", "bạn học", "đồng học", "hoa khôi",
         "bác sĩ", "y tá", "viện trưởng", "chủ tịch", "tổng tài", "thị trưởng", "cục trưởng",
-        "tên là", "tên gọi là", "kêu là", "kêu", "ta gọi", "tự xưng là", "vị hôn thê", "hôn phu"
+        "tên là", "tên gọi là", "kêu là", "kêu", "ta gọi", "tự xưng là", "vị hôn thê", "hôn phu",
+        "ba ba", "bố", "ông ngoại", "nha đầu", "tiểu nha đầu", "thích khách", "gọi là", "giám đốc", "thê tử"
     }
 
     ACTION_VERBS = {
@@ -46,6 +47,20 @@ class CandidateExtractor:
         "nhìn", "thấy", "ôm", "gặp", "hỏi", "đánh", "giết", "tìm", "thương",
         "cưới", "hôn", "nhớ", "chờ", "yêu", "trêu", "khiêu", "bóp", "sờ"
     }
+
+    LOWERCASE_ACTION_TERMS = sorted([
+        "cưng chìu", "cưng chiều", "đưa ra", "nghiêm túc nhìn", "nhìn đến", "trong lòng",
+        "ôm", "nói", "bước", "đi", "nghĩ", "hỏi", "cười", "quát", "thở dài", "lẩm bẩm",
+        "thầm nghĩ", "đáp", "kêu", "hét", "mắng", "nhắc nhở", "giải thích", "than thở",
+        "tức giận", "vui mừng", "kinh hãi", "hoảng hốt", "bối rối", "ngạc nhiên", "sợ hãi",
+        "cảm thấy", "ghen tị", "ngơ ngác", "do dự", "trầm ngâm",
+        "chạy", "đứng", "ngồi", "ngã", "nhảy", "tiến vào", "bước vào", "rời đi", "quay đầu",
+        "xoay người", "lùi lại", "tiến lên", "bước tới", "đi tới", "bước ra", "đi ra",
+        "nhìn", "thấy", "gặp", "tìm", "gật đầu", "lắc đầu", "vỗ", "kéo", "nắm", "buông",
+        "nhíu mày", "nhướng mày", "trừng mắt", "đưa tay", "giơ tay", "cúi đầu", "ngẩng đầu"
+    ], key=len, reverse=True)
+
+    CLAUSE_STARTERS = {"mà", "nhưng", "còn", "khi", "nếu", "bởi vì", "do", "chỉ thấy", "liền thấy", "bỗng", "chợt", "thấy", "tại", "ở"}
 
     def __init__(self, loader: ResourceLoader, trimmer: BoundaryTrimmer, skip_known: bool = False):
         self.loader = loader
@@ -79,14 +94,18 @@ class CandidateExtractor:
         sorted_anchors = sorted(self.ANCHOR_TERMS, key=len, reverse=True)
         anchor_group = "|".join(re.escape(a) for a in sorted_anchors)
         self.anchor_pattern = re.compile(
-            rf'(?i:\b({anchor_group})(?:\s+(?:tên là|gọi là|kêu là|tên gọi là|đích|của ta|của hắn|của nàng))?\s*[:\-—]?\s*)([{VN_UPPER}{VN_LOWER}]+(?:\s+[{VN_UPPER}{VN_LOWER}]+){{1,3}})\b'
+            rf'(?i:\b({anchor_group})(?:\s+(?:tên là|gọi là|kêu là|tên gọi là|đích|của ta|của hắn|của nàng))?\s*[:\-—]?\s*)([{VN_UPPER}{VN_LOWER}]+(?:\s+[{VN_UPPER}{VN_LOWER}]+){{0,3}})\b'
+        )
+
+        self.foreign_dot_pattern = re.compile(
+            rf'\b([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+)*(?:\s*[·\-\u2022]\s*[{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+)*)+)\b'
         )
 
         self.dialogue_speaker_pattern = re.compile(
-            rf'\b([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})(?:\s+[^:\n"“”]{{1,30}})?\s+(?:nói|hỏi|cười|quát|thở dài|lẩm bẩm|thầm nghĩ|đáp|kêu|hét)\s*:\s*["“]'
+            rf'\b([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{0,3}})(?:\s+[^:\n"“”]{{1,30}})?\s+(?:nói|hỏi|cười|quát|thở dài|lẩm bẩm|thầm nghĩ|đáp|kêu|hét)\s*:\s*["“]'
         )
         self.dialogue_after_pattern = re.compile(
-            rf'["”]\s*([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})(?:\s+[^,\n"“”]{{1,30}})?\s+(?:nói|hỏi|cười|quát|thở dài|lẩm bẩm|đáp)\b'
+            rf'["”]\s*([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{0,3}})(?:\s+[^,\n"“”]{{1,30}})?\s+(?:nói|hỏi|cười|quát|thở dài|lẩm bẩm|đáp)\b'
         )
 
         self.cap_pattern = re.compile(
@@ -259,12 +278,53 @@ class CandidateExtractor:
                         reason=f"Đứng sau chức danh '{job}', mang họ hợp lệ"
                     ))
 
-        # 4. Anchor pattern for relations/roles followed by names (even lowercase)
+        # 3b. Foreign name with middle dot / dash / Latin word support
+        if '·' in line or '-' in line or '\u2022' in line:
+            for m in self.foreign_dot_pattern.finditer(line):
+                raw_cand = m.group(1).strip()
+                clean_cand = re.split(r'[\n\r\t,.;:!?—"]', raw_cand)[0].strip()
+                trimmed = clean_cand
+                if not self._is_negative(trimmed, skip_known=effective_skip):
+                    norm_name = self.trimmer.normalize_name(trimmed)
+                    results.append(CandidateMatch(
+                        name=norm_name,
+                        raw=trimmed,
+                        start=m.start(1),
+                        end=m.start(1) + len(trimmed),
+                        confidence=0.95,
+                        reason="Tên phiên âm nước ngoài có dấu nối"
+                    ))
+
+        # 4. Anchor pattern for relations/roles followed by names (even lowercase or Latin)
         if any(anc in line_lower for anc in self.ANCHOR_TERMS):
             for m in self.anchor_pattern.finditer(line):
                 anc = m.group(1).strip()
                 raw_cand = m.group(2).strip()
-                clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[0].strip()
+                clean_cand = re.split(r'[\n\r\t,.;:!?—\-"]', raw_cand)[0].strip()
+                words = clean_cand.split()
+                if not words:
+                    continue
+                # Support Latin name directly following anchor
+                if self._is_latin_name(words[0]):
+                    latin_words = []
+                    for w in words:
+                        if self._is_latin_name(w):
+                            latin_words.append(w)
+                        else:
+                            break
+                    trimmed = " ".join(latin_words)
+                    if not self._is_negative(trimmed, skip_known=effective_skip):
+                        norm_name = trimmed
+                        results.append(CandidateMatch(
+                            name=norm_name,
+                            raw=trimmed,
+                            start=m.start(2),
+                            end=m.start(2) + len(trimmed),
+                            confidence=0.94,
+                            reason=f"Đứng sau mỏ neo xưng hô '{anc}', là tên Latinh hợp lệ"
+                        ))
+                    continue
+
                 trimmed, _ = self.trimmer.trim(clean_cand)
                 words = trimmed.split()
                 if len(words) == 4:
@@ -291,6 +351,10 @@ class CandidateExtractor:
                         reason=f"Đứng sau mỏ neo xưng hô '{anc}', mang họ hợp lệ"
                     ))
 
+        # 4b. Lowercase name with action pattern
+        lowercase_matches = self._extract_lowercase_action_candidates(line, skip_known=effective_skip)
+        results.extend(lowercase_matches)
+
         # 5. Dialogue speaker patterns
         if (':' in line or '：' in line) and ('"' in line or '“' in line):
             for m in self.dialogue_speaker_pattern.finditer(line):
@@ -309,6 +373,15 @@ class CandidateExtractor:
                         confidence=0.96,
                         reason="Chủ thể phát ngôn hội thoại, mang họ hợp lệ"
                     ))
+                elif self._is_latin_name(norm_name):
+                    results.append(CandidateMatch(
+                        name=norm_name,
+                        raw=trimmed,
+                        start=m.start(1),
+                        end=m.start(1) + len(trimmed),
+                        confidence=0.95,
+                        reason="Chủ thể phát ngôn hội thoại, là tên Latinh hợp lệ"
+                    ))
 
         if '"' in line or '”' in line:
             for m in self.dialogue_after_pattern.finditer(line):
@@ -326,6 +399,15 @@ class CandidateExtractor:
                         end=m.start(1) + len(trimmed),
                         confidence=0.95,
                         reason="Chủ thể phát ngôn sau lời thoại, mang họ hợp lệ"
+                    ))
+                elif self._is_latin_name(norm_name):
+                    results.append(CandidateMatch(
+                        name=norm_name,
+                        raw=trimmed,
+                        start=m.start(1),
+                        end=m.start(1) + len(trimmed),
+                        confidence=0.95,
+                        reason="Chủ thể phát ngôn sau lời thoại, là tên Latinh hợp lệ"
                     ))
 
         # 6. Capitalized TitleCase regex: 2 to 4 words starting with known surname
@@ -381,21 +463,124 @@ class CandidateExtractor:
                 and cand.name.lower().strip() not in self.loader.known_characters
             ]
 
-        # Chỉ cache các ứng viên có độ tin cậy rất cao (>= 0.94) và bắt buộc không nằm trong non_person
+        # Cache high confidence candidates
         for cand in unique_results:
             cand_low = cand.name.lower()
             raw_low = cand.raw.lower().strip()
             if effective_skip and (cand_low in self.loader.known_characters or raw_low in self.loader.known_characters):
                 continue
             if (cand.confidence >= 0.94 and 
-                self._starts_with_surname(cand.name) and 
+                (self._starts_with_surname(cand.name) or '·' in cand.name or '-' in cand.name or self._is_latin_name(cand.name)) and 
                 cand_low not in self.loader.non_person and 
                 raw_low not in self.loader.non_person and 
                 cand_low not in self.loader.blacklist and 
                 cand_low not in self.loader.common_dict and 
-                2 <= len(cand.name.split()) <= 4):
+                1 <= len(cand.name.split()) <= 8):
                 self.session_cache.add(cand.name)
         return unique_results
+
+    def _is_latin_name(self, text: str) -> bool:
+        clean = text.strip()
+        words = clean.split()
+        if not words:
+            return False
+        for w in words:
+            if not re.match(r'^[A-Z][a-z]{1,}$', w):
+                return False
+            w_low = w.lower()
+            if w_low in self.loader.common_dict or w_low in self.loader.single_surnames or w_low in self.loader.pronouns:
+                return False
+            has_foreign_char = any(c in w_low for c in "fjwz")
+            has_double = bool(re.search(r'([a-z])\1', w_low))
+            has_foreign_end = bool(re.search(r'(?:[bdfgjlrvwz]|th|sh|ck|rt|ld|nd|st|nt|ph)$', w_low))
+            has_foreign_cluster = bool(re.search(r'(?:br|cr|dr|fr|gr|pr|str|spr|spl|scr|cl|fl|gl|pl|bl)', w_low))
+            is_multisyllable = len(re.findall(r'[aeiouy]', w_low)) >= 2 and len(w) >= 4
+            if not (has_foreign_char or has_double or has_foreign_end or has_foreign_cluster or is_multisyllable):
+                return False
+        return True
+
+    def _is_clause_boundary(self, line: str, start_pos: int) -> bool:
+        if start_pos == 0:
+            return True
+        before = line[:start_pos].rstrip()
+        if not before:
+            return True
+        if before[-1] in ',.;:!?—-"“”\'’':
+            return True
+        last_word = before.split()[-1].lower() if before.split() else ""
+        if last_word in self.CLAUSE_STARTERS:
+            return True
+        return False
+
+    def _extract_lowercase_action_candidates(self, line: str, skip_known: bool = False) -> list[CandidateMatch]:
+        results: list[CandidateMatch] = []
+        tokens = list(re.finditer(rf'\b{VN_WORD}+\b', line))
+        n = len(tokens)
+        i = 0
+        while i < n:
+            tok = tokens[i]
+            w1 = tok.group(0).lower()
+            cand_spans = []
+
+            # Check compound surname (2 words)
+            if i + 1 < n:
+                w2 = tokens[i+1].group(0).lower()
+                two_words = f"{w1} {w2}"
+                if two_words in self.loader.compound_surnames or self.trimmer.is_surname(two_words):
+                    if i + 3 < n:
+                        cand_spans.append((i, i + 3))  # 4 words total
+                    if i + 2 < n:
+                        cand_spans.append((i, i + 2))  # 3 words total
+
+            # Check single surname (1 word)
+            if not cand_spans and (w1 in self.loader.single_surnames or self.trimmer.is_surname(w1)):
+                if i + 2 < n:
+                    cand_spans.append((i, i + 2))  # 3 words total
+                if i + 1 < n:
+                    cand_spans.append((i, i + 1))  # 2 words total
+
+            matched = False
+            for start_idx, end_idx in cand_spans:
+                cand_raw = line[tokens[start_idx].start():tokens[end_idx].end()]
+                if not re.match(rf'^{VN_WORD}+(?:\s+{VN_WORD}+)+$', cand_raw):
+                    continue
+                if not self._is_clause_boundary(line, tokens[start_idx].start()):
+                    continue
+                words_in_cand = cand_raw.lower().split()
+                surname_len = 2 if (cand_spans[0][1] - cand_spans[0][0] == 3 and f"{words_in_cand[0]} {words_in_cand[1]}" in self.loader.compound_surnames) else 1
+                given_words = words_in_cand[surname_len:]
+                if any(gw in self.ACTION_VERBS for gw in given_words):
+                    continue
+                if any(phrase in cand_raw.lower() for phrase in self.trimmer.DEFAULT_LEADING_PHRASES):
+                    continue
+
+                after_text = line[tokens[end_idx].end():].lstrip()
+                after_text_lower = after_text.lower()
+
+                matched_action = None
+                for act in self.LOWERCASE_ACTION_TERMS:
+                    if re.match(rf'^{re.escape(act)}\b', after_text_lower):
+                        matched_action = act
+                        break
+
+                if matched_action:
+                    trimmed, _ = self.trimmer.trim(cand_raw)
+                    if not self._is_negative(trimmed, skip_known=skip_known):
+                        norm_name = self.trimmer.normalize_name(trimmed)
+                        results.append(CandidateMatch(
+                            name=norm_name,
+                            raw=trimmed,
+                            start=tokens[start_idx].start(),
+                            end=tokens[start_idx].start() + len(trimmed),
+                            confidence=0.95,
+                            reason=f"Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc '{matched_action}'"
+                        ))
+                        matched = True
+                        i = end_idx
+                        break
+            if not matched:
+                i += 1
+        return results
 
     def _is_negative(self, text: str, skip_known: bool = False) -> bool:
         clean = text.strip()
@@ -403,11 +588,19 @@ class CandidateExtractor:
         if low in self.loader.known_characters:
             return True if skip_known else False
         words = low.split()
-        if len(words) < 2 or len(words) > 5:
-            return True
+        is_foreign = ('·' in clean or '-' in clean or '\u2022' in clean or self._is_latin_name(clean))
+        if is_foreign:
+            words_clean = [w for w in words if w not in ('·', '-', '\u2022', '.') and not w.startswith('·') and not w.startswith('-')]
+            if len(words_clean) < 1 or len(words_clean) > 8:
+                return True
+        else:
+            if len(words) < 2 or len(words) > 5:
+                return True
         if low in self.loader.pronouns or low in self.loader.non_person:
             return True
         if low in self.loader.blacklist or low in self.loader.common_dict:
+            return True
+        if any(b in low for b in self.loader.blacklist):
             return True
         # Nếu cụm từ viết thường và từ đầu là đại từ/phó từ/động từ (và không phải họ hợp lệ)
         if clean and clean[0].islower() and not self._starts_with_surname(clean) and (
@@ -417,22 +610,38 @@ class CandidateExtractor:
         ):
             return True
         # Không bắt cụm từ có từ cuối là từ nối/chỉ quan hệ/đại từ
-        if words[-1] in self.trimmer.DEFAULT_TRAILING or words[-1] in self.trimmer.DEFAULT_LEADING:
+        if not is_foreign and (words[-1] in self.trimmer.DEFAULT_TRAILING or words[-1] in self.trimmer.DEFAULT_LEADING):
             return True
         return False
 
     def _starts_with_surname(self, text: str) -> bool:
         words = text.lower().split()
-        if len(words) >= 2 and f"{words[0]} {words[1]}" in self.loader.compound_surnames:
+        if not words:
+            return False
+        if len(words) >= 2 and (f"{words[0]} {words[1]}" in self.loader.compound_surnames or self.trimmer.is_surname(f"{words[0]} {words[1]}")):
             return True
-        if words and words[0] in self.loader.single_surnames:
+        if words[0] in self.loader.single_surnames or self.trimmer.is_surname(words[0]):
             return True
         return False
 
     def _deduplicate_spans(self, candidates: list[CandidateMatch]) -> list[CandidateMatch]:
-        candidates.sort(key=lambda x: (-x.confidence, -(x.end - x.start)))
-        kept: list[CandidateMatch] = []
+        # Filter out shorter candidates that are strictly subsumed by a candidate starting with a surname or foreign/latin
+        filtered: list[CandidateMatch] = []
         for c in candidates:
+            is_subsumed = False
+            for other in candidates:
+                if other is c:
+                    continue
+                if (other.start <= c.start and other.end >= c.end and (other.end - other.start > c.end - c.start)):
+                    if (self._starts_with_surname(other.name) or '·' in other.name or '-' in other.name or self._is_latin_name(other.name)) and other.confidence >= 0.85:
+                        is_subsumed = True
+                        break
+            if not is_subsumed:
+                filtered.append(c)
+
+        filtered.sort(key=lambda x: (-x.confidence, -(x.end - x.start)))
+        kept: list[CandidateMatch] = []
+        for c in filtered:
             overlap = False
             for k in kept:
                 if max(c.start, k.start) < min(c.end, k.end) or c.name == k.name:
