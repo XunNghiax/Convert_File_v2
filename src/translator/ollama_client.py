@@ -11,21 +11,23 @@ class OllamaTranslatorClient:
     using standard library urllib (zero external dependency).
     """
 
-    SYSTEM_PROMPT = """Bạn là một dịch giả tiểu thuyết Trung - Việt chuyên nghiệp với hơn 10 năm kinh nghiệm.
-Nhiệm vụ của bạn là dịch nguyên văn đoạn văn bản tiếng Trung (raw) sang tiếng Việt với tiêu chí:
-1. Độ chính xác cao: Giữ đúng ngữ cảnh, danh xưng nhân vật, bối cảnh cốt truyện.
-2. Văn phong tự nhiên, thuần Việt, mượt mà nhưng không tự ý thêm thắt hoặc cắt bớt nội dung.
-3. Tên nhân vật, địa danh, chiêu thức, tên tổ chức: Ưu tiên phiên âm chuẩn Hán Việt, KHÔNG dịch thoát nghĩa đen ngô nghê.
-4. Bắt buộc tuân thủ danh mục Glossary được cung cấp bên dưới (nếu có).
+    SYSTEM_PROMPT = """You are a master Chinese-to-Vietnamese literary translator with deep expertise in web novels.
+Your ONLY mission is to translate the provided raw Chinese text into fluent, natural, expressive Vietnamese (Tiếng Việt).
 
-CẤU TRÚC KẾT QUẢ ĐẦU RA BẮT BUỘC:
+STRICT MANDATORY RULES:
+1. Every single sentence MUST be translated into Vietnamese. DO NOT leave Chinese sentences or paragraphs in the translation.
+2. Character names, locations, and novel terms MUST be translated into standard Sino-Vietnamese (Hán Việt). For example: 龙剑飞 -> Long Kiếm Phi, 稷下村 -> Thôn Tắc Hạ, 炎河 -> Sông Viêm, 炎帝 -> Viêm Đế.
+3. Keep the tone natural, vivid, and culturally appropriate for Vietnamese readers.
+4. Strictly adhere to the reference glossary provided below.
+
+OUTPUT FORMAT REQUIREMENTS:
 === BẢN DỊCH ===
-(Toàn bộ nội dung chương dịch sang tiếng Việt)
+(Full Vietnamese translation here)
 
 === TỪ ĐIỂN MỚI ===
-(Danh sách các danh từ riêng, nhân vật, địa danh Hán Việt xuất hiện trong đoạn mà bạn đã định danh chuẩn xác, định dạng mỗi dòng:
-- [chữ Hán] => [Hán Việt chuẩn] (Loại: Nhân vật/Địa danh/Thuật ngữ)
-Nếu không có từ mới đáng chú ý, để trống phần này)"""
+(List newly identified character names, locations, and Sino-Vietnamese terms in this format:
+- [Chinese] => [Vietnamese] (Type)
+If none, leave this section empty)"""
 
     def __init__(
         self,
@@ -56,10 +58,10 @@ Nếu không có từ mới đáng chú ý, để trống phần này)"""
         Sends chapter text to Ollama and returns the raw AI response.
         Retries up to max_retries on transient failure with backoff.
         """
-        user_prompt = ""
+        user_prompt = "Please translate the following Chinese novel chapter into natural, fluent Vietnamese (Tiếng Việt):\n\n"
         if glossary_prompt and glossary_prompt.strip():
-            user_prompt += f"DANH MỤC GLOSSARY THAM KHẢO:\n{glossary_prompt.strip()}\n\n"
-        user_prompt += f"VĂN BẢN TIẾNG TRUNG CẦN DỊCH:\n{chapter_text}"
+            user_prompt += f"REFERENCE GLOSSARY:\n{glossary_prompt.strip()}\n\n"
+        user_prompt += f"CHINESE TEXT TO TRANSLATE:\n{chapter_text}"
 
         payload = {
             "model": self.model_name,
