@@ -177,26 +177,105 @@ def menu_ai_translation():
 
                 post_proc = input("👉 Tự động chạy ReplaceEngine hậu kỳ sau khi dịch? (Y/n) [Mặc định: Y]: ").strip().lower() != "n"
 
-                print(f"\n🚀 Bắt đầu tiến trình dịch thuật...")
-                print(f"   • File raw: {raw_file}")
-                print(f"   • File dịch: {out_file}")
-                print(f"   • Checkpoint: progress_{Path(out_file).stem}.json")
-                print("-" * 68)
-
-                def _progress_cb(cur_idx, total_cnt, chap_title, elapsed):
-                    print(f"   [+] Hoàn thành [{cur_idx}/{total_cnt}] ({elapsed:.1f}s): {chap_title}")
+                try:
+                    from rich.console import Console
+                    from rich.progress import (
+                        Progress, SpinnerColumn, BarColumn, TextColumn,
+                        TimeElapsedColumn, TimeRemainingColumn, MofNCompleteColumn,
+                        TaskProgressColumn
+                    )
+                    from rich.panel import Panel
+                    HAVE_RICH = True
+                except ImportError:
+                    HAVE_RICH = False
 
                 try:
-                    engine.translate_novel(
-                        raw_filepath=raw_path,
-                        output_filepath=out_file,
-                        start_chapter=start_chap,
-                        max_chapters=max_chap,
-                        run_post_processing=post_proc,
-                        progress_callback=_progress_cb
-                    )
-                    print("\n🎉 DỊCH THUẬT HOÀN TẤT THÀNH CÔNG!")
-                    print(f"📄 File kết quả đã lưu tại: {out_file}")
+                    if HAVE_RICH:
+                        console = Console()
+                        raw_size_mb = raw_path.stat().st_size / (1024 * 1024)
+                        info_panel = Panel(
+                            f"[bold white]• File raw:[/bold white]    [cyan]{raw_path.as_posix()}[/cyan] ({raw_size_mb:.2f} MB)\n"
+                            f"[bold white]• File dịch:[/bold white]   [green]{out_file}[/green]\n"
+                            f"[bold white]• Checkpoint:[/bold white]  [yellow]progress_{Path(out_file).stem}.json[/yellow]\n"
+                            f"[bold white]• Máy chủ:[/bold white]     [magenta]{colab_url}[/magenta]",
+                            title="[bold green]🚀 TIẾN TRÌNH DỊCH THUẬT AI (OLLAMA QWEN2.5)[/bold green]",
+                            border_style="green"
+                        )
+                        console.print(info_panel)
+
+                        with Progress(
+                            SpinnerColumn(),
+                            TextColumn("[bold cyan]{task.description}"),
+                            BarColumn(bar_width=25),
+                            TaskProgressColumn(),
+                            MofNCompleteColumn(),
+                            "•",
+                            TimeElapsedColumn(),
+                            "•",
+                            TimeRemainingColumn(),
+                            console=console,
+                            transient=False
+                        ) as progress:
+                            total_task = progress.add_task("[bold green]Tiến độ file", total=100, completed=0)
+                            chapter_task = progress.add_task("[bold yellow]Chương hiện tại", total=100, completed=0)
+
+                            def _on_init(total_cnt, completed_cnt):
+                                progress.update(total_task, total=total_cnt, completed=completed_cnt)
+
+                            def _on_chap_start(cur_idx, total_cnt, chap_title, char_count):
+                                progress.update(
+                                    chapter_task,
+                                    description=f"[bold yellow]Đang dịch [{cur_idx}/{total_cnt}]: {chap_title[:25]}... ({char_count} ký tự)",
+                                    total=100,
+                                    completed=20
+                                )
+
+                            def _on_chap_end(cur_idx, total_cnt, chap_title, elapsed, new_terms_count=0):
+                                progress.update(total_task, advance=1)
+                                progress.update(
+                                    chapter_task,
+                                    description=f"[bold green]Xong [{cur_idx}/{total_cnt}]: {chap_title[:20]} ({elapsed:.1f}s)",
+                                    completed=100
+                                )
+                                console.print(
+                                    f"   [bold green]✓[/bold green] [{cur_idx}/{total_cnt}] [bold white]{chap_title}[/bold white] "
+                                    f"([cyan]{elapsed:.1f}s[/cyan]) | [yellow]+{new_terms_count} từ mới[/yellow] | Checkpoint đã lưu"
+                                )
+
+                            engine.translate_novel(
+                                raw_filepath=raw_path,
+                                output_filepath=out_file,
+                                start_chapter=start_chap,
+                                max_chapters=max_chap,
+                                run_post_processing=post_proc,
+                                on_init=_on_init,
+                                on_chapter_start=_on_chap_start,
+                                progress_callback=_on_chap_end
+                            )
+
+                        console.print(Panel(f"[bold green]🎉 DỊCH THUẬT HOÀN TẤT THÀNH CÔNG![/bold green]\n📄 Kết quả đã lưu tại: [cyan]{out_file}[/cyan]", border_style="green"))
+
+                    else:
+                        print(f"\n🚀 Bắt đầu tiến trình dịch thuật...")
+                        print(f"   • File raw: {raw_file}")
+                        print(f"   • File dịch: {out_file}")
+                        print(f"   • Checkpoint: progress_{Path(out_file).stem}.json")
+                        print("-" * 68)
+
+                        def _progress_cb(cur_idx, total_cnt, chap_title, elapsed, new_terms_count=0):
+                            print(f"   [+] Hoàn thành [{cur_idx}/{total_cnt}] ({elapsed:.1f}s, +{new_terms_count} từ): {chap_title}")
+
+                        engine.translate_novel(
+                            raw_filepath=raw_path,
+                            output_filepath=out_file,
+                            start_chapter=start_chap,
+                            max_chapters=max_chap,
+                            run_post_processing=post_proc,
+                            progress_callback=_progress_cb
+                        )
+                        print("\n🎉 DỊCH THUẬT HOÀN TẤT THÀNH CÔNG!")
+                        print(f"📄 File kết quả đã lưu tại: {out_file}")
+
                 except Exception as e:
                     print(f"\n❌ Lỗi trong quá trình dịch: {e}")
 

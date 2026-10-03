@@ -44,11 +44,13 @@ class TranslatorEngine:
         start_chapter: int = 1,
         max_chapters: Optional[int] = None,
         run_post_processing: bool = True,
-        progress_callback: Optional[Callable[[int, int, str, float], None]] = None,
+        on_init: Optional[Callable[[int, int], None]] = None,
+        on_chapter_start: Optional[Callable[[int, int, str, int], None]] = None,
+        progress_callback: Optional[Callable[..., None]] = None,
     ) -> bool:
         """
         Translates a raw novel file chapter-by-chapter into Vietnamese.
-        Supports resume from checkpoint and dynamic term enrichment.
+        Supports resume from checkpoint, dynamic term enrichment, and live callbacks.
         """
         raw_filepath = Path(raw_filepath)
         output_filepath = Path(output_filepath)
@@ -73,6 +75,9 @@ class TranslatorEngine:
             total_chapters=total_chapters,
         )
 
+        if on_init:
+            on_init(total_chapters, len(tracker.completed_chapters))
+
         # 4. Determine start index
         current_idx = max(start_chapter, tracker.get_resume_index())
         processed_in_session = 0
@@ -86,6 +91,9 @@ class TranslatorEngine:
 
             if tracker.is_completed(chapter.index):
                 continue
+
+            if on_chapter_start:
+                on_chapter_start(chapter.index, total_chapters, chapter.title, chapter.char_count)
 
             # Build chapter-specific glossary
             glossary_prompt = self.glossary_mgr.build_prompt_glossary(chapter.content)
@@ -113,7 +121,10 @@ class TranslatorEngine:
             processed_in_session += 1
 
             if progress_callback:
-                progress_callback(chapter.index, total_chapters, chapter.title, elapsed)
+                try:
+                    progress_callback(chapter.index, total_chapters, chapter.title, elapsed, len(new_terms))
+                except TypeError:
+                    progress_callback(chapter.index, total_chapters, chapter.title, elapsed)
 
         # 5. Optional Post-Processing via ReplaceEngine
         if run_post_processing and output_filepath.exists():
