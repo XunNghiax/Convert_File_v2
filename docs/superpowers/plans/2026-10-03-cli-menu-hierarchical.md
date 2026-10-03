@@ -27,7 +27,7 @@
 - Consumes: `run_cli.py`
 - Produces: Test các hàm `menu_ai_translation`, `menu_character_scanner`, `menu_hanviet_scanner`, `menu_dictionary_manager`, `menu_replace_engine`, `menu_system_tools`, `main_menu`.
 
-- [ ] **Bước 1: Viết test cho các hàm Menu Con**
+- [x] **Bước 1: Viết test cho các hàm Menu Con**
   Tạo `tests/test_run_cli.py`:
   ```python
   from unittest.mock import patch
@@ -57,7 +57,7 @@
           run_cli.main_menu()
   ```
 
-- [ ] **Bước 2: Chạy test để xác nhận test chạy và FAIL (chưa có các hàm sub-menu)**
+- [x] **Bước 2: Chạy test để xác nhận test chạy và FAIL (chưa có các hàm sub-menu)**
   Chạy: `pytest tests/test_run_cli.py`
   Kỳ vọng: FAIL vì chưa định nghĩa các hàm `menu_*`.
 
@@ -78,8 +78,8 @@
   - `menu_replace_engine()`: Chứa chức năng replace bằng từ điển cũ (`[9]` + hậu kỳ de-convert).
   - `menu_system_tools()`: Chứa chức năng chạy Unit Tests (`[8]`).
 
-- [ ] **Bước 1: Cài đặt `print_sub_banner` và 6 hàm `menu_*`**
-- [ ] **Bước 2: Chạy test xác nhận Task 1 PASS một phần**
+- [x] **Bước 1: Cài đặt `print_sub_banner` và 6 hàm `menu_*`**
+- [x] **Bước 2: Chạy test xác nhận Task 1 PASS một phần**
   Chạy: `pytest tests/test_run_cli.py`
 
 ---
@@ -99,10 +99,10 @@
   - `6`: `menu_system_tools()`
   - `0`: Thoát chương trình
 
-- [ ] **Bước 1: Cập nhật `main_menu()`**
-- [ ] **Bước 2: Chạy test `tests/test_run_cli.py` xác nhận 100% PASS**
+- [x] **Bước 1: Cập nhật `main_menu()`**
+- [x] **Bước 2: Chạy test `tests/test_run_cli.py` xác nhận 100% PASS**
   Chạy: `pytest tests/test_run_cli.py`
-- [ ] **Bước 3: Commit code**
+- [x] **Bước 3: Commit code**
   `git add run_cli.py tests/test_run_cli.py`
   `git commit -m "feat(cli): refactor run_cli into clean 2-tier hierarchical sub-menus"`
 
@@ -113,6 +113,6 @@
 **Files:**
 - Run: `pytest tests/`
 
-- [ ] **Bước 1: Chạy toàn bộ test suite**
+- [x] **Bước 1: Chạy toàn bộ test suite**
   Chạy: `pytest tests/` (Tất cả 95+ tests phải PASS hoàn toàn).
-- [ ] **Bước 2: Chạy thử CLI và báo cáo cho người dùng**
+- [x] **Bước 2: Chạy thử CLI và báo cáo cho người dùng**
