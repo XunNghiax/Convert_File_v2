@@ -66,7 +66,7 @@ class BoundaryTrimmer:
         "phó", "kiều", "lại", "uông", "thân", "địch", "cảnh", "kỷ", "tề", "công tôn",
         "mộ dung", "hoàng phủ", "lệnh hồ", "vũ văn", "tư đồ", "tư không", "tây môn",
         "trưởng tôn", "uất trì", "bách lý", "liêu", "mặc", "ngả", "khuất", "trang",
-        "nhiếp", "thiên diệp", "tây xuyên", "nạp lan"
+        "nhiếp", "thiên diệp", "tây xuyên", "nạp lan", "ước"
     }
 
     @classmethod

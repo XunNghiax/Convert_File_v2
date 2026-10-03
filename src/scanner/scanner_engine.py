@@ -123,7 +123,10 @@ class ScannerEngine:
         "mắng", "quát", "hét", "kêu", "đáp", "thở", "nghĩ", "lẩm", "bẩm", "gật", "lắc",
         "chạm", "chỉ", "hiểu", "xem", "uống", "ăn", "nuốt", "rót", "mở", "đóng",
         "tiến", "lùi", "quay", "xoay", "cúi", "ngẩng", "nhíu", "nhướng", "trừng",
-        "liếc", "nhòm", "dòm", "la", "nhắc", "than"
+        "liếc", "nhòm", "dòm", "la", "nhắc", "than",
+        # Hư từ, trạng từ, danh từ dính đuôi phổ biến trong convert
+        "lời", "tiếng", "lúc", "khi", "mau", "nháy", "phủi", "dọa", "nụ", "eo",
+        "buồn", "mẹ", "bố", "ba", "cha", "con", "a", "bỉ", "điềm", "tồn"
     }
 
     def __init__(self, loader: Optional[ResourceLoader] = None, skip_known: bool = True):
@@ -190,7 +193,7 @@ class ScannerEngine:
     @staticmethod
     def _merge_variant(target_block: CharacterBlock, variant_name: str):
         var_clean = variant_name.strip()
-        if var_clean and var_clean.lower() != target_block.target.lower() and var_clean not in target_block.bien_the:
+        if var_clean and var_clean.lower() != target_block.target.lower() and not any(v.lower() == var_clean.lower() for v in target_block.bien_the):
             target_block.bien_the.append(var_clean)
 
     @staticmethod
@@ -587,8 +590,7 @@ class ScannerEngine:
             best_block.dong_xuat_hien = all_lines[0] if all_lines else best_block.dong_xuat_hien
             for b in group:
                 for bt in b.bien_the:
-                    if bt not in best_block.bien_the:
-                        best_block.bien_the.append(bt)
+                    ScannerEngine._merge_variant(best_block, bt)
             deduped.append(best_block)
 
         return self.cluster_aliases(deduped)

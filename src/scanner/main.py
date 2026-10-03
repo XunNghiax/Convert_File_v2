@@ -13,11 +13,18 @@ root_dir = Path(__file__).resolve().parent.parent.parent
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from .resource_loader import ResourceLoader
-from .scanner_engine import ScannerEngine, CharacterBlock
-from .output_packager import OutputPackager
-from .benchmark import Evaluator
-from .upload_to_gemini import run_upload_workflow
+try:
+    from .resource_loader import ResourceLoader
+    from .scanner_engine import ScannerEngine, CharacterBlock
+    from .output_packager import OutputPackager
+    from .benchmark import Evaluator
+    from .upload_to_gemini import run_upload_workflow
+except ImportError:
+    from src.scanner.resource_loader import ResourceLoader
+    from src.scanner.scanner_engine import ScannerEngine, CharacterBlock
+    from src.scanner.output_packager import OutputPackager
+    from src.scanner.benchmark import Evaluator
+    from src.scanner.upload_to_gemini import run_upload_workflow
 
 import gc
 

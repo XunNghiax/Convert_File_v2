@@ -335,7 +335,9 @@ class CandidateExtractor:
                         words = trimmed.split()
                 if len(words) == 3:
                     first_two = f"{words[0].lower()} {words[1].lower()}"
-                    if first_two not in self.loader.compound_surnames and words[2].lower() in self.trimmer.trailing_stopwords:
+                    if (first_two not in self.loader.compound_surnames and 
+                        not self._starts_with_surname(trimmed) and 
+                        words[2].lower() in self.trimmer.trailing_stopwords):
                         trimmed = " ".join(words[:2])
                         trimmed, _ = self.trimmer.trim(trimmed)
                 if self._is_negative(trimmed, skip_known=effective_skip):
