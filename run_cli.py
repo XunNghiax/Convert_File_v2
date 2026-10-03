@@ -90,11 +90,42 @@ def prompt_input_file(default="samples/exam.txt"):
         val = input(f"Nhập đường dẫn file văn bản [Mặc định: {default}]: ").strip()
         return val or default
 
+def get_raw_txt_files():
+    """Tìm danh sách file raw trong craw/ và samples/."""
+    candidates = []
+    for d in [Path("craw"), Path("samples")]:
+        if d.exists():
+            for f in sorted(d.glob("*.txt")):
+                if f.is_file():
+                    candidates.append(f)
+    return candidates
+
+def prompt_raw_file(default="craw/shao_long_feng_liu_raw.txt"):
+    """Hỏi người dùng chọn file raw với danh sách gợi ý."""
+    raw_files = get_raw_txt_files()
+    if raw_files:
+        print("\n📂 Danh sách file raw tìm thấy trong craw/ và samples/:")
+        for idx, f in enumerate(raw_files, start=1):
+            size_mb = f.stat().st_size / (1024 * 1024)
+            print(f"   [{idx}] {f.as_posix()} ({size_mb:.2f} MB)")
+        val = input(f"\n👉 Chọn số thứ tự (1-{len(raw_files)}) hoặc nhập đường dẫn [Mặc định: {default}]: ").strip()
+        if not val:
+            return default
+        if val.isdigit() and 1 <= int(val) <= len(raw_files):
+            return str(raw_files[int(val) - 1])
+        return val
+    else:
+        val = input(f"Nhập đường dẫn file raw [Mặc định: {default}]: ").strip()
+        return val or default
+
 def main_menu():
     while True:
         try:
             clear_screen()
             print_banner()
+            print("  [ QUY TRÌNH DỊCH THUẬT AI (OLLAMA / COLAB) ]")
+            print("  [15] 🌐 Dịch tiểu thuyết raw bằng Ollama Qwen2.5 (Colab Server)")
+            print()
             print("  [ QUY TRÌNH QUÉT NHÂN VẬT & BIÊN TẬP AI ]")
             print("  [1] 🚀 Toàn trình: Quét nhân vật + Tự động gửi Gemini -> samples/import.json")
             print("  [2] 🔍 Chỉ quét nhân vật (Xuất scanner/ gồm .md & master JSON)")
@@ -121,7 +152,7 @@ def main_menu():
             print("  [0] ❌ Thoát chương trình")
             print("=" * 68)
 
-            choice = input("👉 Nhập lựa chọn của bạn (0-14) [Mặc định: 1]: ").strip()
+            choice = input("👉 Nhập lựa chọn của bạn (0-15) [Mặc định: 1]: ").strip()
             if not choice:
                 choice = "1"
 
@@ -358,6 +389,67 @@ def main_menu():
                 ]
                 print(f"\n[*] Đang thực thi: {' '.join(cmd)}\n")
                 subprocess.run(cmd)
+                input("\n👉 Nhấn Enter để quay lại menu chính...")
+
+            elif choice == "15":
+                print("\n--- [15] DỊCH TIỂU THUYẾT RAW BẰNG OLLAMA QWEN2.5 (COLAB SERVER) ---")
+                colab_url = input("👉 Nhập URL Public Colab (ví dụ: https://xxx.trycloudflare.com): ").strip()
+                if not colab_url:
+                    print("❌ URL không được để trống!")
+                    input("👉 Nhấn Enter để quay lại menu chính...")
+                    continue
+
+                from src.translator.translator_engine import TranslatorEngine
+                print("\n[*] Đang kiểm tra kết nối tới Colab Ollama...")
+                engine = TranslatorEngine(colab_url=colab_url)
+                if not engine.client.check_health():
+                    print(f"❌ Không thể kết nối tới Ollama tại {colab_url}.")
+                    print("    Vui lòng kiểm tra notebook Colab và đường link Cloudflare Tunnel.")
+                    input("👉 Nhấn Enter để quay lại menu chính...")
+                    continue
+                print("✅ Kết nối Ollama thành công!")
+
+                raw_file = prompt_raw_file("craw/shao_long_feng_liu_raw.txt")
+                raw_path = Path(raw_file)
+                if not raw_path.exists():
+                    print(f"❌ Không tìm thấy file: {raw_file}")
+                    input("👉 Nhấn Enter để quay lại menu chính...")
+                    continue
+
+                default_out = f"convert/translated/{raw_path.stem}_vietnamese.txt"
+                out_file = input(f"👉 File kết quả bản dịch [Mặc định: {default_out}]: ").strip() or default_out
+
+                start_chap_str = input("👉 Bắt đầu từ chương số (hoặc tự động resume) [Mặc định: tự động]: ").strip()
+                start_chap = int(start_chap_str) if start_chap_str.isdigit() else 1
+
+                max_chap_str = input("👉 Giới hạn số chương cần dịch (để trống = dịch toàn bộ) [Mặc định: Toàn bộ]: ").strip()
+                max_chap = int(max_chap_str) if max_chap_str.isdigit() else None
+
+                post_proc = input("👉 Tự động chạy ReplaceEngine hậu kỳ sau khi dịch? (Y/n) [Mặc định: Y]: ").strip().lower() != "n"
+
+                print(f"\n🚀 Bắt đầu tiến trình dịch thuật...")
+                print(f"   • File raw: {raw_file}")
+                print(f"   • File dịch: {out_file}")
+                print(f"   • Checkpoint: progress_{Path(out_file).stem}.json")
+                print("-" * 68)
+
+                def _progress_cb(cur_idx, total_cnt, chap_title, elapsed):
+                    print(f"   [+] Hoàn thành [{cur_idx}/{total_cnt}] ({elapsed:.1f}s): {chap_title}")
+
+                try:
+                    engine.translate_novel(
+                        raw_filepath=raw_path,
+                        output_filepath=out_file,
+                        start_chapter=start_chap,
+                        max_chapters=max_chap,
+                        run_post_processing=post_proc,
+                        progress_callback=_progress_cb
+                    )
+                    print("\n🎉 DỊCH THUẬT HOÀN TẤT THÀNH CÔNG!")
+                    print(f"📄 File kết quả đã lưu tại: {out_file}")
+                except Exception as e:
+                    print(f"\n❌ Lỗi trong quá trình dịch: {e}")
+
                 input("\n👉 Nhấn Enter để quay lại menu chính...")
 
             else:
