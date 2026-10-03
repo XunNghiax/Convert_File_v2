@@ -7,6 +7,7 @@ from src.translator.chapter_splitter import ChapterSplitter
 from src.translator.glossary_manager import GlossaryManager
 from src.translator.progress_tracker import TranslatorProgressTracker
 from src.translator.ollama_client import OllamaTranslatorClient
+from src.translator.hanviet_transliterater import HanVietTransliterater
 from src.replacer.replace_engine import ReplaceEngine
 
 
@@ -36,6 +37,9 @@ class TranslatorEngine:
         )
         self.glossary_mgr = GlossaryManager(base_dir=self.base_dir)
         self.splitter = ChapterSplitter()
+        self.transliterater = HanVietTransliterater(
+            dict_path=self.base_dir / "resources" / "dictionaries" / "hanviet_dict.json"
+        )
 
     def translate_novel(
         self,
@@ -92,8 +96,10 @@ class TranslatorEngine:
             if tracker.is_completed(chapter.index):
                 continue
 
+            translated_title = self.transliterater.translate_title(chapter.title)
+
             if on_chapter_start:
-                on_chapter_start(chapter.index, total_chapters, chapter.title, chapter.char_count)
+                on_chapter_start(chapter.index, total_chapters, translated_title, chapter.char_count)
 
             # Build chapter-specific glossary
             glossary_prompt = self.glossary_mgr.build_prompt_glossary(chapter.content)
@@ -110,11 +116,14 @@ class TranslatorEngine:
             if new_terms:
                 self.glossary_mgr.integrate_new_terms(new_terms)
 
+            # Ensure zero residual Chinese characters in translation
+            cleaned_translation = self.transliterater.clean_text(translation)
+
             # Mark completed & append to output file
             tracker.mark_completed(
                 chapter_index=chapter.index,
-                chapter_title=chapter.title,
-                translated_text=translation,
+                chapter_title=translated_title,
+                translated_text=cleaned_translation,
                 elapsed_seconds=elapsed,
             )
 
@@ -122,9 +131,9 @@ class TranslatorEngine:
 
             if progress_callback:
                 try:
-                    progress_callback(chapter.index, total_chapters, chapter.title, elapsed, len(new_terms))
+                    progress_callback(chapter.index, total_chapters, translated_title, elapsed, len(new_terms))
                 except TypeError:
-                    progress_callback(chapter.index, total_chapters, chapter.title, elapsed)
+                    progress_callback(chapter.index, total_chapters, translated_title, elapsed)
 
         # 5. Optional Post-Processing via ReplaceEngine
         if run_post_processing and output_filepath.exists():

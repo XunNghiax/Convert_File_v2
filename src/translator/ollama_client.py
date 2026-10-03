@@ -15,7 +15,7 @@ class OllamaTranslatorClient:
 Your ONLY mission is to translate the provided raw Chinese text into fluent, natural, expressive Vietnamese (Tiếng Việt).
 
 STRICT MANDATORY RULES:
-1. Every single sentence MUST be translated into Vietnamese. DO NOT leave Chinese sentences or paragraphs in the translation.
+1. Every single sentence MUST be translated into 100% Vietnamese. TUYỆT ĐỐI KHÔNG để lại bất kỳ chữ Hán (tiếng Trung) nào trong bản dịch. Nếu gặp từ miêu tả/tục ngữ khó, phải dịch thoát ý hoặc phiên âm Hán Việt chuẩn, không bao giờ giữ lại chữ Hán.
 2. Character names, locations, and novel terms MUST be translated into standard Sino-Vietnamese (Hán Việt). For example: 龙剑飞 -> Long Kiếm Phi, 稷下村 -> Thôn Tắc Hạ, 炎河 -> Sông Viêm, 炎帝 -> Viêm Đế.
 3. Keep the tone natural, vivid, and culturally appropriate for Vietnamese readers.
 4. Strictly adhere to the reference glossary provided below.
@@ -73,6 +73,7 @@ If none, leave this section empty)"""
             "options": {
                 "temperature": 0.2,
                 "num_ctx": 8192,
+                "num_predict": 4096,
             },
         }
 
