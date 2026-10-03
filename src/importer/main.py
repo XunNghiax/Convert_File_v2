@@ -79,16 +79,10 @@ def main():
                 is_char_str = input("Có phải tên nhân vật? (y/n, Mặc định: y): ").strip().lower()
                 is_char = False if is_char_str in ("n", "no", "0") else True
 
-                tag_label = "Tag (nhân vật)" if is_char else "Category (loại từ)"
-                tag = input(f"{tag_label} [tùy chọn]: ").strip()
-                cid = input("ID (tùy chọn, Enter để tự sinh): ").strip()
                 items_to_import.append({
-                    "id": cid,
                     "is_character": is_char,
                     "source": src,
-                    "target": tgt,
-                    "Tag": tag,
-                    "category": tag
+                    "target": tgt
                 })
             except (KeyboardInterrupt, EOFError):
                 break

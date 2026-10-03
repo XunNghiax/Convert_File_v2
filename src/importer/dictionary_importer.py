@@ -2,7 +2,7 @@ import json
 import os
 import re
 from pathlib import Path
-from typing import List, Dict, Optional, Union, Tuple
+from typing import List, Dict, Optional, Union, Tuple, Any
 
 # Đường dẫn mặc định chuẩn của dự án
 DEFAULT_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -37,9 +37,9 @@ def check_word_count_alignment(source: str, target: str) -> Tuple[bool, int, int
     return False, cnt_s, cnt_t, reason
 
 def filter_and_export_warnings(
-    items: List[Dict[str, any]],
+    items: List[Dict[str, Any]],
     warning_path: Union[str, Path] = DEFAULT_WARNING_JSON
-) -> Tuple[List[Dict[str, any]], List[Dict[str, any]]]:
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     """
     Lọc các mục bị lệch số từ và xuất ra file warning.json để chuẩn hóa.
     Chỉ trả về các mục đạt chuẩn (valid_items) để nạp vào từ điển.
@@ -87,11 +87,13 @@ def filter_and_export_warnings(
 
     return valid_items, warning_items
 
-def get_next_id(entries: List[Dict[str, str]], default_prefix: str = "ch-") -> str:
-    """Tìm ID số lớn nhất hiện tại (vd: ch-55 hoặc co-1106) và trả về ID tiếp theo."""
+def get_next_id(entries: Any = None, default_prefix: str = "ch-") -> str:
+    """[Deprecated] Giữ lại để tương thích ngược. Không còn sử dụng cho từ điển dạng key-value."""
+    if not entries or not isinstance(entries, list):
+        return ""
     prefix = default_prefix
-    if entries:
-        for entry in reversed(entries):
+    for entry in reversed(entries):
+        if isinstance(entry, dict):
             item_id = str(entry.get("id", "")).strip()
             match = re.match(r"^([a-zA-Z]+-?)(\d+)$", item_id)
             if match:
@@ -101,27 +103,38 @@ def get_next_id(entries: List[Dict[str, str]], default_prefix: str = "ch-") -> s
     max_num = 0
     pattern = re.compile(rf"^{re.escape(prefix)}(\d+)$", re.IGNORECASE)
     for entry in entries:
-        item_id = str(entry.get("id", "")).strip()
-        match = pattern.match(item_id)
-        if match:
-            max_num = max(max_num, int(match.group(1)))
+        if isinstance(entry, dict):
+            item_id = str(entry.get("id", "")).strip()
+            match = pattern.match(item_id)
+            if match:
+                max_num = max(max_num, int(match.group(1)))
     return f"{prefix}{max_num + 1}"
 
-def load_dictionary(path: Path) -> List[Dict[str, str]]:
-    """Tải file từ điển JSON."""
+def load_dictionary(path: Union[str, Path]) -> Dict[str, str]:
+    """Tải file từ điển JSON dưới dạng key-value dict (nguồn: đích). Có fallback cho định dạng mảng cũ."""
+    path = Path(path)
     if not path.exists():
-        return []
+        return {}
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
-            if isinstance(data, list):
-                return data
-            return []
+            if isinstance(data, dict):
+                return {str(k).strip().lower(): str(v).strip() for k, v in data.items() if str(k).strip()}
+            elif isinstance(data, list):
+                result = {}
+                for item in data:
+                    if isinstance(item, dict):
+                        src = str(item.get("source", "")).strip().lower()
+                        tgt = str(item.get("target") or item.get("suggested_target", "")).strip()
+                        if src and tgt:
+                            result[src] = tgt
+                return result
+            return {}
     except Exception as e:
         print(f"[!] Cảnh báo: Không thể đọc file từ điển {path}: {e}")
-        return []
+        return {}
 
-def save_dictionary(entries: List[Dict[str, str]], path: Path, indent: int = 4) -> bool:
+def save_dictionary(entries: Union[Dict[str, Any], List[Any]], path: Union[str, Path], indent: int = 2) -> bool:
     """Lưu lại từ điển với chuẩn UTF-8 và cơ chế atomic write chống hỏng file khi bị ngắt."""
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -155,8 +168,8 @@ def lowercase_all(text: str) -> str:
     """Chuyển toàn bộ chuỗi thành chữ thường (lowkey toàn bộ cho từ điển chung)."""
     return text.strip().lower() if text else ""
 
-def normalize_character_entry(raw_item: Dict[str, any]) -> Optional[Dict[str, str]]:
-    """Chuẩn hóa một mục nhân vật cho character_dict.json (dùng Tag, tự động upcase chữ cái đầu mỗi từ)."""
+def normalize_character_entry(raw_item: Dict[str, Any]) -> Optional[Dict[str, str]]:
+    """Chuẩn hóa một mục nhân vật cho character_dict (dùng Tag, tự động upcase chữ cái đầu mỗi từ)."""
     if not isinstance(raw_item, dict):
         return None
 
@@ -179,8 +192,8 @@ def normalize_character_entry(raw_item: Dict[str, any]) -> Optional[Dict[str, st
         "Tag": tag
     }
 
-def normalize_common_entry(raw_item: Dict[str, any]) -> Optional[Dict[str, str]]:
-    """Chuẩn hóa một mục từ thông dụng cho common_dict.json (dùng category, tự động lowercase toàn bộ target)."""
+def normalize_common_entry(raw_item: Dict[str, Any]) -> Optional[Dict[str, str]]:
+    """Chuẩn hóa một mục từ thông dụng cho common_dict (dùng category, tự động lowercase toàn bộ target)."""
     if not isinstance(raw_item, dict):
         return None
 
@@ -204,7 +217,7 @@ def normalize_common_entry(raw_item: Dict[str, any]) -> Optional[Dict[str, str]]
     }
 
 def normalize_entry(
-    raw_item: Dict[str, any],
+    raw_item: Dict[str, Any],
     filter_characters: bool = True
 ) -> Optional[Dict[str, str]]:
     """Hàm chuẩn hóa tương thích ngược."""
@@ -218,72 +231,53 @@ def normalize_entry(
     return normalize_character_entry(raw_item)
 
 def import_character_dict(
-    items: List[Dict[str, any]],
+    items: List[Dict[str, Any]],
     dict_path: Union[str, Path] = DEFAULT_CHARACTER_DICT,
     overwrite_existing: bool = True,
     id_prefix: str = "ch-",
     filter_characters: bool = True,
     keep_id: bool = False
-) -> Dict[str, any]:
-    """Import các mục nhân vật vào character_dict.json."""
+) -> Dict[str, Any]:
+    """Import các mục nhân vật vào character_dict.json dưới dạng key-value."""
     dict_path = Path(dict_path)
     entries = load_dictionary(dict_path)
-
-    existing_map = {}
-    for idx, entry in enumerate(entries):
-        src = str(entry.get("source", "")).strip().lower()
-        if src:
-            existing_map[src] = idx
 
     added_count = 0
     updated_count = 0
     skipped_count = 0
 
-    id_pattern = re.compile(rf"^{re.escape(id_prefix)}\d+$", re.IGNORECASE)
-
     for raw in items:
-        if filter_characters and isinstance(raw, dict) and "is_character" in raw:
+        if not isinstance(raw, dict):
+            skipped_count += 1
+            continue
+
+        if filter_characters and "is_character" in raw:
             if not raw.get("is_character", False):
                 skipped_count += 1
                 continue
 
-        norm = normalize_character_entry(raw)
-        if not norm:
+        source = str(raw.get("source", "")).strip()
+        target = str(raw.get("target") or raw.get("suggested_target", "")).strip()
+
+        if not source or not target:
             skipped_count += 1
             continue
 
-        src_key = norm["source"].lower()
-        custom_id = norm["id"]
+        src_key = source.lower()
+        target_val = capitalize_first_letters(target)
 
-        if src_key in existing_map:
+        if src_key in entries:
             if overwrite_existing:
-                idx = existing_map[src_key]
-                entries[idx]["target"] = norm["target"]
-                if norm["Tag"] != "":
-                    entries[idx]["Tag"] = norm["Tag"]
-                if custom_id and (keep_id or id_pattern.match(custom_id)):
-                    entries[idx]["id"] = custom_id
+                entries[src_key] = target_val
                 updated_count += 1
             else:
                 skipped_count += 1
         else:
-            if custom_id and (keep_id or id_pattern.match(custom_id)):
-                item_id = custom_id
-            else:
-                item_id = get_next_id(entries, default_prefix=id_prefix)
-
-            new_entry = {
-                "id": item_id,
-                "source": norm["source"],
-                "target": norm["target"],
-                "Tag": norm["Tag"]
-            }
-            entries.append(new_entry)
-            existing_map[src_key] = len(entries) - 1
+            entries[src_key] = target_val
             added_count += 1
 
     if added_count > 0 or updated_count > 0:
-        save_dictionary(entries, dict_path, indent=4)
+        save_dictionary(entries, dict_path, indent=2)
 
     return {
         "added": added_count,
@@ -294,62 +288,43 @@ def import_character_dict(
     }
 
 def import_common_dict(
-    items: List[Dict[str, any]],
+    items: List[Dict[str, Any]],
     dict_path: Union[str, Path] = DEFAULT_COMMON_DICT,
     overwrite_existing: bool = True,
     id_prefix: str = "co-",
     keep_id: bool = False
-) -> Dict[str, any]:
-    """Import các mục từ ngữ chung vào common_dict.json."""
+) -> Dict[str, Any]:
+    """Import các mục từ ngữ chung vào common_dict.json dưới dạng key-value."""
     dict_path = Path(dict_path)
     entries = load_dictionary(dict_path)
-
-    existing_map = {}
-    for idx, entry in enumerate(entries):
-        src = str(entry.get("source", "")).strip().lower()
-        if src:
-            existing_map[src] = idx
 
     added_count = 0
     updated_count = 0
     skipped_count = 0
 
-    id_pattern = re.compile(rf"^{re.escape(id_prefix)}\d+$", re.IGNORECASE)
-
     for raw in items:
-        norm = normalize_common_entry(raw)
-        if not norm:
+        if not isinstance(raw, dict):
             skipped_count += 1
             continue
 
-        src_key = norm["source"].lower()
-        custom_id = norm["id"]
+        source = str(raw.get("source", "")).strip()
+        target = str(raw.get("target") or raw.get("suggested_target", "")).strip()
 
-        if src_key in existing_map:
+        if not source or not target:
+            skipped_count += 1
+            continue
+
+        src_key = source.lower()
+        target_val = lowercase_all(target)
+
+        if src_key in entries:
             if overwrite_existing:
-                idx = existing_map[src_key]
-                entries[idx]["target"] = norm["target"]
-                if norm["category"] != "":
-                    entries[idx]["category"] = norm["category"]
-                if custom_id and (keep_id or id_pattern.match(custom_id)):
-                    entries[idx]["id"] = custom_id
+                entries[src_key] = target_val
                 updated_count += 1
             else:
                 skipped_count += 1
         else:
-            if custom_id and (keep_id or id_pattern.match(custom_id)):
-                item_id = custom_id
-            else:
-                item_id = get_next_id(entries, default_prefix=id_prefix)
-
-            new_entry = {
-                "id": item_id,
-                "source": norm["source"],
-                "target": norm["target"],
-                "category": norm["category"]
-            }
-            entries.append(new_entry)
-            existing_map[src_key] = len(entries) - 1
+            entries[src_key] = target_val
             added_count += 1
 
     if added_count > 0 or updated_count > 0:
@@ -364,19 +339,19 @@ def import_common_dict(
     }
 
 def distribute_and_import(
-    items: List[Dict[str, any]],
+    items: List[Dict[str, Any]],
     char_dict_path: Union[str, Path] = DEFAULT_CHARACTER_DICT,
     common_dict_path: Union[str, Path] = DEFAULT_COMMON_DICT,
     warning_path: Union[str, Path] = DEFAULT_WARNING_JSON,
     overwrite_existing: bool = True,
     keep_id: bool = False,
     validate_word_count: bool = True
-) -> Dict[str, any]:
+) -> Dict[str, Any]:
     """
     Phân bổ các mục dựa vào trường 'is_character':
     - Nếu validate_word_count=True: Lọc các mục lệch số từ ra warning.json trước.
-    - 'is_character': true -> nạp vào character_dict.json (ID: ch-XX, Tag)
-    - 'is_character': false -> nạp vào common_dict.json (ID: co-XX, category)
+    - 'is_character': true -> nạp vào character_dict.json (Title Case)
+    - 'is_character': false -> nạp vào common_dict.json (lowercase)
     """
     warning_count = 0
     if validate_word_count:
@@ -401,17 +376,13 @@ def distribute_and_import(
     char_result = import_character_dict(
         char_items,
         dict_path=char_dict_path,
-        overwrite_existing=overwrite_existing,
-        id_prefix="ch-",
-        keep_id=keep_id
+        overwrite_existing=overwrite_existing
     )
 
     common_result = import_common_dict(
         common_items,
         dict_path=common_dict_path,
-        overwrite_existing=overwrite_existing,
-        id_prefix="co-",
-        keep_id=keep_id
+        overwrite_existing=overwrite_existing
     )
 
     return {
@@ -424,7 +395,7 @@ def distribute_and_import(
     }
 
 def import_entries(
-    items: List[Dict[str, any]],
+    items: List[Dict[str, Any]],
     dict_path: Union[str, Path] = DEFAULT_TARGET_DICT,
     warning_path: Union[str, Path] = DEFAULT_WARNING_JSON,
     overwrite_existing: bool = True,
@@ -432,9 +403,9 @@ def import_entries(
     filter_characters: bool = True,
     keep_id: bool = False,
     validate_word_count: bool = True
-) -> Dict[str, any]:
+) -> Dict[str, Any]:
     """
-    Import danh sách mục vào một file từ điển chỉ định.
+    Import danh sách mục vào một file từ điển chỉ định dưới dạng key-value.
     Nếu target là common_dict.json, sẽ tự động áp dụng định dạng common_dict.
     Nếu target là character_dict.json và filter_characters=True, sẽ lọc bỏ is_character == False.
     """
@@ -451,25 +422,21 @@ def import_entries(
         res = import_common_dict(
             items_to_process,
             dict_path=dict_path,
-            overwrite_existing=overwrite_existing,
-            id_prefix=id_prefix if id_prefix != "ch-" else "co-",
-            keep_id=keep_id
+            overwrite_existing=overwrite_existing
         )
     else:
         res = import_character_dict(
             items_to_process,
             dict_path=dict_path,
             overwrite_existing=overwrite_existing,
-            id_prefix=id_prefix,
-            filter_characters=filter_characters,
-            keep_id=keep_id
+            filter_characters=filter_characters
         )
 
     res["warning_count"] = warning_count
     res["warning_file"] = str(warning_path) if warning_count > 0 else None
     return res
 
-def parse_source_file(file_path: Union[str, Path]) -> List[Dict[str, any]]:
+def parse_source_file(file_path: Union[str, Path]) -> List[Dict[str, Any]]:
     """Phân tích dữ liệu từ file JSON, TXT hoặc CSV/TSV."""
     file_path = Path(file_path)
     if not file_path.exists():
@@ -487,7 +454,12 @@ def parse_source_file(file_path: Union[str, Path]) -> List[Dict[str, any]]:
             if isinstance(data, list):
                 items = data
             elif isinstance(data, dict):
-                items = [data]
+                if "items" in data and isinstance(data["items"], list):
+                    items = data["items"]
+                elif all(isinstance(v, str) for v in data.values()):
+                    items = [{"source": k, "target": v} for k, v in data.items()]
+                else:
+                    items = [data]
     else:
         with open(file_path, "r", encoding="utf-8") as f:
             for line in f:

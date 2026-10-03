@@ -54,8 +54,8 @@ def test_distribute_and_import_applies_casing_rules(tmp_path: Path):
     common_dict = tmp_path / "common_dict.json"
     warning_path = tmp_path / "warning.json"
 
-    char_dict.write_text("[]", encoding="utf-8")
-    common_dict.write_text("[]", encoding="utf-8")
+    char_dict.write_text("{}", encoding="utf-8")
+    common_dict.write_text("{}", encoding="utf-8")
 
     items = [
         {
@@ -86,7 +86,7 @@ def test_distribute_and_import_applies_casing_rules(tmp_path: Path):
     assert res["common"]["added"] == 1
 
     char_data = json.loads(char_dict.read_text(encoding="utf-8"))
-    assert char_data[0]["target"] == "Dương Ngọc Khanh"
+    assert char_data["dương ngọc khanh"] == "Dương Ngọc Khanh"
 
     common_data = json.loads(common_dict.read_text(encoding="utf-8"))
-    assert common_data[0]["target"] == "cảnh sát"
+    assert common_data["cảnh sát"] == "cảnh sát"

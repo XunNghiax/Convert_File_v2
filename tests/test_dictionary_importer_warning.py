@@ -81,8 +81,8 @@ def test_distribute_and_import_with_word_count_validation(tmp_path: Path):
 
     char_data = json.loads(char_dict.read_text(encoding="utf-8"))
     assert len(char_data) == 1
-    assert char_data[0]["source"] == "Long Kiếm Phi"
+    assert char_data["long kiếm phi"] == "Long Kiếm Phi"
 
     comm_data = json.loads(common_dict.read_text(encoding="utf-8"))
     assert len(comm_data) == 1
-    assert comm_data[0]["source"] == "tất chân"
+    assert comm_data["tất chân"] == "tất chân"

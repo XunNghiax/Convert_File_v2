@@ -1,7 +1,15 @@
 import json
 import pytest
 from pathlib import Path
-from src.importer.dictionary_importer import get_next_id, import_entries, load_dictionary, normalize_entry
+from src.importer.dictionary_importer import (
+    get_next_id,
+    import_character_dict,
+    import_common_dict,
+    import_entries,
+    load_dictionary,
+    save_dictionary,
+    distribute_and_import
+)
 
 def test_get_next_id():
     entries = [
@@ -10,45 +18,33 @@ def test_get_next_id():
         {"id": "ch-5", "source": "e", "target": "f"}
     ]
     assert get_next_id(entries) == "ch-11"
+    assert get_next_id({}) == ""
 
 def test_import_entries(tmp_path):
     dict_file = tmp_path / "character_dict.json"
-    initial_data = [
-        {"id": "ch-1", "source": "Hồng Lâu", "target": "Hong Lou", "Tag": "Old"}
-    ]
-    dict_file.write_text(json.dumps(initial_data, ensure_ascii=False), encoding="utf-8")
+    dict_file.write_text(json.dumps({"hồng lâu": "Hong Lou"}, ensure_ascii=False), encoding="utf-8")
 
-    # Thêm mới
     new_items = [
-        {"id": "ch-51", "source": "Gavin Tĩnh", "target": "Giả Tĩnh", "Tag": ""}
+        {"source": "gavin tĩnh", "target": "giả tĩnh"}
     ]
-    res = import_entries(new_items, dict_path=dict_file)
+    res = import_character_dict(new_items, dict_path=dict_file)
     assert res["added"] == 1
     assert res["total"] == 2
 
-    # Đọc lại và kiểm tra
     data = load_dictionary(dict_file)
-    assert len(data) == 2
-    assert data[1]["id"] == "ch-51"
-    assert data[1]["source"] == "Gavin Tĩnh"
-    assert data[1]["target"] == "Giả Tĩnh"
-    assert data[1]["Tag"] == ""
+    assert data["gavin tĩnh"] == "Giả Tĩnh"
 
-    # Cập nhật mục đã có
     update_items = [
-        {"source": "Gavin Tĩnh", "target": "Giả Mới", "Tag": "Updated"}
+        {"source": "gavin tĩnh", "target": "giả mới"}
     ]
-    res_update = import_entries(update_items, dict_path=dict_file, overwrite_existing=True)
+    res_update = import_character_dict(update_items, dict_path=dict_file, overwrite_existing=True)
     assert res_update["updated"] == 1
-
     data = load_dictionary(dict_file)
-    assert len(data) == 2
-    assert data[1]["target"] == "Giả Mới"
-    assert data[1]["Tag"] == "Updated"
+    assert data["gavin tĩnh"] == "Giả Mới"
 
 def test_normalize_and_import_scanner_json(tmp_path):
     dict_file = tmp_path / "character_dict.json"
-    dict_file.write_text("[]", encoding="utf-8")
+    dict_file.write_text("{}", encoding="utf-8")
 
     scanner_output = [
         {
@@ -74,15 +70,13 @@ def test_normalize_and_import_scanner_json(tmp_path):
     assert res["total"] == 1
 
     data = load_dictionary(dict_file)
-    assert data[0]["source"] == "Trương Tử Kiến"
-    assert data[0]["Tag"] == "Họ Trương"
-    assert data[0]["id"] == "ch-1"
+    assert data["trương tử kiến"] == "Trương Tử Kiến"
 
 def test_distribute_and_import(tmp_path):
     char_dict = tmp_path / "character_dict.json"
     common_dict = tmp_path / "common_dict.json"
-    char_dict.write_text("[]", encoding="utf-8")
-    common_dict.write_text("[]", encoding="utf-8")
+    char_dict.write_text("{}", encoding="utf-8")
+    common_dict.write_text("{}", encoding="utf-8")
 
     mixed_items = [
         {
@@ -108,7 +102,6 @@ def test_distribute_and_import(tmp_path):
         }
     ]
 
-    from src.importer.dictionary_importer import distribute_and_import
     res = distribute_and_import(
         mixed_items,
         char_dict_path=char_dict,
@@ -120,16 +113,9 @@ def test_distribute_and_import(tmp_path):
 
     char_data = load_dictionary(char_dict)
     assert len(char_data) == 2
-    assert char_data[0]["source"] == "Lâm Ngọc Chi"
-    assert char_data[0]["id"] == "ch-1"
-    assert char_data[0]["Tag"] == "Nhân vật nữ"
-    assert char_data[1]["source"] == "Tần Xảo Xảo"
-    assert char_data[1]["id"] == "ch-2"
+    assert char_data["lâm ngọc chi"] == "Lâm Ngọc Chi"
+    assert char_data["tần xảo xảo"] == "Tần Xảo Xảo"
 
     common_data = load_dictionary(common_dict)
     assert len(common_data) == 1
-    assert common_data[0]["source"] == "Ha Ha"
-    assert common_data[0]["target"] == "ha ha"
-    assert common_data[0]["id"] == "co-1"
-    assert common_data[0]["category"] == "Từ cảm thán"
-
+    assert common_data["ha ha"] == "ha ha"
