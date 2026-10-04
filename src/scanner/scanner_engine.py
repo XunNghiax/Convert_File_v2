@@ -56,9 +56,18 @@ def count_file_lines(filepath: Path) -> int:
             total += chunk.count(b"\n")
     return max(1, total)
 
+try:
+    from rich.progress import (
+        Progress, SpinnerColumn, BarColumn, TextColumn,
+        TimeElapsedColumn, TimeRemainingColumn, TaskProgressColumn
+    )
+    HAVE_RICH = True
+except ImportError:
+    HAVE_RICH = False
+
 class ProgressPrinter:
-    """Quản lý hiển thị tiến trình gọn gàng, chống tràn cột terminal và chống spam log."""
-    def __init__(self, total_lines: int, label: str = "nhân vật", update_interval: float = 0.4):
+    """Quản lý hiển thị tiến trình trực quan bằng Rich hoặc fallback console."""
+    def __init__(self, total_lines: int, label: str = "nhân vật", update_interval: float = 0.3):
         self.total_lines = max(1, total_lines)
         self.label = label
         self.update_interval = update_interval
@@ -66,9 +75,44 @@ class ProgressPrinter:
         self.last_update = 0.0
         self.is_tty = sys.stdout.isatty()
         self.last_milestone = -1
-        self.bar_width = 14  # Độ dài thanh vừa phải để toàn bộ dòng <= 75 ký tự
+        self.bar_width = 14
+
+        self.rich_progress = None
+        self.task_id = None
+        if HAVE_RICH and self.is_tty:
+            try:
+                self.rich_progress = Progress(
+                    SpinnerColumn(),
+                    TextColumn("[bold cyan]{task.description}"),
+                    BarColumn(bar_width=25),
+                    TaskProgressColumn(),
+                    TextColumn("• [yellow]{task.fields[found]:,} {task.fields[label]}[/yellow]"),
+                    "•",
+                    TimeElapsedColumn(),
+                    "•",
+                    TimeRemainingColumn(),
+                    transient=False
+                )
+                self.rich_progress.start()
+                self.task_id = self.rich_progress.add_task(
+                    "Đang quét",
+                    total=self.total_lines,
+                    found=0,
+                    label=self.label
+                )
+            except Exception:
+                self.rich_progress = None
 
     def update(self, current_line: int, found_count: int, force: bool = False):
+        if self.rich_progress and self.task_id is not None:
+            self.rich_progress.update(
+                self.task_id,
+                completed=min(current_line, self.total_lines),
+                found=found_count,
+                description=f"Đang quét [{min(current_line, self.total_lines):,}/{self.total_lines:,}]"
+            )
+            return
+
         now = time.time()
         current_line = min(current_line, self.total_lines)
         if not force and (now - self.last_update < self.update_interval) and (current_line < self.total_lines):
@@ -99,6 +143,20 @@ class ProgressPrinter:
     def finish(self, found_count: int):
         elapsed = max(0.001, time.time() - self.start_time)
         avg_speed = int(self.total_lines / elapsed)
+        if self.rich_progress and self.task_id is not None:
+            try:
+                self.rich_progress.update(
+                    self.task_id,
+                    completed=self.total_lines,
+                    found=found_count,
+                    description="[bold green]✓ Hoàn tất quét"
+                )
+                self.rich_progress.stop()
+            except Exception:
+                pass
+            print(f"[+] Hoàn tất quét: {self.total_lines:,} dòng ({avg_speed:,} d/s) | Tìm thấy: {found_count:,} {self.label}\n")
+            return
+
         if self.is_tty:
             msg = f"[+] Quét xong: 100% ({self.total_lines:,} dòng) trong {elapsed:.1f}s ({avg_speed:,} d/s) | {found_count:,} {self.label}"
             sys.stdout.write(f"\r{msg:<95}\n")
@@ -143,7 +201,7 @@ class ScannerEngine:
         tail_words_low = [w.lower() for w in tail_words]
         tail_str = " ".join(tail_words_low)
         # Nếu có từ thuộc danh sách từ được bảo vệ trong tên người thì không coi là động từ/từ rác
-        if any(w in BoundaryTrimmer.PROTECTED_NAME_WORDS for w in tail_words_low):
+        if any(w in BoundaryTrimmer.PROTECTED_NAME_WORDS or w in {"cầm", "phi"} for w in tail_words_low):
             return False
         if tail_str in self.HUMAN_ACTION_VERBS:
             return True
@@ -172,6 +230,23 @@ class ScannerEngine:
             return True
         if words_low[0] in BoundaryTrimmer.FALLBACK_SURNAMES:
             return True
+        return False
+
+    def _starts_with_compound_surname(self, text: str) -> bool:
+        words = text.strip().split()
+        if len(words) < 2:
+            return False
+        words_low = [w.lower() for w in words]
+        pair = f"{words_low[0]} {words_low[1]}"
+        if hasattr(self, 'loader') and self.loader and pair in self.loader.compound_surnames:
+            return True
+        if pair in BoundaryTrimmer.FALLBACK_SURNAMES:
+            return True
+        return False
+
+    def _is_negative(self, text: str, skip_known: bool = False) -> bool:
+        if self.extractor and hasattr(self.extractor, "_is_negative"):
+            return self.extractor._is_negative(text, skip_known=skip_known)
         return False
 
     @staticmethod
@@ -235,6 +310,8 @@ class ScannerEngine:
                             if (cand.raw.lower().strip() in self.loader.known_characters or 
                                 cand.name.lower().strip() in self.loader.known_characters):
                                 continue
+                        if self._is_negative(cand.name, skip_known=effective_skip):
+                            continue
 
                         name_key = cand.name.lower().strip()
                         if deduplicate:
@@ -306,6 +383,8 @@ class ScannerEngine:
                 f_out.write("[\n")
                 first = True
                 for b in tracked.values():
+                    if self._is_negative(b.target, skip_known=effective_skip):
+                        continue
                     if not first:
                         f_out.write(",\n")
                     else:
@@ -333,6 +412,8 @@ class ScannerEngine:
                             if (cand.raw.lower().strip() in self.loader.known_characters or 
                                 cand.name.lower().strip() in self.loader.known_characters):
                                 continue
+                        if self._is_negative(cand.name, skip_known=effective_skip):
+                            continue
                         name_key = cand.name.lower().strip()
 
                         if name_key in tracked:
@@ -392,6 +473,10 @@ class ScannerEngine:
             progress.finish(len(tracked))
 
         deduped = self.cluster_aliases(list(tracked.values()))
+        deduped = [b for b in deduped if not self._is_negative(b.target, skip_known=effective_skip)]
+        for idx, b in enumerate(deduped, start=1):
+            b.id = f"ch_{idx:04d}"
+
         if realtime_all_path:
             realtime_all_path = Path(realtime_all_path)
             realtime_all_path.parent.mkdir(parents=True, exist_ok=True)
@@ -415,6 +500,12 @@ class ScannerEngine:
     def cluster_aliases(self, blocks: list[CharacterBlock]) -> list[CharacterBlock]:
         if not blocks:
             return []
+
+        # Chuẩn hóa target về TitleCase nếu đang viết thường hoàn toàn
+        for b in blocks:
+            words = b.target.strip().split()
+            if words and all(w.islower() for w in words):
+                b.target = " ".join(w.capitalize() for w in words)
 
         alias_prefix_words = {"tiểu", "lão", "đại"}
         alias_suffix_words = {
@@ -440,9 +531,12 @@ class ScannerEngine:
                 alias_blocks.append(b)
             else:
                 if target_low in full_name_blocks:
-                    self._merge_block_counts_and_lines(full_name_blocks[target_low], b)
+                    existing = full_name_blocks[target_low]
+                    self._merge_block_counts_and_lines(existing, b)
                     for bt in b.bien_the:
-                        self._merge_variant(full_name_blocks[target_low], bt)
+                        self._merge_variant(existing, bt)
+                    if not existing.target[0].isupper() and b.target[0].isupper():
+                        existing.target = b.target
                 else:
                     full_name_blocks[target_low] = b
 
@@ -460,14 +554,15 @@ class ScannerEngine:
                 prefix_words = words_b[:prefix_len]
                 prefix_key = " ".join(prefix_words).lower()
                 if prefix_key in full_name_blocks and prefix_key not in to_remove:
-                    tail = [w.lower() for w in words_b[prefix_len:]]
-                    if self._is_action_verb_or_noise(tail):
-                        base_block = full_name_blocks[prefix_key]
-                        self._merge_block_counts_and_lines(base_block, b)
-                        for bt in b.bien_the:
-                            self._merge_variant(base_block, bt)
-                        to_remove.add(target_low)
-                        break
+                    base_block = full_name_blocks[prefix_key]
+                    if base_block.so_lan_xuat_hien >= b.so_lan_xuat_hien:
+                        tail = [w.lower() for w in words_b[prefix_len:]]
+                        if self._is_action_verb_or_noise(tail):
+                            self._merge_block_counts_and_lines(base_block, b)
+                            for bt in b.bien_the:
+                                self._merge_variant(base_block, bt)
+                            to_remove.add(target_low)
+                            break
 
         for k in to_remove:
             del full_name_blocks[k]
@@ -490,7 +585,9 @@ class ScannerEngine:
             words_short = b_short.target.strip().split()
             words_short_low = [w.lower() for w in words_short]
 
-            if not (2 <= len(words_short) <= 3):
+            is_compound = self._starts_with_compound_surname(b_short.target)
+            max_short_len = 3 if is_compound else 2
+            if len(words_short) < 2 or len(words_short) > max_short_len:
                 continue
             if not self._starts_with_surname(b_short.target):
                 continue
@@ -508,6 +605,23 @@ class ScannerEngine:
                     if not self._is_action_verb_or_noise(tail):
                         candidates.append(b_other)
 
+            # Kiểm tra xung đột: nếu có các ứng viên cùng độ dài nhưng khác tên chính cuối cùng
+            # (ví dụ: 'Tần Khả Cầm' và 'Tần Khả Phi' cùng là ứng viên của 'Tần Khả')
+            # thì tuyệt đối KHÔNG gộp để bảo vệ luật bất biến tên chính.
+            has_conflict = False
+            by_length: dict[int, str] = {}
+            for c in candidates:
+                words_c = c.target.strip().split()
+                l = len(words_c)
+                given = words_c[-1].lower()
+                if l in by_length and by_length[l] != given:
+                    has_conflict = True
+                    break
+                by_length[l] = given
+
+            if has_conflict:
+                continue
+
             if candidates:
                 best_long = max(candidates, key=lambda c: (c.so_lan_xuat_hien, -c.dong_xuat_hien))
                 self._merge_block_counts_and_lines(best_long, b_short)
@@ -515,6 +629,30 @@ class ScannerEngine:
                 for bt in b_short.bien_the:
                     self._merge_variant(best_long, bt)
                 to_remove.add(short_key)
+
+        for k in to_remove:
+            del full_name_blocks[k]
+
+        # 2b. Prefix Stripping: Gộp các khối dính 1 từ rác ở đầu vào tên chuẩn đã có
+        # Ví dụ: "Hoa Mã Lan" (3 từ) khi đã có "Mã Lan" (2 từ, tần suất cao)
+        to_remove = set()
+        for target_low, b in list(full_name_blocks.items()):
+            if target_low in to_remove:
+                continue
+            words_b = b.target.strip().split()
+            if len(words_b) >= 3:
+                # Không strip nếu 2 từ đầu là họ kép (ví dụ "Hoàng Phủ Thiền")
+                if self._starts_with_compound_surname(b.target):
+                    continue
+                tail_candidate = " ".join(words_b[1:]).lower()
+                if tail_candidate in full_name_blocks and tail_candidate not in to_remove:
+                    base_block = full_name_blocks[tail_candidate]
+                    if base_block.so_lan_xuat_hien >= b.so_lan_xuat_hien:
+                        self._merge_block_counts_and_lines(base_block, b)
+                        for bt in b.bien_the:
+                            self._merge_variant(base_block, bt)
+                        self._merge_variant(base_block, b.target)
+                        to_remove.add(target_low)
 
         for k in to_remove:
             del full_name_blocks[k]
