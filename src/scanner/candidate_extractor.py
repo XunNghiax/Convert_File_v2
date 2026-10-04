@@ -2,6 +2,7 @@ from dataclasses import dataclass
 import re
 from .resource_loader import ResourceLoader
 from .boundary_trimmer import BoundaryTrimmer
+from ..utils.trie_matcher import TrieMatcher
 
 @dataclass
 class CandidateMatch:
@@ -117,6 +118,69 @@ class CandidateExtractor:
             rf'\b([{VN_UPPER}][{VN_LOWER}]+(?:\s+[{VN_UPPER}][{VN_LOWER}]+){{1,3}})\b'
         )
 
+        # 1. Biên dịch Trie cho deconvert_dict và known_characters
+        self.deconvert_trie: TrieMatcher | None = None
+        self.known_trie: TrieMatcher | None = None
+        self._deconvert_dict_id: int | None = None
+        self._deconvert_dict_len: int = -1
+        self._known_chars_id: int | None = None
+        self._known_chars_len: int = -1
+        self._ensure_tries()
+
+        # 2. Biên dịch 61 LOWERCASE_ACTION_TERMS thành 1 regex Trie duy nhất
+        action_alts = "|".join(re.escape(a) for a in self.LOWERCASE_ACTION_TERMS)
+        self.lowercase_action_regex = re.compile(rf'^(?:{action_alts})\b', re.IGNORECASE)
+
+        # 3. Tập hợp các từ khóa nhanh để lọc cấp dòng
+        self.fast_cue_words: set[str] = set()
+        self._surnames_len: int = -1
+        self._update_fast_cue_words()
+
+    def _update_fast_cue_words(self):
+        single = getattr(self.loader, 'single_surnames', set()) or set()
+        compound = getattr(self.loader, 'compound_surnames', set()) or set()
+        self.fast_cue_words = (
+            single |
+            compound |
+            self.ANCHOR_TERMS |
+            self.RELATION_TERMS |
+            self.JOB_TERMS |
+            {"tuổi", "·", "-", "\u2022"}
+        )
+
+    def _ensure_tries(self):
+        deconv = getattr(self.loader, 'deconvert_dict', None)
+        d_len = len(deconv) if deconv else 0
+        if id(deconv) != self._deconvert_dict_id or d_len != self._deconvert_dict_len:
+            self._deconvert_dict_id = id(deconv)
+            self._deconvert_dict_len = d_len
+            self.deconvert_trie = TrieMatcher({k.lower(): v for k, v in deconv.items()}) if deconv else None
+
+        known = getattr(self.loader, 'known_characters', None)
+        k_len = len(known) if known else 0
+        if id(known) != self._known_chars_id or k_len != self._known_chars_len:
+            self._known_chars_id = id(known)
+            self._known_chars_len = k_len
+            self.known_trie = TrieMatcher({k.lower(): v for k, v in known.items()}) if known else None
+
+    @staticmethod
+    def _is_word_boundary(text: str, start: int, end: int) -> bool:
+        if start > 0 and (text[start - 1].isalnum() or text[start - 1] == '_'):
+            return False
+        if end < len(text) and (text[end].isalnum() or text[end] == '_'):
+            return False
+        return True
+
+    def _fast_should_scan_line(self, line: str, line_lower: str) -> bool:
+        """
+        Fast-Path Line Screening:
+        Nếu dòng không có chữ hoa VÀ không chứa bất kỳ từ khóa họ / mỏ neo nào -> False (bỏ qua dòng).
+        Ngược lại -> True (cần quét).
+        """
+        if any(c.isupper() for c in line):
+            return True
+        return any(kw in line_lower for kw in self.fast_cue_words)
+
     def extract_candidates(self, line: str, skip_known: bool | None = None) -> list[CandidateMatch]:
         effective_skip = self.skip_known if skip_known is None else skip_known
         results: list[CandidateMatch] = []
@@ -124,40 +188,49 @@ class CandidateExtractor:
         if not line_clean:
             return results
 
-        line_lower = line_clean.lower()
+        line_lower = line.lower()
         vn_words = getattr(self.loader, "vn_2word_set", set())
 
+        self._ensure_tries()
+        single = getattr(self.loader, 'single_surnames', set()) or set()
+        if len(single) != self._surnames_len:
+            self._surnames_len = len(single)
+            self._update_fast_cue_words()
+
         # -1. Direct match from deconvert dictionary (khôi phục từ dịch thô)
-        if self.loader.deconvert_dict:
-            for src, tgt in self.loader.deconvert_dict.items():
-                if src in line_lower:
-                    pattern_deconvert = re.compile(rf'\b{re.escape(src)}\b', re.IGNORECASE)
-                    for m in pattern_deconvert.finditer(line):
-                        cand = m.group(0).strip()
-                        results.append(CandidateMatch(
-                            name=tgt,
-                            raw=cand,
-                            start=m.start(),
-                            end=m.end(),
-                            confidence=1.0,
-                            reason=f"Khôi phục từ dịch thô '{src}'"
-                        ))
+        if self.deconvert_trie:
+            for start, end, src, tgt in self.deconvert_trie.find_matches(line_lower):
+                if not self._is_word_boundary(line_lower, start, end):
+                    continue
+                cand = line[start:end].strip()
+                results.append(CandidateMatch(
+                    name=tgt,
+                    raw=cand,
+                    start=start,
+                    end=end,
+                    confidence=1.0,
+                    reason=f"Khôi phục từ dịch thô '{src}'"
+                ))
 
         # 0. Direct match from known characters dictionary (only when not skipping known)
-        if not effective_skip and self.loader.known_characters:
-            for src, tgt in self.loader.known_characters.items():
-                if src in line_lower:
-                    pattern_known = re.compile(rf'\b{re.escape(src)}\b', re.IGNORECASE)
-                    for m in pattern_known.finditer(line):
-                        cand = m.group(0).strip()
-                        results.append(CandidateMatch(
-                            name=tgt,
-                            raw=cand,
-                            start=m.start(),
-                            end=m.end(),
-                            confidence=1.0,
-                            reason="Khớp với từ điển nhân vật đã quy chuẩn"
-                        ))
+        if not effective_skip and self.known_trie:
+            for start, end, src, tgt in self.known_trie.find_matches(line_lower):
+                if not self._is_word_boundary(line_lower, start, end):
+                    continue
+                cand = line[start:end].strip()
+                results.append(CandidateMatch(
+                    name=tgt,
+                    raw=cand,
+                    start=start,
+                    end=end,
+                    confidence=1.0,
+                    reason="Khớp với từ điển nhân vật đã quy chuẩn"
+                ))
+
+        # Fast-Path Line Screening:
+        # Nếu dòng không có chữ hoa VÀ không chứa bất kỳ từ khóa họ / mỏ neo nào -> Bỏ qua ngay
+        if not self._fast_should_scan_line(line, line_lower):
+            return results
 
         # 1a. Profile with explicit age (Fast-path: chỉ chạy khi có chữ "tuổi")
         if "tuổi" in line_lower:
@@ -577,10 +650,9 @@ class CandidateExtractor:
                 after_text_lower = after_text.lower()
 
                 matched_action = None
-                for act in self.LOWERCASE_ACTION_TERMS:
-                    if re.match(rf'^{re.escape(act)}\b', after_text_lower):
-                        matched_action = act
-                        break
+                m_act = self.lowercase_action_regex.match(after_text_lower)
+                if m_act:
+                    matched_action = m_act.group(0)
 
                 if matched_action:
                     trimmed = self.trimmer.clean_candidate(cand_raw, vn_words)
