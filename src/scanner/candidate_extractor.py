@@ -17,6 +17,11 @@ VN_LOWER = "a-zàáảãạăằắẳẵặâầấẩẫậèéẻẽẹêề�
 VN_WORD = f"[{VN_UPPER}{VN_LOWER}]"
 
 class CandidateExtractor:
+    INTERNAL_GRAMMAR_STOPWORDS = {
+        "có", "của", "được", "bị", "đang", "đã", "sẽ", "lại", "rất",
+        "quá", "nhiều", "một", "hai", "ba", "cái", "thì", "mà", "là"
+    }
+
     RELATION_TERMS = {
         "thê tử", "mẫu thân", "tỷ tỷ", "muội muội", "kế mẫu", "đệ đệ", "con",
         "nữ nhi", "ba ba", "mẹ", "chị dâu", "dì", "vợ trước", "vợ", "chồng",
@@ -50,7 +55,7 @@ class CandidateExtractor:
 
     LOWERCASE_ACTION_TERMS = sorted([
         "cưng chìu", "cưng chiều", "đưa ra", "nghiêm túc nhìn", "nhìn đến", "trong lòng",
-        "ôm", "nói", "bước", "đi", "nghĩ", "hỏi", "cười", "quát", "thở dài", "lẩm bẩm",
+        "ôm", "nói", "bước", "đi", "nghĩ", "hỏi", "cười", "quát", "thở dài", "thở", "lẩm bẩm",
         "thầm nghĩ", "đáp", "kêu", "hét", "mắng", "nhắc nhở", "giải thích", "than thở",
         "tức giận", "vui mừng", "kinh hãi", "hoảng hốt", "bối rối", "ngạc nhiên", "sợ hãi",
         "cảm thấy", "ghen tị", "ngơ ngác", "do dự", "trầm ngâm",
@@ -120,6 +125,7 @@ class CandidateExtractor:
             return results
 
         line_lower = line_clean.lower()
+        vn_words = getattr(self.loader, "vn_2word_set", set())
 
         # -1. Direct match from deconvert dictionary (khôi phục từ dịch thô)
         if self.loader.deconvert_dict:
@@ -159,7 +165,7 @@ class CandidateExtractor:
                 raw_cand = m.group(1).strip()
                 age_str = m.group(2).strip()
                 clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
-                trimmed, _ = self.trimmer.trim(clean_cand)
+                trimmed = clean_cand if clean_cand.lower() in self.loader.known_characters else self.trimmer.clean_candidate(clean_cand, vn_words)
                 if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
                 if trimmed.lower() in self.loader.known_characters:
@@ -193,7 +199,7 @@ class CandidateExtractor:
                 raw_cand = m.group(1).strip()
                 detail = m.group(2).strip()
                 clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
-                trimmed, _ = self.trimmer.trim(clean_cand)
+                trimmed = clean_cand if clean_cand.lower() in self.loader.known_characters else self.trimmer.clean_candidate(clean_cand, vn_words)
                 if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
                 norm_name = self.trimmer.normalize_name(trimmed)
@@ -221,7 +227,7 @@ class CandidateExtractor:
                 if words_before and words_before[-1] in self.ACTION_OBJECT_VERBS:
                     continue
                 clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
-                trimmed, _ = self.trimmer.trim(clean_cand)
+                trimmed = clean_cand if clean_cand.lower() in self.loader.known_characters else self.trimmer.clean_candidate(clean_cand, vn_words)
                 if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
                 if trimmed.lower() in self.loader.known_characters:
@@ -264,7 +270,7 @@ class CandidateExtractor:
                 job = m.group(1).strip()
                 raw_cand = m.group(2).strip()
                 clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
-                trimmed, _ = self.trimmer.trim(clean_cand)
+                trimmed = clean_cand if clean_cand.lower() in self.loader.known_characters else self.trimmer.clean_candidate(clean_cand, vn_words)
                 if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
                 norm_name = self.trimmer.normalize_name(trimmed)
@@ -325,21 +331,21 @@ class CandidateExtractor:
                         ))
                     continue
 
-                trimmed, _ = self.trimmer.trim(clean_cand)
+                trimmed = clean_cand if clean_cand.lower() in self.loader.known_characters else self.trimmer.clean_candidate(clean_cand, vn_words)
                 words = trimmed.split()
                 if len(words) == 4:
                     first_two = f"{words[0].lower()} {words[1].lower()}"
-                    if first_two not in self.loader.compound_surnames:
+                    if first_two not in self.loader.compound_surnames and not self.trimmer.is_surname(first_two):
                         trimmed = " ".join(words[:3])
-                        trimmed, _ = self.trimmer.trim(trimmed)
+                        trimmed = self.trimmer.clean_candidate(trimmed, vn_words)
                         words = trimmed.split()
                 if len(words) == 3:
                     first_two = f"{words[0].lower()} {words[1].lower()}"
-                    if (first_two not in self.loader.compound_surnames and 
+                    if (first_two not in self.loader.compound_surnames and not self.trimmer.is_surname(first_two) and 
                         not self._starts_with_surname(trimmed) and 
                         words[2].lower() in self.trimmer.trailing_stopwords):
                         trimmed = " ".join(words[:2])
-                        trimmed, _ = self.trimmer.trim(trimmed)
+                        trimmed = self.trimmer.clean_candidate(trimmed, vn_words)
                 if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
                 norm_name = self.trimmer.normalize_name(trimmed)
@@ -362,7 +368,7 @@ class CandidateExtractor:
             for m in self.dialogue_speaker_pattern.finditer(line):
                 raw_cand = m.group(1).strip()
                 clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[-1].strip()
-                trimmed, _ = self.trimmer.trim(clean_cand)
+                trimmed = clean_cand if clean_cand.lower() in self.loader.known_characters else self.trimmer.clean_candidate(clean_cand, vn_words)
                 if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
                 norm_name = self.trimmer.normalize_name(trimmed)
@@ -389,7 +395,7 @@ class CandidateExtractor:
             for m in self.dialogue_after_pattern.finditer(line):
                 raw_cand = m.group(1).strip()
                 clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', raw_cand)[0].strip()
-                trimmed, _ = self.trimmer.trim(clean_cand)
+                trimmed = clean_cand if clean_cand.lower() in self.loader.known_characters else self.trimmer.clean_candidate(clean_cand, vn_words)
                 if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
                 norm_name = self.trimmer.normalize_name(trimmed)
@@ -418,7 +424,7 @@ class CandidateExtractor:
             for m in self.cap_pattern.finditer(line):
                 cand = m.group(1).strip()
                 clean_cand = re.split(r'[\n\r\t,.;:!?—\-]', cand)[-1].strip()
-                trimmed, _ = self.trimmer.trim(clean_cand)
+                trimmed = clean_cand if clean_cand.lower() in self.loader.known_characters else self.trimmer.clean_candidate(clean_cand, vn_words)
                 if self._is_negative(trimmed, skip_known=effective_skip):
                     continue
                 norm_name = self.trimmer.normalize_name(trimmed)
@@ -519,6 +525,7 @@ class CandidateExtractor:
         tokens = list(re.finditer(rf'\b{VN_WORD}+\b', line))
         n = len(tokens)
         i = 0
+        vn_words = getattr(self.loader, "vn_2word_set", set())
         while i < n:
             tok = tokens[i]
             w1 = tok.group(0).lower()
@@ -549,7 +556,8 @@ class CandidateExtractor:
                 if not self._is_clause_boundary(line, tokens[start_idx].start()):
                     continue
                 words_in_cand = cand_raw.lower().split()
-                surname_len = 2 if len(words_in_cand) >= 2 and f"{words_in_cand[0]} {words_in_cand[1]}" in self.loader.compound_surnames else 1
+                is_compound = len(words_in_cand) >= 2 and (f"{words_in_cand[0]} {words_in_cand[1]}" in self.loader.compound_surnames or self.trimmer.is_surname(f"{words_in_cand[0]} {words_in_cand[1]}"))
+                surname_len = 2 if is_compound else 1
                 given_words = words_in_cand[surname_len:]
                 if any(gw in self.ACTION_VERBS for gw in given_words):
                     continue
@@ -566,7 +574,7 @@ class CandidateExtractor:
                         break
 
                 if matched_action:
-                    trimmed, _ = self.trimmer.trim(cand_raw)
+                    trimmed = self.trimmer.clean_candidate(cand_raw, vn_words)
                     if not self._is_negative(trimmed, skip_known=skip_known):
                         norm_name = self.trimmer.normalize_name(trimmed)
                         results.append(CandidateMatch(
@@ -587,8 +595,21 @@ class CandidateExtractor:
     def _is_negative(self, text: str, skip_known: bool = False) -> bool:
         clean = text.strip()
         low = clean.lower()
-        if low in self.loader.known_characters:
-            return True if skip_known else False
+
+        # 1. Kiểm tra từ điển nhân vật đã biết
+        if skip_known:
+            if low in self.loader.known_characters:
+                return True
+            norm_name = self.trimmer.normalize_name(clean)
+            if norm_name.lower() in self.loader.known_characters:
+                return True
+        else:
+            if low in self.loader.known_characters:
+                return False
+            norm_name = self.trimmer.normalize_name(clean)
+            if norm_name.lower() in self.loader.known_characters:
+                return False
+
         words = low.split()
         is_foreign = ('·' in clean or '-' in clean or '\u2022' in clean or self._is_latin_name(clean))
         if is_foreign:
@@ -598,12 +619,25 @@ class CandidateExtractor:
         else:
             if len(words) < 2 or len(words) > 5:
                 return True
+
+        # 2. Kiểm tra từ ghép 2 từ tiếng Việt (vn_2word_set)
+        vn_words = getattr(self.loader, "vn_2word_set", set())
+        if len(words) == 2 and low in vn_words:
+            return True
+
+        # 3. Kiểm tra từ chức năng ngữ pháp ở giữa tên
+        surname_len = 2 if (len(words) >= 2 and (f"{words[0]} {words[1]}" in self.loader.compound_surnames or self.trimmer.is_surname(f"{words[0]} {words[1]}"))) else 1
+        given_words = words[surname_len:]
+        if any(gw in self.INTERNAL_GRAMMAR_STOPWORDS for gw in given_words):
+            return True
+
         if low in self.loader.pronouns or low in self.loader.non_person:
             return True
         if low in self.loader.blacklist or low in self.loader.common_dict:
             return True
         if any(b in low for b in self.loader.blacklist):
             return True
+
         # Nếu cụm từ viết thường và từ đầu là đại từ/phó từ/động từ (và không phải họ hợp lệ)
         if clean and clean[0].islower() and not self._starts_with_surname(clean) and (
             words[0] in self.loader.pronouns or 
@@ -611,9 +645,11 @@ class CandidateExtractor:
             words[0] in self.trimmer.DEFAULT_LEADING
         ):
             return True
+
         # Không bắt cụm từ có từ cuối là từ nối/chỉ quan hệ/đại từ
         if not is_foreign and (words[-1] in self.trimmer.DEFAULT_TRAILING or words[-1] in self.trimmer.DEFAULT_LEADING):
             return True
+
         return False
 
     def _starts_with_surname(self, text: str) -> bool:
