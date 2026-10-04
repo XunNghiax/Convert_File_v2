@@ -23,6 +23,22 @@ AMBIGUOUS_DESCRIPTIVE_WORDS = {
     "hình xinh đẹp"
 }
 
+def count_file_lines(filepath: Union[str, Path]) -> int:
+    """Đếm nhanh tổng số dòng trong file bằng đọc khối nhị phân 1MB."""
+    filepath = Path(filepath)
+    if not filepath.exists():
+        return 0
+    total = 0
+    last_byte = b""
+    with open(filepath, "rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            total += chunk.count(b"\n")
+            if chunk:
+                last_byte = chunk[-1:]
+    if last_byte and last_byte != b"\n":
+        total += 1
+    return total
+
 @dataclass
 class ReplaceStats:
     total_lines: int = 0
@@ -34,7 +50,7 @@ class ReplaceStats:
     top_replacements: List[Tuple[str, str, int]] = field(default_factory=list)
 
 class ReplaceProgressPrinter:
-    """Hiển thị thanh tiến trình trực quan với độ rộng an toàn cho console."""
+    """Hiển thị thanh tiến trình trực quan bằng Rich hoặc fallback console."""
     def __init__(self, total_lines: int, bar_width: int = 25):
         self.total_lines = max(1, total_lines)
         self.bar_width = bar_width
@@ -43,7 +59,45 @@ class ReplaceProgressPrinter:
         self.last_milestone = -1
         self.is_tty = sys.stdout.isatty()
 
+        self.rich_progress = None
+        self.task_id = None
+        try:
+            from rich.progress import (
+                Progress, SpinnerColumn, BarColumn, TextColumn,
+                TimeElapsedColumn, TimeRemainingColumn, TaskProgressColumn
+            )
+            if self.is_tty:
+                self.rich_progress = Progress(
+                    SpinnerColumn(),
+                    TextColumn("[bold cyan]{task.description}"),
+                    BarColumn(bar_width=25),
+                    TaskProgressColumn(),
+                    TextColumn("• [green]{task.fields[replaced]:,} lượt thay[/green]"),
+                    "•",
+                    TimeElapsedColumn(),
+                    "•",
+                    TimeRemainingColumn(),
+                    transient=False
+                )
+                self.rich_progress.start()
+                self.task_id = self.rich_progress.add_task(
+                    "Đang thay thế",
+                    total=self.total_lines,
+                    replaced=0
+                )
+        except Exception:
+            self.rich_progress = None
+
     def update(self, current_line: int, replaced_count: int):
+        if self.rich_progress and self.task_id is not None:
+            self.rich_progress.update(
+                self.task_id,
+                completed=min(current_line, self.total_lines),
+                replaced=replaced_count,
+                description=f"Thay thế [{min(current_line, self.total_lines):,}/{self.total_lines:,}]"
+            )
+            return
+
         now = time.time()
         if now - self.last_update < 0.35 and current_line < self.total_lines:
             return
@@ -73,6 +127,20 @@ class ReplaceProgressPrinter:
     def finish(self, replaced_count: int):
         elapsed = max(0.001, time.time() - self.start_time)
         avg_speed = int(self.total_lines / elapsed)
+        if self.rich_progress and self.task_id is not None:
+            try:
+                self.rich_progress.update(
+                    self.task_id,
+                    completed=self.total_lines,
+                    replaced=replaced_count,
+                    description="[bold green]✓ Hoàn tất thay thế"
+                )
+                self.rich_progress.stop()
+            except Exception:
+                pass
+            print(f"[+] Hoàn tất thay thế: {self.total_lines:,} dòng ({avg_speed:,} d/s) | {replaced_count:,} lượt thay thế\n")
+            return
+
         if self.is_tty:
             msg = f"[+] Hoàn tất thay thế: 100% ({self.total_lines:,} dòng) trong {elapsed:.1f}s ({avg_speed:,} d/s) | {replaced_count:,} lượt thay thế"
             sys.stdout.write(f"\r{msg:<95}\n")
@@ -263,27 +331,34 @@ class ReplaceEngine:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         tmp_output_path = output_path.with_suffix(output_path.suffix + ".tmp")
 
-        # Đếm tổng số dòng
-        total_lines = 0
-        with open(input_path, "r", encoding="utf-8", errors="ignore") as f:
-            for _ in f:
-                total_lines += 1
+        # Đếm nhanh tổng số dòng bằng đọc khối nhị phân 1MB
+        total_lines = count_file_lines(input_path)
 
         self.stats_counter.clear()
         progress = ReplaceProgressPrinter(total_lines) if show_progress else None
         start_time = time.time()
         total_replacements = 0
 
+        BUFFER_LINES = 1000
+        line_buffer = []
+
         try:
             with open(input_path, "r", encoding="utf-8", errors="ignore") as f_in, \
-                 open(tmp_output_path, "w", encoding="utf-8") as f_out:
+                 open(tmp_output_path, "w", encoding="utf-8", buffering=64 * 1024) as f_out:
                 for line_idx, line in enumerate(f_in, start=1):
                     new_line = self.replace_line(line, track_stats=track_stats)
-                    f_out.write(new_line)
+                    line_buffer.append(new_line)
 
-                    if progress and line_idx % 200 == 0:
-                        current_reps = sum(self.stats_counter.values()) if track_stats else 0
-                        progress.update(line_idx, current_reps)
+                    if len(line_buffer) >= BUFFER_LINES:
+                        f_out.writelines(line_buffer)
+                        line_buffer.clear()
+                        if progress and line_idx % 2000 == 0:
+                            current_reps = sum(self.stats_counter.values()) if track_stats else 0
+                            progress.update(line_idx, current_reps)
+
+                if line_buffer:
+                    f_out.writelines(line_buffer)
+                    line_buffer.clear()
 
             if progress:
                 current_reps = sum(self.stats_counter.values()) if track_stats else 0
