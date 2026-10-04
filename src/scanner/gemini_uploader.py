@@ -78,10 +78,15 @@ class GeminiUploader:
     # Các selector có thể dùng để mở chức năng upload/đính kèm.
     # Gemini có thể thay đổi aria-label theo ngôn ngữ/giao diện.
     UPLOAD_BUTTON_SELECTORS = [
+        'button[aria-label*="nội dung tải lên" i]',
+        'button[aria-label*="tải lên và công cụ" i]',
+        'button[aria-label*="uploads and tools" i]',
+        'button[aria-label*="tools and uploads" i]',
         'button[aria-label*="tải tệp" i]',
         'button[aria-label*="tải file" i]',
         'button[aria-label*="mở menu tải tệp" i]',
         'button[aria-label*="mở menu tải" i]',
+        'button[aria-label*="mở trình đơn tải" i]',
         'button[aria-label*="thêm tệp" i]',
         'button[aria-label*="đính kèm" i]',
         'button[aria-label*="upload file" i]',
@@ -96,13 +101,18 @@ class GeminiUploader:
         '[data-testid*="attach" i]',
         '[data-test-id*="upload" i]',
         '[data-test-id*="attach" i]',
+        'button[mattooltip*="tải" i]',
         'button[mattooltip*="tệp" i]',
         'button[mattooltip*="file" i]',
         'button[mattooltip*="upload" i]',
     ]
 
-    # Sau khi bấm nút +/Upload, Gemini có thể hiện menu.
+    # Sau khi bấm nút +/Upload, Gemini hiện menu lựa chọn tải lên.
     UPLOAD_MENU_SELECTORS = [
+        'button[aria-label*="tải tệp lên" i]',
+        'button[aria-label*="tải file lên" i]',
+        'button[aria-label*="upload files" i]',
+        'button[aria-label*="upload file" i]',
         'button:has-text("Tải tệp lên")',
         'button:has-text("Tải file lên")',
         'button:has-text("Upload files")',
@@ -206,9 +216,21 @@ class GeminiUploader:
         except Exception:
             pass
 
-        time.sleep(3)
-
-        self.log_cb("[+] Kết nối tới Gemini Web thành công!")
+        # Chờ khung chat sẵn sàng (xác nhận người dùng đã đăng nhập và SPA đã nạp xong)
+        try:
+            self.page.locator(self.CHAT_BOX_LOCATOR).first.wait_for(
+                state="visible",
+                timeout=15000,
+            )
+            self.log_cb("[+] Kết nối tới Gemini Web thành công! Khung chat đã sẵn sàng.")
+        except Exception:
+            if "accounts.google.com" in self.page.url:
+                self.log_cb(
+                    "[!] CẢNH BÁO: Trình duyệt đang ở trang Đăng nhập Google.\n"
+                    "👉 Vui lòng đăng nhập tài khoản trên cửa sổ Chrome trước khi chạy!"
+                )
+            else:
+                self.log_cb("[+] Kết nối tới Gemini Web thành công!")
 
     # ------------------------------------------------------------------
     # HELPER
@@ -257,9 +279,9 @@ class GeminiUploader:
 
         Ưu tiên:
         1. input[type=file] nếu Gemini đã tạo sẵn input trong DOM.
-        2. File chooser nếu nút Upload/Attach kích hoạt FileChooser trực tiếp.
-        3. Mở menu Upload rồi bắt FileChooser từ mục "Tải tệp lên".
-        4. input[type=file] xuất hiện sau khi mở menu.
+        2. Mở menu Upload/Attach (+) -> click mục "Tải tệp lên" kèm bắt FileChooser.
+        3. input[type=file] được chèn vào DOM sau khi mở menu.
+        4. Bắt FileChooser trực tiếp từ nút Upload (nếu layout không có submenu).
 
         Hàm này tuyệt đối KHÔNG đọc nội dung file và KHÔNG copy/paste nội dung file
         vào ô chat.
@@ -286,8 +308,17 @@ class GeminiUploader:
             f"[*] Chuẩn bị upload file: {file_path.name}"
         )
 
+        # Chờ khung chat sẵn sàng (tối đa 10s)
+        try:
+            self.page.locator(self.CHAT_BOX_LOCATOR).first.wait_for(
+                state="visible",
+                timeout=10000,
+            )
+        except Exception:
+            pass
+
         # --------------------------------------------------------------
-        # Cách 1: input[type=file] đã tồn tại trong DOM
+        # Cách 1: input[type=file] đã tồn tại sẵn trong DOM
         # --------------------------------------------------------------
 
         try:
@@ -321,11 +352,8 @@ class GeminiUploader:
             pass
 
         # --------------------------------------------------------------
-        # Cách 2 & 3: Thử tương tác qua nút Upload/Attach (+)
-        # Khi click nút Upload, Gemini có thể:
-        # a) Mở FileChooser trực tiếp
-        # b) Mở dropdown menu chứa tùy chọn "Tải tệp lên"
-        # c) Chèn input[type=file] vào DOM
+        # Cách 2 & 3: Tương tác qua nút Upload/Attach (+)
+        # Nhấp nút để mở menu hoặc kích hoạt FileChooser
         # --------------------------------------------------------------
 
         for selector in self.UPLOAD_BUTTON_SELECTORS:
@@ -336,15 +364,14 @@ class GeminiUploader:
                     if not self._visible_enabled(element):
                         continue
 
-                    # 2a. Thử xem click nút có kích hoạt FileChooser trực tiếp không
+                    # Thử bắt FileChooser trực tiếp từ nút (layout không có submenu)
                     try:
                         with self.page.expect_file_chooser(
-                            timeout=2000
+                            timeout=1500
                         ) as fc_info:
                             element.click(timeout=1500)
 
                         file_chooser = fc_info.value
-
                         file_chooser.set_files(
                             str(file_path),
                             timeout=timeout,
@@ -360,9 +387,10 @@ class GeminiUploader:
                     except Exception:
                         pass
 
-                    # 2b. Nếu không mở FileChooser trực tiếp, có thể nút đã mở menu dropdown.
-                    # Kiểm tra xem menu item có xuất hiện không
+                    # Nếu không mở FileChooser trực tiếp, nút đã mở menu tải lên
                     time.sleep(0.5)
+
+                    # Cách 2b: Nhấp mục 'Tải tệp lên' trong menu và bắt FileChooser
                     for menu_sel in self.UPLOAD_MENU_SELECTORS:
                         try:
                             menu_items = self.page.locator(menu_sel).all()
@@ -373,7 +401,7 @@ class GeminiUploader:
 
                                 try:
                                     with self.page.expect_file_chooser(
-                                        timeout=3000
+                                        timeout=4000
                                     ) as fc_info:
                                         item.click(timeout=1500)
 
@@ -397,7 +425,7 @@ class GeminiUploader:
                         except Exception:
                             continue
 
-                    # 2c. Kiểm tra xem input[type=file] có vừa xuất hiện trong DOM sau khi click không
+                    # Cách 2c: Kiểm tra input[type=file] vừa xuất hiện sau khi mở menu
                     try:
                         file_inputs = self.page.locator('input[type="file"]')
                         if file_inputs.count() > 0:
