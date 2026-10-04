@@ -33,8 +33,20 @@ def test_upload_workflow_realtime_and_new_chat_cycling(tmp_path: Path):
 
     recorded_import_snapshots = []
 
-    def mock_send_and_extract(content: str):
-        # Trích xuất số chunk từ content
+    def mock_send_and_extract(target: Path | str):
+        if isinstance(target, Path):
+            fname = target.name
+            if fname in mock_responses:
+                if out_json.exists():
+                    recorded_import_snapshots.append(len(json.loads(out_json.read_text(encoding="utf-8"))))
+                else:
+                    recorded_import_snapshots.append(0)
+                return mock_responses[fname]
+            content = target.read_text(encoding="utf-8")
+        else:
+            content = str(target)
+
+        # Trích xuất số chunk từ content (nếu truyền str)
         for fname, resp in mock_responses.items():
             chunk_num = fname.split("_")[1].split(".")[0]
             if f"# Chunk {chunk_num}" in content:

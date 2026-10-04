@@ -1,4 +1,5 @@
 import argparse
+import sys
 import time
 import re
 from pathlib import Path
@@ -63,37 +64,97 @@ def run_upload_workflow(
         total_pending = len(pending_files)
         files_in_current_chat = 0
 
-        for idx, md_file in enumerate(pending_files, start=1):
-            print(f"\n=======================================================")
-            print(f"[*] [{idx}/{total_pending}] Đang xử lý: {md_file.name} (File {files_in_current_chat + 1}/{files_per_chat} trong đoạn chat hiện tại)...")
-            content = md_file.read_text(encoding="utf-8")
-            
-            try:
-                result = uploader.send_and_extract(content)
-                if result:
-                    tracker.save_file_result(md_file.name, result)
-                    total_saved = tracker.export_to_import_json(out_path)
-                    print(f"[+] Thành công! Gemini đã trả về {len(result)} block đã biên tập.")
-                    print(f"[+] Đã cập nhật ngay vào '{out_path.name}' (Hiện có {total_saved} nhân vật).")
-                    files_in_current_chat += 1
-                else:
-                    print(f"[-] Cảnh báo: Không trích xuất được JSON hợp lệ từ {md_file.name}. Sẽ thử lại ở lần sau.")
-            except Exception as e_send:
-                print(f"[-] Lỗi xử lý file {md_file.name}: {e_send}. Giữ trình duyệt và tiếp tục các file kế tiếp...")
+        try:
+            from rich.progress import (
+                Progress, SpinnerColumn, BarColumn, TextColumn,
+                TimeElapsedColumn, TimeRemainingColumn, MofNCompleteColumn
+            )
+            from rich.console import Console
+            use_rich = hasattr(sys.stdout, "isatty") and sys.stdout.isatty()
+        except ImportError:
+            use_rich = False
 
-            if idx < total_pending:
-                # Nếu đã đủ số file trong phiên chat hiện tại -> Tạo đoạn chat mới
-                if files_in_current_chat >= files_per_chat:
-                    print(f"\n[*] Đã hoàn thành {files_in_current_chat} file trong phiên chat này. Đang tạo đoạn chat mới trên Gemini...")
+        if use_rich:
+            console = Console()
+            with Progress(
+                SpinnerColumn(),
+                TextColumn("[bold cyan]{task.description}"),
+                BarColumn(bar_width=25),
+                MofNCompleteColumn(),
+                "•",
+                TimeElapsedColumn(),
+                "•",
+                TimeRemainingColumn(),
+                console=console,
+                transient=False
+            ) as progress:
+                main_task = progress.add_task("[bold green]Tiến độ gửi Gemini", total=total_pending, completed=0)
+
+                for idx, md_file in enumerate(pending_files, start=1):
+                    progress.update(
+                        main_task,
+                        description=f"[bold yellow]Đang gửi [{idx}/{total_pending}]: {md_file.name[:25]}"
+                    )
+
                     try:
-                        uploader.new_chat()
-                    except Exception as e_chat:
-                        print(f"[-] Cảnh báo tạo chat mới: {e_chat}. Tiếp tục trên cửa sổ hiện tại...")
-                    files_in_current_chat = 0
-                    time.sleep(2)
-                else:
-                    print(f"[*] Nghỉ {delay} giây trước khi gửi file tiếp theo...")
-                    time.sleep(delay)
+                        result = uploader.send_and_extract(md_file)
+                        if result:
+                            tracker.save_file_result(md_file.name, result)
+                            total_saved = tracker.export_to_import_json(out_path)
+                            console.print(f"   [bold green]✓[/bold green] [{idx}/{total_pending}] {md_file.name}: Gemini trả về [cyan]{len(result)} block[/cyan] | Tổng: [yellow]{total_saved} nhân vật[/yellow]")
+                            files_in_current_chat += 1
+                        else:
+                            console.print(f"   [bold red]✗[/bold red] Cảnh báo: Không trích xuất được JSON từ {md_file.name}.")
+                    except Exception as e_send:
+                        console.print(f"   [bold red]✗[/bold red] Lỗi xử lý {md_file.name}: {e_send}")
+
+                    progress.advance(main_task, 1)
+
+                    if idx < total_pending:
+                        if files_in_current_chat >= files_per_chat:
+                            console.print(f"[*] Đã xong {files_in_current_chat} file. Đang tạo chat mới trên Gemini...")
+                            try:
+                                uploader.new_chat()
+                            except Exception:
+                                pass
+                            files_in_current_chat = 0
+                            time.sleep(2)
+                        else:
+                            for rem in range(delay, 0, -1):
+                                progress.update(main_task, description=f"[cyan]Nghỉ {rem}s trước file kế tiếp ({md_file.name[:18]})...")
+                                time.sleep(1)
+
+        else:
+            for idx, md_file in enumerate(pending_files, start=1):
+                print(f"\n=======================================================")
+                print(f"[*] [{idx}/{total_pending}] Đang xử lý: {md_file.name} (File {files_in_current_chat + 1}/{files_per_chat} trong đoạn chat hiện tại)...")
+
+                try:
+                    result = uploader.send_and_extract(md_file)
+                    if result:
+                        tracker.save_file_result(md_file.name, result)
+                        total_saved = tracker.export_to_import_json(out_path)
+                        print(f"[+] Thành công! Gemini đã trả về {len(result)} block đã biên tập.")
+                        print(f"[+] Đã cập nhật ngay vào '{out_path.name}' (Hiện có {total_saved} nhân vật).")
+                        files_in_current_chat += 1
+                    else:
+                        print(f"[-] Cảnh báo: Không trích xuất được JSON hợp lệ từ {md_file.name}. Sẽ thử lại ở lần sau.")
+                except Exception as e_send:
+                    print(f"[-] Lỗi xử lý file {md_file.name}: {e_send}. Giữ trình duyệt và tiếp tục các file kế tiếp...")
+
+                if idx < total_pending:
+                    # Nếu đã đủ số file trong phiên chat hiện tại -> Tạo đoạn chat mới
+                    if files_in_current_chat >= files_per_chat:
+                        print(f"\n[*] Đã hoàn thành {files_in_current_chat} file trong phiên chat này. Đang tạo đoạn chat mới trên Gemini...")
+                        try:
+                            uploader.new_chat()
+                        except Exception as e_chat:
+                            print(f"[-] Cảnh báo tạo chat mới: {e_chat}. Tiếp tục trên cửa sổ hiện tại...")
+                        files_in_current_chat = 0
+                        time.sleep(2)
+                    else:
+                        print(f"[*] Nghỉ {delay} giây trước khi gửi file tiếp theo...")
+                        time.sleep(delay)
 
         total = tracker.export_to_import_json(out_path)
         print(f"\n[🎉] HOÀN TẤT TOÀN BỘ QUÁ TRÌNH (Đã xử lý xong toàn bộ các file con trong scanner)!")
