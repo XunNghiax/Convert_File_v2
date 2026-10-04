@@ -15,6 +15,35 @@ DEFAULT_WARNING_JSON = DEFAULT_PROJECT_ROOT / "samples" / "warning.json"
 # Để tương thích ngược
 DEFAULT_TARGET_DICT = DEFAULT_CHARACTER_DICT
 
+def deduplicate_by_suggested_target(
+    items: List[Dict[str, Any]],
+    max_occurrences: int = 2
+) -> List[Dict[str, Any]]:
+    """
+    Loại bỏ các block có suggested_target (hoặc target) trùng nhau,
+    chỉ giữ lại tối đa max_occurrences cái (mặc định là 2).
+    """
+    if max_occurrences is None or max_occurrences <= 0:
+        return list(items)
+
+    seen_counts: Dict[str, int] = {}
+    result = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        key = str(item.get("suggested_target") or item.get("target") or item.get("source", "")).strip().lower()
+        if not key:
+            result.append(item)
+            continue
+        cnt = seen_counts.get(key, 0)
+        if cnt < max_occurrences:
+            seen_counts[key] = cnt + 1
+            result.append(item)
+        else:
+            # Bỏ qua từ lần xuất hiện thứ (max_occurrences + 1) trở đi
+            continue
+    return result
+
 def check_word_count_alignment(source: str, target: str) -> Tuple[bool, int, int, str]:
     """
     Kiểm tra số từ giữa source và target.
@@ -41,7 +70,8 @@ def filter_and_export_warnings(
     warning_path: Union[str, Path] = DEFAULT_WARNING_JSON
 ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     """
-    Lọc các mục bị lệch số từ và xuất ra file warning.json để chuẩn hóa.
+    Lọc các mục bị lệch số từ hoặc nội dung không trùng nhau giữa source và suggested_target (target),
+    xuất ra file warning.json để chuẩn hóa.
     Chỉ trả về các mục đạt chuẩn (valid_items) để nạp vào từ điển.
     """
     valid_items = []
@@ -51,20 +81,20 @@ def filter_and_export_warnings(
         if not isinstance(item, dict):
             continue
         source = str(item.get("source", "")).strip()
-        target = str(item.get("target") or item.get("suggested_target", "")).strip()
+        # Ưu tiên lấy suggested_target trước, fallback về target
+        target = str(item.get("suggested_target") or item.get("target", "")).strip()
 
         if not source or not target:
             continue
 
         is_aligned, cnt_s, cnt_t, reason = check_word_count_alignment(source, target)
-        if is_aligned:
-            valid_items.append(item)
-        else:
+        if not is_aligned:
             w_entry = {
                 "id": str(item.get("id", "")).strip(),
                 "is_character": item.get("is_character", True),
                 "source": source,
-                "target": target,
+                "target": str(item.get("target", "")).strip() or target,
+                "suggested_target": str(item.get("suggested_target", "")).strip() or target,
                 "words_source": cnt_s,
                 "words_target": cnt_t,
                 "diff": cnt_t - cnt_s,
@@ -72,11 +102,27 @@ def filter_and_export_warnings(
                 "context": item.get("context", "")
             }
             warning_items.append(w_entry)
+        elif source.strip().lower() != target.strip().lower():
+            w_entry = {
+                "id": str(item.get("id", "")).strip(),
+                "is_character": item.get("is_character", True),
+                "source": source,
+                "target": str(item.get("target", "")).strip() or target,
+                "suggested_target": str(item.get("suggested_target", "")).strip() or target,
+                "words_source": cnt_s,
+                "words_target": cnt_t,
+                "diff": 0,
+                "reason": f"Nội dung không trùng nhau: Source '{source}' != Suggested Target '{target}'",
+                "context": item.get("context", "")
+            }
+            warning_items.append(w_entry)
+        else:
+            valid_items.append(item)
 
     warning_path = Path(warning_path)
     if warning_items:
         save_dictionary(warning_items, warning_path, indent=2)
-        print(f"[!] CẢNH BÁO: Phát hiện {len(warning_items)} mục lệch số từ giữa Source và Target.")
+        print(f"[!] CẢNH BÁO: Phát hiện {len(warning_items)} mục lệch số từ hoặc không khớp nội dung giữa Source và Suggested Target.")
         print(f"[!] Đã xuất ra '{warning_path}' để bạn kiểm tra và chuẩn hóa lại.")
     else:
         if warning_path.exists():
@@ -125,7 +171,7 @@ def load_dictionary(path: Union[str, Path]) -> Dict[str, str]:
                 for item in data:
                     if isinstance(item, dict):
                         src = str(item.get("source", "")).strip().lower()
-                        tgt = str(item.get("target") or item.get("suggested_target", "")).strip()
+                        tgt = str(item.get("suggested_target") or item.get("target", "")).strip()
                         if src and tgt:
                             result[src] = tgt
                 return result
@@ -174,7 +220,7 @@ def normalize_character_entry(raw_item: Dict[str, Any]) -> Optional[Dict[str, st
         return None
 
     source = str(raw_item.get("source", "")).strip()
-    target = str(raw_item.get("target") or raw_item.get("suggested_target", "")).strip()
+    target = str(raw_item.get("suggested_target") or raw_item.get("target", "")).strip()
     tag = raw_item.get("Tag", raw_item.get("tag", raw_item.get("yeu_to_nhan_biet", "")))
     tag = str(tag).strip() if tag is not None else ""
     custom_id = str(raw_item.get("id", "")).strip()
@@ -198,7 +244,7 @@ def normalize_common_entry(raw_item: Dict[str, Any]) -> Optional[Dict[str, str]]
         return None
 
     source = str(raw_item.get("source", "")).strip()
-    target = str(raw_item.get("target") or raw_item.get("suggested_target", "")).strip()
+    target = str(raw_item.get("suggested_target") or raw_item.get("target", "")).strip()
     cat = raw_item.get("category", raw_item.get("yeu_to_nhan_biet", raw_item.get("Tag", "Cụm từ chung")))
     cat = str(cat).strip() if cat is not None else "Cụm từ chung"
     custom_id = str(raw_item.get("id", "")).strip()
@@ -257,7 +303,7 @@ def import_character_dict(
                 continue
 
         source = str(raw.get("source", "")).strip()
-        target = str(raw.get("target") or raw.get("suggested_target", "")).strip()
+        target = str(raw.get("suggested_target") or raw.get("target", "")).strip()
 
         if not source or not target:
             skipped_count += 1
@@ -308,7 +354,7 @@ def import_common_dict(
             continue
 
         source = str(raw.get("source", "")).strip()
-        target = str(raw.get("target") or raw.get("suggested_target", "")).strip()
+        target = str(raw.get("suggested_target") or raw.get("target", "")).strip()
 
         if not source or not target:
             skipped_count += 1
@@ -345,14 +391,19 @@ def distribute_and_import(
     warning_path: Union[str, Path] = DEFAULT_WARNING_JSON,
     overwrite_existing: bool = True,
     keep_id: bool = False,
-    validate_word_count: bool = True
+    validate_word_count: bool = True,
+    max_duplicate_suggested_targets: int = 2
 ) -> Dict[str, Any]:
     """
     Phân bổ các mục dựa vào trường 'is_character':
-    - Nếu validate_word_count=True: Lọc các mục lệch số từ ra warning.json trước.
+    - Lọc bỏ các block có suggested_target trùng nhau (giữ tối đa max_duplicate_suggested_targets cái).
+    - Nếu validate_word_count=True: Lọc các mục lệch số từ / lệch nội dung ra warning.json trước.
     - 'is_character': true -> nạp vào character_dict.json (Title Case)
     - 'is_character': false -> nạp vào common_dict.json (lowercase)
     """
+    if max_duplicate_suggested_targets and max_duplicate_suggested_targets > 0:
+        items = deduplicate_by_suggested_target(items, max_occurrences=max_duplicate_suggested_targets)
+
     warning_count = 0
     if validate_word_count:
         valid_items, warning_items = filter_and_export_warnings(items, warning_path=warning_path)
@@ -402,13 +453,18 @@ def import_entries(
     id_prefix: str = "ch-",
     filter_characters: bool = True,
     keep_id: bool = False,
-    validate_word_count: bool = True
+    validate_word_count: bool = True,
+    max_duplicate_suggested_targets: int = 2
 ) -> Dict[str, Any]:
     """
     Import danh sách mục vào một file từ điển chỉ định dưới dạng key-value.
-    Nếu target là common_dict.json, sẽ tự động áp dụng định dạng common_dict.
-    Nếu target là character_dict.json và filter_characters=True, sẽ lọc bỏ is_character == False.
+    - Lọc bỏ các block có suggested_target trùng nhau (giữ tối đa max_duplicate_suggested_targets cái).
+    - Nếu target là common_dict.json, sẽ tự động áp dụng định dạng common_dict.
+    - Nếu target là character_dict.json và filter_characters=True, sẽ lọc bỏ is_character == False.
     """
+    if max_duplicate_suggested_targets and max_duplicate_suggested_targets > 0:
+        items = deduplicate_by_suggested_target(items, max_occurrences=max_duplicate_suggested_targets)
+
     warning_count = 0
     if validate_word_count:
         valid_items, warning_items = filter_and_export_warnings(items, warning_path=warning_path)

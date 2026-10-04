@@ -112,6 +112,14 @@ def main():
 
     print(f"[*] Bắt đầu xử lý {len(items_to_import)} mục...")
 
+    try:
+        from rich.console import Console
+        from rich.table import Table
+        from rich.panel import Panel
+        use_rich = hasattr(sys.stdout, "isatty") and sys.stdout.isatty()
+    except ImportError:
+        use_rich = False
+
     # Nếu người dùng chỉ định file từ điển cụ thể:
     if args.dict:
         dict_path = Path(args.dict)
@@ -123,17 +131,35 @@ def main():
             filter_characters=False,
             validate_word_count=not args.no_word_count_check
         )
-        print("\n" + "=" * 55)
-        print("              KẾT QUẢ IMPORT TỪ ĐIỂN")
-        print("=" * 55)
-        print(f"➕ Thêm mới : {result['added']}")
-        print(f"🔄 Cập nhật : {result['updated']}")
-        print(f"⏭️ Bỏ qua   : {result['skipped']}")
-        print(f"📚 Tổng mục : {result['total']}")
-        print(f"📁 File đích: {result['target_file']}")
-        if result.get("warning_count", 0) > 0:
-            print(f"⚠️ Cảnh báo : {result['warning_count']} mục lệch số từ đã xuất ra '{result['warning_file']}'")
-        print("=" * 55)
+        if use_rich:
+            console = Console()
+            table = Table(title="[bold green]📊 KẾT QUẢ IMPORT TỪ ĐIỂN[/bold green]", border_style="cyan")
+            table.add_column("Chỉ số", style="bold white")
+            table.add_column("Số lượng / Chi tiết", style="bold yellow")
+            table.add_row("➕ Thêm mới", f"[green]{result['added']:,}[/green]")
+            table.add_row("🔄 Cập nhật", f"[cyan]{result['updated']:,}[/cyan]")
+            table.add_row("⏭️ Bỏ qua", f"[dim]{result['skipped']:,}[/dim]")
+            table.add_row("📚 Tổng mục", f"[bold white]{result['total']:,}[/bold white]")
+            table.add_row("📁 File đích", f"[magenta]{result['target_file']}[/magenta]")
+            console.print(table)
+            if result.get("warning_count", 0) > 0:
+                console.print(Panel(
+                    f"[bold yellow]⚠️ CẢNH BÁO:[/bold yellow] Phát hiện [bold red]{result['warning_count']}[/bold red] mục lệch số từ!\n"
+                    f"👉 Đã xuất ra file: [cyan]{result['warning_file']}[/cyan]",
+                    border_style="yellow"
+                ))
+        else:
+            print("\n" + "=" * 55)
+            print("              KẾT QUẢ IMPORT TỪ ĐIỂN")
+            print("=" * 55)
+            print(f"➕ Thêm mới : {result['added']}")
+            print(f"🔄 Cập nhật : {result['updated']}")
+            print(f"⏭️ Bỏ qua   : {result['skipped']}")
+            print(f"📚 Tổng mục : {result['total']}")
+            print(f"📁 File đích: {result['target_file']}")
+            if result.get("warning_count", 0) > 0:
+                print(f"⚠️ Cảnh báo : {result['warning_count']} mục lệch số từ đã xuất ra '{result['warning_file']}'")
+            print("=" * 55)
     else:
         # Tự động phân bổ dựa vào 'is_character'
         dist_res = distribute_and_import(
@@ -147,28 +173,63 @@ def main():
         char_res = dist_res["character"]
         comm_res = dist_res["common"]
 
-        print("\n" + "=" * 65)
-        print("           KẾT QUẢ PHÂN BỔ VÀ IMPORT TỪ ĐIỂN")
-        print("=" * 65)
-        print(f"[1] TỪ ĐIỂN NHÂN VẬT (character_dict.json) - is_character: true")
-        print(f"    ➕ Thêm mới : {char_res['added']}")
-        print(f"    🔄 Cập nhật : {char_res['updated']}")
-        print(f"    ⏭️ Bỏ qua   : {char_res['skipped']}")
-        print(f"    📚 Tổng mục : {char_res['total']}")
-        print(f"    📁 File     : {char_res['target_file']}")
-        print("-" * 65)
-        print(f"[2] TỪ ĐIỂN THÔNG DỤNG (common_dict.json) - is_character: false")
-        print(f"    ➕ Thêm mới : {comm_res['added']}")
-        print(f"    🔄 Cập nhật : {comm_res['updated']}")
-        print(f"    ⏭️ Bỏ qua   : {comm_res['skipped']}")
-        print(f"    📚 Tổng mục : {comm_res['total']}")
-        print(f"    📁 File     : {comm_res['target_file']}")
-        if dist_res.get("warning_count", 0) > 0:
+        if use_rich:
+            console = Console()
+            table = Table(title="[bold green]📊 KẾT QUẢ PHÂN BỔ VÀ IMPORT TỪ ĐIỂN[/bold green]", border_style="cyan")
+            table.add_column("Từ điển đích", style="bold white")
+            table.add_column("➕ Thêm mới", style="green", justify="right")
+            table.add_column("🔄 Cập nhật", style="cyan", justify="right")
+            table.add_column("⏭️ Bỏ qua", style="dim", justify="right")
+            table.add_column("📚 Tổng cộng", style="bold yellow", justify="right")
+            table.add_column("📁 Đường dẫn file", style="magenta")
+
+            table.add_row(
+                "Nhân vật (is_character: true)",
+                f"{char_res['added']:,}",
+                f"{char_res['updated']:,}",
+                f"{char_res['skipped']:,}",
+                f"{char_res['total']:,}",
+                str(char_res['target_file'])
+            )
+            table.add_row(
+                "Thông dụng (is_character: false)",
+                f"{comm_res['added']:,}",
+                f"{comm_res['updated']:,}",
+                f"{comm_res['skipped']:,}",
+                f"{comm_res['total']:,}",
+                str(comm_res['target_file'])
+            )
+            console.print(table)
+            if dist_res.get("warning_count", 0) > 0:
+                console.print(Panel(
+                    f"[bold yellow]⚠️ CẢNH BÁO PHÁT HIỆN LỆCH TỪ:[/bold yellow] Có [bold red]{dist_res['warning_count']}[/bold red] mục lệch số từ giữa Source & Target!\n"
+                    f"👉 File cảnh báo: [cyan]{dist_res['warning_file']}[/cyan]\n"
+                    f"[dim]💡 Lưu ý: Các mục này KHÔNG được nạp vào từ điển để tránh lỗi lặp họ khi replace.[/dim]",
+                    border_style="yellow"
+                ))
+        else:
+            print("\n" + "=" * 65)
+            print("           KẾT QUẢ PHÂN BỔ VÀ IMPORT TỪ ĐIỂN")
+            print("=" * 65)
+            print(f"[1] TỪ ĐIỂN NHÂN VẬT (character_dict.json) - is_character: true")
+            print(f"    ➕ Thêm mới : {char_res['added']}")
+            print(f"    🔄 Cập nhật : {char_res['updated']}")
+            print(f"    ⏭️ Bỏ qua   : {char_res['skipped']}")
+            print(f"    📚 Tổng mục : {char_res['total']}")
+            print(f"    📁 File     : {char_res['target_file']}")
             print("-" * 65)
-            print(f"⚠️  PHÁT HIỆN {dist_res['warning_count']} MỤC LỆCH SỐ TỪ GIỮA SOURCE & TARGET!")
-            print(f"👉 File cảnh báo: {dist_res['warning_file']}")
-            print(f"💡 Lưu ý: Các mục này KHÔNG được nạp vào từ điển để tránh lỗi lặp họ khi replace.")
-        print("=" * 65)
+            print(f"[2] TỪ ĐIỂN THÔNG DỤNG (common_dict.json) - is_character: false")
+            print(f"    ➕ Thêm mới : {comm_res['added']}")
+            print(f"    🔄 Cập nhật : {comm_res['updated']}")
+            print(f"    ⏭️ Bỏ qua   : {comm_res['skipped']}")
+            print(f"    📚 Tổng mục : {comm_res['total']}")
+            print(f"    📁 File     : {comm_res['target_file']}")
+            if dist_res.get("warning_count", 0) > 0:
+                print("-" * 65)
+                print(f"⚠️  PHÁT HIỆN {dist_res['warning_count']} MỤC LỆCH SỐ TỪ GIỮA SOURCE & TARGET!")
+                print(f"👉 File cảnh báo: {dist_res['warning_file']}")
+                print(f"💡 Lưu ý: Các mục này KHÔNG được nạp vào từ điển để tránh lỗi lặp họ khi replace.")
+            print("=" * 65)
 
 if __name__ == "__main__":
     main()
