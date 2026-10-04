@@ -2,10 +2,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from collections import defaultdict
 import json
+import concurrent.futures
 from .resource_loader import ResourceLoader
 from .boundary_trimmer import BoundaryTrimmer
 from .candidate_extractor import CandidateExtractor
 from .context_expander import ContextExpander
+from ..utils.chunk_splitter import split_file_line_ranges
 
 @dataclass
 class CharacterBlock:
@@ -166,6 +168,46 @@ class ProgressPrinter:
                 f"[+] Hoàn tất quét {self.total_lines:,} dòng trong {elapsed:.1f}s ({avg_speed:,} dòng/s) | Tìm thấy: {found_count:,} {self.label}",
                 flush=True
             )
+
+def _scan_chunk_worker(
+    filepath: Path,
+    start_line: int,
+    end_line: int,
+    engine: "ScannerEngine",
+    effective_skip: bool
+) -> list[tuple]:
+    """
+    Hàm worker độc lập ở module-level để có thể pickle và chạy đa tiến trình (ProcessPoolExecutor).
+    Quét đoạn dòng từ start_line đến end_line (1-indexed).
+    Trả về danh sách (name_key, cand_raw, cand_name, cand_reason, cand_conf, line_idx, context).
+    """
+    filepath = Path(filepath)
+    if not engine.extractor:
+        return []
+
+    results = []
+    with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+        for line_idx, line in enumerate(f, start=1):
+            if line_idx < start_line:
+                continue
+            if line_idx > end_line:
+                break
+            clean_line = line.strip()
+            if not clean_line:
+                continue
+
+            candidates = engine.extractor.extract_candidates(line, skip_known=effective_skip)
+            for cand in candidates:
+                if effective_skip and engine.loader:
+                    if (cand.raw.lower().strip() in engine.loader.known_characters or 
+                        cand.name.lower().strip() in engine.loader.known_characters):
+                        continue
+                if engine._is_negative(cand.name, skip_known=effective_skip):
+                    continue
+                name_key = cand.name.lower().strip()
+                ctx = engine.expander.expand_context(clean_line, cand.start, cand.end)
+                results.append((name_key, cand.raw, cand.name, cand.reason, cand.confidence, line_idx, ctx))
+    return results
 
 class ScannerEngine:
     HUMAN_ACTION_VERBS = {
@@ -353,7 +395,8 @@ class ScannerEngine:
         skip_known: Optional[bool] = None,
         progress_callback: Optional[Callable[[int, int, int], None]] = None,
         realtime_all_path: Optional[Path] = None,
-        realtime_interval: float = 1.0
+        realtime_interval: float = 1.0,
+        workers: int = 1
     ) -> list[CharacterBlock]:
         """
         Quét văn bản với cơ chế Khử trùng lặp trực tiếp (Online Deduplication),
@@ -364,6 +407,7 @@ class ScannerEngine:
         if not deduplicate:
             return list(self.scan_file_stream(filepath, show_progress=show_progress, skip_known=effective_skip))
 
+        filepath = Path(filepath)
         total_lines = count_file_lines(filepath)
         tracked: dict[str, CharacterBlock] = {}
         best_scores: dict[str, tuple] = {}
@@ -397,77 +441,150 @@ class ScannerEngine:
             is_dirty = False
             last_realtime_save = time.time()
 
-        try:
-            with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-                for line_idx, line in enumerate(f, start=1):
-                    clean_line = line.strip()
-                    if not clean_line:
+        ranges = split_file_line_ranges(filepath, num_chunks=workers) if workers > 1 else []
+
+        if len(ranges) > 1:
+            try:
+                chunk_results = [None] * len(ranges)
+                with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
+                    futures = {
+                        executor.submit(
+                            _scan_chunk_worker,
+                            filepath,
+                            start,
+                            end,
+                            self,
+                            effective_skip
+                        ): idx
+                        for idx, (start, end) in enumerate(ranges)
+                    }
+                    for fut in concurrent.futures.as_completed(futures):
+                        idx = futures[fut]
+                        chunk_results[idx] = fut.result()
                         if progress:
-                            progress.update(line_idx, len(tracked))
+                            done_lines = sum(
+                                ranges[i][1] - ranges[i][0] + 1
+                                for i, res in enumerate(chunk_results)
+                                if res is not None
+                            )
+                            temp_found = sum(len(res) for res in chunk_results if res is not None)
+                            progress.update(min(done_lines, total_lines), temp_found)
+
+                # Merge tuần tự kết quả từ từng chunk theo đúng thứ tự dòng trong file
+                for chunk_items in chunk_results:
+                    if not chunk_items:
                         continue
-
-                    candidates = self.extractor.extract_candidates(line, skip_known=effective_skip)
-                    for cand in candidates:
-                        if effective_skip:
-                            if (cand.raw.lower().strip() in self.loader.known_characters or 
-                                cand.name.lower().strip() in self.loader.known_characters):
-                                continue
-                        if self._is_negative(cand.name, skip_known=effective_skip):
-                            continue
-                        name_key = cand.name.lower().strip()
-
+                    for name_key, cand_raw, cand_name, cand_reason, cand_conf, line_idx, ctx in chunk_items:
                         if name_key in tracked:
                             existing = tracked[name_key]
                             existing.so_lan_xuat_hien += 1
                             if len(existing.cac_dong_xuat_hien) < 100 and line_idx not in existing.cac_dong_xuat_hien:
                                 existing.cac_dong_xuat_hien.append(line_idx)
                             is_dirty = True
-                            # Chỉ mở rộng ngữ cảnh khi độ tin cậy có thể vượt qua điểm số tốt nhất hiện có
-                            cand_tier = 2 if cand.confidence >= 0.90 else (1 if cand.confidence >= 0.80 else 0)
+                            cand_tier = 2 if cand_conf >= 0.90 else (1 if cand_conf >= 0.80 else 0)
                             if cand_tier >= best_scores[name_key][0]:
-                                ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
-                                score = self._score_block(cand.confidence, ctx, line_idx)
+                                score = self._score_block(cand_conf, ctx, line_idx)
                                 if score > best_scores[name_key]:
-                                    existing.source = cand.raw
-                                    existing.target = cand.name
+                                    existing.source = cand_raw
+                                    existing.target = cand_name
                                     existing.context = ctx
-                                    existing.yeu_to_nhan_biet = cand.reason
-                                    existing.confidence = cand.confidence
+                                    existing.yeu_to_nhan_biet = cand_reason
+                                    existing.confidence = cand_conf
                                     best_scores[name_key] = score
                         else:
-                            ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
-                            score = self._score_block(cand.confidence, ctx, line_idx)
+                            score = self._score_block(cand_conf, ctx, line_idx)
                             block = CharacterBlock(
                                 id=f"ch_{len(tracked) + 1:04d}",
-                                source=cand.raw,
-                                target=cand.name,
+                                source=cand_raw,
+                                target=cand_name,
                                 context=ctx,
-                                yeu_to_nhan_biet=cand.reason,
+                                yeu_to_nhan_biet=cand_reason,
                                 so_lan_xuat_hien=1,
                                 dong_xuat_hien=line_idx,
-                                confidence=cand.confidence,
+                                confidence=cand_conf,
                                 cac_dong_xuat_hien=[line_idx]
                             )
                             tracked[name_key] = block
                             best_scores[name_key] = score
                             is_dirty = True
 
-                    if progress:
-                        progress.update(line_idx, len(tracked))
+                if progress_callback:
+                    progress_callback(total_lines, total_lines, len(tracked))
+            finally:
+                if realtime_all_path:
+                    _save_realtime(realtime_all_path)
+        else:
+            try:
+                with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+                    for line_idx, line in enumerate(f, start=1):
+                        clean_line = line.strip()
+                        if not clean_line:
+                            if progress:
+                                progress.update(line_idx, len(tracked))
+                            continue
 
-                    if progress_callback:
-                        progress_callback(line_idx, total_lines, len(tracked))
+                        candidates = self.extractor.extract_candidates(line, skip_known=effective_skip)
+                        for cand in candidates:
+                            if effective_skip:
+                                if (cand.raw.lower().strip() in self.loader.known_characters or 
+                                    cand.name.lower().strip() in self.loader.known_characters):
+                                    continue
+                            if self._is_negative(cand.name, skip_known=effective_skip):
+                                continue
+                            name_key = cand.name.lower().strip()
 
-                    # Flush dữ liệu realtime theo khoảng thời gian
-                    if realtime_all_path and is_dirty and (time.time() - last_realtime_save >= realtime_interval):
-                        _save_realtime(realtime_all_path)
+                            if name_key in tracked:
+                                existing = tracked[name_key]
+                                existing.so_lan_xuat_hien += 1
+                                if len(existing.cac_dong_xuat_hien) < 100 and line_idx not in existing.cac_dong_xuat_hien:
+                                    existing.cac_dong_xuat_hien.append(line_idx)
+                                is_dirty = True
+                                # Chỉ mở rộng ngữ cảnh khi độ tin cậy có thể vượt qua điểm số tốt nhất hiện có
+                                cand_tier = 2 if cand.confidence >= 0.90 else (1 if cand.confidence >= 0.80 else 0)
+                                if cand_tier >= best_scores[name_key][0]:
+                                    ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
+                                    score = self._score_block(cand.confidence, ctx, line_idx)
+                                    if score > best_scores[name_key]:
+                                        existing.source = cand.raw
+                                        existing.target = cand.name
+                                        existing.context = ctx
+                                        existing.yeu_to_nhan_biet = cand.reason
+                                        existing.confidence = cand.confidence
+                                        best_scores[name_key] = score
+                            else:
+                                ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
+                                score = self._score_block(cand.confidence, ctx, line_idx)
+                                block = CharacterBlock(
+                                    id=f"ch_{len(tracked) + 1:04d}",
+                                    source=cand.raw,
+                                    target=cand.name,
+                                    context=ctx,
+                                    yeu_to_nhan_biet=cand.reason,
+                                    so_lan_xuat_hien=1,
+                                    dong_xuat_hien=line_idx,
+                                    confidence=cand.confidence,
+                                    cac_dong_xuat_hien=[line_idx]
+                                )
+                                tracked[name_key] = block
+                                best_scores[name_key] = score
+                                is_dirty = True
 
-                    if line_idx % 20000 == 0:
-                        gc.collect()
-        finally:
-            # Luôn đảm bảo dữ liệu cuối cùng được ghi đĩa dù bị ngắt tiến trình
-            if realtime_all_path:
-                _save_realtime(realtime_all_path)
+                        if progress:
+                            progress.update(line_idx, len(tracked))
+
+                        if progress_callback:
+                            progress_callback(line_idx, total_lines, len(tracked))
+
+                        # Flush dữ liệu realtime theo khoảng thời gian
+                        if realtime_all_path and is_dirty and (time.time() - last_realtime_save >= realtime_interval):
+                            _save_realtime(realtime_all_path)
+
+                        if line_idx % 20000 == 0:
+                            gc.collect()
+            finally:
+                # Luôn đảm bảo dữ liệu cuối cùng được ghi đĩa dù bị ngắt tiến trình
+                if realtime_all_path:
+                    _save_realtime(realtime_all_path)
 
         if progress:
             progress.finish(len(tracked))
