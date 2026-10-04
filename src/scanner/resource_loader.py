@@ -18,6 +18,7 @@ class ResourceLoader:
         self.common_dict: set[str] = set()
         self.known_characters: dict[str, str] = {}
         self.deconvert_dict: dict[str, str] = {}
+        self.vn_2word_set: set[str] = set()
 
     def load_deconvert_dict(self, path: Path) -> dict[str, str]:
         mapping = {}
@@ -99,6 +100,21 @@ class ResourceLoader:
             pass
         return chars
 
+    def load_vn_2word_set(self, path: Path) -> set[str]:
+        words = set()
+        if not path.exists():
+            return words
+        try:
+            for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+                line = line.strip().lower()
+                if line and not line.startswith("#"):
+                    parts = line.split()
+                    if len(parts) == 2:
+                        words.add(line)
+        except Exception:
+            pass
+        return words
+
     def load_all(self):
         # 1. Tìm thư mục bộ lọc (filters)
         filters_dir = self.base_dir / "resources" / "filters"
@@ -117,5 +133,13 @@ class ResourceLoader:
         self.blacklist = self.load_word_set(filters_dir / "blacklist.txt")
         self.common_dict = self.load_common_dict(data_dir / "common_dict.json")
         self.known_characters = self.load_character_dict(data_dir / "character_dict.json")
+        chinese_names = self.load_character_dict(data_dir / "chinese_names_dict.json")
+        self.known_characters.update(chinese_names)
         self.deconvert_dict = self.load_deconvert_dict(data_dir / "deconvert_dict.json")
+
+        vn_words_path = data_dir / "vietnamese_words.txt"
+        if not vn_words_path.exists():
+            vn_words_path = self.base_dir / "resources" / "dictionaries" / "vietnamese_words.txt"
+        self.vn_2word_set = self.load_vn_2word_set(vn_words_path)
+
 
