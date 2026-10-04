@@ -36,3 +36,5 @@ def split_file_line_ranges(filepath: Path, num_chunks: int) -> List[Tuple[int, i
         curr_start = curr_end + 1
 
     return ranges
+
+split_file_line_chunks = split_file_line_ranges

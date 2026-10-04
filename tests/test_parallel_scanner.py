@@ -95,3 +95,78 @@ def test_scanner_parallel_cross_chunk_dedup_and_stats(tmp_path: Path):
     assert tkc_seq.cac_dong_xuat_hien == tkc_par.cac_dong_xuat_hien == [1, 4, 6]
     assert tkc_seq.target == tkc_par.target
     assert tkc_seq.source == tkc_par.source
+
+def test_split_file_line_chunks_alias(tmp_path: Path):
+    from src.utils.chunk_splitter import split_file_line_chunks
+    f = tmp_path / "test_alias.txt"
+    f.write_text("1\n2\n3\n4\n", encoding="utf-8")
+    assert split_file_line_chunks(f, num_chunks=2) == [(1, 2), (3, 4)]
+
+def test_scanner_parallel_session_cache_synchronization(tmp_path: Path):
+    """
+    Kiểm tra đồng bộ hóa session_cache giữa các chunk:
+    - Chunk 1: Định nghĩa nhân vật với hội thoại (conf 0.96 -> session_cache).
+    - Chunk 2: Nhắc tới nhân vật bằng chữ thường không có động từ hành động (chỉ match qua session_cache).
+    - Chunk 3: Định nghĩa nhân vật thứ hai (Hồ Phi Tuyết).
+    - Chunk 4: Nhắc tới cả hai nhân vật.
+    Đảm bảo workers=1 và workers=4 hoàn toàn trùng khớp 100%.
+    """
+    sample = tmp_path / "session_cache_novel.txt"
+    lines = [
+        'Âu Dương Tiêu Dao nói: "Hôm nay thời tiết thật đẹp."\n',          # Dòng 1 (Chunk 1) - Dialogue cue (conf 0.96)
+        "Mọi người chung quanh đều gật đầu tán thành.\n",                  # Dòng 2 (Chunk 1)
+        "Trời bắt đầu đổ một cơn mưa rào bất chợt.\n",                    # Dòng 3 (Chunk 1)
+        "Vẻ mặt của âu dương tiêu dao luôn giữ nét thản nhiên.\n",        # Dòng 4 (Chunk 2) - Lowercase, chỉ match qua session_cache!
+        "Gió lạnh thổi qua từng đợt buốt giá.\n",                          # Dòng 5 (Chunk 2)
+        "Một tiếng sấm rền vang rạch ngang bầu trời.\n",                  # Dòng 6 (Chunk 2)
+        "Hồ Phi Tuyết, 20 tuổi, từ trên lầu chậm rãi bước xuống.\n",        # Dòng 7 (Chunk 3) - Age profile cue (conf 0.95)
+        "Nàng nhìn mọi người với vẻ mặt lạnh lùng.\n",                    # Dòng 8 (Chunk 3)
+        "Không một ai dám lên tiếng trước mặt nàng.\n",                    # Dòng 9 (Chunk 3)
+        "Tâm tư của hồ phi tuyết không ai có thể đoán trước.\n",           # Dòng 10 (Chunk 4) - Lowercase, chỉ match qua session_cache!
+        "Âu Dương Tiêu Dao mỉm cười chào nàng một câu.\n",                 # Dòng 11 (Chunk 4) - Cap
+        "Hồ Phi Tuyết khẽ gật đầu đáp lễ rồi quay đi.\n",                  # Dòng 12 (Chunk 4) - Cap
+    ]
+    sample.write_text("".join(lines), encoding="utf-8")
+
+    loader = ResourceLoader(base_dir=tmp_path)
+    loader.single_surnames = {"hồ"}
+    loader.compound_surnames = {"âu dương"}
+
+    engine = ScannerEngine(loader=loader, skip_known=False)
+
+    progress_events = []
+    def on_progress(done, total, found):
+        progress_events.append((done, total, found))
+
+    seq_res = engine.scan_file(sample, deduplicate=True, show_progress=False, workers=1)
+    par_res = engine.scan_file(
+        sample,
+        deduplicate=True,
+        show_progress=False,
+        workers=4,
+        progress_callback=on_progress
+    )
+
+    # Kiểm tra progress_callback được gọi trong quá trình song song
+    assert len(progress_events) > 0
+    assert progress_events[-1][0] == 12  # Total lines
+
+    seq_map = {b.target: b for b in seq_res}
+    par_map = {b.target: b for b in par_res}
+
+    assert set(seq_map.keys()) == set(par_map.keys())
+    assert "Âu Dương Tiêu Dao" in seq_map
+    assert "Hồ Phi Tuyết" in seq_map
+
+    adt = seq_map["Âu Dương Tiêu Dao"]
+    adt_par = par_map["Âu Dương Tiêu Dao"]
+    assert adt.so_lan_xuat_hien == adt_par.so_lan_xuat_hien == 3
+    assert adt.cac_dong_xuat_hien == adt_par.cac_dong_xuat_hien == [1, 4, 11]
+    assert adt.dong_xuat_hien == adt_par.dong_xuat_hien == 1
+
+    hpt = seq_map["Hồ Phi Tuyết"]
+    hpt_par = par_map["Hồ Phi Tuyết"]
+    assert hpt.so_lan_xuat_hien == hpt_par.so_lan_xuat_hien == 3
+    assert hpt.cac_dong_xuat_hien == hpt_par.cac_dong_xuat_hien == [7, 10, 12]
+    assert hpt.dong_xuat_hien == hpt_par.dong_xuat_hien == 7
+

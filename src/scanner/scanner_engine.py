@@ -8,6 +8,7 @@ from .boundary_trimmer import BoundaryTrimmer
 from .candidate_extractor import CandidateExtractor
 from .context_expander import ContextExpander
 from ..utils.chunk_splitter import split_file_line_ranges
+from ..utils.trie_matcher import TrieMatcher
 
 @dataclass
 class CharacterBlock:
@@ -175,15 +176,17 @@ def _scan_chunk_worker(
     end_line: int,
     engine: "ScannerEngine",
     effective_skip: bool
-) -> list[tuple]:
+) -> tuple[list[tuple], set[str]]:
     """
-    Hàm worker độc lập ở module-level để có thể pickle và chạy đa tiến trình (ProcessPoolExecutor).
-    Quét đoạn dòng từ start_line đến end_line (1-indexed).
-    Trả về danh sách (name_key, cand_raw, cand_name, cand_reason, cand_conf, line_idx, context).
+    Pass 1: Quét trích xuất candidate độc lập trên dải dòng [start_line, end_line].
+    Trả về (results, local_session_cache).
     """
     filepath = Path(filepath)
     if not engine.extractor:
-        return []
+        return ([], set())
+
+    # Khởi tạo session_cache rỗng cục bộ cho chunk này
+    engine.extractor.session_cache = set()
 
     results = []
     with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
@@ -207,7 +210,76 @@ def _scan_chunk_worker(
                 name_key = cand.name.lower().strip()
                 ctx = engine.expander.expand_context(clean_line, cand.start, cand.end)
                 results.append((name_key, cand.raw, cand.name, cand.reason, cand.confidence, line_idx, ctx))
-    return results
+
+    return (results, set(engine.extractor.session_cache))
+
+
+def _rescan_chunk_worker(
+    filepath: Path,
+    start_line: int,
+    end_line: int,
+    missing_names: set[str],
+    engine: "ScannerEngine",
+    effective_skip: bool,
+    existing_occurrences: set[tuple[int, str]]
+) -> list[tuple]:
+    """
+    Pass 2: Quét bù các tên trong missing_names (từ global_session_cache)
+    cho đoạn dòng từ start_line đến end_line bằng TrieMatcher hiệu năng cao.
+    """
+    if not missing_names:
+        return []
+
+    filepath = Path(filepath)
+    mapping = {name.lower(): name for name in missing_names}
+    trie = TrieMatcher(mapping)
+
+    extra_results = []
+    with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+        for line_idx, line in enumerate(f, start=1):
+            if line_idx < start_line:
+                continue
+            if line_idx > end_line:
+                break
+            clean_line = line.strip()
+            if not clean_line:
+                continue
+
+            line_lower = line.lower()
+            matches = trie.find_matches(line_lower)
+            if not matches:
+                continue
+
+            for start, end, kw, orig_name in matches:
+                if not CandidateExtractor._is_word_boundary(line_lower, start, end):
+                    continue
+                cand_raw = line[start:end].strip()
+                norm_name = engine.trimmer.normalize_name(cand_raw)
+                name_key = norm_name.lower().strip()
+                if effective_skip and engine.loader:
+                    if (cand_raw.lower().strip() in engine.loader.known_characters or 
+                        name_key in engine.loader.known_characters):
+                        continue
+                if engine._is_negative(norm_name, skip_known=effective_skip):
+                    continue
+
+                if (line_idx, name_key) in existing_occurrences:
+                    continue
+
+                ctx = engine.expander.expand_context(clean_line, start, end)
+                extra_results.append((
+                    name_key,
+                    cand_raw,
+                    norm_name,
+                    "Khớp với tên nhân vật đã xác nhận trước đó",
+                    0.92,
+                    line_idx,
+                    ctx
+                ))
+                existing_occurrences.add((line_idx, name_key))
+
+    return extra_results
+
 
 class ScannerEngine:
     HUMAN_ACTION_VERBS = {
@@ -407,6 +479,10 @@ class ScannerEngine:
         if not deduplicate:
             return list(self.scan_file_stream(filepath, show_progress=show_progress, skip_known=effective_skip))
 
+        # Khởi tạo lại session_cache rỗng ở đầu mỗi lượt quét file
+        if self.extractor:
+            self.extractor.session_cache.clear()
+
         filepath = Path(filepath)
         total_lines = count_file_lines(filepath)
         tracked: dict[str, CharacterBlock] = {}
@@ -447,7 +523,8 @@ class ScannerEngine:
             try:
                 chunk_results = [None] * len(ranges)
                 with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
-                    futures = {
+                    # Pass 1: Quét song song các chunk
+                    futures1 = {
                         executor.submit(
                             _scan_chunk_worker,
                             filepath,
@@ -458,20 +535,54 @@ class ScannerEngine:
                         ): idx
                         for idx, (start, end) in enumerate(ranges)
                     }
-                    for fut in concurrent.futures.as_completed(futures):
-                        idx = futures[fut]
+                    for fut in concurrent.futures.as_completed(futures1):
+                        idx = futures1[fut]
                         chunk_results[idx] = fut.result()
+                        done_lines = sum(
+                            ranges[i][1] - ranges[i][0] + 1
+                            for i, res in enumerate(chunk_results)
+                            if res is not None
+                        )
+                        temp_found = sum(len(res[0]) for res in chunk_results if res is not None)
                         if progress:
-                            done_lines = sum(
-                                ranges[i][1] - ranges[i][0] + 1
-                                for i, res in enumerate(chunk_results)
-                                if res is not None
-                            )
-                            temp_found = sum(len(res) for res in chunk_results if res is not None)
                             progress.update(min(done_lines, total_lines), temp_found)
+                        if progress_callback:
+                            progress_callback(min(done_lines, total_lines), total_lines, temp_found)
+
+                    # Đồng bộ hóa global_session_cache qua tất cả các worker
+                    all_local_caches = [cache for _, cache in chunk_results if cache]
+                    global_session_cache = set().union(*all_local_caches) if all_local_caches else set()
+                    if self.extractor:
+                        self.extractor.session_cache = set(global_session_cache)
+
+                    # Pass 2: Quét bù các tên trong global_session_cache cho các chunk
+                    if global_session_cache:
+                        futures2 = {}
+                        for idx, (start, end) in enumerate(ranges):
+                            local_items, _ = chunk_results[idx]
+                            existing_occ = {(item[5], item[0]) for item in local_items}
+                            fut = executor.submit(
+                                _rescan_chunk_worker,
+                                filepath,
+                                start,
+                                end,
+                                global_session_cache,
+                                self,
+                                effective_skip,
+                                existing_occ
+                            )
+                            futures2[fut] = idx
+
+                        if futures2:
+                            for fut in concurrent.futures.as_completed(futures2):
+                                idx = futures2[fut]
+                                extra_items = fut.result()
+                                if extra_items:
+                                    chunk_results[idx][0].extend(extra_items)
+                                    chunk_results[idx][0].sort(key=lambda x: x[5])
 
                 # Merge tuần tự kết quả từ từng chunk theo đúng thứ tự dòng trong file
-                for chunk_items in chunk_results:
+                for chunk_items, _ in chunk_results:
                     if not chunk_items:
                         continue
                     for name_key, cand_raw, cand_name, cand_reason, cand_conf, line_idx, ctx in chunk_items:
@@ -581,6 +692,58 @@ class ScannerEngine:
 
                         if line_idx % 20000 == 0:
                             gc.collect()
+
+                # Pass 2: Rescan các tên trong session_cache nếu xuất hiện trước khi được thêm vào cache
+                if self.extractor and self.extractor.session_cache:
+                    existing_occ = set()
+                    for k, b in tracked.items():
+                        for l in b.cac_dong_xuat_hien:
+                            existing_occ.add((l, k))
+
+                    extra_items = _rescan_chunk_worker(
+                        filepath,
+                        1,
+                        total_lines,
+                        self.extractor.session_cache,
+                        self,
+                        effective_skip,
+                        existing_occ
+                    )
+                    for name_key, cand_raw, cand_name, cand_reason, cand_conf, line_idx, ctx in extra_items:
+                        if name_key in tracked:
+                            existing = tracked[name_key]
+                            existing.so_lan_xuat_hien += 1
+                            if len(existing.cac_dong_xuat_hien) < 100 and line_idx not in existing.cac_dong_xuat_hien:
+                                existing.cac_dong_xuat_hien.append(line_idx)
+                                existing.cac_dong_xuat_hien.sort()
+                                existing.dong_xuat_hien = existing.cac_dong_xuat_hien[0]
+                            is_dirty = True
+                            cand_tier = 2 if cand_conf >= 0.90 else (1 if cand_conf >= 0.80 else 0)
+                            if cand_tier >= best_scores[name_key][0]:
+                                score = self._score_block(cand_conf, ctx, line_idx)
+                                if score > best_scores[name_key]:
+                                    existing.source = cand_raw
+                                    existing.target = cand_name
+                                    existing.context = ctx
+                                    existing.yeu_to_nhan_biet = cand_reason
+                                    existing.confidence = cand_conf
+                                    best_scores[name_key] = score
+                        else:
+                            score = self._score_block(cand_conf, ctx, line_idx)
+                            block = CharacterBlock(
+                                id=f"ch_{len(tracked) + 1:04d}",
+                                source=cand_raw,
+                                target=cand_name,
+                                context=ctx,
+                                yeu_to_nhan_biet=cand_reason,
+                                so_lan_xuat_hien=1,
+                                dong_xuat_hien=line_idx,
+                                confidence=cand_conf,
+                                cac_dong_xuat_hien=[line_idx]
+                            )
+                            tracked[name_key] = block
+                            best_scores[name_key] = score
+                            is_dirty = True
             finally:
                 # Luôn đảm bảo dữ liệu cuối cùng được ghi đĩa dù bị ngắt tiến trình
                 if realtime_all_path:
