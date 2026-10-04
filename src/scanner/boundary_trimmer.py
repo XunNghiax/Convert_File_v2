@@ -43,6 +43,12 @@ class BoundaryTrimmer:
         "lộc", "thọ", "khang", "minh", "đức", "thành"
     }
 
+    SINGLE_ACTION_VERBS = {
+        "đi", "thở", "nói", "hỏi", "cười", "quát", "nghĩ", "nhìn", "bước",
+        "chạy", "ngồi", "đứng", "ôm", "hôn", "đáp", "kêu", "hét", "lẩm",
+        "bẩm", "gật", "lắc", "la", "nhăn", "nháy", "trừng", "liếc"
+    }
+
     FALLBACK_SURNAMES = {
         "trương", "lâm", "trần", "lý", "vương", "triệu", "tiền", "tôn", "chu", "ngô",
         "trịnh", "phùng", "tô", "mã", "đường", "hứa", "hà", "lã", "mai", "tống",
@@ -108,6 +114,11 @@ class BoundaryTrimmer:
     def is_surname(self, word_or_phrase: str) -> bool:
         return word_or_phrase.lower() in self.surnames
 
+    def is_compound_surname(self, words: list[str]) -> bool:
+        if len(words) >= 2:
+            return f"{words[0]} {words[1]}".lower() in self.surnames
+        return False
+
     def trim_leading(self, text: str) -> str:
         s = text.strip()
         changed = True
@@ -160,3 +171,43 @@ class BoundaryTrimmer:
     def normalize_name(self, text: str) -> str:
         words = text.strip().split()
         return " ".join(w.capitalize() for w in words)
+
+    def trim_action_suffix(self, text: str) -> tuple[str, str]:
+        words = text.strip().split()
+        if len(words) < 3:
+            return text.strip(), ""
+
+        last_word_low = words[-1].lower()
+        if last_word_low in self.PROTECTED_NAME_WORDS:
+            return text.strip(), ""
+
+        if last_word_low in self.SINGLE_ACTION_VERBS:
+            # Trường hợp họ kép: độ dài tiêu chuẩn là 4 từ (2 họ + 2 tên).
+            # Nếu có 5 từ trở lên và từ cuối là động từ hành động -> cắt.
+            if self.is_compound_surname(words) and len(words) >= 5:
+                removed = words.pop()
+                return " ".join(words), removed
+            # Trường hợp họ đơn: độ dài tiêu chuẩn là 3 từ (1 họ + 2 tên).
+            # Nếu có 4 từ trở lên và từ cuối là động từ hành động -> cắt.
+            elif not self.is_compound_surname(words) and self.starts_with_surname(words) and len(words) >= 4:
+                removed = words.pop()
+                return " ".join(words), removed
+
+        return text.strip(), ""
+
+    def trim_vn_compound_suffix(self, text: str, vn_2word_set: set[str]) -> tuple[str, str]:
+        words = text.strip().split()
+        if len(words) >= 4 and vn_2word_set:
+            tail_compound = f"{words[-2]} {words[-1]}".lower()
+            if tail_compound in vn_2word_set:
+                remaining_words = words[:-2]
+                if len(remaining_words) >= 2 and self.starts_with_surname(remaining_words):
+                    return " ".join(remaining_words), tail_compound
+        return text.strip(), ""
+
+    def clean_candidate(self, text: str, vn_2word_set: set[str] | None = None) -> str:
+        s, _ = self.trim(text)
+        s, _ = self.trim_action_suffix(s)
+        if vn_2word_set:
+            s, _ = self.trim_vn_compound_suffix(s, vn_2word_set)
+        return s
