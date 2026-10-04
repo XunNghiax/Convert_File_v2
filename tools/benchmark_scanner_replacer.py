@@ -8,12 +8,15 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from src.scanner.resource_loader import ResourceLoader
 from src.scanner.scanner_engine import ScannerEngine
 from src.replacer.replace_engine import ReplaceEngine
+from src.utils.file_utils import count_file_lines
 
 def run_benchmark():
     sample = Path("samples/exam.txt")
     if not sample.exists():
         print("[!] Không tìm thấy file samples/exam.txt!")
         return
+
+    lines = count_file_lines(sample)
 
     print("==================================================")
     print(" BẮT ĐẦU BENCHMARK HIỆU NĂNG SCANNER VÀ REPLACER")
@@ -28,7 +31,6 @@ def run_benchmark():
     t0 = time.time()
     res_1 = engine.scan_file(sample, deduplicate=True, show_progress=False, workers=1)
     t_seq = max(0.001, time.time() - t0)
-    lines = 13486
     print(f" -> Scanner (1 worker): {lines/t_seq:,.0f} dòng/s ({t_seq:.2f}s) - {len(res_1)} nhân vật")
 
     print("[*] Đang đo Scanner (4 workers - Đa tiến trình)...")

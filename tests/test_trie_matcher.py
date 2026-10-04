@@ -54,3 +54,17 @@ def test_trie_matcher_empty_and_edge_cases():
     assert matcher.find_matches("abc") == []
     assert matcher.replace_all("abc") == "abc"
     assert matcher.replace_all("") == ""
+
+def test_trie_matcher_empty_replacement():
+    matcher = TrieMatcher()
+    matcher.add_keyword("xóa", "")
+    matcher.add_keyword("giữ nguyên", None)
+    matcher.build()
+
+    text = "hãy xóa từ này và giữ nguyên từ kia"
+    res = matcher.replace_all(text)
+    assert res == "hãy  từ này và giữ nguyên từ kia"
+
+    mapping_matcher = TrieMatcher({"rác": "", "bad": ""})
+    assert mapping_matcher.replace_all("chuỗi có rác và bad text") == "chuỗi có  và  text"
+

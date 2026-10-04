@@ -24,7 +24,7 @@ class TrieMatcher:
                 self.add_keyword(k, v)
             self.build()
 
-    def add_keyword(self, keyword: str, value: str = ""):
+    def add_keyword(self, keyword: str, value: Optional[str] = None):
         kw = keyword.strip()
         if not kw:
             return
@@ -37,7 +37,7 @@ class TrieMatcher:
             self.word_count += 1
         node.is_end = True
         node.keyword = kw
-        node.value = value if value else kw
+        node.value = value if value is not None else kw
         if len(kw) > self.longest_len:
             self.longest_len = len(kw)
 

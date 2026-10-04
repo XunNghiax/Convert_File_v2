@@ -11,8 +11,10 @@ import sys
 
 try:
     from ..utils.chunk_splitter import split_file_line_ranges
+    from ..utils.file_utils import count_file_lines
 except (ImportError, ValueError):
     from src.utils.chunk_splitter import split_file_line_ranges
+    from src.utils.file_utils import count_file_lines
 
 PARALLEL_MIN_LINES = 500
 
@@ -32,22 +34,6 @@ AMBIGUOUS_DESCRIPTIVE_WORDS = {
     "bóng hình xinh đẹp",
     "hình xinh đẹp"
 }
-
-def count_file_lines(filepath: Union[str, Path]) -> int:
-    """Đếm nhanh tổng số dòng trong file bằng đọc khối nhị phân 1MB."""
-    filepath = Path(filepath)
-    if not filepath.exists():
-        return 0
-    total = 0
-    last_byte = b""
-    with open(filepath, "rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b""):
-            total += chunk.count(b"\n")
-            if chunk:
-                last_byte = chunk[-1:]
-    if last_byte and last_byte != b"\n":
-        total += 1
-    return total
 
 @dataclass
 class ReplaceStats:
@@ -408,7 +394,8 @@ class ReplaceEngine:
         output_path: Union[str, Path],
         show_progress: bool = True,
         track_stats: bool = True,
-        workers: int = 1
+        workers: int = 1,
+        min_parallel_lines: int = PARALLEL_MIN_LINES
     ) -> ReplaceStats:
         """
         Thay thế file văn bản dạng streaming:
@@ -434,7 +421,7 @@ class ReplaceEngine:
         part_files: List[Path] = []
 
         ranges = split_file_line_ranges(input_path, num_chunks=workers) if workers > 1 else []
-        use_parallel = (workers > 1 and len(ranges) > 1 and total_lines >= PARALLEL_MIN_LINES)
+        use_parallel = (workers > 1 and len(ranges) > 1 and total_lines >= min_parallel_lines)
 
         try:
             if use_parallel:

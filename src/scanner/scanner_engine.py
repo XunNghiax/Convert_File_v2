@@ -3,12 +3,24 @@ from pathlib import Path
 from collections import defaultdict
 import json
 import concurrent.futures
+import gc
+import sys
+import time
+from typing import Callable, Optional
+
 from .resource_loader import ResourceLoader
 from .boundary_trimmer import BoundaryTrimmer
 from .candidate_extractor import CandidateExtractor, CandidateMatch
 from .context_expander import ContextExpander
-from ..utils.chunk_splitter import split_file_line_ranges
-from ..utils.trie_matcher import TrieMatcher
+
+try:
+    from ..utils.chunk_splitter import split_file_line_ranges
+    from ..utils.trie_matcher import TrieMatcher
+    from ..utils.file_utils import count_file_lines
+except (ImportError, ValueError):
+    from src.utils.chunk_splitter import split_file_line_ranges
+    from src.utils.trie_matcher import TrieMatcher
+    from src.utils.file_utils import count_file_lines
 
 @dataclass
 class CharacterBlock:
@@ -41,23 +53,6 @@ class CharacterBlock:
 
     def to_dict(self):
         return self.to_output_dict()
-
-import gc
-
-import sys
-import time
-from typing import Callable, Optional
-
-def count_file_lines(filepath: Path) -> int:
-    """Đếm nhanh tổng số dòng trong file bằng đọc khối nhị phân."""
-    filepath = Path(filepath)
-    if not filepath.exists():
-        return 1
-    total = 0
-    with open(filepath, "rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b""):
-            total += chunk.count(b"\n")
-    return max(1, total)
 
 try:
     from rich.progress import (
@@ -143,6 +138,15 @@ class ProgressPrinter:
                     flush=True
                 )
 
+    def close(self):
+        """Dọn dẹp an toàn tài nguyên hiển thị của Rich progress."""
+        if self.rich_progress:
+            try:
+                self.rich_progress.stop()
+            except Exception:
+                pass
+            self.rich_progress = None
+
     def finish(self, found_count: int):
         elapsed = max(0.001, time.time() - self.start_time)
         avg_speed = int(self.total_lines / elapsed)
@@ -157,6 +161,7 @@ class ProgressPrinter:
                 self.rich_progress.stop()
             except Exception:
                 pass
+            self.rich_progress = None
             print(f"[+] Hoàn tất quét: {self.total_lines:,} dòng ({avg_speed:,} d/s) | Tìm thấy: {found_count:,} {self.label}\n")
             return
 
@@ -440,50 +445,54 @@ class ScannerEngine:
         label = "nhân vật" if deduplicate else "ứng viên"
         progress = ProgressPrinter(total_lines, label=label) if show_progress else None
 
-        with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-            for line_idx, line in enumerate(f, start=1):
-                clean_line = line.strip()
-                if clean_line:
-                    candidates = self.extractor.extract_candidates(line, skip_known=effective_skip)
-                    for cand in candidates:
-                        if effective_skip:
-                            if (cand.raw.lower().strip() in self.loader.known_characters or 
-                                cand.name.lower().strip() in self.loader.known_characters):
+        try:
+            with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+                for line_idx, line in enumerate(f, start=1):
+                    clean_line = line.strip()
+                    if clean_line:
+                        candidates = self.extractor.extract_candidates(line, skip_known=effective_skip)
+                        for cand in candidates:
+                            if effective_skip:
+                                if (cand.raw.lower().strip() in self.loader.known_characters or 
+                                    cand.name.lower().strip() in self.loader.known_characters):
+                                    continue
+                            if self._is_negative(cand.name, skip_known=effective_skip):
                                 continue
-                        if self._is_negative(cand.name, skip_known=effective_skip):
-                            continue
 
-                        name_key = cand.name.lower().strip()
-                        if deduplicate:
-                            if name_key in seen_names:
-                                continue
-                            seen_names.add(name_key)
+                            name_key = cand.name.lower().strip()
+                            if deduplicate:
+                                if name_key in seen_names:
+                                    continue
+                                seen_names.add(name_key)
 
-                        ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
-                        block = CharacterBlock(
-                            id=f"ch_{counter:04d}",
-                            source=cand.raw,
-                            target=cand.name,
-                            context=ctx,
-                            yeu_to_nhan_biet=cand.reason,
-                            so_lan_xuat_hien=1,
-                            dong_xuat_hien=line_idx,
-                            confidence=cand.confidence,
-                            cac_dong_xuat_hien=[line_idx]
-                        )
-                        counter += 1
-                        yield block
+                            ctx = self.expander.expand_context(clean_line, cand.start, cand.end)
+                            block = CharacterBlock(
+                                id=f"ch_{counter:04d}",
+                                source=cand.raw,
+                                target=cand.name,
+                                context=ctx,
+                                yeu_to_nhan_biet=cand.reason,
+                                so_lan_xuat_hien=1,
+                                dong_xuat_hien=line_idx,
+                                confidence=cand.confidence,
+                                cac_dong_xuat_hien=[line_idx]
+                            )
+                            counter += 1
+                            yield block
 
-                if progress:
-                    found_count = len(seen_names) if deduplicate else (counter - 1)
-                    progress.update(line_idx, found_count)
+                    if progress:
+                        found_count = len(seen_names) if deduplicate else (counter - 1)
+                        progress.update(line_idx, found_count)
 
-                if line_idx % 20000 == 0:
-                    gc.collect()
+                    if line_idx % 20000 == 0:
+                        gc.collect()
 
-        if progress:
-            found_count = len(seen_names) if deduplicate else (counter - 1)
-            progress.finish(found_count)
+            if progress:
+                found_count = len(seen_names) if deduplicate else (counter - 1)
+                progress.finish(found_count)
+        finally:
+            if progress:
+                progress.close()
 
     def scan_file(
         self,
@@ -670,12 +679,14 @@ class ScannerEngine:
 
             if progress_callback:
                 progress_callback(total_lines, total_lines, len(tracked))
+
+            if progress:
+                progress.finish(len(tracked))
         finally:
+            if progress:
+                progress.close()
             if realtime_all_path:
                 _save_realtime(realtime_all_path)
-
-        if progress:
-            progress.finish(len(tracked))
 
         deduped = self.cluster_aliases(list(tracked.values()))
         deduped = [b for b in deduped if not self._is_negative(b.target, skip_known=effective_skip)]
