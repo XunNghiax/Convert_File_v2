@@ -2,10 +2,20 @@ import json
 import re
 import time
 from pathlib import Path
-from typing import Optional, Union, Dict, List, Tuple
+from typing import Optional, Union, Dict, List, Tuple, Any
 from dataclasses import dataclass, field
 from collections import Counter
+import concurrent.futures
+import shutil
 import sys
+
+try:
+    from ..utils.chunk_splitter import split_file_line_ranges
+except (ImportError, ValueError):
+    from src.utils.chunk_splitter import split_file_line_ranges
+
+PARALLEL_MIN_LINES = 500
+
 
 # Đường dẫn mặc định chuẩn của dự án
 DEFAULT_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -124,6 +134,15 @@ class ReplaceProgressPrinter:
                     flush=True
                 )
 
+    def close(self):
+        """Dọn dẹp an toàn tài nguyên hiển thị của Rich progress."""
+        if self.rich_progress:
+            try:
+                self.rich_progress.stop()
+            except Exception:
+                pass
+            self.rich_progress = None
+
     def finish(self, replaced_count: int):
         elapsed = max(0.001, time.time() - self.start_time)
         avg_speed = int(self.total_lines / elapsed)
@@ -138,6 +157,7 @@ class ReplaceProgressPrinter:
                 self.rich_progress.stop()
             except Exception:
                 pass
+            self.rich_progress = None
             print(f"[+] Hoàn tất thay thế: {self.total_lines:,} dòng ({avg_speed:,} d/s) | {replaced_count:,} lượt thay thế\n")
             return
 
@@ -150,6 +170,78 @@ class ReplaceProgressPrinter:
                 f"[+] Hoàn tất thay thế {self.total_lines:,} dòng trong {elapsed:.1f}s ({avg_speed:,} dòng/s) | Tổng cộng: {replaced_count:,} lượt thay thế",
                 flush=True
             )
+
+def _replace_chunk_worker(
+    input_path: Union[str, Path],
+    out_part_path: Union[str, Path],
+    start_line: int,
+    end_line: int,
+    pattern_or_dict: Any,
+    dict_map_or_custom: Any = None,
+    track_stats: bool = True
+) -> Counter:
+    """
+    Worker độc lập ở module-level phục vụ xử lý song song đa tiến trình (ProcessPoolExecutor).
+    - Đọc từ start_line đến end_line (1-indexed).
+    - Thực hiện thay thế bằng regex pattern (single-pass).
+    - Ghi trực tiếp ra file out_part_path với buffer tối ưu.
+    - Trả về Counter thống kê số lượt thay thế cục bộ của chunk.
+    """
+    input_path = Path(input_path)
+    out_part_path = Path(out_part_path)
+
+    if isinstance(pattern_or_dict, dict):
+        merged_map = dict(pattern_or_dict)
+        if isinstance(dict_map_or_custom, dict):
+            merged_map.update(dict_map_or_custom)
+        temp_engine = ReplaceEngine(custom_mapping=merged_map)
+        pattern = temp_engine.pattern
+        dict_map = temp_engine.dict_map
+    else:
+        pattern = pattern_or_dict
+        if isinstance(dict_map_or_custom, bool):
+            track_stats = dict_map_or_custom
+            dict_map = {}
+        else:
+            dict_map = dict_map_or_custom or {}
+
+    local_stats = Counter()
+    BUFFER_LINES = 1000
+    line_buffer = []
+
+    def _repl(m: re.Match) -> str:
+        matched_str = m.group(0)
+        canonical_key = matched_str.lower()
+        target = dict_map.get(canonical_key, matched_str)
+        if matched_str != target:
+            if track_stats:
+                local_stats[canonical_key] += 1
+            return target
+        return matched_str
+
+    with open(input_path, "r", encoding="utf-8", errors="ignore") as f_in, \
+         open(out_part_path, "w", encoding="utf-8", buffering=64 * 1024) as f_out:
+        for line_idx, line in enumerate(f_in, start=1):
+            if line_idx < start_line:
+                continue
+            if line_idx > end_line:
+                break
+
+            if pattern and line:
+                new_line = pattern.sub(_repl, line)
+            else:
+                new_line = line
+            line_buffer.append(new_line)
+
+            if len(line_buffer) >= BUFFER_LINES:
+                f_out.writelines(line_buffer)
+                line_buffer.clear()
+
+        if line_buffer:
+            f_out.writelines(line_buffer)
+            line_buffer.clear()
+
+    return local_stats
 
 class ReplaceEngine:
     """
@@ -315,13 +407,15 @@ class ReplaceEngine:
         input_path: Union[str, Path],
         output_path: Union[str, Path],
         show_progress: bool = True,
-        track_stats: bool = True
+        track_stats: bool = True,
+        workers: int = 1
     ) -> ReplaceStats:
         """
         Thay thế file văn bản dạng streaming:
-        - Đọc từng dòng -> Thay thế -> Ghi vào file tạm .tmp
-        - Sau khi xong, atomic replace sang file đích
-        - Trả về thống kê chi tiết ReplaceStats
+        - workers = 1: Đọc từng dòng -> Thay thế -> Ghi vào file tạm .tmp -> Atomic swap
+        - workers > 1: Chia file thành các khoảng dòng, các worker xử lý song song ra các part file .part_N,
+                       sau đó ghép nhị phân vào file tạm và atomic swap sang file đích.
+        - Trả về thống kê chi tiết ReplaceStats (đảm bảo 100% bit-for-bit parity).
         """
         input_path = Path(input_path)
         output_path = Path(output_path)
@@ -337,28 +431,87 @@ class ReplaceEngine:
         self.stats_counter.clear()
         progress = ReplaceProgressPrinter(total_lines) if show_progress else None
         start_time = time.time()
-        total_replacements = 0
+        part_files: List[Path] = []
 
-        BUFFER_LINES = 1000
-        line_buffer = []
+        ranges = split_file_line_ranges(input_path, num_chunks=workers) if workers > 1 else []
+        use_parallel = (workers > 1 and len(ranges) > 1 and total_lines >= PARALLEL_MIN_LINES)
 
         try:
-            with open(input_path, "r", encoding="utf-8", errors="ignore") as f_in, \
-                 open(tmp_output_path, "w", encoding="utf-8", buffering=64 * 1024) as f_out:
-                for line_idx, line in enumerate(f_in, start=1):
-                    new_line = self.replace_line(line, track_stats=track_stats)
-                    line_buffer.append(new_line)
+            if use_parallel:
+                part_files = [
+                    output_path.with_suffix(f"{output_path.suffix}.part_{idx}")
+                    for idx in range(len(ranges))
+                ]
+                part_results = [None] * len(ranges)
 
-                    if len(line_buffer) >= BUFFER_LINES:
+                with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
+                    futures = {
+                        executor.submit(
+                            _replace_chunk_worker,
+                            input_path,
+                            part_files[idx],
+                            start,
+                            end,
+                            self.pattern,
+                            self.dict_map,
+                            track_stats
+                        ): idx
+                        for idx, (start, end) in enumerate(ranges)
+                    }
+                    for fut in concurrent.futures.as_completed(futures):
+                        idx = futures[fut]
+                        part_results[idx] = fut.result()
+                        if progress:
+                            done_lines = sum(
+                                ranges[i][1] - ranges[i][0] + 1
+                                for i, res in enumerate(part_results)
+                                if res is not None
+                            )
+                            temp_reps = sum(
+                                sum(res.values())
+                                for res in part_results
+                                if res is not None
+                            ) if track_stats else 0
+                            progress.update(min(done_lines, total_lines), temp_reps)
+
+                # Nối các file part nhị phân vào tmp_output_path
+                with open(tmp_output_path, "wb") as f_out:
+                    for part_path in part_files:
+                        with open(part_path, "rb") as f_in:
+                            shutil.copyfileobj(f_in, f_out, length=1024 * 1024)
+                        try:
+                            part_path.unlink()
+                        except Exception:
+                            pass
+
+                # Hợp nhất stats_counter
+                self.stats_counter.clear()
+                if track_stats:
+                    for res in part_results:
+                        if res:
+                            self.stats_counter.update(res)
+
+            else:
+                # Chế độ tuần tự đơn luồng (workers == 1 hoặc file nhỏ hơn ngưỡng)
+                BUFFER_LINES = 1000
+                line_buffer = []
+
+                with open(input_path, "r", encoding="utf-8", errors="ignore") as f_in, \
+                     open(tmp_output_path, "w", encoding="utf-8", buffering=64 * 1024) as f_out:
+                    for line_idx, line in enumerate(f_in, start=1):
+                        new_line = self.replace_line(line, track_stats=track_stats)
+                        line_buffer.append(new_line)
+
+                        if len(line_buffer) >= BUFFER_LINES:
+                            f_out.writelines(line_buffer)
+                            line_buffer.clear()
+                            if progress and line_idx % 2000 == 0:
+                                current_reps = sum(self.stats_counter.values()) if track_stats else 0
+                                progress.update(line_idx, current_reps)
+
+                    if line_buffer:
                         f_out.writelines(line_buffer)
                         line_buffer.clear()
-                        if progress and line_idx % 2000 == 0:
-                            current_reps = sum(self.stats_counter.values()) if track_stats else 0
-                            progress.update(line_idx, current_reps)
-
-                if line_buffer:
-                    f_out.writelines(line_buffer)
-                    line_buffer.clear()
 
             if progress:
                 current_reps = sum(self.stats_counter.values()) if track_stats else 0
@@ -374,6 +527,15 @@ class ReplaceEngine:
                 except Exception:
                     pass
             raise e
+        finally:
+            if progress:
+                progress.close()
+            for pf in part_files:
+                try:
+                    if pf.exists():
+                        pf.unlink()
+                except Exception:
+                    pass
 
         elapsed = max(0.001, time.time() - start_time)
         total_replacements = sum(self.stats_counter.values())
