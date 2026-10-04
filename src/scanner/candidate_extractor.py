@@ -430,7 +430,11 @@ class CandidateExtractor:
                 norm_name = self.trimmer.normalize_name(trimmed)
                 if self._starts_with_surname(norm_name):
                     after_text = line[m.end():m.end() + 20].lower()
-                    has_action = any(v in after_text for v in self.ACTION_VERBS)
+                    has_action = (
+                        any(v in after_text for v in self.ACTION_VERBS) or
+                        any(v in after_text for v in self.trimmer.SINGLE_ACTION_VERBS) or
+                        any(act in after_text for act in self.LOWERCASE_ACTION_TERMS)
+                    )
                     conf = 0.85 if has_action else 0.70
                     reason = f"Viết hoa chữ cái đầu, mang họ hợp lệ" + (f", đi kèm hành động" if has_action else "")
                     results.append(CandidateMatch(
@@ -543,6 +547,8 @@ class CandidateExtractor:
 
             # Check single surname (1 word)
             if not cand_spans and (w1 in self.loader.single_surnames or self.trimmer.is_surname(w1)):
+                if i + 3 < n:
+                    cand_spans.append((i, i + 3))  # 4 words total
                 if i + 2 < n:
                     cand_spans.append((i, i + 2))  # 3 words total
                 if i + 1 < n:
@@ -559,7 +565,10 @@ class CandidateExtractor:
                 is_compound = len(words_in_cand) >= 2 and (f"{words_in_cand[0]} {words_in_cand[1]}" in self.loader.compound_surnames or self.trimmer.is_surname(f"{words_in_cand[0]} {words_in_cand[1]}"))
                 surname_len = 2 if is_compound else 1
                 given_words = words_in_cand[surname_len:]
-                if any(gw in self.ACTION_VERBS for gw in given_words):
+                if any(gw in self.ACTION_VERBS or gw in self.trimmer.SINGLE_ACTION_VERBS for gw in given_words):
+                    continue
+                raw_words = cand_raw.split()
+                if any(w[0].isupper() for w in raw_words[surname_len:]):
                     continue
                 if any(phrase in cand_raw.lower() for phrase in self.trimmer.DEFAULT_LEADING_PHRASES):
                     continue
