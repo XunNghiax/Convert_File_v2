@@ -181,7 +181,7 @@ class CandidateExtractor:
             return True
         return any(kw in line_lower for kw in self.fast_cue_words)
 
-    def extract_candidates(self, line: str, skip_known: bool | None = None) -> list[CandidateMatch]:
+    def extract_candidates(self, line: str, skip_known: bool | None = None, use_session_cache: bool = True) -> list[CandidateMatch]:
         effective_skip = self.skip_known if skip_known is None else skip_known
         results: list[CandidateMatch] = []
         line_clean = line.strip()
@@ -520,7 +520,7 @@ class CandidateExtractor:
                     ))
 
         # 7. Session cache matches (Fast-path: chỉ quét những tên thực sự xuất hiện trong dòng)
-        if self.session_cache:
+        if use_session_cache and self.session_cache:
             for known in self.session_cache:
                 if known.lower() in line_lower:
                     if effective_skip and (known.lower() in self.loader.known_characters):
@@ -549,19 +549,20 @@ class CandidateExtractor:
             ]
 
         # Cache high confidence candidates
-        for cand in unique_results:
-            cand_low = cand.name.lower()
-            raw_low = cand.raw.lower().strip()
-            if effective_skip and (cand_low in self.loader.known_characters or raw_low in self.loader.known_characters):
-                continue
-            if (cand.confidence >= 0.94 and 
-                (self._starts_with_surname(cand.name) or '·' in cand.name or '-' in cand.name or self._is_latin_name(cand.name)) and 
-                cand_low not in self.loader.non_person and 
-                raw_low not in self.loader.non_person and 
-                cand_low not in self.loader.blacklist and 
-                cand_low not in self.loader.common_dict and 
-                1 <= len(cand.name.split()) <= 8):
-                self.session_cache.add(cand.name)
+        if use_session_cache:
+            for cand in unique_results:
+                cand_low = cand.name.lower()
+                raw_low = cand.raw.lower().strip()
+                if effective_skip and (cand_low in self.loader.known_characters or raw_low in self.loader.known_characters):
+                    continue
+                if (cand.confidence >= 0.94 and 
+                    (self._starts_with_surname(cand.name) or '·' in cand.name or '-' in cand.name or self._is_latin_name(cand.name)) and 
+                    cand_low not in self.loader.non_person and 
+                    raw_low not in self.loader.non_person and 
+                    cand_low not in self.loader.blacklist and 
+                    cand_low not in self.loader.common_dict and 
+                    1 <= len(cand.name.split()) <= 8):
+                    self.session_cache.add(cand.name)
         return unique_results
 
     def _is_latin_name(self, text: str) -> bool:
