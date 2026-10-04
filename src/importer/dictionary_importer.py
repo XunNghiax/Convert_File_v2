@@ -102,27 +102,13 @@ def filter_and_export_warnings(
                 "context": item.get("context", "")
             }
             warning_items.append(w_entry)
-        elif source.strip().lower() != target.strip().lower():
-            w_entry = {
-                "id": str(item.get("id", "")).strip(),
-                "is_character": item.get("is_character", True),
-                "source": source,
-                "target": str(item.get("target", "")).strip() or target,
-                "suggested_target": str(item.get("suggested_target", "")).strip() or target,
-                "words_source": cnt_s,
-                "words_target": cnt_t,
-                "diff": 0,
-                "reason": f"Nội dung không trùng nhau: Source '{source}' != Suggested Target '{target}'",
-                "context": item.get("context", "")
-            }
-            warning_items.append(w_entry)
         else:
             valid_items.append(item)
 
     warning_path = Path(warning_path)
     if warning_items:
         save_dictionary(warning_items, warning_path, indent=2)
-        print(f"[!] CẢNH BÁO: Phát hiện {len(warning_items)} mục lệch số từ hoặc không khớp nội dung giữa Source và Suggested Target.")
+        print(f"[!] CẢNH BÁO: Phát hiện {len(warning_items)} mục lệch số từ giữa Source và Suggested Target.")
         print(f"[!] Đã xuất ra '{warning_path}' để bạn kiểm tra và chuẩn hóa lại.")
     else:
         if warning_path.exists():

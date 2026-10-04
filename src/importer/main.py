@@ -47,6 +47,8 @@ def main():
     parser.add_argument("--interactive", "-i", action="store_true", help="Chế độ nhập tay từng từ qua console")
     parser.add_argument("--warning-file", type=str, default="samples/warning.json", help="Đường dẫn file lưu các mục lệch số từ cần cảnh báo (mặc định: samples/warning.json)")
     parser.add_argument("--no-word-count-check", action="store_true", help="Bỏ qua kiểm tra độ lệch số từ giữa source và target")
+    parser.add_argument("--no-dedup", action="store_true", help="Bỏ qua giới hạn trùng lặp suggested_target")
+    parser.add_argument("--force-all", "--no-filter", action="store_true", help="Nạp trực tiếp toàn bộ dữ liệu không cần điều kiện (bỏ qua kiểm tra số từ và giới hạn trùng lặp)")
 
     args = parser.parse_args()
 
@@ -120,6 +122,9 @@ def main():
     except ImportError:
         use_rich = False
 
+    validate_wc = not args.no_word_count_check and not args.force_all
+    max_dups = 0 if (args.no_dedup or args.force_all) else 2
+
     # Nếu người dùng chỉ định file từ điển cụ thể:
     if args.dict:
         dict_path = Path(args.dict)
@@ -129,7 +134,8 @@ def main():
             warning_path=args.warning_file,
             overwrite_existing=not args.no_overwrite,
             filter_characters=False,
-            validate_word_count=not args.no_word_count_check
+            validate_word_count=validate_wc,
+            max_duplicate_suggested_targets=max_dups
         )
         if use_rich:
             console = Console()
@@ -168,7 +174,8 @@ def main():
             common_dict_path=DEFAULT_COMMON_DICT,
             warning_path=args.warning_file,
             overwrite_existing=not args.no_overwrite,
-            validate_word_count=not args.no_word_count_check
+            validate_word_count=validate_wc,
+            max_duplicate_suggested_targets=max_dups
         )
         char_res = dist_res["character"]
         comm_res = dist_res["common"]
