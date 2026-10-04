@@ -40,7 +40,7 @@ class BoundaryTrimmer:
         "dũng", "hạ", "văn", "cương", "đào", "huy", "nghĩa", "dương",
         "chấn", "dung", "vũ", "ương", "yến", "mai", "thảo", "khê",
         "quảng", "kỳ", "linh", "tân", "trúc", "quỳnh", "bình", "phúc",
-        "lộc", "thọ", "khang", "minh", "đức", "thành"
+        "lộc", "thọ", "khang", "minh", "đức", "thành", "cầm", "phi"
     }
 
     SINGLE_ACTION_VERBS = {

@@ -631,14 +631,15 @@ class CandidateExtractor:
 
         # 2. Kiểm tra từ ghép 2 từ tiếng Việt (vn_2word_set)
         vn_words = getattr(self.loader, "vn_2word_set", set())
-        if len(words) == 2 and low in vn_words:
+        if len(words) == 2 and " ".join(words) in vn_words:
             return True
 
         # 3. Kiểm tra từ chức năng ngữ pháp ở giữa tên
-        surname_len = 2 if (len(words) >= 2 and (f"{words[0]} {words[1]}" in self.loader.compound_surnames or self.trimmer.is_surname(f"{words[0]} {words[1]}"))) else 1
-        given_words = words[surname_len:]
-        if any(gw in self.INTERNAL_GRAMMAR_STOPWORDS for gw in given_words):
-            return True
+        if not is_foreign:
+            surname_len = 2 if (len(words) >= 2 and (f"{words[0]} {words[1]}" in self.loader.compound_surnames or self.trimmer.is_surname(f"{words[0]} {words[1]}"))) else 1
+            given_words = words[surname_len:]
+            if any(gw in self.INTERNAL_GRAMMAR_STOPWORDS for gw in given_words):
+                return True
 
         if low in self.loader.pronouns or low in self.loader.non_person:
             return True

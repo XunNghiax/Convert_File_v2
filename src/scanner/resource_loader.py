@@ -110,7 +110,7 @@ class ResourceLoader:
                 if line and not line.startswith("#"):
                     parts = line.split()
                     if len(parts) == 2:
-                        words.add(line)
+                        words.add(" ".join(parts))
         except Exception:
             pass
         return words

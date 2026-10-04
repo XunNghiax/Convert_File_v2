@@ -201,7 +201,7 @@ class ScannerEngine:
         tail_words_low = [w.lower() for w in tail_words]
         tail_str = " ".join(tail_words_low)
         # Nếu có từ thuộc danh sách từ được bảo vệ trong tên người thì không coi là động từ/từ rác
-        if any(w in BoundaryTrimmer.PROTECTED_NAME_WORDS or w in {"cầm", "phi"} for w in tail_words_low):
+        if any(w in BoundaryTrimmer.PROTECTED_NAME_WORDS for w in tail_words_low):
             return False
         if tail_str in self.HUMAN_ACTION_VERBS:
             return True
