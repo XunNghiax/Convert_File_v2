@@ -1,322 +1,1293 @@
 [
   {
     "id": "ch_0001",
-    "is_character": true,
-    "source": "tôn như sương",
-    "target": "Tôn Như Sương",
-    "context": "Từ Thanh nhìn tôn như sương bức này bộ dạng, hắn tâm lý cũng hiện ra một chút khô nóng, tôn như sương tuy rằng tam hơn 40 tuổi, nhưng bởi vì bảo dưỡng uống ngon thiên sinh lệ chất, làn da lại rất tinh tế trắng mịn, nhìn thật giống như là nhị mười mấy tuổi thiếu nữ giống như, như vậy vưu vật đối với nam nhân mà nói tuyệt đối có phi thường cường liệt sức dụ dỗ.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 695,
-    "suggested_target": "Tôn Như Sương"
+    "is_character": false,
+    "source": "từ trước đến",
+    "target": "Từ Trước Đến",
+    "suggested_target": "từ trước đến",
+    "context": "\"Tôn phu nhân hai chân vòng ở hắn eo, hai tay ôm cổ của hắn, cả người treo tại hắn trên người, \"Tỷ tỷ từ trước đến nay chưa thấy qua...",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'Tỷ tỷ', mang họ hợp lệ",
+    "so_lan_xuat_hien": 65
   },
   {
     "id": "ch_0002",
     "is_character": true,
-    "source": "văn Liên",
-    "target": "Văn Liên",
-    "context": "\" Đối diện văn Liên Tâm không chút nào phát hiện điện thoại bên kia mẫu thân đang bị một cái cùng chính mình tuổi tác xấp xỉ nam nhân đặt ở dưới hông, điên cuồng phát ra.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 207,
-    "suggested_target": "Văn Liên Tâm"
+    "source": "Hồng Ngư",
+    "target": "Hồng Ngư",
+    "suggested_target": "Hồng Ngư",
+    "context": "Hồng Ngư xem kia kính trung hình ảnh, đó là một cái toàn thân trần trụi, mông bự vú lớn, tóc tai bù xù dâm phụ, trần như nhộng, mở ra đùi, tuổi trẻ anh tuấn con trạm ở sau lưng, ôm lấy nàng mập mạp kia to lớn to lớn mông, đại dương vật cuồng bạo quất cắm, cảm thấy chính mình dường như không đếm xỉa đến, tại nhìn một bộ phim người lớn trung nam nữ ân ái, và từ bên trong thân thể sinh ra một loại khác thường tính phản ứng, Hồng Ngư nũng nịu đáng yêu ứng nói: \"Thật kỳ quái nha.",
+    "yeu_to_nhan_biet": "Chủ thể phát ngôn hội thoại, mang họ hợp lệ",
+    "so_lan_xuat_hien": 3030,
+    "bien_the": [
+      "Vân Hồng Ngư",
+      "La Hồng Ngư",
+      "Thân Hồng Ngư"
+    ]
   },
   {
     "id": "ch_0003",
     "is_character": true,
-    "source": "La Thải",
-    "target": "La Thải",
-    "context": "La Thải nhi cười tủm tỉm gật đầu, tiếp lấy mở ra chính mình mê người miệng nhỏ, chậm rãi đem Từ Thanh quy đầu ngậm vào trong miệng.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 86,
-    "suggested_target": "La Thải Nhi"
+    "source": "Lý Vân Tâm",
+    "target": "Lý Vân Tâm",
+    "suggested_target": "Lý Vân Tâm",
+    "context": "Nguyên bản đêm nay cùng mợ hẹn xong nàng tắm rửa không liên quan môn , không nghĩ tới lão nhân gia ngài cũng không đóng cửa, lúc này mới nháo cái ô long. \"Lý Vân Tâm hư nhỏ giọng nói.",
+    "yeu_to_nhan_biet": "Chủ thể phát ngôn sau lời thoại, mang họ hợp lệ",
+    "so_lan_xuat_hien": 146
   },
   {
     "id": "ch_0004",
-    "is_character": true,
-    "source": "la Thải nhi",
-    "target": "La Thải Nhi",
-    "context": "Nghe vậy, la Thải nhi trong lòng lập tức cũng có một chút lúng túng khó xử, hắn nhìn mẫu thân trên mặt thất lạc biểu cảm, liền vội vàng theo Từ Thanh trong lòng tránh thoát đi ra ngoài, đi đến la Vũ Đồng bên người ngồi xuống, ôm la Vũ Đồng bả vai, an ủi: \"Mẹ, kỳ thật ngươi cũng không dùng thương tâm, ngươi mới ba mươi tuổi, đúng là hào hoa phong nhã thời điểm chỗ nào già đi?",
+    "is_character": false,
+    "source": "lại lần nữa",
+    "target": "Lại Lần Nữa",
+    "suggested_target": "lại lần nữa",
+    "context": "Liên tục cao trào đã để mẫu thân vô lực lại phối hợp con đối với chính mình gian dâm, nàng miễn cưỡng ngồi phịch ở chỗ đó, hai tay ôm lấy con mông, tùy theo hắn dùng sức mà hơi hơi tăng lực, cảm giác được khoang bụng nội âm đạo bị con dương vật lại lần nữa phong phú đẩy ra cùng áp sát vào, mẫu thân thật sâu thở dài , tiếng rên rỉ như khóc như mê: \"Con, con trai ngoan, ngươi làm tốt lắm tốt...",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 597,
-    "suggested_target": "La Thải Nhi"
+    "so_lan_xuat_hien": 1028
   },
   {
     "id": "ch_0005",
-    "is_character": true,
-    "source": "La Vũ Đồng",
-    "target": "La Vũ Đồng",
-    "context": "La Vũ Đồng híp lấy mắt, hưởng thụ Từ Thanh khối này tuổi trẻ thân thể cường tráng cấp chính mình mang tới khoái cảm, mặc dù nói la Vũ Đồng lớn tuổi Từ Thanh không ít, nhưng là nàng lại được bảo dưỡng nghi, phong vận vẫn còn, gò má nàng đỏ bừng , một đôi ánh mắt đóng chặt, lông mi thật dài tại run rẩy, khóe miệng treo mỉm cười, hiện ra tâm tình của nàng bây giờ cực độ sung sướng, la Vũ Đồng hô hấp dồn dập, sắc mặt ửng hồng, bởi vì dục vọng của nàng tại liên tục không ngừng phóng thích .",
+    "is_character": false,
+    "source": "tất cả đều",
+    "target": "Tất Cả Đều",
+    "suggested_target": "tất cả đều",
+    "context": "Mẫu thân phấn nộn tròn xoe tất chân mông bự bị trước sau nhồi vào hai cái tính khí không thể hoạt động, dâm dịch văng khắp nơi, bị chọc vào cả người thịt mềm thẳng run rẩy, cái này \"Sandwich \"Động tác đối với các nàng tới nói vô cùng thuần thục, con cùng mẹ nuôi giống kẹp bánh thịt giống nhau đem mẫu thân kẹp ở trung gian, ba người tính khí kịch liệt đắc tượng đều lên phát đầu giống nhau, mẫu thân trước ngực sóng ngực mãnh liệt, toàn thân mồ hôi đầm đìa, dâm đãng tiếng kêu dâm dãng không ngừng, mềm mại mật huyệt cùng hoa cúc đã bị bọn hắn địt liền thịt mềm đều nhảy ra, phấn hông cùng mông bự đã bị liên tục không ngừng vỗ tính khí gốc rễ đánh ánh hồng một mảnh, đẫy đà tròn xoe mông bự thịt mềm bị địt cuồng run, hạ thân lỗ đít cùng mật huyệt cũng tất cả đều là nồng đậm sữa trắng, ga giường khắp nơi ướt át một mảnh.",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 482,
-    "suggested_target": "La Vũ Đồng"
+    "so_lan_xuat_hien": 231
   },
   {
     "id": "ch_0006",
     "is_character": true,
-    "source": "Vũ Đồng",
-    "target": "Vũ Đồng",
-    "context": "Hai người đều rơi vào điên cuồng cảnh giới, tại la Vũ Đồng thúc giục phía dưới, Từ Thanh không ngừng tăng nhanh tần suất, hai mắt của hắn đỏ bừng, mồ hôi sớm thẩm ướt cái kia rắn chắc lồng ngực, miệng của hắn phát ra như dã thú rống giận âm thanh, phần hông không ngừng về phía trước đẩy, cỗ kia hung mãnh sức lực đạo khiến cho la Vũ Đồng sắc nhọn quát to tiếng trở nên càng ngày càng thê lương.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 224,
-    "suggested_target": "La Vũ Đồng"
+    "source": "Lee Woon Jae",
+    "target": "Lee Woon Jae",
+    "suggested_target": "Lee Woon Jae",
+    "context": "\"Lee Woon Jae nàng bên tai nói nhỏ, nóng ẩm khí tức phun tại nàng mẫn cảm tai khuếch phía trên, \"Làm tất cả mọi người biết tỷ tỷ đang bị đệ đệ đại dương vật địt...",
+    "yeu_to_nhan_biet": "Chủ thể phát ngôn sau lời thoại, là tên Latinh hợp lệ",
+    "so_lan_xuat_hien": 382
   },
   {
     "id": "ch_0007",
-    "is_character": true,
-    "source": "Lâm Thanh",
-    "target": "Lâm Thanh",
-    "context": "Từ Thanh nhìn đến Lâm Thanh lộ bộ dáng, trong lòng càng thêm phấn khích rồi, bắt lấy Lâm Thanh lộ hai vú liền hướng đến miệng của mình bên trong đưa, ngậm viên kia no đủ màu hồng phấn anh đào chính là mạnh mẽ mút thỏa thích, đầu lưỡi liên tục không ngừng liếm lấy Lâm Thanh lộ kia mềm mại trơn bóng vú thịt, làm Lâm Thanh lộ không khỏi thoải mái rầm rì lên.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 678,
-    "suggested_target": "Lâm Thanh Lộ"
+    "is_character": false,
+    "source": "dương vật cắm",
+    "target": "Dương Vật Cắm",
+    "suggested_target": "dương vật cắm",
+    "context": "\"Vạn xinh đẹp rất nhanh bị chọc vào xuân tình như thủy triều, tròn xoe to lớn mông bự hướng lên nhếch lên cao, thon dài nhục cảm tơ trắng chân đẹp quấn lấy nam nhân eo to, đỏ tươi yêu kiều môi liên tục không ngừng thở gấp, Lý Vân mỗi quất cắm một chút, cũng làm cho nàng thân thể yêu kiều loạn chiến, căn này lớn vô cùng lại đặc thù dương vật thế nhưng làm nàng cảm nhận được trước nay chưa từng có mãnh liệt kích thích, dương vật cắm đi vào đội lên tử cung hoa tâm liên tục không ngừng xoắn động, Lý Vân đặc thù chất lỏng giống như xuân dược vậy dược tính tùy theo tuyến tiền liệt phân bố khoách tán ra, trực kích đầu óc của nàng, làm nàng sảng khoái đến khó nói thành lời, tiếng rên rỉ càng ngày càng dâm đãng.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'đi'",
+    "so_lan_xuat_hien": 140
   },
   {
     "id": "ch_0008",
-    "is_character": true,
-    "source": "Tần Vận",
-    "target": "Tần Vận",
-    "context": "Nghe được mẫu thân lời nói, Tần Vận gương mặt xinh đẹp lập tức đỏ bừng vô cùng, trái tim của nàng bang bang cấp tốc nhảy lên, đồng thời thầm mắng chính mình bất tranh khí, thế nhưng theo là mẫu thân nói mấy câu liền hoảng hốt thành cái bộ dạng này, nàng vụng trộm liếc Từ Thanh liếc nhìn một cái, chỉ thấy Từ Thanh biểu cảm bình tĩnh như trước như nước, không chút nào chịu ảnh hưởng bộ dạng, thậm chí còn hướng nàng nháy mắt một cái, nàng miệng nhỏ không khỏi quyệt .",
+    "is_character": false,
+    "source": "đại trương",
+    "target": "Đại Trương",
+    "suggested_target": "đại trương",
+    "context": "\" Tùy theo xinh đẹp thục phụ Lý Tuyết vi một tiếng cao kêu, lại lần nữa đến tuyệt đỉnh cao trào, chớp mắt môi anh đào đại trương ô ô rên rỉ, mắt phượng mê ly, hai tay gắt gao ôm sát cháu ruột Lý Vân cổ, bên trong âm đạo tường thịt một trận mãnh liệt co lại, kịch liệt nhúc nhích hút cắn Lý Vân côn thịt cùng quy đầu, đại cổ dâm dịch lại lần nữa tuôn đi ra, đem Lý Vân đại quy đầu nóng ấm áp .",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 1187,
-    "suggested_target": "Tần Vận"
+    "so_lan_xuat_hien": 80
   },
   {
     "id": "ch_0009",
-    "is_character": true,
-    "source": "Lưu Minh",
-    "target": "Lưu Minh",
-    "context": "Điện thoại kia một bên Lưu Minh huy cười trả lời, \"Từ tổng, ta đã cùng lúc còn nhỏ hội đàm tốt lắm, chúng ta nguyện ý bị bắt mua sắm, chỉ cần tám trăm vạn, ngài liền có thể bắt Đan thành.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 76,
-    "suggested_target": "Lưu Minh Huy"
+    "is_character": false,
+    "source": "mông mập",
+    "target": "Mông Mập",
+    "suggested_target": "mông mập",
+    "context": "Lý Vân dương vật tại a di hạ thân ẩm ướt trơn trượt bên trong âm đạo ra sức chấn động , hưởng thụ a di lắc lư mông mập xoay kẹp lỗ thịt tính giao khoái cảm, hai tay ôn nhu đặt tại a di hai luồng rắn chắc tròn xoe trên ngực xoa nắn, trong miệng lẩm bẩm nói: \"A di, ngươi bị địt âm hộ xoay được thật tốt...",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 254,
+    "bien_the": [
+      "Đại Mập"
+    ]
   },
   {
     "id": "ch_0010",
-    "is_character": true,
-    "source": "Vương Dương",
-    "target": "Vương Dương",
-    "context": "\" Từ Thanh gật gật đầu, buông xuống chiếc xe hàng phía trước cùng xếp sau ở giữa chắn bản, hướng về phòng điều khiển Vương Dương nói, \"Đi thương trường.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 27,
-    "suggested_target": "Vương Dương"
+    "is_character": false,
+    "source": "lại muốn",
+    "target": "Lại Muốn",
+    "suggested_target": "lại muốn",
+    "context": "Lý Vân vừa nghe mẫu thân mau tiết âm tinh đi ra dâm thanh lãng ngữ, biết Hồng Ngư đang tại thời điểm mấu chốt phía trên, gấp gáp dừng lại, nói: \"Mẹ, ngươi lại muốn cao trào sao?",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 170
   },
   {
     "id": "ch_0011",
     "is_character": true,
-    "source": "Đường thiền y",
-    "target": "Đường Thiền Y",
-    "context": "\" Đường thiền y đôi mắt mở, con ngươi của nàng bên trong tràn ngập mê muội cách xa chi sắc, một luồng xuân tình tại trong đôi mắt nhộn nhạo, bộ kia kiều diễm du tích bộ dáng làm Từ Thanh càng thêm điên cuồng, hắn không ngừng cắn cắn mẫu thân Đường thiền y anh đào miệng nhỏ, mút thỏa thích mẫu thân Đường thiền y trong miệng ngọt ngào hương thơm nước bọt, đồng thời miệng rộng không hoàn toàn xé rách mẫu thân Đường thiền y cái lưỡi đinh hương, không cho nàng bất kỳ cái gì trốn tránh cơ hội.",
+    "source": "Lý Vân ôm",
+    "target": "Lý Vân Ôm",
+    "suggested_target": "Lý Vân",
+    "context": "Trầm luân ở lại làm yêu cùng khoái cảm bên trong Hồng Ngư quên mất mẫu thân và thê tử thân phận, nàng khẽ giương cánh tay ngọc, đem con Lý Vân ôm nhập trong lòng, hổn hển thở gấp nói: \"Con!",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 1156,
-    "suggested_target": "Đường Thiền Y"
+    "so_lan_xuat_hien": 166
   },
   {
     "id": "ch_0012",
-    "is_character": true,
-    "source": "Diệp Mạn Văn",
-    "target": "Diệp Mạn Văn",
-    "context": "Diệp Mạn Văn nói làm Từ Thanh ngẩn ra, ánh mắt của hắn rơi vào quan uyển bạch trên người, thân thể của nàng tại liên tục không ngừng run rẩy, cặp mắt kia đống chặt lấy, không dám mở, giống như sợ nhìn thấy cái gì không nên nhìn đến đồ vật, nhưng này trắng nõn thon dài cổ lại bại lộ nàng kỳ thật đều không phải là như trên mặt ngoài nhìn trấn định như vậy.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 161,
-    "suggested_target": "Diệp Mạn Văn"
+    "is_character": false,
+    "source": "lại tiếp tục",
+    "target": "Lại Tiếp Tục",
+    "suggested_target": "lại tiếp tục",
+    "context": "Lý Vân đem nàng đầy đặn mông bự nhẹ nhàng ôm lên, đặt thượng sofa tay vịn phía trên, làm nàng hạ thân hơi hơi hướng lên diễn đột, sau đó lại tiếp tục nắm lấy nàng hai chân, chậm rãi hướng đến hai bên đẩy ra, một bức làm người ta khó có thể quên mỹ lệ tranh vẽ lập tức xuất hiện ở Lý Vân trước mắt: Hai đầu trượt không lưu tay thon dài chân đẹp hướng ra phía ngoài mở rộng, nhẹ nhàng run run, kẹp ở trung gian phần cuối chính là một cái bạch như mỡ dê no đủ âm hộ, vùng mu thượng sinh trưởng đen nhánh và mềm mại lông xoăn, bị Lý Vân gọi ra nhiệt khí thổi trúng giống bình nguyên thượng cỏ nhỏ, nghiêng về một bên;",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 85
   },
   {
     "id": "ch_0013",
-    "is_character": true,
-    "source": "Lý Văn",
-    "target": "Lý Văn",
-    "context": "Nghe thấy Lý Văn đào nói muốn đi, tô cũng có thể cuối cùng là thở phào một hơi, Từ Thanh sao có thể làm hắn liền đi như vậy, vòng eo dùng sức thúc một cái, to dài long căn toàn bộ nhập vào nàng non mềm bên trong, hung hăng va chạm hoa tâm của nàng.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 69,
-    "suggested_target": "Lý Văn Đào"
+    "is_character": false,
+    "source": "mông bự",
+    "target": "Mông Bự",
+    "suggested_target": "mông bự",
+    "context": "Mẫu thân ôm chặt lấy con, vùi đầu tại Lý Vân gáy lúc, mông bự kéo căng đến quá chặt , hưởng thụ cao trào vui vẻ, cuối cùng, mẫu thân thở gấp buông xuống chân, sau đó hai tay nâng con khuôn mặt, đầy mặt ửng hồng, thần sắc si mê nhìn con, líu ríu nói: \"Bảo bảo...",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'kéo'",
+    "so_lan_xuat_hien": 752,
+    "bien_the": [
+      "Đại Mông Bự"
+    ]
   },
   {
     "id": "ch_0014",
     "is_character": true,
-    "source": "trương dung",
-    "target": "Trương Dung",
-    "context": "Từ Thanh chú ý tới trương dung sắc mặt biến hóa, hắn liền vội vàng ngồi vào mẫu thân bên người, cười hề hề đổi chủ đề, \"Như thế nào đàm luận khởi chuyện này đến đây?",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 42,
-    "suggested_target": "Trương Dung"
+    "source": "Lý Vân địt",
+    "target": "Lý Vân Địt",
+    "suggested_target": "Lý Vân",
+    "context": "Nhìn đến mẹ bị Lý Vân địt được thiếu chút nữa chết rồi, Trần Tuệ tâm lý không biết sao , thế nhưng vô cùng hưng phấn, tại bên cạnh vỗ lấy tay nhỏ kêu lên: \"Tốt lắm , lão công cố lên, địt chết cái này đại huyệt dâm!",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẹ', mang họ hợp lệ",
+    "so_lan_xuat_hien": 74
   },
   {
     "id": "ch_0015",
-    "is_character": false,
-    "source": "hình như có",
-    "target": "Hình Như Có",
-    "context": "Tần Vận cảm nhận đến Từ Thanh ép tại chính mình thân thể phía trên trầm trọng thân thể, nàng thân thể yêu kiều không tự chủ được rùng mình , hô hấp trở nên dồn dập, tâm nhảy trở nên nhanh hơn, một cỗ không hiểu được ngứa ngáy theo đáy lòng của nàng truyền ra, thân thể của nàng bắt đầu nóng lên, nàng cảm giác được Từ Thanh trên người truyền lại đi ra nam tính khí tức, những cái này khí tức hình như có chứa nào đó thần bí mị lực, làm nàng tâm nhảy càng lúc càng nhanh, hô hấp cũng trở nên càng thêm dồn dập, nàng bất an vặn vẹo một chút thân thể yêu kiều.",
+    "is_character": true,
+    "source": "Lý Vân đi",
+    "target": "Lý Vân Đi",
+    "suggested_target": "Lý Vân",
+    "context": "Lý Vân đi rồi, cẩu thặng ôm mẫu thân nói: \"Ngươi bây giờ thay đổi như vậy dâm đãng, ta thật lo lắng cho, ngươi sau khi ra ngoài không quan tâm ta.",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 25,
-    "suggested_target": "hình như có"
+    "so_lan_xuat_hien": 65
   },
   {
     "id": "ch_0016",
     "is_character": false,
-    "source": "đại dương vật",
-    "target": "Đại Dương Vật",
-    "context": "Đúng lúc này, Từ Thanh trong lòng kích thích tới cực điểm, hắn cũng không nhịn được nữa, túi túi bắt đầu kịch liệt co lại , tiếp lấy hắn đại dương vật tại mẫu thân tiểu huyệt bắt đầu có tiết tấu nhảy chuyển động, một lớp lại một lớp khoái cảm thổi quét Từ Thanh mỗi một dây thần kinh.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 237,
-    "suggested_target": "đại dương vật"
+    "source": "cao trào bên",
+    "target": "Cao Trào Bên",
+    "suggested_target": "cao trào bên",
+    "context": "\"A ——\" mẫu thân đột nhiên ôm chặt lấy con, màu mỡ hạ thân nhanh đội lên đến, mạo đột vùng mu gắt gao chống đỡ Lý Vân phần mu, làm con ngay ngắn dương vật, hoàn toàn xuyên qua âm đạo của nàng, Lý Vân cảm giác được mẫu thân cao trào bên trong âm đạo liên tục không ngừng co lại cùng co giật, âm đạo bức tường phía trên nếp nhăn thịt béo, tầng tầng lớp lớp chồng chất đến chính mình dương vật phía trên, điên cuồng cắn cùng luật động.",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẫu thân', mang họ hợp lệ",
+    "so_lan_xuat_hien": 103
   },
   {
     "id": "ch_0017",
-    "is_character": true,
-    "source": "Thi Nhã",
-    "target": "Thi Nhã",
-    "context": "Từ Thanh đưa tay đặt ở trước ngực của nàng, tại phía trên hung hăng bóp, lâm Thi Nhã không khỏi phát ra một tiếng nũng nịu kêu to âm thanh, thân thể của nàng tại Từ Thanh bàn tay hạ xoay lấy, nàng cả người đều tựa như là hòa tan, điều này làm cho Từ Thanh hưng phấn dị thường, nàng kia mềm mại không xương thân thể yêu kiều không ngừng vặn vẹo, mỗi một tấc làn da, mỗi một nơi, đều phát tán ra mê người hương vị.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 88,
-    "suggested_target": "Lâm Thi Nhã"
+    "is_character": false,
+    "source": "lại bắt đầu",
+    "target": "Lại Bắt Đầu",
+    "suggested_target": "lại bắt đầu",
+    "context": "Duỗi tay đem con thôi nằm chết dí trên giường, mẫu thân lại bắt đầu trước sau di chuyển mông bự, tại con trong quần cọ xát , nhìn con khuôn mặt, cười híp mắt nói: \"Tư thế này, bảo bảo cũng dùng nhiều lắm a?",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẫu thân', mang họ hợp lệ",
+    "so_lan_xuat_hien": 182
   },
   {
     "id": "ch_0018",
-    "is_character": true,
-    "source": "Lâm Thi Nhã",
-    "target": "Lâm Thi Nhã",
-    "context": "\" Lâm Thi Nhã điên cuồng kêu, nàng kia tuyết trắng làn da chớp mắt nổi lên một chút đỏ bừng, nàng cả người giống như vừa từ đáy biển đi ra con cá vậy, cả người ướt sũng , từng cổ mồ hôi theo trám của nàng, cổ, trước ngực không ngừng nhỏ giọt rơi, nàng thân thể yêu kiều đang kịch liệt giật giật , thân thể của nàng không ngừng run rẩy, nàng kia cao ngất lồng ngực kịch liệt lên xuống nhấp nhô , cái loại này cảm giác vui thích làm nàng khó nói thành lời, nàng kia tuyết trắng bắp đùi thon dài không ngừng đặng đá , nàng mông liên tục không ngừng vặn vẹo, cái loại này vui biểu cảm hình như muốn đem linh hồn của nàng đều ném bay ra ngoài.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 87,
-    "suggested_target": "Lâm Thi Nhã"
+    "is_character": false,
+    "source": "mông tròn còn",
+    "target": "Mông Tròn Còn",
+    "suggested_target": "mông tròn còn",
+    "context": "Mẫu thân hai tay chống tại ghé vào con trên người tiểu cô hai luồng mập lăn mông tròn phía trên, chuyển động so tiểu cô mông tròn còn muốn viên đại to lớn mông bự, nhúc nhích đầy đặn hạ thân bên trong âm đạo, bắt đầu ở con dương vật mặt sáo động cưỡng hiếp , tính giao khoái cảm làm mẫu thân rất nhanh liền rên rỉ.",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'cô', mang họ hợp lệ",
+    "so_lan_xuat_hien": 116,
+    "bien_the": [
+      "Mông Tròn"
+    ]
   },
   {
     "id": "ch_0019",
-    "is_character": true,
-    "source": "Đường nguyên phong",
-    "target": "Đường Nguyên Phong",
-    "context": "Nói, Đường nguyên phong đột nhiên nâng cao tiếng lượng, lấy ra một chi sắc nhọn bút máy đâm về phía Từ Thanh, nhưng là Từ Thanh sớm có phát hiện, nhất nắm chặc Đường nguyên phong cổ tay, Đường nguyên phong ăn đau đớn phía dưới, sắc nhọn bút máy rơi xuống đến trên mặt đất, Đường nguyên phong bàn tay còn bị Từ Thanh chặt chẽ nắm.",
+    "is_character": false,
+    "source": "thủy chung",
+    "target": "Thủy Chung",
+    "suggested_target": "thủy chung",
+    "context": "Hơn một tháng hoang đường \"Tuần trăng mật \"Về sau, mẹ thân thể dần dần khang phục, làn da tuyết trắng, khí sắc tốt lắm, chúng ta hồi phục đến bình thường cuộc sống bên trong, mẹ trở về tiếp tục trông coi công tác của nàng, sự nghiệp của nàng như mặt trời giữa trưa, rất nhanh liền muốn trở thành quốc nội số một buôn bán lãnh tụ, chính là nàng nghiệp vụ bận rộn, có chút thời điểm công vụ nhiều lắm, theo giúp ta thời gian thiếu, ta mặc dù có điểm ý kiến, nhưng đối với sự nghiệp của nàng thủy chung là duy trì thái độ.",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 31,
-    "suggested_target": "Đường Nguyên Phong"
+    "so_lan_xuat_hien": 67
   },
   {
     "id": "ch_0020",
-    "is_character": true,
-    "source": "Đường Khiếu",
-    "target": "Đường Khiếu",
-    "context": "\" Đường Khiếu mỉm cười gật đầu, đối với lão nhân y thuật, hắn vẫn là thực tín nhiệm , lão nhân tuy rằng lớn tuổi, nhưng là y thuật vẫn như cũ tinh xảo, nếu không Đường gia cũng không có khả năng mời này lão nhân đảm nhiệm y sư chức vị.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 34,
-    "suggested_target": "Đường Khiếu"
+    "is_character": false,
+    "source": "cao trào qua",
+    "target": "Cao Trào Qua",
+    "suggested_target": "cao trào qua",
+    "context": "\"Chị dâu hưng phấn đỏ bừng cả khuôn mặt, thở gấp không thôi, hai tay chủ động vuốt ve vú của mình, đói khát nhìn trộm Lý Vân kiên đĩnh tráng kiện dương vật, khẩn trương tim đập mãnh liệt gia tốc, tinh mịn mồ hôi, theo trán thượng thấm ra, cao trào qua đi, nhìn kia mê người dữ tợn dương vật, chị dâu cảm giác một trận miệng đắng lưỡi khô, lại có loại muốn ngậm tại trong miệng cảm thụ một chút xúc động.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'đi'",
+    "so_lan_xuat_hien": 61
   },
   {
     "id": "ch_0021",
     "is_character": false,
-    "source": "Thân thể",
-    "target": "Thân Thể",
-    "context": "\" Thân thể của mẫu thân bỗng nhiên cong lên đến, mật huyệt kịch liệt co lại, kẹp hút Từ Thanh côn thịt, tử cung bên trong giống như tiết hồng, nóng bỏng dâm thủy vẩy tại Từ Thanh quy đầu phía trên, sảng khoái không được.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 75,
-    "suggested_target": "thân thể"
+    "source": "cao trào khi",
+    "target": "Cao Trào Khi",
+    "suggested_target": "cao trào khi",
+    "context": "\"Hắn bắt chước mẫu thân cao trào khi tiếng kêu, ngón tay nắm hai khỏa cứng rắn như đá tử đầu vú xoay tròn.",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẫu thân', mang họ hợp lệ",
+    "so_lan_xuat_hien": 57
   },
   {
     "id": "ch_0022",
     "is_character": true,
-    "source": "trần mộng di",
-    "target": "Trần Mộng Di",
-    "context": "\"A ~ Từ Thanh ~~ ngươi nhẹ chút ~ a đội lên bên trong ~ a a ~ thật thoải mái ~ thật sự sảng khoái a ~ Từ Thanh đệ đệ thật lợi hại ~ tỷ tỷ thật thoải mái ~\" biểu tỷ trần mộng di hai gò má đỏ ửng, hai mắt thủy quang liễm diễm, mị thái liên tục xuất hiện, nũng nịu âm thanh phối hợp kia tiêu hồn thực cốt rên rỉ, làm người ta nghe được xương cốt đều nhanh tô rớt.",
+    "source": "Vân Nhi",
+    "target": "Vân Nhi",
+    "suggested_target": "Vân Nhi",
+    "context": "Lúc này, Quế Hoa tẩu tại tửu điếm tha một hồi, cũng tới nơi này cái giam khống thất bên trong, quyết tuyệt lạnh lùng biểu cảm không còn sót lại chút gì, cuối cùng lựa chọn chính là dâm đãng nở một nụ cười quyến rũ, một cái mông lớn ngồi ở Lý Vân đùi thượng: \"Hì hì, Vân Nhi lão công, vừa rồi tỷ tỷ hành động như thế nào đây?",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 572,
-    "suggested_target": "Trần Mộng Di"
+    "so_lan_xuat_hien": 536,
+    "bien_the": [
+      "Ân Vân Nhi",
+      "Vân Ca"
+    ]
   },
   {
     "id": "ch_0023",
     "is_character": false,
-    "source": "bao giờ",
-    "target": "Bao Giờ",
-    "context": "A ~\" mẫu thân thân thể yêu kiều đã hoàn toàn mềm xuống, thân thể xụi lơ tại trong ngực Từ Thanh, mặc cho Từ Thanh ép buộc, nàng chỉ có thể nhẹ nhàng thở gấp, hưởng thụ loại này chưa bao giờ có cảm nhận, hơn nữa nội tâm chỗ sâu còn dâng lên một cỗ khát vọng, khát vọng bị Từ Thanh tiếp tục xâm phạm thân thể của chính mình.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 56,
-    "suggested_target": "bao giờ"
+    "source": "cao giọng",
+    "target": "Cao Giọng",
+    "suggested_target": "cao giọng",
+    "context": "\" Hồng Ngư bị này đột nhiên bất ngờ mãnh liệt thế công địt được nói năng lộn xộn, lại cũng không kịp ngoài cửa có hay không người, cao giọng dâm đãng kêu la , chống tại trên cửa tay bởi vì kịch liệt va chạm mà không đoạn trượt xuống.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'kêu'",
+    "so_lan_xuat_hien": 65
   },
   {
     "id": "ch_0024",
-    "is_character": true,
-    "source": "Lý Mộc",
-    "target": "Lý Mộc",
-    "context": "\" Bọn hắn âm thanh cung kính đối với Từ Thanh cúi đầu, Từ Thanh nhẹ nhàng vuốt cằm, sau đó quay đầu đối với Lý Mộc tử nói, \"Đây là quản gia của ta cùng người giúp việc, bọn hắn chiếu cố tốt ngươi, nếu như gặp phải cái gì không giải quyết được sự tình, ngươi có thể liên hệ bọn hắn.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 38,
-    "suggested_target": "Lý Mộc Tử"
+    "is_character": false,
+    "source": "mông thịt",
+    "target": "Mông Thịt",
+    "suggested_target": "mông thịt",
+    "context": "Hai mẹ con tay ôn nhu nắm tại cùng một chỗ xoa lấy cô cô đầy đặn mông thịt, Lý Vân theo cô cô gáy ở giữa nhìn mẫu thân ánh mắt, ôn nhu nói nói: \"Mẹ, ta tốt yêu ngươi, ta thật hạnh phúc a.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 289
   },
   {
     "id": "ch_0025",
-    "is_character": true,
-    "source": "lý viện triều",
-    "target": "Lý Viện Triều",
-    "context": "Đế đô vùng ngoại thành nhất ngôi biệt thự tầng hầm bên trong, lý viện triều cùng con Lý Cương, thê tử nào vân ba người bị trói buộc tại ghế dựa phía trên, bọn hắn liên tục không ngừng giãy dụa, đáng tiếc hai chân của bọn hắn đã gãy mất, căn bản làm cho không ra kính nhi.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 60,
-    "suggested_target": "Lý Viện Triều"
+    "is_character": false,
+    "source": "lý trí",
+    "target": "Lý Trí",
+    "suggested_target": "lý trí",
+    "context": "Đương Lý Vân bắt đầu có tiết tấu địa cung giao thời điểm, mẫu thân lý trí hoàn toàn tan vỡ:",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẫu thân', mang họ hợp lệ",
+    "so_lan_xuat_hien": 76
   },
   {
     "id": "ch_0026",
-    "is_character": true,
-    "source": "Lý Minh",
-    "target": "Lý Minh",
-    "context": "Lý Minh ngọc hưng phấn nói năng lộn xộn, nàng không ngừng gật đầu, nàng hiện tại đã hoàn toàn yêu phía trên Từ Thanh, trên cái thế giới này hạnh phúc nhất nữ nhân không ai qua được này a, Từ Thanh năng lực làm nàng dục tiên dục tử, nàng hận không thể vĩnh viễn nằm ở Từ Thanh dưới người hưởng thụ phần kia kích thích, đáng tiếc Từ Thanh cũng là một cái hoa tâm quỷ, hắn chính là cùng chính mình trêu đùa vài lần sẽ không lý mình, điều này làm cho Lý Minh ngọc phi thường thất vọng.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 297,
-    "suggested_target": "Lý Minh Ngọc"
+    "is_character": false,
+    "source": "mẫn cảm",
+    "target": "Mẫn Cảm",
+    "suggested_target": "mẫn cảm",
+    "context": "Mẫu thân lười chú ý một lát tử, nói tiếp: \"Đùi cùng bắp chân cũng là thứ mẫn cảm khu vực, nhưng là có cái địa phương thực mấu chốt, chính là lớn chân bên trong, nơi này bởi vì hai chân bảo hộ, cơ hồ là nhân thân thượng tối nộn bộ vị, cũng là cách xa bộ phận sinh dục gần nhất bộ vị, nữ nhân nếu như cho phép ngươi ở đây âu yếm cùng hôn liếm, trên cơ bản, liền ngầm cho phép ngươi chạm đến bộ phận sinh dục của nàng, ghi nhớ, là trên cơ bản ngầm đồng ý, không phải là sờ hai thanh đùi bên trong, liền cấp bách cấp bách duỗi tay đi lên...",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 788
   },
   {
     "id": "ch_0027",
-    "is_character": true,
-    "source": "Hoắc Hoa Đức",
-    "target": "Hoắc Hoa Đức",
-    "context": "\"Vì sao, cùng gia tộc của ta hợp tác là ngài lợi nhuận tối đại hóa cũng là nhẹ nhàng nhất , ta là tại thực hiện không thể tưởng được ngài còn có khả năng cùng ai hợp tác? \" Hoắc Hoa Đức nghi ngờ nói.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 64,
-    "suggested_target": "Howard"
+    "is_character": false,
+    "source": "thân nhi tử",
+    "target": "Thân Nhi Tử",
+    "suggested_target": "thân nhi tử",
+    "context": "Hắn dương vật đỉnh tại trước mặt của ta, thật là tương đương đồ sộ, thật không hổ là người trẻ tuổi, kiên đĩnh, mạnh mẽ mà nhất trụ kình thiên, rất có một người đã đủ giữ quan ải, vạn người đừng địch chi oai hùng cùng khí phách, thật sự là một đầu tốt bảo bối, tốt \"Côn thịt\" nhìn ta là trong lòng hớn hở, hưng phấn không hiểu mà ham muốn vọng tăng vọt, ta chẳng những dùng hai má đi ma sát nó, thân thiết nó, che chở nó, đây là ta thân nhi tử dương vật a!",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 113,
+    "bien_the": [
+      "Thân Nhi"
+    ]
   },
   {
     "id": "ch_0028",
     "is_character": true,
-    "source": "Hạ nhã",
-    "target": "Hạ Nhã",
-    "context": "Hạ nhã mặc dù là một cái thành thục nữ tính, nhưng dù sao cũng là hơn hai mươi tuổi tuổi tác, hơn nữa lại từ nhỏ sống ở thư hương thế gia, mưa dầm thấm sâu phía dưới, trong xương cốt ít nhiều có một chút truyền thống nữ tính tư duy, cho nên, đối với ở phương diện này sự tình tuy rằng khát vọng, nhưng cũng không mãnh liệt, nhưng là lần này cùng Từ Thanh phân biệt mấy ngày về sau, cũng là phá lệ tưởng niệm Từ Thanh, nàng cũng không biết vì sao, rõ ràng đã thói quen cùng Từ Thanh tại cùng một chỗ, nhưng là một khi Từ Thanh biến mất, nàng cũng cảm giác toàn bộ trong gian phòng lạnh như băng , trong lòng vắng vẻ , giống như mất hồn nhi.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 607,
-    "suggested_target": "Hạ Nhã"
+    "source": "Lý tiểu tiểu",
+    "target": "Lý Tiểu Tiểu",
+    "suggested_target": "Lý Tiểu Tiểu",
+    "context": "Muội muội: Lý tiểu tiểu (muội muội)(tuổi: 14)(áo ngực C)(đối với nhân vật chính tên thật mật: Ca ca, đại dương vật ca ca, hảo ca ca, đại điểu ca ca)",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'Muội muội', mang họ hợp lệ",
+    "so_lan_xuat_hien": 56
   },
   {
     "id": "ch_0029",
     "is_character": true,
-    "source": "Đại Na",
-    "target": "Đại Na",
-    "context": "Từ Thanh vẫn không nói gì, Đại Na đột nhiên ngồi dậy, sau đó nàng quỳ ở trên giường, ôm lấy Từ Thanh vòng eo, miệng từ đầu đến cuối đều ngậm Từ Thanh đầu vú, phấn nộn đầu lưỡi không được quét làm đầu vú thượng kia tinh mịn lông tơ, kia phấn nộn đầu lưỡi liên tục không ngừng liếm lấy, kia ẩm ướt trượt đầu lưỡi giống như mang theo ma lực giống như, nàng kia hùng trước hai luồng quả cầu thịt tùy theo nàng động tác mà lên xuống nhấp nhô , kia hai khỏa đậu đỏ cũng theo lấy nhảy chuyển động, kia hai hạt đậu đỏ cũng biến thành căng tròn , tựa như chín muồi hồng anh đào giống nhau, tỏa ra mê người thơm ngọt khí tức.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 178,
-    "suggested_target": "Diana"
+    "source": "Quan dung",
+    "target": "Quan Dung",
+    "suggested_target": "Quan Dung",
+    "context": "Quan dung cười nói: \"Ngươi bây giờ nói ta là tại khoa trương, nhưng là nếu như ngươi cùng hắn tính giao về sau thì sẽ biết ta nói tuyệt không sai, hơn nữa ngươi so với ta tuổi trẻ, cảm tình so với ta còn tinh tế a?",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'cười'",
+    "so_lan_xuat_hien": 493
   },
   {
     "id": "ch_0030",
     "is_character": true,
-    "source": "An Cát Lệ Na",
-    "target": "An Cát Lệ Na",
-    "context": "An Cát Lệ Na nhìn thẹn thùng không thôi Từ Thanh, trong lòng cười thầm không thôi, Từ Thanh trên mặt ngoài giả vờ trấn tĩnh, kỳ thật hắn tâm lý tố chất xa xa không sánh được chính mình, bằng không hắn cũng không lại nhanh như vậy liền bại lui, An Cát Lệ Na nội tâm mừng thầm không thôi, nàng đối với Từ Thanh càng ngày càng cảm thấy hứng thú, muốn mau chóng được đến diên thọ kéo dài thuốc phối phương, sau đó hoàn Thành gia tộc bàn giao cấp nhiệm vụ của mình.",
-    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 89,
-    "suggested_target": "Angelina"
+    "source": "Tiết Vân Đào",
+    "target": "Tiết Vân Đào",
+    "suggested_target": "Tiết Vân Đào",
+    "context": "Hai người gắt gao ôm , nhất là Lý Vân sắc thủ khắp nơi Hồng Ngư cái kia song kiều nhũ thượng khéo léo mát xa , làm Lý Vân cùng Hồng Ngư đều có chút khẩn trương, tâm thẳng thắn thẳng nhảy, bọn họ cũng đều biết sắp sửa phát sinh này tràn ngập cấm kỵ vận động, nhất là Hồng Ngư, có lẽ là bởi vì kiềm chế thời gian quá dài, ngửi con trên người khí tức hình như lại nhớ tới chính mình mối tình đầu thời điểm cùng Tiết Vân Đào cái kia một đoạn lãng mạn thời gian, nhất là kia quen thuộc khí tức làm Hồng Ngư tâm không thể an tĩnh xuống.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ",
+    "so_lan_xuat_hien": 206,
+    "bien_the": [
+      "Đại Đào",
+      "Tiểu Đào"
+    ]
   },
   {
     "id": "ch_0031",
-    "is_character": true,
-    "source": "Trần Thiến",
-    "target": "Trần Thiến",
-    "context": "Trần Thiến văn lời nói trung đã mang theo nức nở, bởi vì giờ khắc này, Từ Thanh tại xung kích đồng thời, nàng rõ ràng cảm giác được một cỗ ấm áp mà dinh dính đồ vật từ phía dưới tuôn tiến đến, hơn nữa tùy theo Từ Thanh mỗi một lần thật sâu va chạm, cỗ kia sền sệt dính dính và trắng mịn chất lỏng liền phun tung toé đi ra, ướt nhẹp thân thể nàng thượng mỗi một chỗ làn da, làm nàng cảm giác được mình tựa như tại trong thủy bơi lội giống như, những chất lỏng kia thuận theo vú của nàng hướng bốn phía lan tràn, làm nàng cảm giác được dị thường thoải mái cùng hưng phấn, nhất là tùy theo Từ Thanh mỗi một lần xung phong, loại chất lỏng này đều có khả năng hất tới nàng  xiong bộ, làm nàng cảm giác được ngứa , lại làm nàng phi thường thoải mái, không để cho nàng cấm nhẹ giọng líu ríu, rên rỉ không ngừng.",
-    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
-    "so_lan_xuat_hien": 555,
-    "suggested_target": "Trần Thiến Văn"
+    "is_character": false,
+    "source": "đại huyệt dâm",
+    "target": "Đại Huyệt Dâm",
+    "suggested_target": "đại huyệt dâm",
+    "context": "\"Ta muốn nhìn, ta muốn nhìn ông nội của ta là như thế nào tại địt ta huyệt dâm mẹ đại huyệt dâm \"Mai Mai chẳng những không có lui ra ngoài, ngược lại đi đến mép giường, tinh tế quan sát Lý Vân đại dương vật tại mẫu thân đại huyệt dâm mặt mỹ nữ rất nhanh quất cắm, nga, nguyên lai địt âm hộ là như thế này đó a, \"Mẹ, ba ba địt ngươi sướng hay không??",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẹ', mang họ hợp lệ",
+    "so_lan_xuat_hien": 314
   },
   {
     "id": "ch_0032",
-    "is_character": true,
-    "source": "vân tuyết",
-    "target": "Vân Tuyết",
-    "context": "Nhìn phụ thân như thế cưng chìu mẫu thân, từ vân tuyết trong lòng có một chút ghen tị, nhưng là cũng không dám nói gì.",
+    "is_character": false,
+    "source": "cao thấp",
+    "target": "Cao Thấp",
+    "suggested_target": "cao thấp",
+    "context": "\" Tiểu Đào nhịn không được dâm đãng kêu la một lúc sau, lại nắm lấy Lý Vân đại dương vật giống liếm kem que tựa như cao thấp liếm, càng dùng một chút đầu lưỡi nhẹ nhàng liếm Lý Vân quy đầu, cuối cùng mới lại mở ra miệng nhỏ ngậm Lý Vân dương vật hạ sáo làm, dùng sức mút hút Lý Vân dương vật, Lý Vân hướng về Tiểu Đào kia chính phun nhiệt khí ẩm ướt núc ních bướm nộn, một cỗ dâm mỹ hương vị đầy tràn Lý Vân miệng, mắt nhìn tỷ tỷ mê người huyệt dâm, dương vật tại tỷ tỷ ấm áp trong miệng hưởng thụ quan tâm nhất phục vụ quả thực thích ngây người.",
     "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
-    "so_lan_xuat_hien": 36,
-    "suggested_target": "Từ Vân Tuyết"
+    "so_lan_xuat_hien": 548
+  },
+  {
+    "id": "ch_0033",
+    "is_character": false,
+    "source": "Thân ca ca",
+    "target": "Thân Ca Ca",
+    "suggested_target": "thân ca ca",
+    "context": "\"Thân ca ca, ngươi lại cứng lên, thật lợi hại, tỷ tỷ tiểu huyệt lại ngứa đi lên, nhanh dùng dương vật của ngươi lại thao thao tỷ tỷ tiểu huyệt huyệt.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 119
+  },
+  {
+    "id": "ch_0034",
+    "is_character": true,
+    "source": "Lý Vân Lai",
+    "target": "Lý Vân Lai",
+    "suggested_target": "Lý Vân",
+    "context": "\" Không còn thị nàng cao cao tại thượng mẫu thân, mà xem nàng như làm một cái có thể phát tiết vưu vật, kích thích Lý Vân điên cuồng dùng đại dương vật quất cắm mẹ , tay cũng dùng sức vuốt ve vú của nàng, sờ sờ nàng kia tròn trịa phong mập mông, đối với Lý Vân Lai nói trước mắt gợi cảm mê người, tiêu hồn thực cốt nữ nhân, chẳng qua là Lý Vân phát tiết tình dục nữ nhân.",
+    "yeu_to_nhan_biet": "Viết hoa chữ cái đầu, mang họ hợp lệ, đi kèm hành động",
+    "so_lan_xuat_hien": 61
+  },
+  {
+    "id": "ch_0035",
+    "is_character": false,
+    "source": "Thích a",
+    "target": "Thích A",
+    "suggested_target": "thích a",
+    "context": "\"Thích a, thích chết rồi, a Mai Mai, ngươi nhanh chút đi ra ngoài, ngươi không muốn nhìn Vân Nhi dừng lại, con trai ngoan dừng một chút a, lão công dừng một chút, lão công ba ba dừng một chút a \"Hồ đào theo bản năng trả lời nữ nhi câu hỏi, cảm thấy không đúng, lập tức làm Lý Vân đình chỉ địt chính mình đại huyệt dâm.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 251,
+    "bien_the": [
+      "Thích Di"
+    ]
+  },
+  {
+    "id": "ch_0036",
+    "is_character": false,
+    "source": "thích ngươi",
+    "target": "Thích Ngươi",
+    "suggested_target": "thích ngươi",
+    "context": "\"Ta liền thích ngươi như vậy tuổi , đau nhân \"Lý Vân vừa nói một bên bắt tay sờ hướng phu nhân phía dưới, xoa nắn tiểu đậu đậu",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 72
+  },
+  {
+    "id": "ch_0037",
+    "is_character": true,
+    "source": "Lý Vân đè",
+    "target": "Lý Vân Đè",
+    "suggested_target": "Lý Vân",
+    "context": "\"Mở cửa sổ, miêu Miêu tỷ tỷ. \"Lý Vân đè thấp âm thanh nói.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 51
+  },
+  {
+    "id": "ch_0038",
+    "is_character": false,
+    "source": "mẫn cảm môi",
+    "target": "Mẫn Cảm Môi",
+    "suggested_target": "mẫn cảm môi",
+    "context": "Lý Vân ngón tay vẫn như cũ tại nàng mẫn cảm môi âm hộ thượng lưu luyến quên về: \"Về sau suy nghĩ liền cấp đệ đệ gọi điện thoại.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 116,
+    "bien_the": [
+      "Đại Môi"
+    ]
+  },
+  {
+    "id": "ch_0039",
+    "is_character": false,
+    "source": "lỗ nhị",
+    "target": "Lỗ Nhị",
+    "suggested_target": "lỗ nhị",
+    "context": "\"Lý Vân cười xấu xa bấm một cái mẫu thân mông bự, ngón tay cố ý tại lỗ nhị chỗ đảo quanh, \"Lần trước tại sau xe tọa.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 88
+  },
+  {
+    "id": "ch_0040",
+    "is_character": false,
+    "source": "từ phía sau",
+    "target": "Từ Phía Sau",
+    "suggested_target": "từ phía sau",
+    "context": "\"Nàng trần trụi đi đến mép giường, từ phía sau ôm lấy Mai Mai, hai tay vuốt ve muội muội vú, \"Làm tỷ tỷ dạy ngươi như thế nào hầu hạ nam nhân...",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'ôm'",
+    "so_lan_xuat_hien": 547
+  },
+  {
+    "id": "ch_0041",
+    "is_character": false,
+    "source": "cổ tử cung",
+    "target": "Cổ Tử Cung",
+    "suggested_target": "cổ tử cung",
+    "context": "Đi đến phòng nghỉ tiểu phòng tắm thời điểm, Lý Vân một phen sắp mẫu thân mềm yếu thân thể yêu kiều tại trong lòng, Hồng Ngư môi thơm nhân tiện hôn lên hắn, hai người cho nhau liếm hôn lấy đầu lưỡi, trao đổi nước miếng, Lý Vân côn thịt chậm rãi mài lấy mẫu thân cổ tử cung, vừa nghiền nát vài vòng, Hồng Ngư liền cũng không chịu được nữa rồi, kêu một tiếng: \"Mẹ a...",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẫu thân', mang họ hợp lệ",
+    "so_lan_xuat_hien": 120
+  },
+  {
+    "id": "ch_0042",
+    "is_character": true,
+    "source": "thân thiên",
+    "target": "Thân Thiên",
+    "suggested_target": "Thân Thiên",
+    "context": "Tuệ Tuệ tiếng rên rỉ từ sát vách phòng truyền qua, thân thiên cười nói: \"Người trẻ tuổi chính là người trẻ tuổi, nhanh như vậy liền vận chuyển động.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'cười'",
+    "so_lan_xuat_hien": 1213,
+    "bien_the": [
+      "Thân Ca"
+    ]
+  },
+  {
+    "id": "ch_0043",
+    "is_character": true,
+    "source": "Trần Tuệ",
+    "target": "Trần Tuệ",
+    "suggested_target": "Trần Tuệ",
+    "context": "Luôn luôn là cô gái ngoan ngoãn Trần Tuệ khó được phóng túng một lần, nhất thời bán còn không nghĩ kết thúc, vì thế lại trợn mắt nhìn liếc nhìn một cái chính ghé vào mẹ lưng, cắm vào huyệt của nàng, hai tay sờ nàng nãi, gương mặt say mê dạng Lý Vân, nói: \"Ngươi cũng thế, tiểu tiểu tuổi tác không học tốt, thiên hạ xinh đẹp nữ nhân nhiều như vậy, lấy điều kiện của ngươi còn không phải là muốn ai liền muốn ai, có thể ngươi cố tình càng yêu thích địt cùng ngươi quan hệ gần , bây giờ bị ngươi thân nhạc mẫu đại huyệt dâm kẹp lấy rất sảng khoái có phải hay không?",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 444,
+    "bien_the": [
+      "Tiểu Tuệ"
+    ]
+  },
+  {
+    "id": "ch_0044",
+    "is_character": true,
+    "source": "Thân a di",
+    "target": "Thân A Di",
+    "suggested_target": "Thân A Di",
+    "context": "Thân a di nhận thấy biến hóa của hắn, đắc ý nở nụ cười, ngón tay nhẹ nhàng cầm chặt hắn dương vật, cao thấp tuốt:",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'thấy'",
+    "so_lan_xuat_hien": 177
+  },
+  {
+    "id": "ch_0045",
+    "is_character": true,
+    "source": "bạch cá",
+    "target": "Bạch Cá",
+    "suggested_target": "Bạch Ngư",
+    "context": "\" Mộng mộng xoay người, đem tiểu huyệt theo mẹ bạch cá lão sư trước vểnh đến Lý Vân miệng bên cạnh, nàng chính mình thì cúi người xuống miệng đối miệng hôn lên mẫu thân bạch cá, mẹ con trực tiếp sexy đầu lưỡi quấn quanh nhìn Lý Vân lại là không thể tin được, đôi này giáo sư mẹ con, thật sự là quá mức dâm loạn không đáy tuyến.",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẹ', mang họ hợp lệ",
+    "so_lan_xuat_hien": 722,
+    "bien_the": [
+      "Bạch Lão Sư"
+    ]
+  },
+  {
+    "id": "ch_0046",
+    "is_character": true,
+    "source": "Tô Đình đình",
+    "target": "Tô Đình Đình",
+    "suggested_target": "Tô Đình Đình",
+    "context": "Đương Lý Vân đem nàng đặt ở không thấm nước thảm thượng thời điểm, Tô Đình đình đột nhiên phát hiện cái góc độ này vừa vặn có thể xuyên qua lầu hai cửa sổ, nhìn thấy Hồng Ngư phu nhân đang dạy lý tiểu tiểu xen —— nếu như xem nhẹ mẫu thân đại nhân trong tay căn kia \"Hoa hành \"Quỷ dị hình dạng cùng nhỏ nói.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 118
+  },
+  {
+    "id": "ch_0047",
+    "is_character": true,
+    "source": "Tô bình",
+    "target": "Tô Bình",
+    "suggested_target": "Tô Bình",
+    "context": "Tô bình đắc ý liếm đi hắn thái dương mồ hôi: \"Theo ngươi mười lăm tuổi sinh nhật ngày đó.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 717
+  },
+  {
+    "id": "ch_0048",
+    "is_character": true,
+    "source": "Mã diễm",
+    "target": "Mã Diễm",
+    "suggested_target": "Mã Diễm",
+    "context": "\" Mã diễm hỏi: \"Này Alyssa tỷ tỷ được không à?",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'hỏi'",
+    "so_lan_xuat_hien": 890,
+    "bien_the": [
+      "Mã Lão Sư"
+    ]
+  },
+  {
+    "id": "ch_0049",
+    "is_character": true,
+    "source": "Lý Tuyết vi",
+    "target": "Lý Tuyết Vi",
+    "suggested_target": "Lý Tuyết Vi",
+    "context": "Sau bữa cơm chiều, cô cô Lý Tuyết vi lặng lẽ đem Lý Vân kéo đến một bên, thấp giải thích rõ nói: \"Cho nên ta như vậy yên tâm đi xinh đẹp dẫn tiến cấp mẫu thân ngươi, là bởi vì trong tay ta nắm lấy nàng nhược điểm.",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'cô cô', mang họ hợp lệ",
+    "so_lan_xuat_hien": 248,
+    "bien_the": [
+      "Lý Tuyết"
+    ]
+  },
+  {
+    "id": "ch_0050",
+    "is_character": false,
+    "source": "Lý gia",
+    "target": "Lý Gia",
+    "suggested_target": "Lý gia",
+    "context": "Tiếp lấy ngày hôm sau, bạch cá cái này tân giáo dục chủ nhiệm liền an bài Lý Vân sau \"Trình xin \"Đi trực tiếp tìm chủ nhiệm lớp là được, vừa mới cái này học kỳ mã diễm đúng là Lý Vân chủ nhiệm lớp, vì thế nàng còn làm rất nhiều chuẩn bị, điều khóa, tỉ mỉ trang điểm, vụng trộm cầm đến Lý gia chủ mẫu đưa thuốc bổ, vì chính là thỏa mãn tình lang của mình, kết quả nàng không nghĩ tới...",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 67
+  },
+  {
+    "id": "ch_0051",
+    "is_character": true,
+    "source": "Vương linh lan",
+    "target": "Vương Linh Lan",
+    "suggested_target": "Vương Linh Lan",
+    "context": "Vương linh lan gặp Lý Vân vuốt ve bộ phận sinh dục của nàng, rất kinh nghiệm đem hai đầu chân ngọc nâng lên, đợi Lý Vân ép đến nàng trên người về sau, quay quanh quấn tại hắn eo lưng, làm nàng mê người tiểu huyệt chen ép xông ra, cũng trở nên càng thêm chặt khít, một đôi mềm mại không xương tay ngọc cũng dùng sức ôm chặt Lý Vân sau lưng, thân thể yêu kiều vặn vẹo, đầy đặn mượt mà mông lớn lắc lư lay động, tao mị nũng nịu tiếng nói: \"Đại dương vật con.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'gặp'",
+    "so_lan_xuat_hien": 221
+  },
+  {
+    "id": "ch_0052",
+    "is_character": true,
+    "source": "Phương Hương",
+    "target": "Phương Hương",
+    "suggested_target": "Phương Hương",
+    "context": "\"Phương Hương bị đính đến nói năng lộn xộn, \"Nàng nói tỷ tỷ là được...",
+    "yeu_to_nhan_biet": "Chủ thể phát ngôn sau lời thoại, mang họ hợp lệ",
+    "so_lan_xuat_hien": 787
+  },
+  {
+    "id": "ch_0053",
+    "is_character": true,
+    "source": "Lưu Mẫn tay",
+    "target": "Lưu Mẫn Tay",
+    "suggested_target": "Lưu Mẫn",
+    "context": "Thật lâu, Thẩm mạn di mới phát hiện, tay của mình nhi như trước gắt gao cầm chặt nữ nhi mình Lưu Mẫn tay ngọc, cơ hồ đem nữ nhi mềm mại làn da bóp ra vài cái bắt mắt dấu ngón tay.",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'nữ nhi', mang họ hợp lệ",
+    "so_lan_xuat_hien": 282,
+    "bien_the": [
+      "Lưu Mẫn"
+    ]
+  },
+  {
+    "id": "ch_0054",
+    "is_character": true,
+    "source": "cao yêu nhã",
+    "target": "Cao Yêu Nhã",
+    "suggested_target": "Cao Yêu Nhã",
+    "context": "\"Ta gọi cao yêu nhã... \"A di mỉm cười, \"Bất quá ngươi vẫn là để cho a di của ta a, dù sao ta con dâu đều lớn hơn ngươi một vòng...",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'Ta gọi', mang họ hợp lệ",
+    "so_lan_xuat_hien": 202
+  },
+  {
+    "id": "ch_0055",
+    "is_character": true,
+    "source": "diệp tiểu Lâm",
+    "target": "Diệp Tiểu Lâm",
+    "suggested_target": "Diệp Tiểu Lâm",
+    "context": "Đem a di địt thành a hắc nhan về sau, diệp tiểu Lâm đỏ tươi núm vú làm Lý Vân nhìn xem miệng đắng lưỡi khô, hắn đi lên trước cầm chặt diệp tiểu Lâm vú lớn đầu một bên hút sữa vừa nói: \"Tiểu Lâm tỷ tỷ, Tiểu Vân cũng muốn uống nãi nãi \"",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 269
+  },
+  {
+    "id": "ch_0056",
+    "is_character": true,
+    "source": "lý trinh mông thượng",
+    "target": "Lý Trinh Mông Thượng",
+    "suggested_target": "Lý Trinh",
+    "context": "Lý Vân nhếch miệng cười, tầng tầng lớp lớp tại lý trinh mông thượng vỗ một cái, phát ra thanh thúy tiếng vang.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'vỗ'",
+    "so_lan_xuat_hien": 184,
+    "bien_the": [
+      "Lý Trinh"
+    ]
+  },
+  {
+    "id": "ch_0057",
+    "is_character": true,
+    "source": "Âu Dương đẹp",
+    "target": "Âu Dương Đẹp",
+    "suggested_target": "Âu Dương Lệ",
+    "context": "Âu Dương đẹp cười một tiếng: \"Tỷ tỷ như vậy khẩn cấp không chờ được à?",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'cười'",
+    "so_lan_xuat_hien": 585
+  },
+  {
+    "id": "ch_0058",
+    "is_character": true,
+    "source": "Dung",
+    "target": "Dung",
+    "suggested_target": "Dung",
+    "context": "Dung di cười nói: \"Tiểu Vân, ta hướng mẫu thân ngươi cam đoan quá, kiếp này kiếp này ngươi chính là của ta chủ nhân, mà ta nguyện ý làm chủ nhân làm bất cứ chuyện gì!",
+    "yeu_to_nhan_biet": "Chủ thể phát ngôn hội thoại, là tên Latinh hợp lệ",
+    "so_lan_xuat_hien": 125
+  },
+  {
+    "id": "ch_0059",
+    "is_character": false,
+    "source": "lại tinh thần",
+    "target": "Lại Tinh Thần",
+    "suggested_target": "lại tinh thần",
+    "context": "Mẫu thân lấy lại tinh thần, gặp dì thân thiết bộ dạng, nàng khẽ vuốt tai tấn mái tóc, một bên tiếp tục ung dung dưới đất thân khép lại chân đẹp kẹp chặt kia gây sự háo sắc hắn, một bên đối với dì mỉm cười nói: \"Không có rồi, ngay tại nghĩ một chút việc nhỏ, mấy ngày nay luôn có cái tiểu sắc lang đến quấy rầy ta, ta tại nghĩ như thế nào trừng phạt trừng phạt hắn.",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'Mẫu thân', mang họ hợp lệ",
+    "so_lan_xuat_hien": 70
+  },
+  {
+    "id": "ch_0060",
+    "is_character": false,
+    "source": "hoa tâm phía",
+    "target": "Hoa Tâm Phía",
+    "suggested_target": "hoa tâm phía",
+    "context": "Đại dương vật cắm vào mẫu thân mập âm hộ về sau, Lý Vân tay trái liền một phen ôm sát mẫu thân mập mạp to lớn to lớn mông, mông bắt đầu trái phải đong đưa động, trước đỉnh sau chọn, bừa bãi điên cuồng cắm vào quất mạnh , mông chơi liều trước đỉnh, lực đạo thật mạnh, khiến cho cứng rắn trống tròn lớn quy đầu, lập tức tầng tầng lớp lớp , đội lên hoa tâm phía trên, đính đến Hồng Ngư kêu rên lên tiếng: \"Ai dục.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 54
+  },
+  {
+    "id": "ch_0061",
+    "is_character": false,
+    "source": "cung miệng",
+    "target": "Cung Miệng",
+    "suggested_target": "cung miệng",
+    "context": "Thân thiên cảm nhận được chính mình ướt sũng âm hộ, căn kia nửa mềm dương vật chính chậm rãi phồng lớn, quy đầu chống đỡ nàng mẫn cảm tử cung miệng, làm nàng nhịn không được kẹp kẹp chân, kiều mỵ cười nói: \"Tiểu trứng thối...",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 81
+  },
+  {
+    "id": "ch_0062",
+    "is_character": true,
+    "source": "Vương mụ mụ",
+    "target": "Vương Mụ Mụ",
+    "suggested_target": "Vương Mụ Mụ",
+    "context": "đây chính là trên thế giới tối cảm giác tuyệt vời a, chỉ có khi đó ta mới thật cảm thấy chính mình sinh hoạt, hơn nữa chỉ có ngươi Vân ca ca mới có thể làm cho ngươi cảm nhận được nha ~\" Vương mụ mụ cười khuôn mặt, nói.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'cười'",
+    "so_lan_xuat_hien": 356,
+    "bien_the": [
+      "Vương Lão Sư"
+    ]
+  },
+  {
+    "id": "ch_0063",
+    "is_character": false,
+    "source": "mông lớn",
+    "target": "Mông Lớn",
+    "suggested_target": "mông lớn",
+    "context": "Lý Vân ôm lấy mẫu thân mông lớn, một bên dùng sức về phía sau kéo hướng chính mình côn thịt, vừa thỉnh thoảng vỗ ra \"Ba...",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẫu thân', mang họ hợp lệ",
+    "so_lan_xuat_hien": 514,
+    "bien_the": [
+      "Đào Mông Lớn"
+    ]
+  },
+  {
+    "id": "ch_0064",
+    "is_character": false,
+    "source": "lỗ thịt",
+    "target": "Lỗ Thịt",
+    "suggested_target": "lỗ thịt",
+    "context": "Đã bị Lý Vân dùng miệng ngăn chặn môi, phát ra: \"Ô ô ô \"Tiếng rên rỉ, như lang như hổ tuổi tác thích phó cục trưởng, trống không hơn nửa tháng, uống một chút rượu đỏ, tăng thêm vừa rồi trên bàn ăn lén lút tán tỉnh, thân thể đã hưng phấn đến cực điểm, quay đầu cùng Lý Vân hôn tại cùng một chỗ cảm nhận mãnh liệt nam nhân khí tức, lại đang nam nhân cao thấp khởi tay dưới sự kích thích, mấy phút sau gắt gao đè lại moi móc chính mình lỗ thịt tay, thân thể căng thẳng, nghễnh đầu: \"A ~~~~~~~~~!",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 555
+  },
+  {
+    "id": "ch_0065",
+    "is_character": false,
+    "source": "đại côn thịt",
+    "target": "Đại Côn Thịt",
+    "suggested_target": "đại côn thịt",
+    "context": "\"Ca cùng biểu muội làm tiếp một lần tốt lắm, ca nhiều ra điểm lực khí, làm biểu muội biết đại côn thịt lợi hại \"",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'biểu muội', mang họ hợp lệ",
+    "so_lan_xuat_hien": 127
+  },
+  {
+    "id": "ch_0066",
+    "is_character": false,
+    "source": "tiết ra đại",
+    "target": "Tiết Ra Đại",
+    "suggested_target": "tiết ra đại",
+    "context": "Phương nam có lẽ là nhớ rõ Lý Vân muốn nàng nơi nào tối ngứa liền đồ nơi nào, hoặc là cái khác cái gì nguyên nhân, trên tay đại dương vật liền thiên ly tuyến đường, hướng đến bắp đùi lặng lẽ dời đi, tuy rằng rất chậm, nhưng vẫn là đến, cho nên không lâu sau đó, Lý Vân đã cảm thấy quy đầu chạm vào tại một tấm ký tế vừa mềm vải dệt phía trên, hắn thậm chí hoài nghi mình là không phải là có nghe được \"Òm ọp \"Một tiếng, bởi vì hắn lập tức cũng cảm giác được vải dệt thượng sấm tiết ra đại lượng chất lỏng, dính được quy đầu dính trượt vô cùng.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 337,
+    "bien_the": [
+      "Tiết Ra"
+    ]
+  },
+  {
+    "id": "ch_0067",
+    "is_character": false,
+    "source": "đại mông trắng",
+    "target": "Đại Mông Trắng",
+    "suggested_target": "đại mông trắng",
+    "context": "Mẫu thân dùng môi cùng đầu lưỡi, đem cô cháu lưỡng tính giao sau bừa bãi bộ phận sinh dục cùng hạ thân thanh lý được sạch sẽ về sau, mới ngẩng đầu đến, xóa bỏ bờ môi một tia màu trắng dịch nhờn, vỗ vỗ tiểu cô mềm nhũn đại mông trắng, nói: \"Tiểu muội, cùng Tiểu Vân dậy ăn cơm, ngươi còn phải đi làm đâu.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 53
+  },
+  {
+    "id": "ch_0068",
+    "is_character": false,
+    "source": "đại quy đầu",
+    "target": "Đại Quy Đầu",
+    "suggested_target": "đại quy đầu",
+    "context": "Lý Vân mông đẩy ra đẩy ra điên cuồng mà địt mẫu thân Hồng Ngư đại dâm bi \"Phốc, phốc\" vừa ngoan vừa nhanh, đại quy đầu nhiều lần đều chỉa vào miệng tử cung phía trên, thô to dương vật đem Hồng Ngư tiểu huyệt mài đến là lại ma lại thích, dâm thủy theo hai người tính khí chỗ kết hợp chảy ròng.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 318
+  },
+  {
+    "id": "ch_0069",
+    "is_character": false,
+    "source": "mông đẹp",
+    "target": "Mông Đẹp",
+    "suggested_target": "mông đẹp",
+    "context": "Lý Vân cũng không lý nàng, tự mình cắm mạnh vào , hai tay nâng nàng tuyết trắng mông đẹp, đại dương vật tại ướt đẫm miệng huyệt tiến tiến lui lui, nhìn chính mình cự căn bị kia đói khát tiểu huyệt ấp a ấp úng, đột nhiên một trận nhức mỏi theo lỗ tiểu truyền đến, hắn thở hổn hển kêu lên: \"Hảo tỷ tỷ...",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 169
+  },
+  {
+    "id": "ch_0070",
+    "is_character": true,
+    "source": "Uông thẩm",
+    "target": "Uông Thẩm",
+    "suggested_target": "Uông Thẩm",
+    "context": "\"Này lều là chiêu đệ cùng đến đệ kiếm tiền làm cho, \"Uông thẩm sờ thô ráp tấm ván gỗ, ngữ khí bên trong mang theo kiêu ngạo, \"Nói ta lớn tuổi, không thể giống như trước nữa như vậy phơi nắng .",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 728
+  },
+  {
+    "id": "ch_0071",
+    "is_character": false,
+    "source": "mông cong bên",
+    "target": "Mông Cong Bên",
+    "suggested_target": "mông cong bên",
+    "context": "—— \"Một tiếng hưng phấn mà phóng thích gầm nhẹ sau đó, Lý Vân giống như thần trợ, toàn thân bộc phát ra lực lượng cường đại, trực tiếp đem chị dâu hai chân đều nâng , chiếu vào chị dâu mông cong bên trên một trận hung ác dồn dập va chạm.",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'chị dâu', mang họ hợp lệ",
+    "so_lan_xuat_hien": 158,
+    "bien_the": [
+      "Mông Cong"
+    ]
+  },
+  {
+    "id": "ch_0072",
+    "is_character": true,
+    "source": "hoàng kim liên",
+    "target": "Hoàng Kim Liên",
+    "suggested_target": "Hoàng Kim Liên",
+    "context": "Đương hoàng kim liên nghẹn ngào nói ra \"Coi như không ta cái này mẹ \"Thời điểm, hoàng hiểu vận đột nhiên nắm lên tay nàng đặt tại chính mình trên mặt —— tựa như trước đây phát sốt khi mẫu thân tổng làm cái kia dạng.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 527
+  },
+  {
+    "id": "ch_0073",
+    "is_character": false,
+    "source": "xương quai xanh",
+    "target": "Xương Quai Xanh",
+    "suggested_target": "xương quai xanh",
+    "context": "Trần Tuệ đột nhiên cúi người ôm lấy mẫu thân bả vai, dính đầy dâm thủy môi âm hộ cọ tại thân thiên xương quai xanh thượng: \"Mẹ.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 75
+  },
+  {
+    "id": "ch_0074",
+    "is_character": false,
+    "source": "lại vẫn",
+    "target": "Lại Vẫn",
+    "suggested_target": "lại vẫn",
+    "context": "Hồng Ngư mặc dù luyến tiếc vẫn tại thân thể Lý Vân đại dương vật, lại vẫn là đem đại dương vật rút ra, theo trên giường xuống, dâm tà vặn vẹo mập mạp to lớn to lớn mông, đung đưa đi đến tủ quần áo phía trước, xoay người sang, hai tay chống tại tủ quần áo gương phía trên, đem thân trên cúi xuống, mập mạp to lớn to lớn mông vểnh lên cao, rõ ràng đem nàng xinh đẹp đại mập âm hộ bày biện ra đến hoan nghênh Lý Vân đại dương vật, thở gấp nói: \"Con, mau.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 61
+  },
+  {
+    "id": "ch_0075",
+    "is_character": true,
+    "source": "Lý Vân bên",
+    "target": "Lý Vân Bên",
+    "suggested_target": "Lý Vân",
+    "context": "\"Nguyên lai con như vậy để ý ta, hừ vậy ngươi còn lão chọc ghẹo ta \"Mẫu thân một bên nghĩ một bên tại Lý Vân bên cạnh ngồi xuống.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 124
+  },
+  {
+    "id": "ch_0076",
+    "is_character": true,
+    "source": "Lý Vân dùng",
+    "target": "Lý Vân Dùng",
+    "suggested_target": "Lý Vân",
+    "context": "Không nói ta làm sao mà biết ngươi muốn, không muốn tỷ tỷ đưa tới cửa đến, hôm nay ta khiến cho ngươi thật tốt hưởng thụ một chút 'Chân yêu đại tiệc' \" Lý Vân lập tức bắt lấy tại chính mình bờ môi khiêu khích cái kia cái chân, một bên dâm đãng nhìn ngũ dĩnh, một bên chậm rãi lè lưỡi bắt đầu vuốt ve vân vê ngửi hôn lấy trợ tính dục, mở ra ngón chân, tinh tế liếm hôn, hương vị có chút đặc hơn, bàn chân có một một chút mồ hôi ẩm ướt, gót chân có một chút bẩn, Lý Vân dùng đầu lưỡi liếm khắp toàn bộ bàn chân, cảm giác hương vị mặn mặn , cuối cùng nhịn không được đem nàng lành lạnh ngón chân đầu nhét vào trong miệng, nhẹ nhàng mút hút , ngón chân của nàng trên đầu thịt mềm mềm , phi thường thịt nộn, Lý Vân tham lam hút nàng chân ngọc vị...",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 318
+  },
+  {
+    "id": "ch_0077",
+    "is_character": true,
+    "source": "Lưu phu nhân",
+    "target": "Lưu Phu Nhân",
+    "suggested_target": "Lưu Phu Nhân",
+    "context": "Lý Vân nhếch miệng cười, đem còn tại rất nhỏ co giật Lưu phu nhân ôm đến trên giường: \"Còn kém xa lắm, tỷ tỷ muốn hay không cùng một chỗ?",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 218
+  },
+  {
+    "id": "ch_0078",
+    "is_character": false,
+    "source": "Thân thể va",
+    "target": "Thân Thể Va",
+    "suggested_target": "thân thể va",
+    "context": "\"Thân thể va chạm tiếng cùng côn thịt quất cắm âm thanh triệt gian phòng, Lý Vân đi được đặc biệt chậm, chọc vào lại cực kỳ rất nhanh ngoan lệ, hình hận không thể đem mẫu thân mập huyệt cắm vào xuyên, hắn mỗi một lần lay động phần hông va chạm mẫu thân mông bự, đều đem mẫu thân thân thể yêu kiều thật cao vứt lên, sau đó nàng lại cực nhanh triệt thoái phía sau lại lay động, nghênh tiếp mẫu thân mông bự rơi xuống điểm hung hăng cắm vào,",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 288
+  },
+  {
+    "id": "ch_0079",
+    "is_character": true,
+    "source": "Đào hân",
+    "target": "Đào Hân",
+    "suggested_target": "Đào Hân",
+    "context": "Đào hân thấy thế, liền vội vàng theo chính diện ôm lấy tỷ tỷ hôn môi: \"Ngoan.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'thấy'",
+    "so_lan_xuat_hien": 89
+  },
+  {
+    "id": "ch_0080",
+    "is_character": true,
+    "source": "Phùng Vũ",
+    "target": "Phùng Vũ",
+    "suggested_target": "Phùng Vũ",
+    "context": "Nhìn Phùng Vũ tại chính mình dưới hông hút liếm, Lý Vân vuốt ve Phùng Vũ mái tóc, cười hề hề trêu ghẹo nói: \"Tỷ tỷ, ngươi này bú liếm kỹ thuật có thể nha, có phải hay không chính mình thường xuyên dùng dương vật giả luyện tập a.",
+    "yeu_to_nhan_biet": "Chủ thể phát ngôn hội thoại, mang họ hợp lệ",
+    "so_lan_xuat_hien": 167,
+    "bien_the": [
+      "Tiểu Vũ"
+    ]
+  },
+  {
+    "id": "ch_0081",
+    "is_character": false,
+    "source": "từ sau",
+    "target": "Từ Sau",
+    "suggested_target": "từ sau",
+    "context": "\"Lý Vân cảm nhận được hậu môn bị mẹ nuôi cố sức khai khẩn , đầu lưỡi của nàng không ngừng tại chính mình cúc huyệt khai cương tác thổ (*), mỗi lần chạm đến tường thịt đều mang đến một tia mãnh liệt điện giật cảm giác, sau đó liền là mãnh liệt trệ sáp nhức mỏi, tiếp lấy lại là từng cổ cực nóng khoái cảm, từ sau đình liên tục không ngừng trào ra, kích thích chỗ hắn ở cực độ hưng phấn trạng thái thần kinh cùng đầu óc.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 55
+  },
+  {
+    "id": "ch_0082",
+    "is_character": false,
+    "source": "thân gậy mãnh lực",
+    "target": "Thân Gậy Mãnh Lực",
+    "suggested_target": "thân gậy mãnh lực",
+    "context": "Dương vật 'Phốc chi phốc chi 'Địa tại tiểu huyệt ra vào, thân gậy mãnh lực kéo mở cung miệng, thân thiên cảm nhận nhanh như vậy cảm cùng kích thích, cảm giác cao trào lại muốn tiến đến, hai tay thật chặc bắt lấy ga giường, phần eo trước sau đong đưa, hình như muốn tìm kiếm lớn hơn nữa khoái cảm cùng kích thích, Lý Vân cũng bởi vì cử động của nàng mà có vẻ dị thường phấn khích!",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'kéo'",
+    "so_lan_xuat_hien": 163,
+    "bien_the": [
+      "Đại Lực"
+    ]
+  },
+  {
+    "id": "ch_0083",
+    "is_character": false,
+    "source": "viên thịt",
+    "target": "Viên Thịt",
+    "suggested_target": "viên thịt",
+    "context": "Lee Woon Jae mẫu thân hạ thân ẩm ướt trơn trượt bên trong âm đạo thong thả ung dung chậm rãi chấn động dương vật, hai tay cũng chầm chậm xoa lấy mẫu thân viên thịt, sau đó dùng chậm quá giọng điệu nói: \"Mẹ, đủ chậm sao?",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẫu thân', mang họ hợp lệ",
+    "so_lan_xuat_hien": 82
+  },
+  {
+    "id": "ch_0084",
+    "is_character": true,
+    "source": "Lý Vân càng",
+    "target": "Lý Vân Càng",
+    "suggested_target": "Lý Vân",
+    "context": "\"Hồng Ngư dâm thanh lãng ngữ khiến cho Lý Vân càng thêm thú tính như điên, hắn đem lồng ngực toàn bộ đặt ở mẫu thân trên ngực, hai người thật chặc ôm, làm cho mẫu thân vú lớn giống như muốn bị đè ép.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 148
+  },
+  {
+    "id": "ch_0085",
+    "is_character": true,
+    "source": "Bạch Khiết",
+    "target": "Bạch Khiết",
+    "suggested_target": "Bạch Khiết",
+    "context": "Lý Vân nghĩ, thuận thế ngồi vào bên cạnh nàng, dùng tay ôm nàng eo nhỏ, nhẹ khẽ hôn nàng yêu kiều yếp, hôn Bạch Khiết thẹn thùng đầy mặt nói: \"Nhưng là ta vẫn luôn lưu cho ngươi chính là ấn tượng xấu thế nào!",
+    "yeu_to_nhan_biet": "Chủ thể phát ngôn hội thoại, mang họ hợp lệ",
+    "so_lan_xuat_hien": 150
+  },
+  {
+    "id": "ch_0086",
+    "is_character": true,
+    "source": "Thẩm mạn di",
+    "target": "Thẩm Mạn Di",
+    "suggested_target": "Thẩm Mạn Di",
+    "context": "Thẩm mạn di cười phóng đãng tách ra hai chân, dẫn đường đầu trym của hắn nhắm ngay chính mình miệng hang: \"Kia đệ đệ có thể phải sống nga ~ tỷ tỷ dao động nhưng là rất lợi hại  ~ \"",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'cười'",
+    "so_lan_xuat_hien": 493
+  },
+  {
+    "id": "ch_0087",
+    "is_character": true,
+    "source": "Lý Vân mới",
+    "target": "Lý Vân Mới",
+    "suggested_target": "Lý Vân",
+    "context": "\" Lý Vân mới vừa đi tới ký túc xá cửa chính, túc quản viên vưu cuối thu kia ngập nước mắt to sẽ không ở tại Lý Vân khuôn mặt xem đến xem đi, đưa ngón tay ra đầu tại Lý Vân trên trán nhẹ nhàng nhất nhấn: \"Vừa nhìn chỉ biết không nghĩ chuyện gì tốt, tiểu quỷ đầu tuổi không lớn lắm, tâm tư cũng không nhỏ!",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 67
+  },
+  {
+    "id": "ch_0088",
+    "is_character": true,
+    "source": "Alyssa",
+    "target": "Alyssa",
+    "suggested_target": "Alyssa",
+    "context": "\" Mã diễm hỏi: \"Này Alyssa tỷ tỷ được không à?",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 76
+  },
+  {
+    "id": "ch_0089",
+    "is_character": false,
+    "source": "thích nhất",
+    "target": "Thích Nhất",
+    "suggested_target": "thích nhất",
+    "context": "Hồng Ngư miệng ngậm con dương vật, khẽ ngẩng đầu ôn nhu cười: \"Tiểu Vân, mẹ thích nhất dương vật của ngươi tại ta miệng chậm rãi thành lớn cảm giác.",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'mẹ', mang họ hợp lệ",
+    "so_lan_xuat_hien": 63
+  },
+  {
+    "id": "ch_0090",
+    "is_character": false,
+    "source": "bảo trì",
+    "target": "Bảo Trì",
+    "suggested_target": "bảo trì",
+    "context": "\"Lee Woon Jae mẫu thân bên tai nói nhỏ, hạ thân vẫn như cũ bảo trì ôn nhu tiết tấu, \"Ta nếu như vậy yêu ngài cả đời...",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 85
+  },
+  {
+    "id": "ch_0091",
+    "is_character": true,
+    "source": "Cố tĩnh đỏ mặt",
+    "target": "Cố Tĩnh Đỏ Mặt",
+    "suggested_target": "Cố Tĩnh",
+    "context": "\"Cố tĩnh đỏ mặt nói, nàng đương nhiên không thể để cho Lý Vân ở trước mặt mình địt chính mình cấp trên kiêm bạn tốt.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'nói'",
+    "so_lan_xuat_hien": 171,
+    "bien_the": [
+      "Cố Tĩnh"
+    ]
+  },
+  {
+    "id": "ch_0092",
+    "is_character": false,
+    "source": "hoa cúc",
+    "target": "Hoa Cúc",
+    "suggested_target": "hoa cúc",
+    "context": "Mẫu thân phấn nộn tròn xoe tất chân mông bự bị trước sau nhồi vào hai cái tính khí không thể hoạt động, dâm dịch văng khắp nơi, bị chọc vào cả người thịt mềm thẳng run rẩy, cái này \"Sandwich \"Động tác đối với các nàng tới nói vô cùng thuần thục, con cùng mẹ nuôi giống kẹp bánh thịt giống nhau đem mẫu thân kẹp ở trung gian, ba người tính khí kịch liệt đắc tượng đều lên phát đầu giống nhau, mẫu thân trước ngực sóng ngực mãnh liệt, toàn thân mồ hôi đầm đìa, dâm đãng tiếng kêu dâm dãng không ngừng, mềm mại mật huyệt cùng hoa cúc đã bị bọn hắn địt liền thịt mềm đều nhảy ra, phấn hông cùng mông bự đã bị liên tục không ngừng vỗ tính khí gốc rễ đánh ánh hồng một mảnh, đẫy đà tròn xoe mông bự thịt mềm bị địt cuồng run, hạ thân lỗ đít cùng mật huyệt cũng tất cả đều là nồng đậm sữa trắng, ga giường khắp nơi ướt át một mảnh.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 169,
+    "bien_the": [
+      "Hoa Di"
+    ]
+  },
+  {
+    "id": "ch_0093",
+    "is_character": true,
+    "source": "Trương Cầm",
+    "target": "Trương Cầm",
+    "suggested_target": "Trương Cầm",
+    "context": "Chân chân 5 phút, miệng của hai người mới tách ra, Trương Cầm đầy mặt ửng hồng nhìn Lý Vân, nhẹ giọng nói: \"Kỳ thật ta cũng liền so mẹ ngươi nhỏ hơn mấy tuổi, hiện nay, ta cư nhiên đang cùng ta tốt khuê mật con ân ái địt âm hộ.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 430
+  },
+  {
+    "id": "ch_0094",
+    "is_character": true,
+    "source": "Giai Giai",
+    "target": "Giai Giai",
+    "suggested_target": "Giai Giai",
+    "context": "\"Giai Giai hờn dỗi đẩy ra tay hắn, \"Tỷ tỷ kia tìm người khác đi.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 187
+  },
+  {
+    "id": "ch_0095",
+    "is_character": true,
+    "source": "bạch hạnh",
+    "target": "Bạch Hạnh",
+    "suggested_target": "Bạch Hạnh",
+    "context": "Lý Vân xoay người, hướng về chị dâu liền muốn bắt đầu làm, chị dâu nhẹ nhàng đánh Lý Vân đại bảo bối một chút, cười mắng: \"Xú tiểu tử, trước tiên đem ngươi cái này lại là ngươi tình nhân, lại là ngươi thê tử bạch hạnh làm được đến trên giường, để ý cảm lạnh.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 296
+  },
+  {
+    "id": "ch_0096",
+    "is_character": true,
+    "source": "Âu Dương hoa",
+    "target": "Âu Dương Hoa",
+    "suggested_target": "Âu Dương Hoa",
+    "context": "Lý Vân liếm lấy ẩm ướt đát đát tiểu huyệt, hai tay vòng lên đi nắm chặt Âu Dương hoa núm vú chà xát, Âu Dương hoa vú sữa thật lớn, Lý Vân tay treo tại thượng một bên, giống như cấp nàng mặc lên một kiện chỉ có thể che đậy đầu vú gợi cảm áo ngực, Âu Dương hoa kêu lên: \"Ân...",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'kêu'",
+    "so_lan_xuat_hien": 165
+  },
+  {
+    "id": "ch_0097",
+    "is_character": true,
+    "source": "Lý Vân đầu",
+    "target": "Lý Vân Đầu",
+    "suggested_target": "Lý Vân",
+    "context": "Mẹ bị Lý Vân đầu lưỡi liếm dục tiên dục tử, ngọc má đỏ ửng, lệ sắc kiều choáng váng cực kỳ mê người, hờn dỗi nũng nịu nói: \"Tiểu Vân.",
+    "yeu_to_nhan_biet": "Đứng sau mỏ neo xưng hô 'Mẹ', mang họ hợp lệ",
+    "so_lan_xuat_hien": 142
+  },
+  {
+    "id": "ch_0098",
+    "is_character": true,
+    "source": "Lý Vân đột",
+    "target": "Lý Vân Đột",
+    "suggested_target": "Lý Vân",
+    "context": "Chỉ thấy Lý Vân đột nhiên ngồi dậy ôm lấy thúy thúy xoay người ép ở trên giường, hai tay nắm kế toán phu nhân vú sữa: \"Các ngươi ngoạn đã nửa ngày, giờ đến phiên ta a \"Nói xong, nâng lấy nhảy qua, hung hăng đỗi thúy thúy.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 62
+  },
+  {
+    "id": "ch_0099",
+    "is_character": true,
+    "source": "Mai Mai",
+    "target": "Mai Mai",
+    "suggested_target": "Mai Mai",
+    "context": "\"Ta muốn nhìn, ta muốn nhìn ông nội của ta là như thế nào tại địt ta huyệt dâm mẹ đại huyệt dâm \"Mai Mai chẳng những không có lui ra ngoài, ngược lại đi đến mép giường, tinh tế quan sát Lý Vân đại dương vật tại mẫu thân đại huyệt dâm mặt mỹ nữ rất nhanh quất cắm, nga, nguyên lai địt âm hộ là như thế này đó a, \"Mẹ, ba ba địt ngươi sướng hay không??",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 383,
+    "bien_the": [
+      "Đương Mai Mai"
+    ]
+  },
+  {
+    "id": "ch_0100",
+    "is_character": true,
+    "source": "Hồ thanh",
+    "target": "Hồ Thanh",
+    "suggested_target": "Hồ Thanh",
+    "context": "Một bên mặc xong quần áo chậm quá thần tạ lan nhìn mẹ động tác cười nói: \"Mẹ, ngươi có thể thật giỏi, một hồi đang cho hắn làm cứng rắn \"Hồ thanh ngẩng đầu, từng thanh khuê nữ túm , nói: \"Cấp đệ đệ ngươi liếm sạch sẽ, nếu liếm cứng rắn, ngươi chính mình phụ trách giải quyết nó, ta đi làm cho các ngươi cơm đi, con nuôi ta bữa sáng cững chưa ăn nữa \"Nói xong hồ thanh đã đi xuống đi gian ngoài phòng bếp, chuẩn bị cơm trưa.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'ngẩng đầu'",
+    "so_lan_xuat_hien": 360
+  },
+  {
+    "id": "ch_0101",
+    "is_character": true,
+    "source": "Tạ lan",
+    "target": "Tạ Lan",
+    "suggested_target": "Tạ Lan",
+    "context": "\"Tạ lan thở gấp nhìn về phía muội muội, \"Mai Mai, đến bang tỷ tỷ...",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'thở'",
+    "so_lan_xuat_hien": 241
+  },
+  {
+    "id": "ch_0102",
+    "is_character": true,
+    "source": "điền Quế Hoa",
+    "target": "Điền Quế Hoa",
+    "suggested_target": "Điền Quế Hoa",
+    "context": "Sau khi cơm nước xong Lý Vân lại mang theo hai vị tỷ tỷ đi đến Quế Hoa tẩu tiệm tạp hóa, điền Quế Hoa u oán ánh mắt nhìn Lý Vân, \"A, Lý đại thiếu gia quang lâm tiểu điếm, hôm nay này trong phòng thật sự là vẻ vang cho kẻ hèn này a.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 362
+  },
+  {
+    "id": "ch_0103",
+    "is_character": true,
+    "source": "Trình thẩm",
+    "target": "Trình Thẩm",
+    "suggested_target": "Trình Thẩm",
+    "context": "\"Trình thẩm nói xong mặt mũi này lập tức liền đỏ ửng một mảnh, kêu một cái mười mấy tuổi tiểu hài tử lão công thật sự là làm nàng e lệ không thôi, bất quá đồng thời có có thể kích thích đến nàng kia dâm đãng tâm.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'nói'",
+    "so_lan_xuat_hien": 290
+  },
+  {
+    "id": "ch_0104",
+    "is_character": true,
+    "source": "Vương thẩm",
+    "target": "Vương Thẩm",
+    "suggested_target": "Vương Thẩm",
+    "context": "Vương thẩm gương mặt cười xấu xa nhìn Lý Vân nói: \"Như thế nào ngươi gặp qua 30 hơn tuổi thiếu phụ .",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'cười'",
+    "so_lan_xuat_hien": 263
+  },
+  {
+    "id": "ch_0105",
+    "is_character": true,
+    "source": "Hạ Xuân Hoa",
+    "target": "Hạ Xuân Hoa",
+    "suggested_target": "Hạ Xuân Hoa",
+    "context": "Hạ Xuân Hoa tự nhiên cười nói: \"Ta chuẩn bị về nhà đi ngang qua, nhìn đến ngươi, liền hỏi thăm ngày mai có rảnh sao, có thể cùng ta đến trấn thượng bán gà sao.",
+    "yeu_to_nhan_biet": "Chủ thể phát ngôn hội thoại, mang họ hợp lệ",
+    "so_lan_xuat_hien": 187
+  },
+  {
+    "id": "ch_0106",
+    "is_character": false,
+    "source": "hồng phấn đầu vú",
+    "target": "Hồng Phấn Đầu Vú",
+    "suggested_target": "hồng phấn đầu vú",
+    "context": "Mẹ bị Lý Vân gian được hoa yếp ửng đỏ, trước ngực cặp kia co dãn mười chân vú lớn qua lại lắc lư mê muội nhân sóng sữa, mềm mại màu hồng phấn đầu vú xẹt qua từng đạo dâm mỹ kiều mỵ đường cong, hạ thân mật huyệt âm bức tường từng đợt thịt nhanh, hung hăng kẹp chặt Lý Vân khổng lồ côn thịt, xuân thủy mật hoa theo kín không kẽ hở nam nữ tính khí trung bài trừ hướng ra phía ngoài vẩy ra, nàng rên rỉ đem đầy đặn tròn xoe mông bự trước đỉnh, lấy phối hợp Lý Vân mãnh liệt quất cắm, mỗi một lần va chạm đều phát ra \"Phốc phốc \"Cùng \"Ba ba ba \"Âm thanh, kề sát kính mờ bức tường mông bự thượng thịt mềm tạo nên từng đợt sóng thịt, liên tục không ngừng phân bố xuân thủy tràn ra đến ướt đẫm Lý Vân hòn dái, tắm vòi sen thủy liên tục không ngừng đánh vào vong tình giao cấu nam nữ trên người, chơi nàng khi hai cái bộ phận sinh dục kề sát ăn khớp mà phát ra tiếng nước cùng với mẹ dâm đãng kêu la nũng nịu rên rỉ tiếng nhét đầy toàn bộ phòng tắm.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 103,
+    "bien_the": [
+      "Hồng Phấn"
+    ]
+  },
+  {
+    "id": "ch_0107",
+    "is_character": true,
+    "source": "Hồ mẹ ngươi",
+    "target": "Hồ Mẹ Ngươi",
+    "suggested_target": "Hồ",
+    "context": "\"Hồ mẹ ngươi nhìn nhìn, trưởng thôn này vừa cảm giác đi nằm ngủ đến lớn trời đã sáng, chính là bên ngoài sét đánh cũng không có khả năng tỉnh lại!",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'nhìn'",
+    "so_lan_xuat_hien": 55,
+    "bien_the": [
+      "Hồ Mẹ"
+    ]
+  },
+  {
+    "id": "ch_0108",
+    "is_character": true,
+    "source": "an viện",
+    "target": "An Viện",
+    "suggested_target": "An Viện",
+    "context": "\"Nàng nói, ánh mắt lại không tự chủ dừng ở Lý Vân rắn chắc lồng ngực phía trên, tưởng tượng cỗ kia tuổi trẻ thân thể vừa rồi tại an viện trên người rong ruổi tư thế oai hùng.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 145
+  },
+  {
+    "id": "ch_0109",
+    "is_character": true,
+    "source": "Quách Á Nam",
+    "target": "Quách Á Nam",
+    "suggested_target": "Quách Á Nam",
+    "context": "\"Đúng vậy a, \"Quách Á Nam nhịn không được nói tiếp, \"Khí chất đó kia nói năng, ai có thể nghĩ đến mới 16 tuổi...",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 161
+  },
+  {
+    "id": "ch_0110",
+    "is_character": true,
+    "source": "hồ lượng",
+    "target": "Hồ Lượng",
+    "suggested_target": "Hồ Lượng",
+    "context": "Chính lúng túng khó xử, hồ lượng đã rửa tay đi ra, gặp tất cả mọi người chờ hắn, hồ lượng hét lớn một tiếng, nói: \"Đến đến đến, động thủ ăn cơm, bang Lý lão đệ rót rượu, hôm nay chúng ta không say không bỏ qua...",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'hét'",
+    "so_lan_xuat_hien": 62,
+    "bien_the": [
+      "Đại Lượng"
+    ]
+  },
+  {
+    "id": "ch_0111",
+    "is_character": true,
+    "source": "Phương nam",
+    "target": "Phương Nam",
+    "suggested_target": "Phương Nam",
+    "context": "Phương nam chột dạ nói, \"Chưa, không không có việc gì, bị một con muỗi cắn một chút mà thôi!",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'nói'",
+    "so_lan_xuat_hien": 215
+  },
+  {
+    "id": "ch_0112",
+    "is_character": true,
+    "source": "Lâm thái thái",
+    "target": "Lâm Thái Thái",
+    "suggested_target": "Lâm Thái Thái",
+    "context": "Lâm thái thái thấy là hắn, liền quay đầu đến lớn tiếng kêu mẫu thân hắn: \"Con trai ngươi tới gọi ngươi.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'thấy'",
+    "so_lan_xuat_hien": 104
+  },
+  {
+    "id": "ch_0113",
+    "is_character": true,
+    "source": "Trương phu nhân",
+    "target": "Trương Phu Nhân",
+    "suggested_target": "Trương Phu Nhân",
+    "context": "\"Trương phu nhân hưng phấn nói năng lộn xộn, liền cấp tiểu chính mình gần hai mươi tuổi thanh niên sinh con loại chuyện này đều đã nói ra miệng.",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 173
+  },
+  {
+    "id": "ch_0114",
+    "is_character": true,
+    "source": "Vạn xinh đẹp",
+    "target": "Vạn Xinh Đẹp",
+    "suggested_target": "Vạn Mỹ Lệ",
+    "context": "Vạn xinh đẹp nhìn phía Lý Vân, ánh mắt mang theo khẩn cầu: \"Tiểu Vân, có thể hay không giúp ta hẹn gặp ngươi một chút mẫu thân?",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'nhìn'",
+    "so_lan_xuat_hien": 232
+  },
+  {
+    "id": "ch_0115",
+    "is_character": true,
+    "source": "Chu mềm mại",
+    "target": "Chu Mềm Mại",
+    "suggested_target": "Chu Nhu",
+    "context": "\"Chu mềm mại nhìn quang bốn phía, biệt thự bị cao lớn xanh biếc thực vờn quanh, tư mật tính tốt lắm.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'nhìn'",
+    "so_lan_xuat_hien": 52
+  },
+  {
+    "id": "ch_0116",
+    "is_character": true,
+    "source": "Thích phu nhân",
+    "target": "Thích Phu Nhân",
+    "suggested_target": "Thích Phu Nhân",
+    "context": "\"Thích phu nhân cười khẽ , ngón tay bắt đầu thuần thục khuấy sục hắn côn thịt, \"Làm tỷ tỷ thật tốt thương ngươi...",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'cười'",
+    "so_lan_xuat_hien": 83
+  },
+  {
+    "id": "ch_0117",
+    "is_character": true,
+    "source": "vưu hân bên tai",
+    "target": "Vưu Hân Bên Tai",
+    "suggested_target": "Vưu Hân",
+    "context": "\"Lý Vân cúi người tại vưu hân bên tai nói nhỏ, đồng thời phần éo dùng sức chống đối.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'nói'",
+    "so_lan_xuat_hien": 94,
+    "bien_the": [
+      "Vưu Hân"
+    ]
+  },
+  {
+    "id": "ch_0118",
+    "is_character": true,
+    "source": "Child",
+    "target": "Child",
+    "suggested_target": "Child",
+    "context": "Vưu hân dùng ngón tay trỏ đâm đâm mỹ Child bộ ngực, nói: \"Không sai nha, còn rất co dãn.",
+    "yeu_to_nhan_biet": "Chủ thể phát ngôn hội thoại, là tên Latinh hợp lệ",
+    "so_lan_xuat_hien": 87
+  },
+  {
+    "id": "ch_0119",
+    "is_character": true,
+    "source": "vương lộ",
+    "target": "Vương Lộ",
+    "suggested_target": "Vương Lộ",
+    "context": "Lý Vân nhìn vương lộ xụi lơ vô lực thân thể yêu kiều, cúi người tại nàng bên tai nhẹ mà nói: \"Tỷ tỷ huyệt dâm đều bị ta địt được không khép lại được...",
+    "yeu_to_nhan_biet": "Khớp với tên nhân vật đã xác nhận trước đó",
+    "so_lan_xuat_hien": 138
+  },
+  {
+    "id": "ch_0120",
+    "is_character": true,
+    "source": "vưu ny",
+    "target": "Vưu Ny",
+    "suggested_target": "Vưu Ny",
+    "context": "\" Tan học trên đường, vưu ny kéo Lý Vân cánh tay, quay đầu đối với sánh vai đi mẫu thân vưu cuối thu nói, ngữ khí tự nhiên đắc tượng đang thảo luận cơm chiều thực đơn.",
+    "yeu_to_nhan_biet": "Tên viết thường mang họ hợp lệ, đi kèm hành động/cảm xúc 'kéo'",
+    "so_lan_xuat_hien": 196
   }
 ]
