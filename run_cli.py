@@ -479,12 +479,15 @@ def menu_character_scanner():
                 chunk = input("Số lượng block mỗi file nhỏ .md [Mặc định: 40]: ").strip() or "40"
                 include_known = input("Liệt kê cả nhân vật đã có trong từ điển? (y/N) [Mặc định: N]: ").strip().lower() == "y"
 
+                workers = input("Số luồng quét song song [Mặc định: 1]: ").strip() or "1"
+
                 cmd = [
                     get_python_exe(), "-m", "src.scanner.main",
                     "--input", inp,
                     "--output", "scanner",
                     "--min-count", min_cnt,
-                    "--chunk-size", chunk
+                    "--chunk-size", chunk,
+                    "--workers", workers
                 ]
                 if include_known:
                     cmd.append("--include-known")
@@ -494,6 +497,7 @@ def menu_character_scanner():
                         f"[bold white]• File nguồn:[/bold white]     [cyan]{inp}[/cyan]\n"
                         f"[bold white]• Số lần xuất hiện:[/bold white] [yellow]>={min_cnt}[/yellow]\n"
                         f"[bold white]• Kích thước chunk:[/bold white] [yellow]{chunk} block/file[/yellow]\n"
+                        f"[bold white]• Luồng xử lý:[/bold white]      [magenta]{workers} worker(s)[/magenta]\n"
                         f"[bold white]• Thư mục đích:[/bold white]   [green]scanner/[/green]",
                         title="[bold green]🔍 TIẾN TRÌNH QUÉT NHÂN VẬT (CHỈ QUÉT)[/bold green]",
                         border_style="cyan"
@@ -987,19 +991,22 @@ def menu_replace_engine():
                 p_inp = Path(inp)
                 default_out = f"convert/{p_inp.stem}_converted{p_inp.suffix}"
                 out = input(f"Đường dẫn file kết quả [Mặc định: {default_out}]: ").strip() or default_out
+                workers = input("Số luồng xử lý song song [Mặc định: 1 (Tối ưu Trie >40.000 dòng/s)]: ").strip() or "1"
 
                 cmd = [
                     get_python_exe(), "-m", "src.replacer.main",
                     "--input", inp,
-                    "--output", out
+                    "--output", out,
+                    "--workers", workers
                 ]
 
                 if HAVE_RICH and console:
                     console.print(Panel(
                         f"[bold white]• File đầu vào:[/bold white] [cyan]{inp}[/cyan]\n"
                         f"[bold white]• File đầu ra:[/bold white]  [green]{out}[/green]\n"
-                        f"[bold white]• Thuật toán:[/bold white]   [yellow]Single-Pass Longest Match + Aho-Corasick[/yellow]",
-                        title="[bold green]🔄 TIẾN TRÌNH THAY THẾ TỪ ĐIỂN[/bold green]",
+                        f"[bold white]• Luồng xử lý:[/bold white] [magenta]{workers} worker(s)[/magenta]\n"
+                        f"[bold white]• Thuật toán:[/bold white]   [yellow]Fast Trie Single-Pass + Prefix/Negative Guards[/yellow]",
+                        title="[bold green]🔄 TIẾN TRÌNH THAY THẾ TỪ ĐIỂN SIÊU TỐC[/bold green]",
                         border_style="green"
                     ))
                 else:

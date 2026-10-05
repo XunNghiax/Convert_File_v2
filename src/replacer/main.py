@@ -32,6 +32,7 @@ def main():
     parser.add_argument("--common-dict", default=str(DEFAULT_COMMON_DICT), help="Đường dẫn từ điển chung (mặc định: resources/dictionaries/common_dict.json)")
     parser.add_argument("--no-stats", action="store_true", help="Không in bảng thống kê chi tiết top từ được thay thế")
     parser.add_argument("--quiet", action="store_true", help="Chạy chế độ yên lặng, không hiển thị thanh tiến trình")
+    parser.add_argument("--workers", "-w", type=int, default=1, help="Số tiến trình xử lý song song (mặc định: 1)")
 
     args = parser.parse_args()
     input_path = Path(args.input)
@@ -57,6 +58,8 @@ def main():
     print(f"[*] Từ điển NV    : {args.char_dict}")
     print(f"[*] Từ điển HV    : {args.hanviet_dict}")
     print(f"[*] Từ điển chung : {args.common_dict}")
+    if args.workers > 1:
+        print(f"[*] Tiến trình    : {args.workers} workers song song")
 
     print("[*] Đang nạp từ điển và biên dịch bộ so khớp siêu tốc (Single-Pass)...")
     engine = ReplaceEngine(
@@ -74,7 +77,8 @@ def main():
         input_path=input_path,
         output_path=output_path,
         show_progress=not args.quiet,
-        track_stats=not args.no_stats
+        track_stats=not args.no_stats,
+        workers=args.workers
     )
 
     print("\n" + "=" * 68)

@@ -18,13 +18,11 @@ try:
     from .scanner_engine import ScannerEngine, CharacterBlock
     from .output_packager import OutputPackager
     from .benchmark import Evaluator
-    from .upload_to_gemini import run_upload_workflow
 except ImportError:
     from src.scanner.resource_loader import ResourceLoader
     from src.scanner.scanner_engine import ScannerEngine, CharacterBlock
     from src.scanner.output_packager import OutputPackager
     from src.scanner.benchmark import Evaluator
-    from src.scanner.upload_to_gemini import run_upload_workflow
 
 import gc
 
@@ -69,6 +67,7 @@ def main():
     parser.add_argument("--min-count", type=int, default=1, help="Số lần xuất hiện tối thiểu để giữ lại nhân vật (mặc định: 1)")
     parser.add_argument("--include-known", action="store_true", help="Liệt kê cả các nhân vật đã có trong từ điển (mặc định: chỉ tìm nhân vật mới)")
     parser.add_argument("--filter-only", action="store_true", help="Chỉ lọc nhanh thư mục scanner hiện có theo --min-count và đóng gói lại markdown")
+    parser.add_argument("--workers", "-w", type=int, default=1, help="Số tiến trình quét song song (mặc định: 1)")
 
     # Nhóm tham số tự động đẩy lên Gemini
     parser.add_argument("--upload-gemini", action="store_true", help="Tự động nạp các file kết quả lên Gemini sau khi quét xong")
@@ -147,7 +146,8 @@ def main():
             input_path,
             deduplicate=dedup,
             skip_known=skip_known,
-            realtime_all_path=all_file
+            realtime_all_path=all_file,
+            workers=args.workers
         )
         print(f"[+] Quét hoàn tất: {len(blocks)} nhân vật đại diện duy nhất đã được lưu realtime vào '{all_file.name}'.")
 
@@ -185,6 +185,17 @@ def main():
     if args.upload_gemini or args.upload_only:
         print("\n=======================================================")
         print("[*] BẮT ĐẦU QUY TRÌNH TỰ ĐỘNG GỬI FILE LÊN GEMINI...")
+        try:
+            try:
+                from .upload_to_gemini import run_upload_workflow
+            except ImportError:
+                from src.scanner.upload_to_gemini import run_upload_workflow
+        except Exception as e:
+            print(f"\n[-] Không thể khởi động tiến trình gửi Gemini: {e}")
+            print("👉 Vui lòng kích hoạt môi trường ảo (venv): .\\venv\\Scripts\\activate")
+            print("   Hoặc cài đặt playwright: pip install playwright && playwright install chromium\n")
+            return
+
         run_upload_workflow(
             scanner_dir=args.output,
             profile_dir=args.profile_dir,

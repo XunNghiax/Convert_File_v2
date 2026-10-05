@@ -11,7 +11,6 @@ root_dir = Path(__file__).resolve().parent.parent.parent
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-from src.scanner.upload_to_gemini import run_upload_workflow
 from src.scanner.scanner_engine import ProgressPrinter
 
 DEFAULT_VN_WORDS_PATH = Path("resources/dictionaries/vietnamese_words.txt")
@@ -455,6 +454,17 @@ def main():
     if args.upload_gemini or args.upload_only:
         print("\n=======================================================")
         print("[*] BẮT ĐẦU QUY TRÌNH GỬI CÁC FILE HÁN VIỆT LÊN GEMINI...")
+        try:
+            try:
+                from .upload_to_gemini import run_upload_workflow
+            except ImportError:
+                from src.scanner.upload_to_gemini import run_upload_workflow
+        except Exception as e:
+            print(f"\n[-] Không thể khởi động tiến trình gửi Gemini: {e}")
+            print("👉 Vui lòng kích hoạt môi trường ảo (venv): .\\venv\\Scripts\\activate")
+            print("   Hoặc cài đặt playwright: pip install playwright && playwright install chromium\n")
+            return
+
         run_upload_workflow(
             scanner_dir=args.output,
             profile_dir=args.profile_dir,

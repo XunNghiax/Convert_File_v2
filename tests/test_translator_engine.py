@@ -16,6 +16,41 @@ def test_ollama_client_health_check():
     with patch("urllib.request.urlopen", return_value=mock_resp):
         assert client.check_health() is True
 
+def test_ollama_client_health_check_retries_on_transient_failure():
+    client = OllamaTranslatorClient(base_url="https://fake-tunnel.trycloudflare.com")
+    mock_resp = MagicMock()
+    mock_resp.status = 200
+    mock_resp.__enter__.return_value = mock_resp
+    mock_resp.__exit__.return_value = None
+
+    # First call raises URLError, second call returns mock_resp
+    from urllib.error import URLError
+    with patch("urllib.request.urlopen", side_effect=[URLError("Connection reset"), mock_resp]):
+        with patch("time.sleep", return_value=None):
+            assert client.check_health(retries=2) is True
+
+def test_ollama_client_translate_chapter_streaming():
+    client = OllamaTranslatorClient(base_url="https://fake-tunnel.trycloudflare.com")
+    mock_resp = MagicMock()
+    mock_resp.status = 200
+
+    chunk1 = json.dumps({"message": {"content": "=== BẢN DỊCH ===\n"}}).encode("utf-8") + b"\n"
+    chunk2 = json.dumps({"message": {"content": "Long Kiếm Phi."}}).encode("utf-8") + b"\n"
+    mock_resp.__iter__.return_value = [chunk1, chunk2]
+    mock_resp.__enter__.return_value = mock_resp
+    mock_resp.__exit__.return_value = None
+
+    captured_payload = {}
+    def mock_urlopen(req, *args, **kwargs):
+        nonlocal captured_payload
+        captured_payload = json.loads(req.data.decode("utf-8"))
+        return mock_resp
+
+    with patch("urllib.request.urlopen", side_effect=mock_urlopen):
+        result = client.translate_chapter("龙剑飞。")
+        assert captured_payload.get("stream") is True
+        assert "Long Kiếm Phi" in result
+
 def test_ollama_client_translate_chapter():
     client = OllamaTranslatorClient(base_url="https://fake-tunnel.trycloudflare.com")
     mock_resp = MagicMock()
@@ -33,6 +68,26 @@ def test_ollama_client_translate_chapter():
     with patch("urllib.request.urlopen", return_value=mock_resp):
         result = client.translate_chapter("你好，世界。")
         assert "Xin chào thế giới" in result
+
+def test_ollama_client_translate_chapter_retries_on_error():
+    client = OllamaTranslatorClient(base_url="https://fake-tunnel.trycloudflare.com", max_retries=3)
+    mock_resp = MagicMock()
+    mock_resp.status = 200
+    mock_payload = {
+        "message": {
+            "role": "assistant",
+            "content": "Thành công sau khi thử lại."
+        }
+    }
+    mock_resp.read.return_value = json.dumps(mock_payload).encode("utf-8")
+    mock_resp.__enter__.return_value = mock_resp
+    mock_resp.__exit__.return_value = None
+
+    from urllib.error import URLError
+    with patch("urllib.request.urlopen", side_effect=[URLError("524 Gateway Timeout"), mock_resp]):
+        with patch("time.sleep", return_value=None):
+            result = client.translate_chapter("你好")
+            assert "Thành công" in result
 
 def test_translator_engine_mock_run(tmp_path):
     raw_file = tmp_path / "raw.txt"
